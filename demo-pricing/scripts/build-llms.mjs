@@ -154,6 +154,7 @@ function scanComponents(type, dirName) {
         imports: extractImports(code),
         bytes: statSync(filePath).size,
         digest: 'sha256:' + createHash('sha256').update(code).digest('hex'),
+        code,
       }
     })
 }
