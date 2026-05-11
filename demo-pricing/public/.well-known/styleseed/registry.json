@@ -1,0 +1,1036 @@
+{
+  "$schema": "https://styleseed-demo.vercel.app/.well-known/styleseed/registry.schema.json",
+  "version": "2",
+  "generated": "2026-05-11T06:55:31.920Z",
+  "repository": "https://github.com/bitjaru/styleseed",
+  "counts": {
+    "components": 48,
+    "byType": {
+      "ui": 32,
+      "pattern": 16
+    },
+    "skins": 7
+  },
+  "components": [
+    {
+      "id": "accordion",
+      "type": "ui",
+      "name": "Accordion",
+      "exports": [
+        "Accordion",
+        "AccordionItem",
+        "AccordionTrigger",
+        "AccordionContent"
+      ],
+      "description": "",
+      "source": "engine/components/ui/accordion.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/accordion.tsx",
+      "imports": [
+        "react",
+        "@radix-ui/react-accordion",
+        "lucide-react",
+        "./utils"
+      ],
+      "bytes": 2060,
+      "digest": "sha256:0ff6fadd3560c21aa67911d817f89d206188fd07bd57244ba59a117bd4ff9cb4"
+    },
+    {
+      "id": "alert",
+      "type": "ui",
+      "name": "Alert",
+      "exports": [
+        "Alert",
+        "AlertTitle",
+        "AlertDescription"
+      ],
+      "description": "",
+      "source": "engine/components/ui/alert.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/alert.tsx",
+      "imports": [
+        "react",
+        "class-variance-authority",
+        "./utils"
+      ],
+      "bytes": 1621,
+      "digest": "sha256:19835c5f03b78e8915b5e8900a0681ddfb83e3bcc0c9930e62f31c01e4dfb129"
+    },
+    {
+      "id": "avatar",
+      "type": "ui",
+      "name": "Avatar",
+      "exports": [
+        "Avatar",
+        "AvatarImage",
+        "AvatarFallback"
+      ],
+      "description": "",
+      "source": "engine/components/ui/avatar.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/avatar.tsx",
+      "imports": [
+        "react",
+        "@radix-ui/react-avatar",
+        "./utils"
+      ],
+      "bytes": 1104,
+      "digest": "sha256:d40b1cbabe71c094c6bcf089ac5702ec77623dbc75c770ca9f86530e03d6fea1"
+    },
+    {
+      "id": "badge",
+      "type": "ui",
+      "name": "Badge",
+      "exports": [
+        "Badge"
+      ],
+      "description": "",
+      "source": "engine/components/ui/badge.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/badge.tsx",
+      "imports": [
+        "react",
+        "@radix-ui/react-slot",
+        "class-variance-authority",
+        "./utils"
+      ],
+      "bytes": 1636,
+      "digest": "sha256:8329a0b50f818665f1aca05ab93c16b103178b463f2949234ee4416bbc7d3fe2"
+    },
+    {
+      "id": "button",
+      "type": "ui",
+      "name": "Button",
+      "exports": [
+        "Button"
+      ],
+      "description": "",
+      "source": "engine/components/ui/button.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/button.tsx",
+      "imports": [
+        "react",
+        "@radix-ui/react-slot",
+        "class-variance-authority",
+        "./utils"
+      ],
+      "bytes": 3055,
+      "digest": "sha256:7d644b5b2ee198e924be8e9deb52826697810b4f3d1ad32bb6053fd6dba554ad"
+    },
+    {
+      "id": "card",
+      "type": "ui",
+      "name": "Card",
+      "exports": [
+        "Card",
+        "CardHeader",
+        "CardFooter",
+        "CardTitle",
+        "CardAction",
+        "CardDescription",
+        "CardContent"
+      ],
+      "description": "",
+      "source": "engine/components/ui/card.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/card.tsx",
+      "imports": [
+        "react",
+        "./utils"
+      ],
+      "bytes": 1988,
+      "digest": "sha256:afc99cfa090791e394e68766095a4a86f5f6140521546b32d4b298061d72473f"
+    },
+    {
+      "id": "checkbox",
+      "type": "ui",
+      "name": "Checkbox",
+      "exports": [
+        "Checkbox"
+      ],
+      "description": "",
+      "source": "engine/components/ui/checkbox.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/checkbox.tsx",
+      "imports": [
+        "react",
+        "@radix-ui/react-checkbox",
+        "lucide-react",
+        "./utils"
+      ],
+      "bytes": 1244,
+      "digest": "sha256:894eb30992723a15e3ae75c46a3bf8808a526f5b3bff2c61c78f4d3e8d521cb8"
+    },
+    {
+      "id": "confirm-modal",
+      "type": "ui",
+      "name": "ConfirmModal",
+      "exports": [
+        "ConfirmModal"
+      ],
+      "description": "",
+      "source": "engine/components/ui/confirm-modal.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/confirm-modal.tsx",
+      "imports": [
+        "react",
+        "./utils"
+      ],
+      "bytes": 2439,
+      "digest": "sha256:3e3eab1b94f9a1c2e243aa1b2a4cefbe68f64e5f88df003705214432d9befe58"
+    },
+    {
+      "id": "data-display",
+      "type": "ui",
+      "name": "DataDisplay",
+      "exports": [
+        "DataDisplay"
+      ],
+      "description": "",
+      "source": "engine/components/ui/data-display.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/data-display.tsx",
+      "imports": [
+        "react",
+        "./utils"
+      ],
+      "bytes": 1085,
+      "digest": "sha256:a2f0cc6b3af704367ed1f951bda17fba8e02c3507c575fa91a4eb46952547a6e"
+    },
+    {
+      "id": "dialog",
+      "type": "ui",
+      "name": "Dialog",
+      "exports": [
+        "Dialog",
+        "DialogClose",
+        "DialogContent",
+        "DialogDescription",
+        "DialogFooter",
+        "DialogHeader",
+        "DialogOverlay",
+        "DialogPortal",
+        "DialogTitle",
+        "DialogTrigger"
+      ],
+      "description": "",
+      "source": "engine/components/ui/dialog.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/dialog.tsx",
+      "imports": [
+        "react",
+        "@radix-ui/react-dialog",
+        "lucide-react",
+        "./utils"
+      ],
+      "bytes": 3828,
+      "digest": "sha256:f4adc0065a7f795b5d99b8afe095a443d2d03b523cf5f958bc36ee7fbe0d3e45"
+    },
+    {
+      "id": "drawer",
+      "type": "ui",
+      "name": "Drawer",
+      "exports": [
+        "Drawer"
+      ],
+      "description": "",
+      "source": "engine/components/ui/drawer.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/drawer.tsx",
+      "imports": [
+        "react",
+        "./utils"
+      ],
+      "bytes": 2460,
+      "digest": "sha256:34dc1bcccf652603c54bfc9dcfce52d7cc5adfdfdee127652a2813476db91db2"
+    },
+    {
+      "id": "dropdown-menu",
+      "type": "ui",
+      "name": "DropdownMenu",
+      "exports": [
+        "DropdownMenu",
+        "DropdownMenuPortal",
+        "DropdownMenuTrigger",
+        "DropdownMenuContent",
+        "DropdownMenuGroup",
+        "DropdownMenuLabel",
+        "DropdownMenuItem",
+        "DropdownMenuCheckboxItem",
+        "DropdownMenuRadioGroup",
+        "DropdownMenuRadioItem",
+        "DropdownMenuSeparator",
+        "DropdownMenuShortcut",
+        "DropdownMenuSub",
+        "DropdownMenuSubTrigger",
+        "DropdownMenuSubContent"
+      ],
+      "description": "",
+      "source": "engine/components/ui/dropdown-menu.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/dropdown-menu.tsx",
+      "imports": [
+        "react",
+        "@radix-ui/react-dropdown-menu",
+        "lucide-react",
+        "./utils"
+      ],
+      "bytes": 8313,
+      "digest": "sha256:798b5337dc147d88c65de01f7221e0bfa04272968a1fce6acc1ec0bef7d9ddb9"
+    },
+    {
+      "id": "form",
+      "type": "ui",
+      "name": "Form",
+      "exports": [
+        "Form",
+        "FormItem",
+        "FormLabel",
+        "FormControl",
+        "FormDescription",
+        "FormMessage",
+        "FormField"
+      ],
+      "description": "",
+      "source": "engine/components/ui/form.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/form.tsx",
+      "imports": [
+        "react",
+        "@radix-ui/react-label",
+        "@radix-ui/react-slot",
+        "react-hook-form",
+        "./utils",
+        "./label"
+      ],
+      "bytes": 3785,
+      "digest": "sha256:b181a640358bd91b827f7e3ba610036f24a976994d4d88b480471a167770a508"
+    },
+    {
+      "id": "input",
+      "type": "ui",
+      "name": "Input",
+      "exports": [
+        "Input"
+      ],
+      "description": "",
+      "source": "engine/components/ui/input.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/input.tsx",
+      "imports": [
+        "react",
+        "./utils"
+      ],
+      "bytes": 963,
+      "digest": "sha256:cb82ffcd1a9accdf9b07edc8e976f43ad1c9cf91968ffd7639df5df14b7ad407"
+    },
+    {
+      "id": "label",
+      "type": "ui",
+      "name": "Label",
+      "exports": [
+        "Label"
+      ],
+      "description": "",
+      "source": "engine/components/ui/label.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/label.tsx",
+      "imports": [
+        "react",
+        "@radix-ui/react-label",
+        "./utils"
+      ],
+      "bytes": 614,
+      "digest": "sha256:5ed157f039340cedaa59a888931db608667827170ae9538513a50ccf2ca65a9f"
+    },
+    {
+      "id": "motion",
+      "type": "ui",
+      "name": "FadeIn",
+      "exports": [
+        "FadeIn",
+        "FadeUp",
+        "Stagger",
+        "StaggerItem",
+        "PresenceModal",
+        "Backdrop",
+        "PageTransition",
+        "PageSection",
+        "NumberCounter"
+      ],
+      "description": "StyleSeed — Motion Primitives (Framer Motion)",
+      "source": "engine/components/ui/motion.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/motion.tsx",
+      "imports": [
+        "react",
+        "framer-motion",
+        "./utils"
+      ],
+      "bytes": 7272,
+      "digest": "sha256:ec0a3ea6ed9f2ec21c84957bd971e7aca4301858edc059396b381e6dee2b5eea"
+    },
+    {
+      "id": "popover",
+      "type": "ui",
+      "name": "Popover",
+      "exports": [
+        "Popover",
+        "PopoverTrigger",
+        "PopoverContent",
+        "PopoverAnchor"
+      ],
+      "description": "",
+      "source": "engine/components/ui/popover.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/popover.tsx",
+      "imports": [
+        "react",
+        "@radix-ui/react-popover",
+        "./utils"
+      ],
+      "bytes": 1641,
+      "digest": "sha256:f14e16bebcfb1b605f6336d52153e43b76456c419930faea216d0ce2e3b1d3b7"
+    },
+    {
+      "id": "progress",
+      "type": "ui",
+      "name": "Progress",
+      "exports": [
+        "Progress"
+      ],
+      "description": "",
+      "source": "engine/components/ui/progress.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/progress.tsx",
+      "imports": [
+        "react",
+        "@radix-ui/react-progress",
+        "./utils"
+      ],
+      "bytes": 743,
+      "digest": "sha256:956cf4b485bcf57684caac10df2aa2a72387d0736d8f4cd1315c49ebd2da4615"
+    },
+    {
+      "id": "radio-group",
+      "type": "ui",
+      "name": "RadioGroup",
+      "exports": [
+        "RadioGroup",
+        "RadioGroupItem"
+      ],
+      "description": "",
+      "source": "engine/components/ui/radio-group.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/radio-group.tsx",
+      "imports": [
+        "react",
+        "@radix-ui/react-radio-group",
+        "lucide-react",
+        "./utils"
+      ],
+      "bytes": 1471,
+      "digest": "sha256:ecaeebb62d064893c23e7242b796ff5834e2b430676b3eecb1b3d4bc413283c8"
+    },
+    {
+      "id": "scroll-area",
+      "type": "ui",
+      "name": "ScrollArea",
+      "exports": [
+        "ScrollArea",
+        "ScrollBar"
+      ],
+      "description": "",
+      "source": "engine/components/ui/scroll-area.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/scroll-area.tsx",
+      "imports": [
+        "react",
+        "@radix-ui/react-scroll-area",
+        "./utils"
+      ],
+      "bytes": 1649,
+      "digest": "sha256:5bd9bb1d6909467b431283e96d2a9c83003bca1aa043d149dcfed8e81de51986"
+    },
+    {
+      "id": "segmented-control",
+      "type": "ui",
+      "name": "SegmentedControl",
+      "exports": [
+        "SegmentedControl"
+      ],
+      "description": "",
+      "source": "engine/components/ui/segmented-control.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/segmented-control.tsx",
+      "imports": [
+        "react",
+        "./utils"
+      ],
+      "bytes": 1393,
+      "digest": "sha256:fbc907b2ca5da365ecb44ff77b3635b6ccba171bb039443b6c66566dfc3e7aba"
+    },
+    {
+      "id": "select",
+      "type": "ui",
+      "name": "Select",
+      "exports": [
+        "Select",
+        "SelectContent",
+        "SelectGroup",
+        "SelectItem",
+        "SelectLabel",
+        "SelectScrollDownButton",
+        "SelectScrollUpButton",
+        "SelectSeparator",
+        "SelectTrigger",
+        "SelectValue"
+      ],
+      "description": "",
+      "source": "engine/components/ui/select.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/select.tsx",
+      "imports": [
+        "react",
+        "@radix-ui/react-select",
+        "lucide-react",
+        "./utils"
+      ],
+      "bytes": 6275,
+      "digest": "sha256:6aaf2111952394fbb8c64a505af02d08da28cc25726d61a991daebe400772480"
+    },
+    {
+      "id": "separator",
+      "type": "ui",
+      "name": "Separator",
+      "exports": [
+        "Separator"
+      ],
+      "description": "",
+      "source": "engine/components/ui/separator.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/separator.tsx",
+      "imports": [
+        "react",
+        "@radix-ui/react-separator",
+        "./utils"
+      ],
+      "bytes": 707,
+      "digest": "sha256:54cc34fc3ef7e445948c5bccf7307efbb2c8f9e63db0fc68dd3fa8ee54dc9812"
+    },
+    {
+      "id": "sheet",
+      "type": "ui",
+      "name": "Sheet",
+      "exports": [
+        "Sheet",
+        "SheetTrigger",
+        "SheetClose",
+        "SheetContent",
+        "SheetHeader",
+        "SheetFooter",
+        "SheetTitle",
+        "SheetDescription"
+      ],
+      "description": "",
+      "source": "engine/components/ui/sheet.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/sheet.tsx",
+      "imports": [
+        "react",
+        "@radix-ui/react-dialog",
+        "lucide-react",
+        "./utils"
+      ],
+      "bytes": 4105,
+      "digest": "sha256:8e1e064f92e2463bc7b8bb227a7c4d68d7464837c02d48ff75a87585d864c54c"
+    },
+    {
+      "id": "skeleton",
+      "type": "ui",
+      "name": "Skeleton",
+      "exports": [
+        "Skeleton"
+      ],
+      "description": "",
+      "source": "engine/components/ui/skeleton.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/skeleton.tsx",
+      "imports": [
+        "./utils"
+      ],
+      "bytes": 275,
+      "digest": "sha256:7fd5d7f3ea479c3c1ae7be79bdbaf84c87647333768f70d396cd84580535d485"
+    },
+    {
+      "id": "switch",
+      "type": "ui",
+      "name": "Switch",
+      "exports": [
+        "Switch"
+      ],
+      "description": "",
+      "source": "engine/components/ui/switch.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/switch.tsx",
+      "imports": [
+        "react",
+        "@radix-ui/react-switch",
+        "./utils"
+      ],
+      "bytes": 1182,
+      "digest": "sha256:d4c744131c6161300510909aafe2c2cb6d819f2c7a8c2aeb75d4317004c7eff7"
+    },
+    {
+      "id": "table",
+      "type": "ui",
+      "name": "Table",
+      "exports": [
+        "Table",
+        "TableHeader",
+        "TableBody",
+        "TableFooter",
+        "TableHead",
+        "TableRow",
+        "TableCell",
+        "TableCaption"
+      ],
+      "description": "",
+      "source": "engine/components/ui/table.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/table.tsx",
+      "imports": [
+        "react",
+        "./utils"
+      ],
+      "bytes": 2460,
+      "digest": "sha256:e4ec7d3be042efd0fa363a57dd0e649a7831b86f975d4ec5192ebbfdd66e0f95"
+    },
+    {
+      "id": "tabs",
+      "type": "ui",
+      "name": "Tabs",
+      "exports": [
+        "Tabs",
+        "TabsList",
+        "TabsTrigger",
+        "TabsContent"
+      ],
+      "description": "",
+      "source": "engine/components/ui/tabs.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/tabs.tsx",
+      "imports": [
+        "react",
+        "@radix-ui/react-tabs",
+        "./utils"
+      ],
+      "bytes": 1945,
+      "digest": "sha256:933b8f421bd84b21a22e3fd11cd62fbf4fd8b6fb7252f42ea706b9cd29255051"
+    },
+    {
+      "id": "textarea",
+      "type": "ui",
+      "name": "Textarea",
+      "exports": [
+        "Textarea"
+      ],
+      "description": "",
+      "source": "engine/components/ui/textarea.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/textarea.tsx",
+      "imports": [
+        "react",
+        "./utils"
+      ],
+      "bytes": 767,
+      "digest": "sha256:6c3127c28ba1dda0428ba286a9e291c52ad95bfc8acd10518b262b71e470f3e7"
+    },
+    {
+      "id": "toggle-group",
+      "type": "ui",
+      "name": "ToggleGroup",
+      "exports": [
+        "ToggleGroup",
+        "ToggleGroupItem"
+      ],
+      "description": "",
+      "source": "engine/components/ui/toggle-group.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/toggle-group.tsx",
+      "imports": [
+        "react",
+        "@radix-ui/react-toggle-group",
+        "class-variance-authority",
+        "./utils",
+        "./toggle"
+      ],
+      "bytes": 1920,
+      "digest": "sha256:43e56c5487ed93a2e0d418dcf944a646c716b8c8c55d050fcda1d5cd1248cce6"
+    },
+    {
+      "id": "toggle",
+      "type": "ui",
+      "name": "Toggle",
+      "exports": [
+        "Toggle"
+      ],
+      "description": "",
+      "source": "engine/components/ui/toggle.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/toggle.tsx",
+      "imports": [
+        "react",
+        "@radix-ui/react-toggle",
+        "class-variance-authority",
+        "./utils"
+      ],
+      "bytes": 1565,
+      "digest": "sha256:31f91bca26bed6bc884e3dbebe095046d4cf925b9d7676094721ac287d0b2135"
+    },
+    {
+      "id": "tooltip",
+      "type": "ui",
+      "name": "Tooltip",
+      "exports": [
+        "Tooltip",
+        "TooltipTrigger",
+        "TooltipContent",
+        "TooltipProvider"
+      ],
+      "description": "",
+      "source": "engine/components/ui/tooltip.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/ui/tooltip.tsx",
+      "imports": [
+        "react",
+        "@radix-ui/react-tooltip",
+        "./utils"
+      ],
+      "bytes": 1897,
+      "digest": "sha256:2f3a8720fb4b75c6911450be73d0407e2a84bb5ea1ded28ccdbf955be62a0155"
+    },
+    {
+      "id": "bottom-nav",
+      "type": "pattern",
+      "name": "BottomNav",
+      "exports": [
+        "BottomNav"
+      ],
+      "description": "",
+      "source": "engine/components/patterns/bottom-nav.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/patterns/bottom-nav.tsx",
+      "imports": [
+        "react",
+        "../ui/utils",
+        "lucide-react"
+      ],
+      "bytes": 1659,
+      "digest": "sha256:eb72856f0f55b49ff65c268273dd68580803751a5b75249f91e24cc77583a130"
+    },
+    {
+      "id": "briefing-carousel",
+      "type": "pattern",
+      "name": "BriefingCarousel",
+      "exports": [
+        "BriefingCarousel"
+      ],
+      "description": "",
+      "source": "engine/components/patterns/briefing-carousel.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/patterns/briefing-carousel.tsx",
+      "imports": [
+        "react",
+        "../ui/utils",
+        "lucide-react"
+      ],
+      "bytes": 2103,
+      "digest": "sha256:3a2ebd4f8cd32e6d406cb9b980ea3cab706fe192b9c832ea4f778b1f346e9ed1"
+    },
+    {
+      "id": "chart-card",
+      "type": "pattern",
+      "name": "ChartCard",
+      "exports": [
+        "ChartCard"
+      ],
+      "description": "",
+      "source": "engine/components/patterns/chart-card.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/patterns/chart-card.tsx",
+      "imports": [
+        "react",
+        "../ui/utils"
+      ],
+      "bytes": 2601,
+      "digest": "sha256:4bddfab71cad24a46b91be4167960ea5b33d3c693823fd933d02b77632516695"
+    },
+    {
+      "id": "donut-chart-card",
+      "type": "pattern",
+      "name": "DonutChartCard",
+      "exports": [
+        "DonutChartCard"
+      ],
+      "description": "",
+      "source": "engine/components/patterns/donut-chart-card.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/patterns/donut-chart-card.tsx",
+      "imports": [
+        "react",
+        "../ui/utils"
+      ],
+      "bytes": 4492,
+      "digest": "sha256:3527a5ef69e735b857ebd30250b32369003492545a3f05593ebc7196940d2786"
+    },
+    {
+      "id": "empty-state",
+      "type": "pattern",
+      "name": "EmptyState",
+      "exports": [
+        "EmptyState"
+      ],
+      "description": "",
+      "source": "engine/components/patterns/empty-state.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/patterns/empty-state.tsx",
+      "imports": [
+        "react",
+        "../ui/utils",
+        "lucide-react"
+      ],
+      "bytes": 1158,
+      "digest": "sha256:efc429e0fd29a02caab82d0d4fe08cee60c4e7f5faf1d38cc505ccc47516b94a"
+    },
+    {
+      "id": "hero-card",
+      "type": "pattern",
+      "name": "HeroCard",
+      "exports": [
+        "HeroCard"
+      ],
+      "description": "",
+      "source": "engine/components/patterns/hero-card.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/patterns/hero-card.tsx",
+      "imports": [
+        "react",
+        "../ui/utils",
+        "lucide-react"
+      ],
+      "bytes": 2760,
+      "digest": "sha256:d835bb041bda6d6a23dd7f5410f70e24829a3a1e78bfa70131ff02b9f159a692"
+    },
+    {
+      "id": "insight-card",
+      "type": "pattern",
+      "name": "InsightCard",
+      "exports": [
+        "InsightCard"
+      ],
+      "description": "",
+      "source": "engine/components/patterns/insight-card.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/patterns/insight-card.tsx",
+      "imports": [
+        "react",
+        "../ui/utils",
+        "lucide-react"
+      ],
+      "bytes": 1765,
+      "digest": "sha256:951be3bab4605f0cfccb210de1dcb2701fdb8cde100f37ead3b23579dcdea5f8"
+    },
+    {
+      "id": "list-item",
+      "type": "pattern",
+      "name": "ListItem",
+      "exports": [
+        "ListItem"
+      ],
+      "description": "",
+      "source": "engine/components/patterns/list-item.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/patterns/list-item.tsx",
+      "imports": [
+        "react",
+        "../ui/utils"
+      ],
+      "bytes": 1540,
+      "digest": "sha256:5bf8e743ea6245d9272b9fd71acb115b47ced951c40c61318f95d3461f0b9ecf"
+    },
+    {
+      "id": "news-card",
+      "type": "pattern",
+      "name": "NewsCard",
+      "exports": [
+        "NewsCard"
+      ],
+      "description": "",
+      "source": "engine/components/patterns/news-card.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/patterns/news-card.tsx",
+      "imports": [
+        "react",
+        "../ui/utils"
+      ],
+      "bytes": 1753,
+      "digest": "sha256:caf1da9183812d321cba4917fd0d12c4d2c950a69dcf60681672b77bc3b7f330"
+    },
+    {
+      "id": "page-shell",
+      "type": "pattern",
+      "name": "PageShell",
+      "exports": [
+        "PageShell",
+        "PageContent"
+      ],
+      "description": "",
+      "source": "engine/components/patterns/page-shell.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/patterns/page-shell.tsx",
+      "imports": [
+        "react",
+        "../ui/utils"
+      ],
+      "bytes": 925,
+      "digest": "sha256:c7dc06ad2f8372498eee02e0333a200c3ce4944131c8722f9acbeef5ef8e5517"
+    },
+    {
+      "id": "progress-bar",
+      "type": "pattern",
+      "name": "ProgressBar",
+      "exports": [
+        "ProgressBar",
+        "DiscreteBar",
+        "ProgressBarWithLabel"
+      ],
+      "description": "",
+      "source": "engine/components/patterns/progress-bar.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/patterns/progress-bar.tsx",
+      "imports": [
+        "react",
+        "../ui/utils"
+      ],
+      "bytes": 2507,
+      "digest": "sha256:3ed1c379193f08e77fb9637ad2027af3b90d0fcfeece093679c0dbb7422161ac"
+    },
+    {
+      "id": "ranked-list",
+      "type": "pattern",
+      "name": "RankedList",
+      "exports": [
+        "RankedList"
+      ],
+      "description": "",
+      "source": "engine/components/patterns/ranked-list.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/patterns/ranked-list.tsx",
+      "imports": [
+        "react",
+        "../ui/utils"
+      ],
+      "bytes": 2491,
+      "digest": "sha256:031ee59dd1a81dcf60c7f7d2e6bf8e398e75bb80c394ae374bae38cb2237518e"
+    },
+    {
+      "id": "section-card",
+      "type": "pattern",
+      "name": "SectionCard",
+      "exports": [
+        "SectionCard"
+      ],
+      "description": "",
+      "source": "engine/components/patterns/section-card.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/patterns/section-card.tsx",
+      "imports": [
+        "react",
+        "../ui/utils"
+      ],
+      "bytes": 1005,
+      "digest": "sha256:9749682cc0ebd70d4c5de37f80e2690f3665c707933a5684747f47c09d31dcf2"
+    },
+    {
+      "id": "stat-card",
+      "type": "pattern",
+      "name": "StatCard",
+      "exports": [
+        "StatCard"
+      ],
+      "description": "",
+      "source": "engine/components/patterns/stat-card.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/patterns/stat-card.tsx",
+      "imports": [
+        "react",
+        "../ui/utils",
+        "lucide-react"
+      ],
+      "bytes": 1914,
+      "digest": "sha256:a4d09567fda1427cd24874577a0328816f08a770c406d04309368f31a04329c5"
+    },
+    {
+      "id": "top-bar",
+      "type": "pattern",
+      "name": "TopBar",
+      "exports": [
+        "TopBar",
+        "TopBarAction"
+      ],
+      "description": "",
+      "source": "engine/components/patterns/top-bar.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/patterns/top-bar.tsx",
+      "imports": [
+        "react",
+        "../ui/utils"
+      ],
+      "bytes": 1613,
+      "digest": "sha256:b557efb76efee31af58896d73312994649f4e9392f5cdb4f115f5307164e481e"
+    },
+    {
+      "id": "value-display",
+      "type": "pattern",
+      "name": "ValueDisplay",
+      "exports": [
+        "ValueDisplay"
+      ],
+      "description": "",
+      "source": "engine/components/patterns/value-display.tsx",
+      "sourceUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/components/patterns/value-display.tsx",
+      "imports": [
+        "react",
+        "../ui/utils"
+      ],
+      "bytes": 1786,
+      "digest": "sha256:04fbc7b2c077889c6d2a54d128daae0991ef73963f1dbc182e29b62110032fc5"
+    }
+  ],
+  "skins": [
+    {
+      "id": "arc",
+      "name": "Arc",
+      "description": "Browser reimagined — playful, rainbow gradients on cream, generous radius",
+      "brand": "#FF5E7E",
+      "brandDark": "#FF85A1",
+      "font": "Inter, system-ui, sans-serif",
+      "source": "original",
+      "themeUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/skins/arc/theme.css"
+    },
+    {
+      "id": "linear",
+      "name": "Linear",
+      "description": "Dark-mode-native design with indigo-violet accent on near-black surfaces and Inter Variable typography",
+      "brand": "#5e6ad2",
+      "brandDark": "#7170ff",
+      "font": "Inter Variable, SF Pro Display, -apple-system, system-ui, sans-serif",
+      "source": "awesome-design-md",
+      "themeUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/skins/linear/theme.css"
+    },
+    {
+      "id": "notion",
+      "name": "Notion",
+      "description": "Warm neutral minimalism with Notion Blue accent and whisper-weight borders on a warm white canvas",
+      "brand": "#0075de",
+      "brandDark": "#62aef0",
+      "font": "NotionInter, Inter, -apple-system, system-ui, Segoe UI, Helvetica, sans-serif",
+      "source": "awesome-design-md",
+      "themeUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/skins/notion/theme.css"
+    },
+    {
+      "id": "raycast",
+      "name": "Raycast",
+      "description": "Productivity launcher — dark, electric, multicolor gradient DNA",
+      "brand": "#FF4E8B",
+      "brandDark": "#FF6FA3",
+      "font": "Inter, system-ui, sans-serif",
+      "source": "original",
+      "themeUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/skins/raycast/theme.css"
+    },
+    {
+      "id": "stripe",
+      "name": "Stripe",
+      "description": "Premium fintech design with signature purple CTAs and blue-tinted shadows on a clean white canvas",
+      "brand": "#533afd",
+      "brandDark": "#665efd",
+      "font": "sohne-var, SF Pro Display, -apple-system, system-ui, sans-serif",
+      "source": "awesome-design-md",
+      "themeUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/skins/stripe/theme.css"
+    },
+    {
+      "id": "toss",
+      "name": "Toss",
+      "description": "Korean fintech super-app — clean, minimal, data-focused",
+      "brand": "#721FE5",
+      "brandDark": "#9B5FFF",
+      "font": "Pretendard, Inter, system-ui, sans-serif",
+      "source": "original",
+      "themeUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/skins/toss/theme.css"
+    },
+    {
+      "id": "vercel",
+      "name": "Vercel",
+      "description": "Monochrome developer-focused design with shadow-as-border technique and Geist typography",
+      "brand": "#171717",
+      "brandDark": "#ffffff",
+      "font": "Geist, Arial, -apple-system, system-ui, sans-serif",
+      "source": "awesome-design-md",
+      "themeUrl": "https://raw.githubusercontent.com/bitjaru/styleseed/main/skins/vercel/theme.css"
+    }
+  ]
+}

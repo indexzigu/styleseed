@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, readdirSync, mkdirSync, statSync } from 'node:fs'
+import { readFileSync, writeFileSync, readdirSync, mkdirSync, statSync, existsSync } from 'node:fs'
 import { resolve, dirname, basename } from 'node:path'
 import { createHash } from 'node:crypto'
 
@@ -11,6 +11,15 @@ const skinsDir = resolve(root, '../skins')
 const publicDir = resolve(root, 'public')
 const wellKnownAgent = resolve(publicDir, '.well-known/agent-skills')
 const wellKnownSeed = resolve(publicDir, '.well-known/styleseed')
+
+// Vercel CLI deploys upload only demo-pricing/ — engine/ at ../engine is
+// outside the sandbox. In that case, skip regeneration and rely on committed
+// files. (Git-based Vercel deploys with "Include files outside" enabled get
+// the full repo, so regeneration runs normally.)
+if (!existsSync(resolve(engineDir, 'CLAUDE.md'))) {
+  console.log('⊘ engine/ not accessible — skipping llm/registry generation (using committed files)')
+  process.exit(0)
+}
 
 const REPO_RAW = 'https://raw.githubusercontent.com/bitjaru/styleseed/main'
 

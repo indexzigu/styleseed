@@ -1,0 +1,96 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "ss-a11y",
+      "type": "skill-md",
+      "description": "Audit a component or page for accessibility issues and fix them",
+      "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-a11y/SKILL.md",
+      "digest": "sha256:1302d4b87319b8a471c8b01c405b40b0300f7eca201ebe36aca93e71ec435740"
+    },
+    {
+      "name": "ss-audit",
+      "type": "skill-md",
+      "description": "Audit screens for UX issues using Nielsen's heuristics and modern mobile UX best practices",
+      "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-audit/SKILL.md",
+      "digest": "sha256:4b7c1f8a69014bdc1e50bc14b72f5ad202d66002d04e3027641037c549deea8f"
+    },
+    {
+      "name": "ss-component",
+      "type": "skill-md",
+      "description": "Generate a new UI component following the StyleSeed design conventions",
+      "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-component/SKILL.md",
+      "digest": "sha256:f00751afe6773773ef8bd415d681038383ba2522c154f0789f947f5c0f2c4924"
+    },
+    {
+      "name": "ss-copy",
+      "type": "skill-md",
+      "description": "Generate UX microcopy (button labels, error messages, empty states, toasts) following a casual-but-polite voice and tone",
+      "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-copy/SKILL.md",
+      "digest": "sha256:c0de853d221713ba6e064be8a90df11f055118d263d1190ce751c8715a884b2d"
+    },
+    {
+      "name": "ss-feedback",
+      "type": "skill-md",
+      "description": "Add appropriate user feedback states (loading, success, error, empty) to a component or page",
+      "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-feedback/SKILL.md",
+      "digest": "sha256:fdc04d916bcb94aaf15dfa365e14da4da99e1bf3f763a6ad06895effd66a4c8f"
+    },
+    {
+      "name": "ss-flow",
+      "type": "skill-md",
+      "description": "Design user flows and navigation structure following proven UX patterns",
+      "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-flow/SKILL.md",
+      "digest": "sha256:f12b6f2115750890df8bcd4ecfc70deea63ec82562dc3f749ed34853dd754831"
+    },
+    {
+      "name": "ss-lint",
+      "type": "skill-md",
+      "description": "Quick automated lint — detects common design system violations in seconds",
+      "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-lint/SKILL.md",
+      "digest": "sha256:d36a99c03b47a0421b53c166ee6a513d093020c1a831de26fbc756f33db26e78"
+    },
+    {
+      "name": "ss-page",
+      "type": "skill-md",
+      "description": "Scaffold a new mobile page/screen using the StyleSeed layout patterns",
+      "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-page/SKILL.md",
+      "digest": "sha256:b409dc2bdde586bb07109112a58ef8751afa2d901e0dc848ad0d347d5668c7b9"
+    },
+    {
+      "name": "ss-pattern",
+      "type": "skill-md",
+      "description": "Generate a composed UI pattern (card layout, list, form section, grid, etc.) using design system primitives",
+      "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-pattern/SKILL.md",
+      "digest": "sha256:c3890e16cc951f1328dc5102a36c9ee61c38b63536c18edbb94dcd099791cdc4"
+    },
+    {
+      "name": "ss-review",
+      "type": "skill-md",
+      "description": "Review UI code for design system compliance, accessibility, and best practices",
+      "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-review/SKILL.md",
+      "digest": "sha256:94dc33c5ee5298a6e520de43896768875b1e9151e9a75e35c26f455b66bd6de7"
+    },
+    {
+      "name": "ss-setup",
+      "type": "skill-md",
+      "description": "Interactive setup wizard — guides you step-by-step to configure the design system for your project",
+      "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-setup/SKILL.md",
+      "digest": "sha256:5c1d0be1dbb7038e910f3906a535617f820d28819eb61ac9d4ebbf2e03ee83e2"
+    },
+    {
+      "name": "ss-tokens",
+      "type": "skill-md",
+      "description": "View, add, or modify design tokens in the StyleSeed design system",
+      "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-tokens/SKILL.md",
+      "digest": "sha256:a24dca3e7a9bae4e8a7c8928c9ee9e9a36afc5f8f0687d3245f7d4fe4c2a35f5"
+    },
+    {
+      "name": "ss-update",
+      "type": "skill-md",
+      "description": "Update StyleSeed engine in your project — analyzes what's outdated and updates safely",
+      "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-update/SKILL.md",
+      "digest": "sha256:fecedff6974c9d955c37a0bc33c770675116b9b246c0d0d82414fa6b19e6a152"
+    }
+  ]
+}
