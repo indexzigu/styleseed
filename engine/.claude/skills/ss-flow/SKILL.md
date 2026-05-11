@@ -7,6 +7,13 @@ allowed-tools: Read, Write, Edit, Grep, Glob, Bash
 
 # UX Flow Designer
 
+## When NOT to use
+
+- For implementing a single page → use `/ss-page` after the flow is settled
+- For copy on each step → use `/ss-copy` after the structure is settled
+- For information architecture of an entire product — narrow scope to one flow first
+- For high-fidelity mockups — this produces a flow map, not pixel-perfect designs
+
 Design a user flow: **$0**
 Description: $ARGUMENTS
 

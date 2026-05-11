@@ -7,6 +7,13 @@ allowed-tools: Read, Write, Edit, Grep, Glob, Bash
 
 # UI Component Generator
 
+## When NOT to use
+
+- For full-page scaffolding → use `/ss-page`
+- For composed multi-component patterns → use `/ss-pattern`
+- For tweaking an existing component — just edit the file directly
+- For non-StyleSeed projects (no `components/ui/` directory or no Tailwind v4)
+
 Generate a new component: **$0**
 Description: $ARGUMENTS
 

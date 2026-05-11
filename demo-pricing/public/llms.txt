@@ -1,0 +1,52 @@
+# StyleSeed
+
+> The design system for Claude Code, Cursor, and vibe coding.
+> 33 components + 69 visual rules + 13 slash skills + 8 brand skins.
+> "Other repos teach LLMs what brands look like. StyleSeed teaches LLMs how designers think."
+
+## Quick Start
+
+- Run `/ss-setup` in Claude Code or Cursor (interactive wizard)
+- Or manual: `git clone https://github.com/bitjaru/styleseed && cp -r styleseed/engine/.claude/skills .claude/skills && cp styleseed/engine/DESIGN-LANGUAGE.md .claude/DESIGN-LANGUAGE.md`
+
+## Slash Skills
+
+- `/ss-setup` — Interactive setup wizard for new projects
+- `/ss-component` — Generate a new UI primitive (button, input, card)
+- `/ss-pattern` — Generate a composed pattern (grid, list, form section)
+- `/ss-page` — Scaffold a full mobile page/screen
+- `/ss-flow` — Design user flows and navigation maps
+- `/ss-copy` — Generate UX microcopy (buttons, errors, toasts)
+- `/ss-feedback` — Add loading/error/empty/success states
+- `/ss-tokens` — View, add, or modify design tokens
+- `/ss-review` — Deep review of design system compliance
+- `/ss-lint` — Quick automated violation check
+- `/ss-a11y` — Accessibility audit and auto-fix
+- `/ss-audit` — UX audit using Nielsen's heuristics
+- `/ss-update` — Pull the latest engine into your project
+
+## Brand Skins
+
+Toss · Stripe · Linear · Notion · Raycast · Arc · Vercel — plus 58+ via awesome-design-md. Switch with a single `data-skin` attribute. No conditional code, no rewrites.
+
+## Reference
+
+- [Full design language (engine/CLAUDE.md + DESIGN-LANGUAGE.md mirror)](/llms-full.txt)
+- [Skill manifest (agentskills.io 0.2.0)](/.well-known/agent-skills/index.json)
+- [Component + skin registry (48 components × 7 skins)](/.well-known/styleseed/registry.json)
+- [Live demo — chat UI across 3 brand skins](https://styleseed-demo.vercel.app)
+- [Live demo — pricing page](https://styleseed-demo.vercel.app/pricing)
+- [GitHub source](https://github.com/bitjaru/styleseed)
+- [Wiki — detailed docs](https://github.com/bitjaru/styleseed/wiki)
+
+## When to use StyleSeed
+
+- Building SaaS dashboards, fintech screens, mobile-first apps with AI assistance
+- shadcn/ui output feels generic and you want it to look intentionally designed
+- You're configuring Claude Code or Cursor for a design-aware project
+
+## When NOT to use StyleSeed
+
+- Backend logic, database schemas, deployment scripts — design system only
+- Marketing landing pages with bespoke art direction — StyleSeed is for product UI
+- Non-React stacks — currently React 18+ with Tailwind CSS v4

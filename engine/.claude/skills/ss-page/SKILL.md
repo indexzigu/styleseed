@@ -7,6 +7,13 @@ allowed-tools: Read, Write, Edit, Grep, Glob, Bash
 
 # Mobile Page Scaffolder
 
+## When NOT to use
+
+- For a single composed pattern within an existing page → use `/ss-pattern`
+- For desktop-only screens — this skill is mobile-first
+- For multi-page navigation structure → use `/ss-flow` first
+- For tweaking an existing page — edit the file directly
+
 Create a new page: **$0**
 Description: $ARGUMENTS
 

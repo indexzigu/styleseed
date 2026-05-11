@@ -7,6 +7,13 @@ allowed-tools: Read, Write, Edit, Grep, Glob
 
 # Design Token Manager
 
+## When NOT to use
+
+- For applying tokens in components → use `/ss-component` or `/ss-pattern`
+- For finding token violations in existing code → use `/ss-lint`
+- For brand-wide color/font choices that don't exist yet — define a skin first, then add tokens
+- For non-CSS token systems (Figma, native iOS/Android) — Tailwind v4 / CSS variables only
+
 Action: **$0** | Token type: **$1**
 Arguments: $ARGUMENTS
 

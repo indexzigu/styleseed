@@ -7,6 +7,13 @@ allowed-tools: Read, Write, Edit, Grep, Glob, Bash
 
 # UI Pattern Generator
 
+## When NOT to use
+
+- For a single primitive component → use `/ss-component`
+- For a full mobile screen → use `/ss-page`
+- For an entire multi-page user flow → use `/ss-flow`
+- For design tokens and color/spacing decisions → use `/ss-tokens`
+
 Pattern type: **$0**
 Description: $ARGUMENTS
 

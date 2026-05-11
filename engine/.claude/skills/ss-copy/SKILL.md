@@ -7,6 +7,13 @@ allowed-tools: Read, Write, Edit, Grep, Glob
 
 # UX Microcopy Generator
 
+## When NOT to use
+
+- For long-form content (blog posts, docs, marketing pages) — out of scope
+- For full feedback state design (not just text) → use `/ss-feedback`
+- For brand voice/tone definition itself — this skill consumes a voice spec, doesn't create it
+- For translations to non-English languages — single-language only
+
 Context: **$0**
 Description: $ARGUMENTS
 
