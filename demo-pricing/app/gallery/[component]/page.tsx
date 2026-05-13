@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getComponent, loadRegistry } from "@/lib/registry";
+import { previews, hasPreview } from "@/lib/previews";
+import { PreviewFrame } from "./preview-frame";
 
 export async function generateStaticParams() {
   return loadRegistry().components.map((c) => ({ component: c.id }));
@@ -47,6 +49,19 @@ export default async function ComponentPage({
           <code className="mt-2 block font-mono text-sm text-gray-500">{c.id}</code>
           {c.description && <p className="mt-3 text-lg text-gray-700">{c.description}</p>}
         </header>
+
+        {hasPreview(c.id) ? (
+          <section className="mt-8">
+            <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-gray-500">
+              Live preview
+            </h2>
+            <PreviewFrame preview={previews[c.id]} skins={loadRegistry().skins} />
+          </section>
+        ) : (
+          <section className="mt-8 rounded-xl border border-dashed border-gray-200 p-6 text-center text-sm text-gray-500">
+            Preview not configured for this component yet. Source code is shown below.
+          </section>
+        )}
 
         <section className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
           <Meta label="Size" value={`${(c.bytes / 1024).toFixed(1)} KB`} />
