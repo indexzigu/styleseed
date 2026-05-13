@@ -1,7 +1,7 @@
 # StyleSeed — Full Context
 
 Source: github.com/bitjaru/styleseed (engine/CLAUDE.md + engine/DESIGN-LANGUAGE.md)
-Generated: 2026-05-11T08:44:00.198Z
+Generated: 2026-05-13T04:51:20.106Z
 
 ---
 

@@ -1,11 +1,14 @@
 import Link from "next/link";
 import { loadRegistry } from "@/lib/registry";
+import { Button } from "@engine/components/ui/button";
 
 export const metadata = {
   title: "StyleSeed Gallery — 48 components × 7 brand skins",
   description:
     "Browse every StyleSeed component and brand skin. Click any component to see source and metadata.",
 };
+
+const PREVIEW_SKINS = ["toss", "raycast", "arc"] as const;
 
 export default function GalleryPage() {
   const reg = loadRegistry();
@@ -46,6 +49,35 @@ export default function GalleryPage() {
             </a>
           </div>
         </header>
+
+        <section className="mb-12 rounded-xl border border-gray-200 bg-gray-50 p-6">
+          <h2 className="mb-1 text-sm font-semibold uppercase tracking-wide text-gray-500">
+            Live preview — Button under 3 skins
+          </h2>
+          <p className="mb-4 text-xs text-gray-600">
+            Smoke test: same component, three brand DNAs via{" "}
+            <code className="rounded bg-white px-1 py-0.5">data-skin</code> attribute.
+          </p>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+            {PREVIEW_SKINS.map((skin) => (
+              <div
+                key={skin}
+                data-skin={skin}
+                className="rounded-lg p-4"
+                style={{ background: "var(--card)" }}
+              >
+                <div className="mb-3 text-[11px] font-semibold uppercase tracking-wide" style={{ color: "var(--text-secondary, var(--muted-foreground))" }}>
+                  {skin}
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Button size="sm">Primary</Button>
+                  <Button size="sm" variant="secondary">Secondary</Button>
+                  <Button size="sm" variant="outline">Outline</Button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
 
         <Section title={`Patterns (${patterns.length})`} subtitle="Composed components — cards, lists, navigation, feedback states" items={patterns} />
         <Section title={`UI primitives (${ui.length})`} subtitle="Single-purpose building blocks — buttons, inputs, dialogs, etc." items={ui} />
