@@ -24,6 +24,7 @@ Reference this guide when Claude Code sets up a new project or implements UI.
 > **When to read which file:**
 > - **This file (CLAUDE.md)**: Tokens, component API, imports, forbidden patterns — reference while coding
 > - **DESIGN-LANGUAGE.md**: Visual design rules, page layout, composition recipes — read **before** building a new page. Start with the Table of Contents, then rules 14, 18, 19, 61-63.
+> - **METHODOLOGY.md**: UI/UX reasoning patterns (progressive disclosure, info density, atomic design, skeleton/empty/microinteraction, contextual onboarding, Linear/Toss aesthetic) — read **before scaffolding a new dashboard** or when wondering *why* the rules in DESIGN-LANGUAGE.md exist.
 
 ## Quick Start — New Project Setup
 
