@@ -19,6 +19,7 @@ const ENTRIES = [
   "settings",
   "marketing",
   "notes",
+  "wallet",
 ];
 
 mkdirSync("public/showcase-hero", { recursive: true });

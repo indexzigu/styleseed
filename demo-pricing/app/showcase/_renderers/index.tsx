@@ -10,6 +10,7 @@ import { IssuesPage } from "./issues";
 import { SettingsPage } from "./settings";
 import { MarketingPage } from "./marketing";
 import { NotesPage } from "./notes";
+import { WalletPage } from "./wallet";
 
 export type ShowcaseRenderer = (skin: string, seed: SeedId) => ReactNode;
 
@@ -26,6 +27,7 @@ export const renderers: Record<string, ShowcaseRenderer> = {
   settings: (skin, seed) => <SettingsPage skin={skin} seed={seed} />,
   marketing: (skin, seed) => <MarketingPage skin={skin} seed={seed} />,
   notes: (skin, seed) => <NotesPage skin={skin} seed={seed} />,
+  wallet: (skin, seed) => <WalletPage skin={skin} seed={seed} />,
 };
 
 export function getRenderer(id: string): ShowcaseRenderer | undefined {

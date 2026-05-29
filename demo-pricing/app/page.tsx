@@ -1,504 +1,373 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import {
-  ArrowUp,
-  Check,
-  ChevronLeft,
-  FileCode,
-  MoreHorizontal,
-  Plus,
+  ArrowRight,
+  GitFork,
+  Layers,
+  Package,
+  Palette,
   Sparkles,
-  Wrench,
+  Star,
+  Zap,
 } from "lucide-react";
-import {
-  MESSAGES,
-  SKINS,
-  STREAMING_REPLY,
-  type Message,
-  type Skin,
-} from "./chat-data";
+import "./showcase/examples";
+import { listShowcase } from "@/lib/showcase";
+import { seeds as motionSeeds } from "@engine/motion";
+import { SeedDemo } from "./_home/seed-demo";
 
-export default function Page() {
-  const [skin, setSkin] = useState<Skin>("toss");
+const HERO_SHOWCASE_IDS = ["finance", "wallet", "issues", "chat", "settings", "pricing"];
 
-  return (
-    <div
-      className="min-h-screen w-full flex flex-col items-center justify-center px-4 py-8"
-      style={{
-        background:
-          "radial-gradient(ellipse at top, #1a1a1a 0%, #0a0a0a 60%)",
-      }}
-    >
-      <SkinSwitcher skin={skin} setSkin={setSkin} />
-      <PhoneFrame>
-        <ChatScreen skin={skin} />
-      </PhoneFrame>
-      <Link
-        href="/pricing"
-        className="mt-6 text-xs text-white/50 hover:text-white/80 transition-colors"
-      >
-        View pricing demo →
-      </Link>
-    </div>
-  );
-}
+const FEATURES = [
+  {
+    icon: Palette,
+    title: "Brand-agnostic by design",
+    desc: "One attribute (data-skin) morphs the entire UI across 7 hand-tuned brand DNAs — Toss, Stripe, Linear, Notion, Raycast, Arc, Vercel.",
+  },
+  {
+    icon: Zap,
+    title: "Motion in vibe words",
+    desc: "Five named motion seeds (Spring, Silk, Snap, Float, Pulse). Spread one onto any motion element. No more guessing spring stiffness.",
+  },
+  {
+    icon: Layers,
+    title: "Production-grade primitives",
+    desc: "33 React components + 16 composed patterns + 69 documented design rules. No surprise gotchas after copy-paste.",
+  },
+  {
+    icon: Sparkles,
+    title: "AI-ready out of the box",
+    desc: "13 slash skills (/ss-component, /ss-page, /ss-motion, …) that Claude Code and Cursor read automatically. Stop fighting generic shadcn output.",
+  },
+  {
+    icon: Package,
+    title: "Drop-in, not all-in",
+    desc: "Copy engine/ into any React + Tailwind v4 project. No build step, no runtime dependency, no lock-in.",
+  },
+  {
+    icon: Star,
+    title: "Free under MIT",
+    desc: "Production use, fork, white-label, internal tooling — all fair game. No usage caps, no telemetry.",
+  },
+];
 
-function SkinSwitcher({
-  skin,
-  setSkin,
-}: {
-  skin: Skin;
-  setSkin: (s: Skin) => void;
-}) {
-  return (
-    <div
-      className="mb-6 inline-flex items-center gap-1 p-1.5 rounded-full"
-      style={{
-        background: "rgba(255,255,255,0.06)",
-        border: "1px solid rgba(255,255,255,0.1)",
-        backdropFilter: "blur(12px)",
-      }}
-    >
-      {SKINS.map((s) => {
-        const active = skin === s.id;
-        return (
-          <button
-            key={s.id}
-            onClick={() => setSkin(s.id)}
-            className="relative px-4 py-1.5 text-xs font-semibold rounded-full transition-colors"
-            style={{
-              color: active ? "#fff" : "rgba(255,255,255,0.6)",
-            }}
-          >
-            {active && (
-              <motion.span
-                layoutId="skin-pill-outer"
-                className="absolute inset-0 rounded-full"
-                style={{
-                  background:
-                    s.id === "toss"
-                      ? "linear-gradient(135deg, #3182F6, #4A90F7)"
-                      : s.id === "raycast"
-                        ? "linear-gradient(135deg, #FF6363, #FF8E3C 30%, #E84A8E 65%, #A855F7)"
-                        : "linear-gradient(135deg, #FF5E7E, #FFB84D 30%, #4ECDC4 65%, #6C5CE7)",
-                }}
-                transition={{ type: "spring", stiffness: 380, damping: 32 }}
-              />
-            )}
-            <span className="relative z-10">{s.label}</span>
-          </button>
-        );
-      })}
-    </div>
-  );
-}
+const STATS = [
+  { value: "33", label: "components" },
+  { value: "7", label: "brand skins" },
+  { value: "5", label: "motion seeds" },
+  { value: "69", label: "design rules" },
+];
 
-function PhoneFrame({ children }: { children: React.ReactNode }) {
-  return (
-    <div
-      className="relative"
-      style={{
-        width: "390px",
-        height: "780px",
-        padding: "12px",
-        borderRadius: "52px",
-        background:
-          "linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%)",
-        boxShadow:
-          "0 0 0 1px rgba(255,255,255,0.08), 0 50px 100px -20px rgba(0,0,0,0.8), 0 30px 60px -30px rgba(0,0,0,0.6)",
-      }}
-    >
-      <div
-        className="relative w-full h-full overflow-hidden"
-        style={{ borderRadius: "40px" }}
-      >
-        {/* notch */}
-        <div
-          className="absolute top-2 left-1/2 -translate-x-1/2 z-50 h-6 w-28 rounded-full"
-          style={{ background: "#000" }}
-        />
-        {children}
-      </div>
-    </div>
-  );
-}
-
-function ChatScreen({ skin }: { skin: Skin }) {
-  const [streamedWords, setStreamedWords] = useState<string[]>([]);
-  const [showStreaming, setShowStreaming] = useState(true);
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setStreamedWords([]);
-    setShowStreaming(true);
-    const words = STREAMING_REPLY.split(" ");
-    let i = 0;
-    const id = setInterval(() => {
-      i++;
-      setStreamedWords(words.slice(0, i));
-      scrollRef.current?.scrollTo({
-        top: scrollRef.current.scrollHeight,
-        behavior: "smooth",
-      });
-      if (i >= words.length) {
-        clearInterval(id);
-        setTimeout(() => setShowStreaming(false), 2200);
-      }
-    }, 75);
-    return () => clearInterval(id);
-  }, [skin]);
+export default function HomePage() {
+  const entries = listShowcase();
+  const heroEntries = HERO_SHOWCASE_IDS.map((id) =>
+    entries.find((e) => e.id === id),
+  ).filter((e): e is NonNullable<typeof e> => Boolean(e));
+  const seedCount = Object.keys(motionSeeds).length;
 
   return (
-    <div
-      data-skin={skin}
-      className="w-full h-full flex flex-col"
-      style={{
-        background: "var(--background)",
-        color: "var(--foreground)",
-      }}
-    >
-      <MobileHeader />
-
-      <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 pt-4 pb-6">
-        <div className="space-y-4">
-          {MESSAGES.map((m, i) => (
-            <MessageRow key={skin + m.id} message={m} index={i} />
-          ))}
-          {showStreaming && <StreamingMessage words={streamedWords} />}
-        </div>
-      </div>
-
-      <MobileComposer />
-    </div>
-  );
-}
-
-function MobileHeader() {
-  return (
-    <header
-      className="shrink-0 pt-12 pb-3 px-4 flex items-center gap-3 border-b"
-      style={{ borderColor: "var(--border)" }}
-    >
-      <button
-        className="h-9 w-9 flex items-center justify-center -ml-2"
-        style={{ color: "var(--foreground)" }}
-      >
-        <ChevronLeft size={22} />
-      </button>
-      <div
-        className="h-9 w-9 rounded-full flex items-center justify-center shrink-0"
-        style={{
-          background: "var(--gradient-brand)",
-          color: "var(--brand-foreground)",
-        }}
-      >
-        <Sparkles size={15} />
-      </div>
-      <div className="flex-1 min-w-0">
-        <div className="text-[15px] font-semibold truncate leading-tight">
-          StyleSeed
-        </div>
-        <div
-          className="text-[11px] flex items-center gap-1.5 leading-tight mt-0.5"
-          style={{ color: "var(--text-secondary)" }}
-        >
-          <motion.span
-            className="h-1.5 w-1.5 rounded-full"
-            style={{ background: "#4ADE80" }}
-            animate={{ opacity: [1, 0.4, 1] }}
-            transition={{ duration: 1.6, repeat: Infinity }}
-          />
-          online · Sonnet 4.6
-        </div>
-      </div>
-      <button
-        className="h-9 w-9 flex items-center justify-center -mr-1"
-        style={{ color: "var(--text-secondary)" }}
-      >
-        <MoreHorizontal size={20} />
-      </button>
-    </header>
-  );
-}
-
-function MessageRow({
-  message,
-  index,
-}: {
-  message: Message;
-  index: number;
-}) {
-  const isUser = message.role === "user";
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 14 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.45,
-        delay: index * 0.08,
-        ease: [0.34, 1.56, 0.64, 1],
-      }}
-      className={`flex ${isUser ? "justify-end" : "justify-start"}`}
-    >
-      <div
-        className={`flex gap-2 ${isUser ? "flex-row-reverse" : "flex-row"} max-w-[88%]`}
-      >
-        {!isUser && (
-          <div
-            className="h-7 w-7 rounded-full shrink-0 flex items-center justify-center mt-auto"
-            style={{
-              background: "var(--gradient-brand)",
-              color: "var(--brand-foreground)",
-            }}
-          >
-            <Sparkles size={12} />
+    <>
+      {/* Navigation */}
+      <header className="sticky top-0 z-40 border-b border-neutral-200/60 bg-white/80 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3.5">
+          <Link href="/" className="flex items-center gap-2">
+            <div
+              aria-hidden
+              className="flex h-7 w-7 items-center justify-center rounded-md bg-neutral-900 text-[14px] font-bold text-white"
+            >
+              S
+            </div>
+            <span className="text-[15px] font-bold tracking-tight">StyleSeed</span>
+          </Link>
+          <nav className="hidden items-center gap-6 text-[13px] font-semibold text-neutral-600 sm:flex">
+            <Link href="/showcase" className="hover:text-neutral-900">
+              Showcase
+            </Link>
+            <Link href="/motion-test" className="hover:text-neutral-900">
+              Motion
+            </Link>
+            <Link href="/gallery" className="hover:text-neutral-900">
+              Components
+            </Link>
+            <a
+              href="https://github.com/bitjaru/styleseed"
+              className="hover:text-neutral-900"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+          </nav>
+          <div className="flex items-center gap-2">
+            <a
+              href="https://github.com/bitjaru/styleseed"
+              target="_blank"
+              rel="noreferrer"
+              className="hidden items-center gap-1.5 rounded-md border border-neutral-200 bg-white px-2.5 py-1.5 text-[12px] font-bold text-neutral-700 hover:border-neutral-300 sm:inline-flex"
+            >
+              <GitFork size={12} />
+              Star
+            </a>
+            <Link
+              href="/showcase"
+              className="inline-flex items-center gap-1.5 rounded-md bg-neutral-900 px-3 py-1.5 text-[12px] font-bold text-white hover:bg-black"
+            >
+              Browse showcase
+              <ArrowRight size={12} />
+            </Link>
           </div>
-        )}
-
-        <div
-          className={`min-w-0 flex flex-col gap-1.5 ${isUser ? "items-end" : "items-start"}`}
-        >
-          <div
-            className="px-3.5 py-2.5 text-[14px] leading-snug"
-            style={{
-              background: isUser ? "var(--gradient-brand)" : "var(--card)",
-              color: isUser
-                ? "var(--brand-foreground)"
-                : "var(--card-foreground)",
-              border: isUser
-                ? "1px solid transparent"
-                : "1px solid var(--border)",
-              borderRadius: "var(--radius-lg)",
-              borderBottomRightRadius: isUser ? "6px" : undefined,
-              borderBottomLeftRadius: !isUser ? "6px" : undefined,
-              boxShadow: isUser
-                ? "var(--shadow-button)"
-                : "var(--shadow-card)",
-            }}
-          >
-            {message.text}
-          </div>
-
-          {!isUser && message.toolCall && (
-            <ToolCallCard
-              name={message.toolCall.name}
-              detail={message.toolCall.detail}
-              status={message.toolCall.status}
-            />
-          )}
-
-          {!isUser && message.code && (
-            <CodeBlock lang={message.code.lang} body={message.code.body} />
-          )}
         </div>
-      </div>
-    </motion.div>
-  );
-}
+      </header>
 
-function ToolCallCard({
-  name,
-  detail,
-  status,
-}: {
-  name: string;
-  detail: string;
-  status: "running" | "done";
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.96 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.3, delay: 0.18 }}
-      className="inline-flex items-center gap-2 px-2.5 py-1.5 text-[11px]"
-      style={{
-        background: "var(--brand-tint)",
-        border: "1px solid var(--border)",
-        borderRadius: "var(--radius-md)",
-        color: "var(--text-secondary)",
-      }}
-    >
-      <Wrench size={11} style={{ color: "var(--brand)" }} />
-      <span style={{ color: "var(--foreground)" }} className="font-medium">
-        {name}
-      </span>
-      <span className="font-mono truncate max-w-[140px]">{detail}</span>
-      {status === "done" && (
-        <Check size={11} style={{ color: "var(--brand)" }} />
-      )}
-    </motion.div>
-  );
-}
+      <main>
+        {/* Hero */}
+        <section className="bg-gradient-to-b from-white via-white to-neutral-50">
+          <div className="mx-auto max-w-6xl px-6 pb-20 pt-20 text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-neutral-600 shadow-sm">
+              <Sparkles size={11} />
+              v2 · now with motion seeds
+            </div>
+            <h1 className="mx-auto mt-7 max-w-3xl text-[clamp(40px,7vw,68px)] font-bold leading-[1.04] tracking-tight text-neutral-900">
+              Design that scales <br className="hidden sm:block" />
+              without you redrawing it.
+            </h1>
+            <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-neutral-600">
+              StyleSeed is a drop-in React design system for vibe coding. One attribute swaps the
+              brand DNA. Five named motion seeds give you elegant animation in plain English. MIT
+              licensed and built for Claude Code, Cursor, and the AI-assisted product workflow.
+            </p>
+            <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+              <Link
+                href="/showcase"
+                className="inline-flex items-center gap-1.5 rounded-xl bg-neutral-900 px-5 py-3 text-[14px] font-bold text-white hover:bg-black"
+              >
+                Browse the showcase
+                <ArrowRight size={14} />
+              </Link>
+              <a
+                href="https://github.com/bitjaru/styleseed"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-xl border border-neutral-200 bg-white px-5 py-3 text-[14px] font-bold text-neutral-900 hover:border-neutral-300"
+              >
+                <GitFork size={14} />
+                View source on GitHub
+              </a>
+            </div>
 
-function CodeBlock({ lang, body }: { lang: string; body: string }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3, delay: 0.22 }}
-      className="overflow-hidden w-full max-w-full"
-      style={{
-        background: "var(--muted)",
-        border: "1px solid var(--border)",
-        borderRadius: "var(--radius-md)",
-      }}
-    >
-      <div
-        className="px-2.5 py-1 text-[9px] font-mono uppercase tracking-wider flex items-center gap-1.5"
-        style={{
-          color: "var(--text-secondary)",
-          borderBottom: "1px solid var(--border)",
-        }}
-      >
-        <FileCode size={10} />
-        {lang}
-      </div>
-      <pre
-        className="px-3 py-2 text-[10px] font-mono overflow-x-auto leading-relaxed"
-        style={{ color: "var(--foreground)" }}
-      >
-        <code>{body}</code>
-      </pre>
-    </motion.div>
-  );
-}
-
-function StreamingMessage({ words }: { words: string[] }) {
-  const isTyping = words.length === 0;
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 14 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
-      className="flex justify-start"
-    >
-      <div className="flex gap-2 max-w-[88%]">
-        <div
-          className="h-7 w-7 rounded-full shrink-0 flex items-center justify-center mt-auto"
-          style={{
-            background: "var(--gradient-brand)",
-            color: "var(--brand-foreground)",
-          }}
-        >
-          <Sparkles size={12} />
-        </div>
-        <div
-          className="px-3.5 py-2.5 text-[14px] leading-snug"
-          style={{
-            background: "var(--card)",
-            color: "var(--card-foreground)",
-            border: "1px solid var(--border)",
-            borderRadius: "var(--radius-lg)",
-            borderBottomLeftRadius: "6px",
-            boxShadow: "var(--shadow-card)",
-            minHeight: "40px",
-          }}
-        >
-          {isTyping ? (
-            <TypingDots />
-          ) : (
-            <span>
-              {words.map((w, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ opacity: 0, y: 4 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.2 }}
-                  style={{ display: "inline-block", marginRight: "0.25em" }}
-                >
-                  {w}
-                </motion.span>
+            <dl className="mx-auto mt-14 grid max-w-3xl grid-cols-2 gap-4 sm:grid-cols-4">
+              {STATS.map((s) => (
+                <div key={s.label} className="rounded-2xl bg-white p-5 shadow-sm">
+                  <dt className="text-[11px] font-bold uppercase tracking-widest text-neutral-500">
+                    {s.label}
+                  </dt>
+                  <dd className="mt-1 text-[32px] font-bold tracking-tight text-neutral-900">
+                    {s.value}
+                  </dd>
+                </div>
               ))}
-              <motion.span
-                animate={{ opacity: [1, 0, 1] }}
-                transition={{ duration: 0.9, repeat: Infinity }}
-                style={{
-                  display: "inline-block",
-                  width: "2px",
-                  height: "1em",
-                  verticalAlign: "text-bottom",
-                  marginLeft: "1px",
-                  background: "var(--brand)",
-                }}
-              />
-            </span>
-          )}
+            </dl>
+          </div>
+        </section>
+
+        {/* Showcase preview */}
+        <section className="border-t border-neutral-200 bg-neutral-50">
+          <div className="mx-auto max-w-6xl px-6 py-20">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <div className="text-[11px] font-bold uppercase tracking-widest text-neutral-500">
+                  Showcase
+                </div>
+                <h2 className="mt-2 max-w-xl text-[36px] font-bold leading-tight tracking-tight text-neutral-900">
+                  {entries.length} finished templates · {entries.length * 7 * seedCount} live
+                  variants.
+                </h2>
+                <p className="mt-3 max-w-md text-[15px] text-neutral-600">
+                  Every template ships across 7 brand DNAs and {seedCount} motion seeds — toggle
+                  live in the browser. Copy the source from the repo.
+                </p>
+              </div>
+              <Link
+                href="/showcase"
+                className="inline-flex items-center gap-1 text-[13px] font-bold text-neutral-900 hover:underline"
+              >
+                View all {entries.length} →
+              </Link>
+            </div>
+
+            <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {heroEntries.map((entry) => (
+                <Link
+                  key={entry.id}
+                  href={`/showcase/${entry.id}`}
+                  className="group block overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow hover:shadow-md"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden bg-neutral-100">
+                    <Image
+                      src={`/showcase-hero/${entry.id}.png`}
+                      alt={`${entry.name} — ${entry.primarySkin} skin with ${entry.primarySeed} motion`}
+                      width={1440}
+                      height={900}
+                      className="h-full w-full object-cover object-top transition-transform group-hover:scale-[1.02]"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-[15px] font-bold tracking-tight text-neutral-900">
+                        {entry.name}
+                      </h3>
+                      <span className="text-[10px] uppercase tracking-widest text-neutral-400">
+                        {entry.category}
+                      </span>
+                    </div>
+                    <p className="mt-1.5 line-clamp-2 text-[13px] text-neutral-600">
+                      {entry.blurb}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Motion seeds */}
+        <section className="border-t border-neutral-200 bg-white">
+          <div className="mx-auto max-w-5xl px-6 py-20">
+            <div className="text-center">
+              <div className="text-[11px] font-bold uppercase tracking-widest text-neutral-500">
+                Motion seeds
+              </div>
+              <h2 className="mt-2 text-[36px] font-bold leading-tight tracking-tight text-neutral-900">
+                Five vibe words. Production-grade animation.
+              </h2>
+              <p className="mx-auto mt-3 max-w-xl text-[15px] text-neutral-600">
+                {seedCount} named motion seeds, each with five spreadable recipes (entrance, exit,
+                hover, press, layout). Stop guessing spring params — say what you want and your LLM
+                will reach for the right one.
+              </p>
+            </div>
+
+            <div className="mt-12">
+              <SeedDemo />
+            </div>
+          </div>
+        </section>
+
+        {/* Features */}
+        <section className="border-t border-neutral-200 bg-neutral-50">
+          <div className="mx-auto max-w-6xl px-6 py-20">
+            <div className="text-center">
+              <div className="text-[11px] font-bold uppercase tracking-widest text-neutral-500">
+                Why StyleSeed
+              </div>
+              <h2 className="mt-2 text-[36px] font-bold leading-tight tracking-tight text-neutral-900">
+                Built for the AI-assisted product workflow.
+              </h2>
+            </div>
+
+            <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {FEATURES.map((f) => (
+                <div key={f.title} className="rounded-2xl bg-white p-6 shadow-sm">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-neutral-900 text-white">
+                    <f.icon size={18} />
+                  </div>
+                  <h3 className="mt-5 text-[16px] font-bold tracking-tight text-neutral-900">
+                    {f.title}
+                  </h3>
+                  <p className="mt-2 text-[13px] leading-relaxed text-neutral-600">{f.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="border-t border-neutral-200 bg-white">
+          <div className="mx-auto max-w-3xl px-6 py-24 text-center">
+            <h2 className="text-[44px] font-bold leading-tight tracking-tight text-neutral-900">
+              Stop redrawing. Start shipping.
+            </h2>
+            <p className="mx-auto mt-5 max-w-md text-[15px] text-neutral-600">
+              One repo, every brand, every motion personality. Drop StyleSeed into your next vibe
+              coding session and let your LLM produce UI that doesn’t look generated.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <Link
+                href="/showcase"
+                className="inline-flex items-center gap-1.5 rounded-xl bg-neutral-900 px-5 py-3 text-[14px] font-bold text-white hover:bg-black"
+              >
+                Browse the showcase
+                <ArrowRight size={14} />
+              </Link>
+              <a
+                href="https://github.com/bitjaru/styleseed"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-xl border border-neutral-200 bg-white px-5 py-3 text-[14px] font-bold text-neutral-900 hover:border-neutral-300"
+              >
+                <GitFork size={14} />
+                Drop StyleSeed in
+              </a>
+            </div>
+            <p className="mt-6 text-[12px] text-neutral-500">
+              MIT licensed · zero install fee · no telemetry · production-ready
+            </p>
+          </div>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="border-t border-neutral-200 bg-neutral-900 text-neutral-300">
+        <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-12 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <div className="flex items-center gap-2">
+              <div className="flex h-7 w-7 items-center justify-center rounded-md bg-white text-[14px] font-bold text-neutral-900">
+                S
+              </div>
+              <span className="text-[15px] font-bold tracking-tight text-white">StyleSeed</span>
+            </div>
+            <p className="mt-2 max-w-sm text-[12px] text-neutral-400">
+              Design system for vibe coding. MIT licensed. Made by{" "}
+              <a
+                href="https://github.com/bitjaru"
+                className="font-semibold text-neutral-200 hover:text-white"
+              >
+                bitjaru
+              </a>{" "}
+              in Seoul.
+            </p>
+          </div>
+          <nav className="flex flex-wrap gap-x-6 gap-y-2 text-[12px] font-semibold">
+            <Link href="/showcase" className="text-neutral-300 hover:text-white">
+              Showcase
+            </Link>
+            <Link href="/motion-test" className="text-neutral-300 hover:text-white">
+              Motion seeds
+            </Link>
+            <Link href="/gallery" className="text-neutral-300 hover:text-white">
+              Component gallery
+            </Link>
+            <Link href="/pricing" className="text-neutral-300 hover:text-white">
+              Pricing demo
+            </Link>
+            <a
+              href="https://github.com/bitjaru/styleseed"
+              className="text-neutral-300 hover:text-white"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://github.com/bitjaru/styleseed/blob/main/LICENSE"
+              className="text-neutral-300 hover:text-white"
+              target="_blank"
+              rel="noreferrer"
+            >
+              MIT License
+            </a>
+          </nav>
         </div>
-      </div>
-    </motion.div>
-  );
-}
-
-function TypingDots() {
-  return (
-    <div className="flex items-center gap-1.5 h-5">
-      {[0, 1, 2].map((i) => (
-        <motion.span
-          key={i}
-          className="h-2 w-2 rounded-full"
-          style={{ background: "var(--brand)" }}
-          animate={{ y: [0, -4, 0], opacity: [0.4, 1, 0.4] }}
-          transition={{
-            duration: 0.9,
-            repeat: Infinity,
-            delay: i * 0.15,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
-function MobileComposer() {
-  const [text, setText] = useState("");
-  return (
-    <div
-      className="shrink-0 px-3 pt-3 pb-6 border-t"
-      style={{ borderColor: "var(--border)" }}
-    >
-      <div
-        className="flex items-center gap-2 px-2 py-1.5"
-        style={{
-          background: "var(--card)",
-          border: "1px solid var(--border)",
-          borderRadius: "9999px",
-          boxShadow: "var(--shadow-card)",
-        }}
-      >
-        <button
-          className="h-8 w-8 flex items-center justify-center shrink-0 rounded-full"
-          style={{
-            background: "var(--brand-tint)",
-            color: "var(--brand)",
-          }}
-        >
-          <Plus size={16} />
-        </button>
-        <input
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Message..."
-          className="flex-1 bg-transparent outline-none text-[14px] py-1 min-w-0"
-          style={{ color: "var(--foreground)" }}
-        />
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.92 }}
-          className="h-8 w-8 flex items-center justify-center shrink-0 rounded-full"
-          style={{
-            background: "var(--gradient-brand)",
-            color: "var(--brand-foreground)",
-            boxShadow: "var(--shadow-button)",
-          }}
-          aria-label="Send"
-        >
-          <ArrowUp size={15} strokeWidth={2.5} />
-        </motion.button>
-      </div>
-    </div>
+      </footer>
+    </>
   );
 }

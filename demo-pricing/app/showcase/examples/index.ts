@@ -10,3 +10,4 @@ import "./marketing";
 import "./notes";
 import "./chat";
 import "./pricing";
+import "./wallet";

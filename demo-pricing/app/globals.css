@@ -1,5 +1,6 @@
 @import "tailwindcss";
-@source "../../engine/components";
+@source "../.engine/components";
+@source "../.engine/motion";
 @import "./skins.css";
 
 html, body {

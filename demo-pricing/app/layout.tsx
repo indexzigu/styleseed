@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -7,9 +7,71 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://styleseed-demo.vercel.app";
+const SITE_NAME = "StyleSeed";
+const SITE_DESC =
+  "Drop-in React design system for vibe coding. 33 components, 7 brand DNAs, 5 motion seeds. Built for Claude Code, Cursor, and AI-assisted product work. MIT licensed.";
+
 export const metadata: Metadata = {
-  title: "StyleSeed — One Component, Three Brand DNAs",
-  description: "Design engine demo: same pricing page, three brand skins. Toss, Raycast, Arc.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "StyleSeed — Design system for vibe coding",
+    template: "%s · StyleSeed",
+  },
+  description: SITE_DESC,
+  applicationName: SITE_NAME,
+  keywords: [
+    "design system",
+    "vibe coding",
+    "vibe coding design system",
+    "Claude Code",
+    "Cursor",
+    "shadcn alternative",
+    "Tailwind UI",
+    "framer motion presets",
+    "AI design",
+    "Toss design",
+    "design tokens",
+    "디자인 시스템",
+    "AI 디자인 시스템",
+    "Cursor 디자인",
+  ],
+  authors: [{ name: "bitjaru", url: "https://github.com/bitjaru" }],
+  creator: "bitjaru",
+  publisher: "bitjaru",
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    title: "StyleSeed — Design system for vibe coding",
+    description: SITE_DESC,
+    url: SITE_URL,
+    locale: "en_US",
+    images: [
+      {
+        url: "/showcase-hero/finance.png",
+        width: 1440,
+        height: 900,
+        alt: "StyleSeed showcase — finance dashboard in Toss skin with Spring motion",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "StyleSeed — Design system for vibe coding",
+    description: SITE_DESC,
+    images: ["/showcase-hero/finance.png"],
+    creator: "@bitjaru",
+  },
+  alternates: {
+    canonical: SITE_URL,
+  },
+  category: "technology",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0a0a0a",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -17,12 +79,30 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: SITE_NAME,
+    description: SITE_DESC,
+    url: SITE_URL,
+    applicationCategory: "DeveloperApplication",
+    operatingSystem: "Web",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    license: "https://opensource.org/licenses/MIT",
+    softwareVersion: "2",
+    sameAs: ["https://github.com/bitjaru/styleseed"],
+  };
+
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <head>
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className="min-h-full">{children}</body>
