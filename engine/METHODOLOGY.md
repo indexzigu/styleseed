@@ -195,6 +195,69 @@ Total ~13 named colors. Every component pulls from this set. New designs do **no
 
 ---
 
+## 8. Motion Vibe Vocabulary
+
+Animation is where vibe coding breaks down hardest. Color has hex, spacing has px, but *feel* lives in five-parameter framer-motion configs that no one wants to think about. "Make it bouncy" should be one word, not seven sliders.
+
+### The vocabulary gap
+
+When an LLM hears "make this button feel snappy," it picks a safe default (a 300ms ease-in-out fade) and the result is indistinguishable from every other AI-generated UI. The same prompt applied to a real product would land on something specific: Linear's 180ms cubic-bezier, Toss's overshoot spring, Raycast's brightness flash. The brand identity is in the motion params, but the words to describe them don't translate to JSON.
+
+StyleSeed solves this with five named seeds, each calibrated by hand for a distinct vibe. A seed is the motion equivalent of a brand skin: a complete personality you can spread onto any `<motion.X>`.
+
+### The five seeds
+
+| Seed | Vibe | When to reach for it |
+|---|---|---|
+| **Spring** | bouncy, energetic, playful | CTAs that should feel alive; success states; anything Arc-/Toss-like |
+| **Silk** | smooth, elegant, continuous | editorial layouts, financial dashboards, modal panels |
+| **Snap** | instant, decisive, precise | command palettes, power-user tools, keyboard-driven UI |
+| **Float** | weightless, gentle, dreamy | marketing surfaces, hero sections, ambient experiences |
+| **Pulse** | rhythmic, alive, punchy | notifications, live indicators, status badges |
+
+Five seeds × five contexts (entrance, exit, hover, press, layout) = 25 spreadable recipes. Each is one calibrated source of truth — never inline the params on the call site.
+
+### Vibe → seed translation
+
+The dictionary below is what `/ss-motion` uses internally to map natural language to a seed. When you write "make this card bouncy," the skill resolves to Spring; when you write "make it feel like Linear," it resolves to Snap via the brand-default mapping.
+
+| Words the user might say | Seed |
+|---|---|
+| bouncy, springy, playful, energetic, alive | Spring |
+| smooth, silky, fluid, elegant, composed, continuous | Silk |
+| snappy, quick, instant, decisive, sharp, precise | Snap |
+| floaty, gentle, weightless, dreamy, ambient, drifting | Float |
+| rhythmic, punchy, pulsing, heartbeat, beat | Pulse |
+
+### Brand → seed defaults
+
+Every skin ships a recommended default seed. Override per page when the feel should diverge.
+
+| Skin | Default seed | Why |
+|---|---|---|
+| Toss, Arc | Spring | playful brands; CTA overshoot reads as friendly |
+| Stripe, Notion | Silk | editorial, calm, no surprises |
+| Linear, Raycast, Vercel | Snap | power-user products where the animation should be over before you notice it |
+
+### When to deviate
+
+- A long marketing landing on **Linear** skin still wants **Float** for the hero — the brand's default suits app surfaces, not story surfaces
+- A live transactions feed on **Stripe** skin wants **Pulse** for new-row appearance — Silk would feel too quiet
+- A modal close on any skin → **Snap** exit, because no one wants to wait for a dismiss to finish
+
+### Reduced motion
+
+`usePrefersReducedMotion()` lives next to the seeds. Long-running surfaces (multi-step entrances, page transitions, animated counters) should swap the seed's transition for `REDUCED_TRANSITION` when the hook returns true. One-off hover/press doesn't need explicit handling — framer-motion already throttles.
+
+### Cross-reference
+
+- `engine/motion/` — the seeds, types, and hook
+- `engine/components/ui/motion.tsx` — opinionated wrappers (FadeIn, FadeUp, Stagger) that pre-compose seeds for the most common cases
+- `DESIGN-LANGUAGE.md` Rule 59 — what's allowed and forbidden in motion (no parallax, no infinite loops, no scroll-linked timelines)
+- `/ss-motion` slash skill — translates a vibe word + element to the right spread
+
+---
+
 ## Application priority — generic dashboard scaffolding
 
 When you're starting a new dashboard, work in this order:
