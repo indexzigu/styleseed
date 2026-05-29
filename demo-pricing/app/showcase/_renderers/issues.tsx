@@ -85,6 +85,8 @@ export function IssuesPage({ skin, seed: seedId }: { skin: string; seed: SeedId 
   const border = "var(--border, rgba(0,0,0,0.08))";
   const brand = "var(--brand, #5E6AD2)";
   const brandTint = "var(--brand-tint, rgba(94,106,210,0.08))";
+  // Borderless cards — light shadow keeps Linear's flat feel without a hairline
+  const cardShadow = "0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.04)";
 
   const visible = ISSUES.filter((iss) => {
     if (filter === "all") return true;
@@ -209,8 +211,8 @@ export function IssuesPage({ skin, seed: seedId }: { skin: string; seed: SeedId 
                       {...m.layout}
                       style={{
                         background: card,
-                        border: `1px solid ${border}`,
                         borderRadius: 10,
+                        boxShadow: cardShadow,
                         padding: 12,
                       }}
                     >

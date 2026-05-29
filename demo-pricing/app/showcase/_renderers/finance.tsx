@@ -44,7 +44,8 @@ export function FinancePage({ skin, seed: seedId }: { skin: string; seed: SeedId
   const brand = "var(--brand, #3182F6)";
   const brandTint = "var(--brand-tint, rgba(49,130,246,0.08))";
   const radius = "var(--radius, 16px)";
-  const shadow = "var(--shadow-card, 0 1px 3px rgba(0,0,0,0.04))";
+  // Borderless: cards float on tone + soft shadow, no hairline border (Toss discipline)
+  const shadow = "0 1px 2px rgba(0,0,0,0.03), 0 6px 16px rgba(0,0,0,0.04)";
 
   const kpis = [
     {
@@ -134,7 +135,6 @@ export function FinancePage({ skin, seed: seedId }: { skin: string; seed: SeedId
           className="relative overflow-hidden"
           style={{
             background: card,
-            border: `1px solid ${border}`,
             borderRadius: radius,
             boxShadow: shadow,
             padding: 28,
@@ -187,7 +187,6 @@ export function FinancePage({ skin, seed: seedId }: { skin: string; seed: SeedId
               {...m.hover}
               style={{
                 background: card,
-                border: `1px solid ${border}`,
                 borderRadius: radius,
                 boxShadow: shadow,
                 padding: 20,
@@ -240,7 +239,6 @@ export function FinancePage({ skin, seed: seedId }: { skin: string; seed: SeedId
             className="col-span-2"
             style={{
               background: card,
-              border: `1px solid ${border}`,
               borderRadius: radius,
               boxShadow: shadow,
               padding: 24,
@@ -284,7 +282,6 @@ export function FinancePage({ skin, seed: seedId }: { skin: string; seed: SeedId
             {...delayed(m.entrance, 0.3)}
             style={{
               background: card,
-              border: `1px solid ${border}`,
               borderRadius: radius,
               boxShadow: shadow,
               padding: 24,

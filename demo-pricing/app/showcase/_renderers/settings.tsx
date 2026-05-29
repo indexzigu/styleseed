@@ -53,6 +53,8 @@ export function SettingsPage({ skin, seed: seedId }: { skin: string; seed: SeedI
   const brandTint = "var(--brand-tint, rgba(255,94,126,0.1))";
   const gradient = "var(--gradient-brand, var(--brand, #FF5E7E))";
   const radius = "var(--radius, 16px)";
+  // Borderless: cards float on tone + soft shadow, no hairline border (Toss discipline)
+  const shadow = "0 1px 2px rgba(0,0,0,0.03), 0 6px 16px rgba(0,0,0,0.04)";
 
   return (
     <div
@@ -142,8 +144,8 @@ export function SettingsPage({ skin, seed: seedId }: { skin: string; seed: SeedI
           className="mb-6 flex items-center justify-between p-5"
           style={{
             background: card,
-            border: `1px solid ${border}`,
             borderRadius: radius,
+            boxShadow: shadow,
           }}
         >
           <div className="flex items-center gap-4">
@@ -182,8 +184,8 @@ export function SettingsPage({ skin, seed: seedId }: { skin: string; seed: SeedI
           className="mb-6 overflow-hidden"
           style={{
             background: card,
-            border: `1px solid ${border}`,
             borderRadius: radius,
+            boxShadow: shadow,
           }}
         >
           <div className="border-b px-5 py-3.5" style={{ borderColor: border }}>
@@ -230,8 +232,8 @@ export function SettingsPage({ skin, seed: seedId }: { skin: string; seed: SeedI
           className="mb-6 overflow-hidden"
           style={{
             background: card,
-            border: `1px solid ${border}`,
             borderRadius: radius,
+            boxShadow: shadow,
           }}
         >
           <div className="border-b px-5 py-3.5" style={{ borderColor: border }}>
