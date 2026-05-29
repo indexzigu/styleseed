@@ -15,7 +15,7 @@ import { listShowcase } from "@/lib/showcase";
 import { seeds as motionSeeds } from "@engine/motion";
 import { SeedDemo } from "./_home/seed-demo";
 
-const HERO_SHOWCASE_IDS = ["finance", "wallet", "issues", "chat", "settings", "pricing"];
+const HERO_SHOWCASE_IDS = ["finance", "food", "fitness", "music", "issues", "wallet"];
 
 const FEATURES = [
   {
