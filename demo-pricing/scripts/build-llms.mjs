@@ -276,6 +276,10 @@ writeFileSync(resolve(root, 'app/skins.css'), skinsCss)
 const engineMirror = resolve(root, '.engine')
 rmSync(engineMirror, { recursive: true, force: true })
 cpSync(componentsDir, resolve(engineMirror, 'components'), { recursive: true })
+const motionDir = resolve(engineDir, 'motion')
+if (existsSync(motionDir)) {
+  cpSync(motionDir, resolve(engineMirror, 'motion'), { recursive: true })
+}
 
 console.log(`✓ wrote public/llms-full.txt (${(claude.length + designLang.length) / 1024 | 0} KB)`)
 console.log(`✓ wrote public/.well-known/agent-skills/index.json (${skills.length} skills)`)
@@ -284,3 +288,4 @@ console.log(
 )
 console.log(`✓ wrote app/skins.css (${skinBlocks.length} skin blocks + @theme inline)`)
 console.log(`✓ mirrored engine/components → .engine/components`)
+if (existsSync(motionDir)) console.log(`✓ mirrored engine/motion → .engine/motion`)
