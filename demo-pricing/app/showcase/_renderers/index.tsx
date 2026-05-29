@@ -11,6 +11,9 @@ import { SettingsPage } from "./settings";
 import { MarketingPage } from "./marketing";
 import { NotesPage } from "./notes";
 import { WalletPage } from "./wallet";
+import { FoodPage } from "./food";
+import { FitnessPage } from "./fitness";
+import { MusicPage } from "./music";
 
 export type ShowcaseRenderer = (skin: string, seed: SeedId) => ReactNode;
 
@@ -28,6 +31,9 @@ export const renderers: Record<string, ShowcaseRenderer> = {
   marketing: (skin, seed) => <MarketingPage skin={skin} seed={seed} />,
   notes: (skin, seed) => <NotesPage skin={skin} seed={seed} />,
   wallet: (skin, seed) => <WalletPage skin={skin} seed={seed} />,
+  food: (skin, seed) => <FoodPage skin={skin} seed={seed} />,
+  fitness: (skin, seed) => <FitnessPage skin={skin} seed={seed} />,
+  music: (skin, seed) => <MusicPage skin={skin} seed={seed} />,
 };
 
 export function getRenderer(id: string): ShowcaseRenderer | undefined {

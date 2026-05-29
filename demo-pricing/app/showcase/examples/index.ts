@@ -11,3 +11,6 @@ import "./notes";
 import "./chat";
 import "./pricing";
 import "./wallet";
+import "./food";
+import "./fitness";
+import "./music";
