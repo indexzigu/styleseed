@@ -6,6 +6,7 @@ import { Placeholder } from "../_placeholder";
 import { FinancePage } from "./finance";
 import { ChatPage } from "./chat";
 import { PricingPage } from "./pricing";
+import { IssuesPage } from "./issues";
 
 export type ShowcaseRenderer = (skin: string, seed: SeedId) => ReactNode;
 
@@ -18,7 +19,7 @@ export const renderers: Record<string, ShowcaseRenderer> = {
   finance: (skin, seed) => <FinancePage skin={skin} seed={seed} />,
   chat: (skin, seed) => <ChatPage skin={skin} seed={seed} />,
   pricing: (skin, seed) => <PricingPage skin={skin} seed={seed} />,
-  issues: (skin, seed) => <Placeholder id="issues" skin={skin} seed={seed} />,
+  issues: (skin, seed) => <IssuesPage skin={skin} seed={seed} />,
   settings: (skin, seed) => <Placeholder id="settings" skin={skin} seed={seed} />,
   marketing: (skin, seed) => <Placeholder id="marketing" skin={skin} seed={seed} />,
   notes: (skin, seed) => <Placeholder id="notes" skin={skin} seed={seed} />,
