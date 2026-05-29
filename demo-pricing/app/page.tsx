@@ -85,6 +85,9 @@ export default function HomePage() {
             <Link href="/motion-test" className="hover:text-neutral-900">
               Motion
             </Link>
+            <Link href="/interactions" className="hover:text-neutral-900">
+              Interactions
+            </Link>
             <Link href="/gallery" className="hover:text-neutral-900">
               Components
             </Link>
@@ -342,6 +345,9 @@ export default function HomePage() {
             </Link>
             <Link href="/motion-test" className="text-neutral-300 hover:text-white">
               Motion seeds
+            </Link>
+            <Link href="/interactions" className="text-neutral-300 hover:text-white">
+              Interaction gallery
             </Link>
             <Link href="/gallery" className="text-neutral-300 hover:text-white">
               Component gallery
