@@ -51,6 +51,13 @@
       "digest": "sha256:d36a99c03b47a0421b53c166ee6a513d093020c1a831de26fbc756f33db26e78"
     },
     {
+      "name": "ss-motion",
+      "type": "skill-md",
+      "description": "Apply a named StyleSeed motion seed (Spring/Silk/Snap/Float/Pulse) to a component or interaction, translating vibe words into framer-motion params",
+      "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-motion/SKILL.md",
+      "digest": "sha256:26f6c16571f0ace7aacf2c203260fbd5aa64f1ed7827dd2266fe44cd00c5da6d"
+    },
+    {
       "name": "ss-page",
       "type": "skill-md",
       "description": "Scaffold a new mobile page/screen using the StyleSeed layout patterns",
