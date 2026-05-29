@@ -12,20 +12,31 @@ export const silk: SeedConfig = {
   vibe: "smooth, elegant, continuous",
   entrance: {
     initial: { opacity: 0, y: 12 },
-    animate: { opacity: 1, y: 0 },
-    transition: { ease: [0.32, 0.72, 0, 1], duration: 0.45 },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: { ease: [0.32, 0.72, 0, 1], duration: 0.45 },
+    },
   },
   exit: {
-    exit: { opacity: 0, y: -6 },
-    transition: { ease: [0.4, 0, 1, 1], duration: 0.3 },
+    exit: {
+      opacity: 0,
+      y: -6,
+      transition: { ease: [0.4, 0, 1, 1], duration: 0.3 },
+    },
   },
   hover: {
-    whileHover: { y: -1, filter: "brightness(1.03)" },
-    transition: { ease: [0.32, 0.72, 0, 1], duration: 0.25 },
+    whileHover: {
+      y: -1,
+      filter: "brightness(1.03)",
+      transition: { ease: [0.32, 0.72, 0, 1], duration: 0.25 },
+    },
   },
   press: {
-    whileTap: { scale: 0.98 },
-    transition: { ease: [0.4, 0, 0.2, 1], duration: 0.15 },
+    whileTap: {
+      scale: 0.98,
+      transition: { ease: [0.4, 0, 0.2, 1], duration: 0.15 },
+    },
   },
   layout: {
     layout: true,

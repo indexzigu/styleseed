@@ -13,20 +13,28 @@ export const snap: SeedConfig = {
   vibe: "instant, decisive, precise",
   entrance: {
     initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    transition: { ease: [0, 0, 0.2, 1], duration: 0.18 },
+    animate: {
+      opacity: 1,
+      transition: { ease: [0, 0, 0.2, 1], duration: 0.18 },
+    },
   },
   exit: {
-    exit: { opacity: 0 },
-    transition: { ease: [0.4, 0, 1, 1], duration: 0.12 },
+    exit: {
+      opacity: 0,
+      transition: { ease: [0.4, 0, 1, 1], duration: 0.12 },
+    },
   },
   hover: {
-    whileHover: { filter: "brightness(1.08)" },
-    transition: { ease: [0.4, 0, 0.2, 1], duration: 0.1 },
+    whileHover: {
+      filter: "brightness(1.08)",
+      transition: { ease: [0.4, 0, 0.2, 1], duration: 0.1 },
+    },
   },
   press: {
-    whileTap: { scale: 0.97 },
-    transition: { ease: [0.4, 0, 0.2, 1], duration: 0.06 },
+    whileTap: {
+      scale: 0.97,
+      transition: { ease: [0.4, 0, 0.2, 1], duration: 0.06 },
+    },
   },
   layout: {
     layout: true,

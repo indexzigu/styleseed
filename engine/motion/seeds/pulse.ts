@@ -13,20 +13,30 @@ export const pulse: SeedConfig = {
   vibe: "rhythmic, alive, punchy",
   entrance: {
     initial: { opacity: 0, scale: 0.9 },
-    animate: { opacity: 1, scale: 1 },
-    transition: { type: "spring", stiffness: 500, damping: 25, mass: 0.6 },
+    animate: {
+      opacity: 1,
+      scale: 1,
+      transition: { type: "spring", stiffness: 500, damping: 25, mass: 0.6 },
+    },
   },
   exit: {
-    exit: { opacity: 0, scale: 0.95 },
-    transition: { type: "spring", stiffness: 400, damping: 30, mass: 0.6 },
+    exit: {
+      opacity: 0,
+      scale: 0.95,
+      transition: { type: "spring", stiffness: 400, damping: 30, mass: 0.6 },
+    },
   },
   hover: {
-    whileHover: { scale: 1.02 },
-    transition: { type: "spring", stiffness: 500, damping: 25, mass: 0.6 },
+    whileHover: {
+      scale: 1.02,
+      transition: { type: "spring", stiffness: 500, damping: 25, mass: 0.6 },
+    },
   },
   press: {
-    whileTap: { scale: 0.94 },
-    transition: { type: "spring", stiffness: 600, damping: 28, mass: 0.6 },
+    whileTap: {
+      scale: 0.94,
+      transition: { type: "spring", stiffness: 600, damping: 28, mass: 0.6 },
+    },
   },
   layout: {
     layout: true,

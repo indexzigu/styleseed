@@ -3,50 +3,38 @@
  *
  * A seed is a complete personality (Spring, Silk, Snap, Float, Pulse).
  * A context is where that personality lands: entrance, exit, hover, press, layout.
- * Each context returns props you can spread directly onto a `<motion.X>`.
+ * Each context returns props you can spread directly onto a `<motion.X>` — and
+ * multiple contexts compose because every transition is embedded inside its
+ * own state object (animate / exit / whileHover / whileTap) rather than
+ * sitting at the top level where it would collide.
  *
  * Example:
- *   <motion.button {...spring.press} {...spring.hover}>Save</motion.button>
+ *   <motion.button {...spring.hover} {...spring.press}>Save</motion.button>
  *   <AnimatePresence>
  *     {open && <motion.div {...silk.entrance} {...silk.exit} />}
  *   </AnimatePresence>
  */
 
-import type { Transition } from "framer-motion";
+import type { MotionProps } from "framer-motion";
 
 /** The five contexts every seed defines. */
 export type SeedContext = "entrance" | "exit" | "hover" | "press" | "layout";
 
 /** Shape spread onto a `<motion.X>` for an entrance animation. */
-export type EntranceRecipe = {
-  initial: Record<string, number | string>;
-  animate: Record<string, number | string>;
-  transition: Transition;
-};
+export type EntranceRecipe = Required<Pick<MotionProps, "initial" | "animate">>;
 
 /** Shape for an exit animation. Pair with `<AnimatePresence>`. */
-export type ExitRecipe = {
-  exit: Record<string, number | string>;
-  transition: Transition;
-};
+export type ExitRecipe = Required<Pick<MotionProps, "exit">>;
 
 /** Shape for a hover interaction. */
-export type HoverRecipe = {
-  whileHover: Record<string, number | string>;
-  transition: Transition;
-};
+export type HoverRecipe = Required<Pick<MotionProps, "whileHover">>;
 
 /** Shape for a tap/press interaction. */
-export type PressRecipe = {
-  whileTap: Record<string, number | string>;
-  transition: Transition;
-};
+export type PressRecipe = Required<Pick<MotionProps, "whileTap">>;
 
-/** Shape for FLIP-style layout animations. */
-export type LayoutRecipe = {
-  layout: true;
-  transition: Transition;
-};
+/** Shape for FLIP-style layout animations. Layout transition stays top-level
+ *  because framer-motion only reads it there. */
+export type LayoutRecipe = Required<Pick<MotionProps, "layout" | "transition">>;
 
 /** A complete seed: one personality across all five contexts. */
 export type SeedConfig = {

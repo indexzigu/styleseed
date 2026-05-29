@@ -45,3 +45,6 @@ next-env.d.ts
 
 # build-llms.mjs regenerates these on prebuild/predev — committed for
 # Vercel CLI deploys that only upload demo-pricing/ (no ../engine access)
+
+# local visual captures
+scripts/captures/
