@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import "./examples"; // side-effect: registers every entry
 import { listShowcase } from "@/lib/showcase";
 import { loadRegistry } from "@/lib/registry";
@@ -30,25 +31,37 @@ export default function ShowcasePage() {
           </p>
         </header>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {entries.map((entry) => (
             <Link
               key={entry.id}
               href={`/showcase/${entry.id}`}
-              className="group rounded-xl border border-gray-200 p-5 transition-colors hover:border-gray-400 hover:bg-gray-50"
+              className="group block overflow-hidden rounded-xl border border-gray-200 bg-white transition-shadow hover:shadow-lg"
             >
-              <div className="flex items-baseline justify-between">
-                <h2 className="text-lg font-semibold group-hover:text-blue-600">
-                  {entry.name}
-                </h2>
-                <span className="text-[11px] uppercase tracking-wider text-gray-400">
-                  {entry.category}
-                </span>
+              <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
+                <Image
+                  src={`/showcase-hero/${entry.id}.png`}
+                  alt={`${entry.name} hero`}
+                  width={1440}
+                  height={900}
+                  className="h-full w-full object-cover object-top transition-transform group-hover:scale-[1.02]"
+                  priority={false}
+                />
               </div>
-              <p className="mt-2 text-sm text-gray-600">{entry.blurb}</p>
-              <div className="mt-4 flex items-center gap-3 text-[11px] text-gray-500">
-                <span className="font-mono">skin · {entry.primarySkin}</span>
-                <span className="font-mono">motion · {entry.primarySeed}</span>
+              <div className="border-t border-gray-200 p-5">
+                <div className="flex items-baseline justify-between">
+                  <h2 className="text-lg font-semibold group-hover:text-blue-600">
+                    {entry.name}
+                  </h2>
+                  <span className="text-[11px] uppercase tracking-wider text-gray-400">
+                    {entry.category}
+                  </span>
+                </div>
+                <p className="mt-2 line-clamp-2 text-sm text-gray-600">{entry.blurb}</p>
+                <div className="mt-4 flex items-center gap-3 text-[11px] text-gray-500">
+                  <span className="font-mono">skin · {entry.primarySkin}</span>
+                  <span className="font-mono">motion · {entry.primarySeed}</span>
+                </div>
               </div>
             </Link>
           ))}
