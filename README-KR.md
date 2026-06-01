@@ -282,6 +282,7 @@ import { spring } from "@engine/motion";
 **2. 키워드 = 독창적 무브.** 이름 하나로 호출하는 복사-붙여넣기 모션 라이브러리 — `toggle-flip`, `reveal-blur`, `tilt-3d`, `magnetic`, `glow-pulse`, `confetti-pop` 등. 바이브코딩 중에 키워드를 말하거나 (`/ss-motion toggle-flip`) 하면 같은 레시피가 코드에 들어갑니다.
 
 ▶ **[라이브 갤러리에서 모든 모션 미리보기 & 복사 →](https://styleseed-demo.vercel.app/motion)**
+&nbsp;·&nbsp; [직접 만들기 → 모션 가이드](https://styleseed-demo.vercel.app/motion/guide)
 
 ## 사용 가능한 스킨
 

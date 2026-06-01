@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import {
   AnimatePresence,
   motion,
@@ -44,6 +45,12 @@ export default function MotionLibraryPage() {
             (<code className="rounded bg-neutral-200 px-1.5 py-0.5 text-[12px]">/ss-motion toggle-flip</code>)
             and the same recipe lands in your code.
           </p>
+          <Link
+            href="/motion/guide"
+            className="mt-5 inline-flex items-center gap-1.5 rounded-xl bg-neutral-900 px-4 py-2.5 text-[13px] font-bold text-white transition-transform hover:scale-[1.03]"
+          >
+            Vibe-code your own motion → read the guide
+          </Link>
         </header>
 
         {MOTION_CATEGORIES.map((cat) => {
