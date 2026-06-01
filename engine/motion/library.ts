@@ -17,7 +17,13 @@ import type { SeedId } from "./index";
  * The live demo JSX lives in the gallery page, keyed by `key`.
  */
 
-export type MotionCategory = "toggle" | "reveal" | "press" | "attention" | "list";
+export type MotionCategory =
+  | "flair"
+  | "toggle"
+  | "reveal"
+  | "press"
+  | "attention"
+  | "list";
 
 export interface MotionKeyword {
   /** Unique handle — what you type when vibe coding. e.g. "toggle-flip". */
@@ -34,6 +40,7 @@ export interface MotionKeyword {
 }
 
 export const MOTION_CATEGORIES: { id: MotionCategory; label: string; blurb: string }[] = [
+  { id: "flair", label: "Flair", blurb: "Showy, cursor-aware, scroll-stopping moves." },
   { id: "toggle", label: "Toggle", blurb: "One control, many ways to switch state." },
   { id: "reveal", label: "Reveal", blurb: "How an element arrives on screen." },
   { id: "press", label: "Press", blurb: "Tactile feedback on tap/click." },
@@ -42,6 +49,175 @@ export const MOTION_CATEGORIES: { id: MotionCategory; label: string; blurb: stri
 ];
 
 export const MOTION_LIBRARY: MotionKeyword[] = [
+  // ── Flair (showy, cursor/scroll-aware) ───────────────────
+  {
+    key: "tilt-3d",
+    label: "3D tilt",
+    category: "flair",
+    vibe: "Card tilts in 3D toward the cursor — depth on hover",
+    seed: "silk",
+    snippet: `import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+
+const x = useMotionValue(0);
+const y = useMotionValue(0);
+const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [12, -12]), { stiffness: 250, damping: 20 });
+const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-12, 12]), { stiffness: 250, damping: 20 });
+
+<motion.div
+  onPointerMove={(e) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    x.set((e.clientX - r.left) / r.width - 0.5);
+    y.set((e.clientY - r.top) / r.height - 0.5);
+  }}
+  onPointerLeave={() => { x.set(0); y.set(0); }}
+  style={{ rotateX, rotateY, transformPerspective: 800 }}
+/>`,
+  },
+  {
+    key: "magnetic",
+    label: "Magnetic",
+    category: "flair",
+    vibe: "Button drifts toward the cursor, springs back on leave",
+    seed: "spring",
+    snippet: `import { motion, useSpring } from "framer-motion";
+
+const x = useSpring(0, { stiffness: 300, damping: 20 });
+const y = useSpring(0, { stiffness: 300, damping: 20 });
+
+<motion.button
+  onPointerMove={(e) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    x.set((e.clientX - r.left - r.width / 2) * 0.4);
+    y.set((e.clientY - r.top - r.height / 2) * 0.4);
+  }}
+  onPointerLeave={() => { x.set(0); y.set(0); }}
+  style={{ x, y }}
+>
+  Hover me
+</motion.button>`,
+  },
+  {
+    key: "glow-pulse",
+    label: "Glow pulse",
+    category: "flair",
+    vibe: "Breathing neon glow — draws the eye to a hot CTA",
+    seed: "pulse",
+    snippet: `<motion.div
+  animate={{
+    boxShadow: [
+      "0 0 0px rgba(99,91,255,0)",
+      "0 0 28px rgba(99,91,255,0.7)",
+      "0 0 0px rgba(99,91,255,0)",
+    ],
+  }}
+  transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+/>`,
+  },
+  {
+    key: "gradient-sweep",
+    label: "Gradient sweep",
+    category: "flair",
+    vibe: "Animated gradient flows through text or a surface",
+    seed: "silk",
+    snippet: `<motion.span
+  animate={{ backgroundPosition: ["0% 50%", "100% 50%"] }}
+  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+  style={{
+    backgroundImage: "linear-gradient(90deg,#6C5CE7,#FF6B6B,#FFD93D,#6C5CE7)",
+    backgroundSize: "300% 100%",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+  }}
+>
+  Gradient
+</motion.span>`,
+  },
+  {
+    key: "blob-morph",
+    label: "Blob morph",
+    category: "flair",
+    vibe: "Organic shape endlessly morphs — living background blob",
+    seed: "float",
+    snippet: `<motion.div
+  animate={{
+    borderRadius: [
+      "60% 40% 30% 70% / 60% 30% 70% 40%",
+      "30% 60% 70% 40% / 50% 60% 30% 60%",
+      "60% 40% 30% 70% / 60% 30% 70% 40%",
+    ],
+  }}
+  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+/>`,
+  },
+  {
+    key: "spotlight",
+    label: "Spotlight",
+    category: "flair",
+    vibe: "Radial light follows the cursor across a card",
+    seed: "silk",
+    snippet: `import { motion, useMotionValue, useMotionTemplate } from "framer-motion";
+
+const mx = useMotionValue(50);
+const my = useMotionValue(50);
+const bg = useMotionTemplate\`radial-gradient(160px circle at \${mx}% \${my}%, rgba(255,255,255,0.25), transparent 60%)\`;
+
+<motion.div
+  onPointerMove={(e) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    mx.set(((e.clientX - r.left) / r.width) * 100);
+    my.set(((e.clientY - r.top) / r.height) * 100);
+  }}
+  style={{ backgroundImage: bg }}
+/>`,
+  },
+  {
+    key: "text-scramble",
+    label: "Scramble",
+    category: "flair",
+    vibe: "Letters decode into place — hacker/terminal reveal",
+    seed: "snap",
+    snippet: `const CHARS = "!<>-_\\\\/[]{}—=+*^?#";
+const [text, setText] = useState("StyleSeed");
+
+function scramble(target: string) {
+  let frame = 0;
+  const id = setInterval(() => {
+    setText(
+      target
+        .split("")
+        .map((c, i) => (i < frame / 3 ? c : CHARS[Math.floor(Math.random() * CHARS.length)]))
+        .join(""),
+    );
+    if (frame++ > target.length * 3) clearInterval(id);
+  }, 30);
+}
+
+<button onClick={() => scramble("StyleSeed")}>{text}</button>`,
+  },
+  {
+    key: "confetti-pop",
+    label: "Confetti",
+    category: "flair",
+    vibe: "Particle burst on success — celebrate the click",
+    seed: "spring",
+    snippet: `const COLORS = ["#FF6B6B", "#FFD93D", "#6C5CE7", "#4ECDC4"];
+const [bits, setBits] = useState<number[]>([]);
+
+<button onClick={() => setBits(Array.from({ length: 16 }, (_, i) => i))} className="relative">
+  Celebrate
+  {bits.map((i) => (
+    <motion.span
+      key={i}
+      initial={{ x: 0, y: 0, opacity: 1 }}
+      animate={{ x: (Math.random() - 0.5) * 180, y: (Math.random() - 0.5) * 180, opacity: 0, rotate: Math.random() * 360 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      onAnimationComplete={() => setBits([])}
+      style={{ position: "absolute", left: "50%", top: "50%", width: 8, height: 8, background: COLORS[i % 4] }}
+    />
+  ))}
+</button>`,
+  },
+
   // ── Toggle ───────────────────────────────────────────────
   {
     key: "toggle-flip",

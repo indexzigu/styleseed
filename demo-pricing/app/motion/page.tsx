@@ -1,7 +1,14 @@
 "use client";
 
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import {
+  AnimatePresence,
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { Check, Copy } from "lucide-react";
 import {
   MOTION_LIBRARY,
@@ -11,6 +18,7 @@ import {
 } from "@engine/motion";
 
 const ACCENT: Record<MotionCategory, string> = {
+  flair: "#8B5CF6",
   toggle: "#3182F6",
   reveal: "#635BFF",
   press: "#FF4E8B",
@@ -142,6 +150,62 @@ const swatch = (accent: string): React.CSSProperties => ({
 });
 
 const DEMOS: Record<string, (p: DemoProps) => React.ReactElement> = {
+  // ── Flair ──────────────────────────────────────────────
+  "tilt-3d": ({ accent }) => <Tilt3dDemo accent={accent} />,
+  magnetic: ({ accent }) => <MagneticDemo accent={accent} />,
+  spotlight: ({ accent }) => <SpotlightDemo accent={accent} />,
+  "text-scramble": ({ trigger, accent }) => <ScrambleDemo trigger={trigger} accent={accent} />,
+  "confetti-pop": ({ accent }) => <ConfettiDemo accent={accent} />,
+
+  "glow-pulse": ({ accent }) => (
+    <motion.div
+      animate={{
+        boxShadow: [
+          `0 0 0px ${accent}00`,
+          `0 0 28px ${accent}b3`,
+          `0 0 0px ${accent}00`,
+        ],
+      }}
+      transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+      className="flex h-14 w-28 items-center justify-center rounded-xl text-[14px] font-bold text-white"
+      style={{ background: accent }}
+    >
+      Live
+    </motion.div>
+  ),
+
+  "gradient-sweep": () => (
+    <motion.span
+      animate={{ backgroundPosition: ["0% 50%", "100% 50%"] }}
+      transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+      className="text-[30px] font-extrabold tracking-tight"
+      style={{
+        backgroundImage: "linear-gradient(90deg,#6C5CE7,#FF6B6B,#FFD93D,#6C5CE7)",
+        backgroundSize: "300% 100%",
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+      }}
+    >
+      Gradient
+    </motion.span>
+  ),
+
+  "blob-morph": ({ accent }) => (
+    <motion.div
+      animate={{
+        borderRadius: [
+          "60% 40% 30% 70% / 60% 30% 70% 40%",
+          "30% 60% 70% 40% / 50% 60% 30% 60%",
+          "60% 40% 30% 70% / 60% 30% 70% 40%",
+        ],
+      }}
+      transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      className="size-20"
+      style={{ background: `linear-gradient(135deg, ${accent}, #FF6B6B)` }}
+    />
+  ),
+
+  // ── Toggle ─────────────────────────────────────────────
   "toggle-flip": ({ trigger, accent }) => {
     const on = trigger % 2 === 1;
     const face: React.CSSProperties = {
@@ -344,6 +408,138 @@ const DEMOS: Record<string, (p: DemoProps) => React.ReactElement> = {
     </motion.ul>
   ),
 };
+
+function Tilt3dDemo({ accent }: { accent: string }) {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [14, -14]), { stiffness: 250, damping: 20 });
+  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-14, 14]), { stiffness: 250, damping: 20 });
+  return (
+    <motion.div
+      onPointerMove={(e) => {
+        const r = e.currentTarget.getBoundingClientRect();
+        x.set((e.clientX - r.left) / r.width - 0.5);
+        y.set((e.clientY - r.top) / r.height - 0.5);
+      }}
+      onPointerLeave={() => {
+        x.set(0);
+        y.set(0);
+      }}
+      style={{ rotateX, rotateY, transformPerspective: 800, background: `linear-gradient(135deg, ${accent}, #4ECDC4)` }}
+      className="flex h-24 w-32 items-center justify-center rounded-2xl text-[13px] font-bold text-white shadow-lg"
+    >
+      hover me
+    </motion.div>
+  );
+}
+
+function MagneticDemo({ accent }: { accent: string }) {
+  const x = useSpring(0, { stiffness: 300, damping: 20 });
+  const y = useSpring(0, { stiffness: 300, damping: 20 });
+  return (
+    <motion.button
+      type="button"
+      onPointerMove={(e) => {
+        const r = e.currentTarget.getBoundingClientRect();
+        x.set((e.clientX - r.left - r.width / 2) * 0.5);
+        y.set((e.clientY - r.top - r.height / 2) * 0.5);
+      }}
+      onPointerLeave={() => {
+        x.set(0);
+        y.set(0);
+      }}
+      style={{ x, y, background: accent }}
+      className="rounded-xl px-6 py-3 text-[14px] font-bold text-white"
+    >
+      Hover me
+    </motion.button>
+  );
+}
+
+function SpotlightDemo({ accent }: { accent: string }) {
+  const mx = useMotionValue(50);
+  const my = useMotionValue(50);
+  const bg = useMotionTemplate`radial-gradient(120px circle at ${mx}% ${my}%, rgba(255,255,255,0.35), transparent 60%)`;
+  return (
+    <div
+      onPointerMove={(e) => {
+        const r = e.currentTarget.getBoundingClientRect();
+        mx.set(((e.clientX - r.left) / r.width) * 100);
+        my.set(((e.clientY - r.top) / r.height) * 100);
+      }}
+      className="relative flex h-24 w-36 items-center justify-center overflow-hidden rounded-2xl text-[13px] font-bold text-white"
+      style={{ background: accent }}
+    >
+      move cursor
+      <motion.div className="pointer-events-none absolute inset-0" style={{ backgroundImage: bg }} />
+    </div>
+  );
+}
+
+const SCRAMBLE_CHARS = "!<>-_\\/[]{}—=+*^?#";
+
+function ScrambleDemo({ trigger, accent }: DemoProps) {
+  const target = "StyleSeed";
+  const [text, setText] = useState(target);
+  useEffect(() => {
+    if (trigger === 0) return;
+    let frame = 0;
+    const id = setInterval(() => {
+      setText(
+        target
+          .split("")
+          .map((c, i) =>
+            i < frame / 3 ? c : SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)],
+          )
+          .join(""),
+      );
+      if (frame++ > target.length * 3) clearInterval(id);
+    }, 30);
+    return () => clearInterval(id);
+  }, [trigger]);
+  return (
+    <span className="font-mono text-[22px] font-bold tracking-tight" style={{ color: accent }}>
+      {text}
+    </span>
+  );
+}
+
+const CONFETTI_COLORS = ["#FF6B6B", "#FFD93D", "#6C5CE7", "#4ECDC4"];
+
+function ConfettiDemo({ accent }: { accent: string }) {
+  const [bits, setBits] = useState<{ id: number; dx: number; dy: number; rot: number; c: string }[]>([]);
+  function pop() {
+    setBits(
+      Array.from({ length: 16 }, (_, i) => ({
+        id: i,
+        dx: (Math.random() - 0.5) * 180,
+        dy: (Math.random() - 0.5) * 180,
+        rot: Math.random() * 360,
+        c: CONFETTI_COLORS[i % CONFETTI_COLORS.length],
+      })),
+    );
+  }
+  return (
+    <button
+      type="button"
+      onClick={pop}
+      className="relative rounded-xl px-6 py-3 text-[14px] font-bold text-white"
+      style={{ background: accent }}
+    >
+      Celebrate
+      {bits.map((b) => (
+        <motion.span
+          key={b.id}
+          initial={{ x: 0, y: 0, opacity: 1 }}
+          animate={{ x: b.dx, y: b.dy, opacity: 0, rotate: b.rot }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          onAnimationComplete={() => setBits([])}
+          style={{ position: "absolute", left: "50%", top: "50%", width: 8, height: 8, background: b.c, borderRadius: 2 }}
+        />
+      ))}
+    </button>
+  );
+}
 
 function RippleDemo({ accent }: { accent: string }) {
   const [ripples, setRipples] = useState<{ id: number; x: number; y: number }[]>([]);
