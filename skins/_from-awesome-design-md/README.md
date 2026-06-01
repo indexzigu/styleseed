@@ -5,7 +5,7 @@ Any of the 58+ brands in [awesome-design-md](https://github.com/VoltAgent/awesom
 ## How It Works
 
 1. Pick a brand from awesome-design-md
-2. Use `/ui-setup` — it fetches the DESIGN.md automatically and extracts colors
+2. Use `/ss-setup` — it fetches the DESIGN.md automatically and extracts colors
 3. Or manually create a skin:
 
 ```bash

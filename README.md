@@ -32,7 +32,7 @@ Data vs judgment. 69 design rules that Claude Code and Cursor read automatically
 
 <br />
 
-[Get Started](#get-started) · [Engine + Skins](#how-it-works-engine--skins) · [Skills](#11-ai-powered-skills) · [Wiki](../../wiki) · [한국어](README-KR.md)
+[Get Started](#get-started) · [Engine + Skins](#how-it-works-engine--skins) · [Motion](#named-motion-system) · [Skills](#14-ai-powered-skills) · [Wiki](../../wiki) · [한국어](README-KR.md)
 
 <br />
 
@@ -57,7 +57,7 @@ Then it hit me: **a junior designer with Toss's palette still ships ugly dashboa
 
 Design data is the paint. Design judgment is knowing where to put it.
 
-StyleSeed is a **design engine** — 69 visual rules, 48 components, and 11 slash commands that teach LLMs the judgment, not just the data:
+StyleSeed is a **design engine** — 69 visual rules, 48 components, a named motion system, and 14 slash commands that teach LLMs the judgment, not just the data:
 
 ```
 "The most refined black isn't #000 — it's #2A2A2A"
@@ -99,37 +99,59 @@ Drop `DESIGN-LANGUAGE.md` into your Claude Design workflow and the same model pr
 
 ## Get Started
 
+> **New to this? Read top to bottom — every step matters.** The most common
+> mistake is expecting `/ss-setup` to work before the skills are copied into
+> `.claude/skills/`. Do step 1 first.
+
 ### Option 1: Interactive Setup (Recommended)
 
-```bash
-# Copy the engine into your project
-cp -r engine/* your-project/
+**Step 1 — Install the skills.** Run this from **your project's root folder** (a terminal, not Claude Code):
 
-# Run the setup wizard
+```bash
+# Download StyleSeed somewhere on your machine
+git clone https://github.com/bitjaru/styleseed.git /tmp/styleseed
+
+# Copy the slash-command skills into your project.
+# NOTE: copy .claude/skills explicitly — `cp -r engine/*` skips hidden
+# folders, which is why /ss-setup "doesn't exist" if you only do that.
+mkdir -p .claude/skills
+cp -r /tmp/styleseed/engine/.claude/skills/* .claude/skills/
+```
+
+**Step 2 — Restart Claude Code** (skills load at startup), open your project, and run:
+
+```
 /ss-setup
 ```
 
-The wizard walks you through:
+The wizard then walks you through:
 1. App type (SaaS, e-commerce, fintech...)
 2. Brand color or pick a skin (Toss, Stripe, Linear, Vercel, Notion...)
 3. Or fetch any brand from [awesome-design-md](https://github.com/VoltAgent/awesome-design-md) (58+ brands)
 4. Font preference
 5. Generates your first page automatically
 
+> Don't see the `/ss-*` commands? Confirm `ls .claude/skills/` lists `ss-setup`,
+> `ss-page`, etc., use the `/ss-` prefix (the old `/ui-*` names are gone), and
+> restart Claude Code.
+
 ### Option 2: Manual Setup
 
+Already did step 1 above? These commands copy the rest of the engine into a typical `src/`-based React project. **The source folder is `engine/`** (replace `/tmp/styleseed` with wherever you cloned it):
+
 ```bash
-# Copy engine (rules, components, skills)
-cp -r engine/* your-project/
+# Design reference + AI guide
+mkdir -p .claude
+cp /tmp/styleseed/engine/DESIGN-LANGUAGE.md .claude/DESIGN-LANGUAGE.md
+cp /tmp/styleseed/engine/CLAUDE.md          ./CLAUDE.md
 
-# Copy engine css to src/styles
-cp -r engine/css/* your-project/src/styles/
+# Styles and components
+mkdir -p src/styles src/components
+cp -r /tmp/styleseed/engine/css/*        src/styles/
+cp -r /tmp/styleseed/engine/components/*  src/components/
 
-# Pick a skin — copy theme.css alongside other css files
-cp skins/stripe/theme.css your-project/src/styles/theme.css
-
-# Copy components
-cp -r engine/components/* your-project/src/components/
+# Pick a skin — copy its theme.css alongside the other css files
+cp /tmp/styleseed/skins/stripe/theme.css src/styles/theme.css
 ```
 
 ### Option 3: Just give AI the URL
@@ -152,7 +174,7 @@ cp engine/.cursorrules your-project/.cursorrules
 ┌─────────────────────────────────────────────────┐
 │  StyleSeed Engine (brand-agnostic)              │
 │                                                 │
-│  69 design rules · 48 components · 13 skills    │
+│  69 rules · 48 components · 14 skills · motion  │
 │  Layout · Composition · Typography · UX · A11y  │
 └──────────────────────┬──────────────────────────┘
                        │
@@ -167,7 +189,8 @@ cp engine/.cursorrules your-project/.cursorrules
 **Engine** = how your app is structured (design intelligence)
 - 69 visual design rules (layout, composition, rhythm, forbidden patterns)
 - 48 React components (32 primitives + 16 patterns)
-- 11 Claude Code skills (setup, UI, UX, accessibility)
+- A named motion system (5 seeds + a copy-paste keyword library)
+- 14 Claude Code skills (setup, UI, motion, UX, accessibility)
 - Works with ANY color palette
 
 **Skin** = what your app looks like (visual identity)
@@ -188,13 +211,40 @@ Most projects trying to fix AI-generated UI give the model more **data**. StyleS
 | **Example output** | "Use this shade of blue" | "The refined black isn't #000, it's #2A2A2A" |
 | **Brand-specific?** | Yes — rules are tied to one brand | No — rules reference semantic tokens, work with any skin |
 | **Components** | None | 48 React components |
-| **AI skills** | None | 11 slash commands (executable rules) |
+| **AI skills** | None | 14 slash commands (executable rules) |
+| **Motion** | None | 5 named seeds + copy-paste keyword library |
 | **Scales with new brands** | Re-extract everything | Write one `theme.css`, reuse all rules |
 
 **Data repos** = paint colors.<br/>
 **StyleSeed** = the rulebook for where to put the paint.
 
 Use them together: data repos provide the skin, StyleSeed provides the brain.
+
+## Named Motion System
+
+Most AI-generated motion is the same default fade. StyleSeed gives motion a **vocabulary** — so you (and the LLM) can name a feel and get consistent, intentional animation across every page. Two layers:
+
+**1. Seeds = personality.** Five named presets, each a spreadable framer-motion recipe in five contexts (`entrance` / `exit` / `hover` / `press` / `layout`):
+
+| Seed | Vibe | Inspiration |
+|------|------|-------------|
+| **Spring** | bouncy, energetic, playful | Arc, Toss |
+| **Silk** | smooth, elegant, continuous | Stripe, Linear |
+| **Snap** | instant, decisive, precise | Raycast, Linear |
+| **Float** | weightless, gentle, dreamy | Apple |
+| **Pulse** | rhythmic, alive, punchy | Discord, music apps |
+
+```tsx
+import { spring } from "@engine/motion";
+
+<motion.button {...spring.hover} {...spring.press}>Save</motion.button>
+```
+
+**2. Keywords = distinctive moves.** A library of copy-paste named motions behind one handle — `toggle-flip`, `toggle-curtain`, `reveal-blur`, `pop-in`, `tilt-3d`, `magnetic`, `glow-pulse`, `confetti-pop`, `shimmer`, and more. Say the keyword while vibe coding (or run `/ss-motion toggle-flip`) and the same recipe lands in your code.
+
+▶ **[Preview & copy every motion at the live gallery →](https://styleseed-demo.vercel.app/motion)**
+
+All seeds auto-respect `prefers-reduced-motion`, and the `/ss-motion` skill pulls every recipe from one source of truth — so motion stays consistent no matter who (or what) writes the code.
 
 ## Available Skins
 
@@ -213,11 +263,12 @@ Use them together: data repos provide the skin, StyleSeed provides the brain.
 engine/
 ├── CLAUDE.md                 # AI reads this automatically
 ├── DESIGN-LANGUAGE.md        # 69 visual design rules (brand-agnostic)
-├── .claude/skills/           # 13 slash commands (/ss-*)
+├── .claude/skills/           # 14 slash commands (/ss-*)
 │   ├── ss-setup/             #   Interactive setup wizard
 │   ├── ss-page/              #   Scaffold pages
 │   ├── ss-component/         #   Generate components
 │   ├── ss-pattern/           #   Compose layouts
+│   ├── ss-motion/            #   Apply named motion (seeds + keywords)
 │   ├── ss-review/            #   Design compliance check
 │   ├── ss-tokens/            #   Manage tokens
 │   ├── ss-a11y/              #   Accessibility audit
@@ -227,6 +278,7 @@ engine/
 │   ├── ss-audit/             #   UX heuristic evaluation
 │   ├── ss-copy/              #   Generate microcopy
 │   └── ss-feedback/          #   Add loading/error/empty states
+├── motion/                   # 5 motion seeds + keyword library
 ├── components/
 │   ├── ui/                   # 32 primitives (shadcn/ui + motion)
 │   └── patterns/             # 16 dashboard patterns
@@ -237,7 +289,7 @@ engine/
 └── scaffold/                 # Vite 6 + React 18 starter
 ```
 
-## 13 AI-Powered Skills
+## 14 AI-Powered Skills
 
 ### Setup
 | Skill | What It Does |
@@ -250,6 +302,7 @@ engine/
 | `/ss-component` | Generate components following design conventions |
 | `/ss-page` | Scaffold pages with proper layout structure |
 | `/ss-pattern` | Compose UI patterns (card grid, chart, list) |
+| `/ss-motion` | Apply a named motion — a seed or a keyword move (`toggle-flip`, `tilt-3d`...) |
 | `/ss-review` | Audit code for design system violations |
 | `/ss-tokens` | View, add, or modify design tokens |
 | `/ss-a11y` | Accessibility audit (WCAG 2.2 AA) |
@@ -337,7 +390,7 @@ React 18 · TypeScript · Tailwind CSS v4 · Radix UI · Vite 6 · Lucide Icons 
 |---|---|---|---|---|---|
 | Components | ✅ 48 | ✅ 50+ | ✅ | ✅ | ❌ |
 | Design **judgment** (when to use what) | ✅ 69 rules | ❌ | ❌ | Partial | ❌ |
-| Claude Code / Cursor integration | ✅ 11 skills | ❌ | ❌ | ❌ | — |
+| Claude Code / Cursor integration | ✅ 14 skills | ❌ | ❌ | ❌ | — |
 | Brand skins (Toss, Stripe, Linear...) | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Price | Free (MIT) | Free | $299+ | Free | — |
 | Works *with* AI coding tools | ✅ | Indirect | Indirect | Indirect | — |
