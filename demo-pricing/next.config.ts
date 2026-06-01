@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      // /motion-test was the dev slug; /motion is the canonical SEO route.
+      { source: "/motion-test", destination: "/motion", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

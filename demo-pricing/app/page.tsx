@@ -82,7 +82,7 @@ export default function HomePage() {
             <Link href="/showcase" className="hover:text-neutral-900">
               Showcase
             </Link>
-            <Link href="/motion-test" className="hover:text-neutral-900">
+            <Link href="/motion" className="hover:text-neutral-900">
               Motion
             </Link>
             <Link href="/interactions" className="hover:text-neutral-900">
@@ -343,7 +343,7 @@ export default function HomePage() {
             <Link href="/showcase" className="text-neutral-300 hover:text-white">
               Showcase
             </Link>
-            <Link href="/motion-test" className="text-neutral-300 hover:text-white">
+            <Link href="/motion" className="text-neutral-300 hover:text-white">
               Motion seeds
             </Link>
             <Link href="/interactions" className="text-neutral-300 hover:text-white">

@@ -1,7 +1,7 @@
 ---
 name: ss-motion
-description: Apply a named StyleSeed motion seed (Spring/Silk/Snap/Float/Pulse) to a component or interaction, translating vibe words into framer-motion params
-argument-hint: [vibe-or-seed-name] [context] [file-path]
+description: Apply a named StyleSeed motion to a component — either one of the 5 personality seeds (Spring/Silk/Snap/Float/Pulse × entrance/exit/hover/press/layout) or a distinctive keyword move from the motion library (toggle-flip, toggle-curtain, reveal-blur, pop-in, shimmer, …). Translates vibe words into framer-motion code from one source of truth.
+argument-hint: [vibe-seed-or-keyword] [context] [file-path]
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash
 ---
 
@@ -30,6 +30,48 @@ Translate the user's prompt to one of the five seeds before applying. Use this l
 | "Linear style", "Raycast style", "Vercel style" | **Snap** |
 
 If the user says only a *brand* name, use that brand's default seed from `BRAND_DEFAULT_SEED`. If the user is explicit about a seed name (`spring`, `silk`, etc.), respect it verbatim.
+
+## Named motion keywords (distinctive moves)
+
+Seeds set a *personality* (how a fade/scale feels). The **motion library** in
+`engine/motion/library.ts` adds *distinctive moves* — a flip, a curtain wipe, a
+morph — each behind a unique keyword. Prefer a keyword when the user wants a
+specific, recognizable motion rather than a generic feel.
+
+`engine/motion/library.ts` (exported as `MOTION_LIBRARY` / `MOTION_BY_KEY` from
+`@engine/motion`) is the **single source of truth** — every keyword carries its
+own runnable `snippet`. Pull the snippet from there; never hand-write the params.
+
+| Keyword | Move | Say it when the user wants… |
+|---|---|---|
+| `toggle-flip` | 3D Y-axis card flip | a switch/toggle to flip between two faces |
+| `toggle-slide` | slide-stack swap | a value to slide out and the next to slide in |
+| `toggle-morph` | pill ⇄ circle morph | a control to change shape on toggle |
+| `toggle-curtain` | top→bottom clip-path wipe | a panel to reveal like a curtain |
+| `reveal-blur` | blur(12px)→0 focus-in | content to focus-pull into place |
+| `reveal-rise` | masked clip-path text rise | a headline/text to climb into view |
+| `reveal-unfold` | scaleY from top edge | an accordion/panel to unfold |
+| `pop-in` | spring overshoot from 0 | a badge/checkmark to pop in bouncily |
+| `press-squish` | scale-down + skew | a button to feel jelly/tactile on tap |
+| `tap-ripple` | radial ripple from tap | Material-style press feedback |
+| `pulse-beat` | looping scale pulse | a live/recording/heartbeat indicator |
+| `wiggle` | quick horizontal shake | error / invalid-input feedback |
+| `shimmer` | skeleton loading sweep | a loading placeholder |
+| `stagger-cascade` | children fade-up in sequence | a list to animate in one-by-one |
+
+**Applying a keyword:**
+
+1. Read the exact recipe from `engine/motion/library.ts` — find the entry whose
+   `key` matches, copy its `snippet` verbatim (it is calibrated and runnable).
+2. Adapt only the element/content to the user's JSX; keep the transition values.
+3. If the keyword is stateful (toggles, ripple), wire the `useState` shown in the
+   snippet. If it's a one-shot reveal, a `key` bump replays it.
+4. Tell the user the keyword you applied so they can reuse it elsewhere for
+   consistency, and point them at `/motion` to preview/Copy others.
+
+If the user describes a move but no exact keyword fits, fall back to a seed +
+context. If they say a keyword that doesn't exist, suggest the closest real one
+from the table — never invent a keyword.
 
 ## Context detection
 

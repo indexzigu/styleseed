@@ -34,7 +34,7 @@ export default function InteractionsPage() {
               Showcase →
             </Link>
             <Link
-              href="/motion-test"
+              href="/motion"
               className="rounded-md bg-neutral-100 px-3 py-1.5 font-semibold text-neutral-700 hover:bg-neutral-200"
             >
               Motion seeds →

@@ -21,6 +21,14 @@ import { pulse } from "./seeds/pulse";
 export { spring, silk, snap, float, pulse };
 /** REDUCED_TRANSITION is data, safe in any context. */
 export { REDUCED_TRANSITION } from "./reduced-motion";
+/** Named, copy-pasteable motion keyword library (shared by /motion + /ss-motion). */
+export {
+  MOTION_LIBRARY,
+  MOTION_BY_KEY,
+  MOTION_CATEGORIES,
+  type MotionKeyword,
+  type MotionCategory,
+} from "./library";
 // usePrefersReducedMotion is a React hook — import directly from
 // "@engine/motion/reduced-motion" inside a "use client" file to keep
 // this barrel safe to import from Server Components.

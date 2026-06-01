@@ -1,8 +1,8 @@
 # StyleSeed
 
 > The design system for Claude Code, Cursor, and vibe coding.
-> 33 components + 69 visual rules + 13 slash skills + 8 brand skins.
-> "Other repos teach LLMs what brands look like. StyleSeed teaches LLMs how designers think."
+> 33 components + 69 visual rules + 14 slash skills + 8 brand skins + a named motion system (5 seeds × 5 contexts + 14 keyword moves).
+> "Other repos teach LLMs what brands look like. StyleSeed teaches LLMs how designers think — and how motion should feel."
 
 ## Quick Start
 
@@ -18,6 +18,7 @@
 - `/ss-flow` — Design user flows and navigation maps
 - `/ss-copy` — Generate UX microcopy (buttons, errors, toasts)
 - `/ss-feedback` — Add loading/error/empty/success states
+- `/ss-motion` — Apply a named motion: a seed (Spring/Silk/Snap/Float/Pulse) or a keyword move (toggle-flip, reveal-blur, pop-in, …)
 - `/ss-tokens` — View, add, or modify design tokens
 - `/ss-review` — Deep review of design system compliance
 - `/ss-lint` — Quick automated violation check
@@ -29,13 +30,24 @@
 
 Toss · Stripe · Linear · Notion · Raycast · Arc · Vercel — plus 58+ via awesome-design-md. Switch with a single `data-skin` attribute. No conditional code, no rewrites.
 
+## Motion
+
+A named motion vocabulary so AI applies *consistent, intentional* animation instead of a default fade. Two layers:
+
+- **5 seeds** = personality — Spring (bouncy) · Silk (smooth) · Snap (instant) · Float (dreamy) · Pulse (rhythmic). Each ships 5 contexts (entrance/exit/hover/press/layout) as spreadable framer-motion recipes: `<motion.button {...spring.press} {...spring.hover}>`.
+- **14 keyword moves** = distinctive, recognizable motions behind one handle — `toggle-flip`, `toggle-slide`, `toggle-morph`, `toggle-curtain`, `reveal-blur`, `reveal-rise`, `reveal-unfold`, `pop-in`, `press-squish`, `tap-ripple`, `pulse-beat`, `wiggle`, `shimmer`, `stagger-cascade`.
+
+Say a keyword while vibe coding (or run `/ss-motion toggle-flip`) and the exact recipe lands in your code — same feel across every page. Preview + copy each at the live gallery: https://styleseed-demo.vercel.app/motion
+
 ## Reference
 
 - [Full design language (engine/CLAUDE.md + DESIGN-LANGUAGE.md mirror)](/llms-full.txt)
 - [Skill manifest (agentskills.io 0.2.0)](/.well-known/agent-skills/index.json)
 - [Component + skin registry (48 components × 7 skins)](/.well-known/styleseed/registry.json)
-- [Live demo — chat UI across 3 brand skins](https://styleseed-demo.vercel.app)
-- [Live demo — pricing page](https://styleseed-demo.vercel.app/pricing)
+- [Live demo — landing + showcase grid](https://styleseed-demo.vercel.app)
+- [Live — Motion Keywords gallery (preview + copy)](https://styleseed-demo.vercel.app/motion)
+- [Live — interaction patterns gallery](https://styleseed-demo.vercel.app/interactions)
+- [Live — 11 themeable showcase templates](https://styleseed-demo.vercel.app/showcase)
 - [GitHub source](https://github.com/bitjaru/styleseed)
 - [Wiki — detailed docs](https://github.com/bitjaru/styleseed/wiki)
 
@@ -43,6 +55,7 @@ Toss · Stripe · Linear · Notion · Raycast · Arc · Vercel — plus 58+ via 
 
 - Building SaaS dashboards, fintech screens, mobile-first apps with AI assistance
 - shadcn/ui output feels generic and you want it to look intentionally designed
+- You want consistent, named motion/interactions instead of ad-hoc framer-motion fades
 - You're configuring Claude Code or Cursor for a design-aware project
 
 ## When NOT to use StyleSeed
