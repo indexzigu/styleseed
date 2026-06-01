@@ -66,6 +66,15 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
   },
   category: "technology",
+  // Set these in Vercel env (Project → Settings → Environment Variables) after
+  // creating the Search Console / Bing Webmaster property via the HTML-tag method,
+  // then redeploy. Left undefined → Next omits the tags (no empty meta).
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+      : {},
+  },
 };
 
 export const viewport: Viewport = {
