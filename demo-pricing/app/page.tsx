@@ -14,6 +14,7 @@ import "./showcase/examples";
 import { listShowcase } from "@/lib/showcase";
 import { seeds as motionSeeds } from "@engine/motion";
 import { SeedDemo } from "./_home/seed-demo";
+import { Hero } from "./_home/hero";
 
 const HERO_SHOWCASE_IDS = ["finance", "food", "fitness", "music", "issues", "wallet"];
 
@@ -48,13 +49,6 @@ const FEATURES = [
     title: "Free under MIT",
     desc: "Production use, fork, white-label, internal tooling — all fair game. No usage caps, no telemetry.",
   },
-];
-
-const STATS = [
-  { value: "33", label: "components" },
-  { value: "7", label: "brand skins" },
-  { value: "5", label: "motion seeds" },
-  { value: "69", label: "design rules" },
 ];
 
 export default function HomePage() {
@@ -123,54 +117,7 @@ export default function HomePage() {
 
       <main>
         {/* Hero */}
-        <section className="bg-gradient-to-b from-white via-white to-neutral-50">
-          <div className="mx-auto max-w-6xl px-6 pb-20 pt-20 text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-neutral-600 shadow-sm">
-              <Sparkles size={11} />
-              v2 · now with motion seeds
-            </div>
-            <h1 className="mx-auto mt-7 max-w-3xl text-[clamp(40px,7vw,68px)] font-bold leading-[1.04] tracking-tight text-neutral-900">
-              Design that scales <br className="hidden sm:block" />
-              without you redrawing it.
-            </h1>
-            <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-neutral-600">
-              StyleSeed is a drop-in React design system for vibe coding. One attribute swaps the
-              brand DNA. Five named motion seeds give you elegant animation in plain English. MIT
-              licensed and built for Claude Code, Cursor, and the AI-assisted product workflow.
-            </p>
-            <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-              <Link
-                href="/showcase"
-                className="inline-flex items-center gap-1.5 rounded-xl bg-neutral-900 px-5 py-3 text-[14px] font-bold text-white hover:bg-black"
-              >
-                Browse the showcase
-                <ArrowRight size={14} />
-              </Link>
-              <a
-                href="https://github.com/bitjaru/styleseed"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-xl border border-neutral-200 bg-white px-5 py-3 text-[14px] font-bold text-neutral-900 hover:border-neutral-300"
-              >
-                <GitFork size={14} />
-                View source on GitHub
-              </a>
-            </div>
-
-            <dl className="mx-auto mt-14 grid max-w-3xl grid-cols-2 gap-4 sm:grid-cols-4">
-              {STATS.map((s) => (
-                <div key={s.label} className="rounded-2xl bg-white p-5 shadow-sm">
-                  <dt className="text-[11px] font-bold uppercase tracking-widest text-neutral-500">
-                    {s.label}
-                  </dt>
-                  <dd className="mt-1 text-[32px] font-bold tracking-tight text-neutral-900">
-                    {s.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </section>
+        <Hero />
 
         {/* Showcase preview */}
         <section className="border-t border-neutral-200 bg-neutral-50">
