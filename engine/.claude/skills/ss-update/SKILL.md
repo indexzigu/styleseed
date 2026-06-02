@@ -1,7 +1,7 @@
 ---
 name: ss-update
 description: Update StyleSeed engine in your project — analyzes what's outdated and updates safely
-argument-hint: (no arguments needed)
+argument-hint: "(no arguments needed)"
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash
 ---
 

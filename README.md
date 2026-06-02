@@ -168,6 +168,18 @@ Use skins/stripe/theme.css for the color palette.
 cp engine/.cursorrules your-project/.cursorrules
 ```
 
+### Option 5: Install the skills with `npx skills`
+
+The slash-command skills are published in the standard `SKILL.md` format, so you can install them straight into any agent (Claude Code, Cursor, …) with [Vercel's `skills` CLI](https://github.com/vercel-labs/skills) — no manual copying:
+
+```bash
+# add all 14 StyleSeed skills to the current project
+npx skills add bitjaru/styleseed
+
+# or pick specific ones
+npx skills add bitjaru/styleseed --skill ss-motion,ss-page
+```
+
 ## How It Works: Engine + Skins
 
 ```

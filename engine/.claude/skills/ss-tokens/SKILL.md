@@ -1,7 +1,7 @@
 ---
 name: ss-tokens
 description: View, add, or modify design tokens in the StyleSeed design system
-argument-hint: [action: list|add|update] [token-type: color|spacing|shadow|radius|typography]
+argument-hint: "[action: list|add|update] [token-type: color|spacing|shadow|radius|typography]"
 allowed-tools: Read, Write, Edit, Grep, Glob
 ---
 

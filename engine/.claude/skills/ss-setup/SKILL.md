@@ -1,7 +1,7 @@
 ---
 name: ss-setup
 description: Interactive setup wizard — guides you step-by-step to configure the design system for your project
-argument-hint: (no arguments needed)
+argument-hint: "(no arguments needed)"
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash, WebFetch
 ---
 
