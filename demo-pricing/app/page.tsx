@@ -26,7 +26,7 @@ const FEATURES = [
   {
     icon: Zap,
     title: "Motion in vibe words",
-    desc: "Five named motion seeds (Spring, Silk, Snap, Float, Pulse). Spread one onto any motion element. No more guessing spring stiffness.",
+    desc: "5 named seeds (Spring, Silk, Snap, Float, Pulse) for personality, plus 20+ flashy keyword moves — tilt-3d, magnetic, glow-pulse, confetti-pop. Copy-paste, no guessing spring stiffness.",
   },
   {
     icon: Layers,
@@ -36,7 +36,7 @@ const FEATURES = [
   {
     icon: Sparkles,
     title: "AI-ready out of the box",
-    desc: "13 slash skills (/ss-component, /ss-page, /ss-motion, …) that Claude Code and Cursor read automatically. Stop fighting generic shadcn output.",
+    desc: "14 slash skills (/ss-component, /ss-page, /ss-motion, …) that Claude Code and Cursor read automatically. Stop fighting generic shadcn output.",
   },
   {
     icon: Package,
@@ -237,15 +237,21 @@ export default function HomePage() {
           <div className="mx-auto max-w-5xl px-6 py-20">
             <div className="text-center">
               <div className="text-[11px] font-bold uppercase tracking-widest text-neutral-500">
-                Motion seeds
+                Motion system
               </div>
               <h2 className="mt-2 text-[36px] font-bold leading-tight tracking-tight text-neutral-900">
-                Five vibe words. Production-grade animation.
+                Vibe words for personality. Keywords for flair.
               </h2>
               <p className="mx-auto mt-3 max-w-xl text-[15px] text-neutral-600">
-                {seedCount} named motion seeds, each with five spreadable recipes (entrance, exit,
-                hover, press, layout). Stop guessing spring params — say what you want and your LLM
-                will reach for the right one.
+                {seedCount} named seeds (each with five spreadable recipes) <em>plus</em> a library of
+                20+ scroll-stopping keyword moves — <code className="rounded bg-neutral-100 px-1 text-[13px]">tilt-3d</code>,{" "}
+                <code className="rounded bg-neutral-100 px-1 text-[13px]">magnetic</code>,{" "}
+                <code className="rounded bg-neutral-100 px-1 text-[13px]">glow-pulse</code>. Try them
+                live below, or{" "}
+                <Link href="/motion" className="font-semibold text-violet-600 underline underline-offset-2">
+                  browse the full gallery
+                </Link>
+                .
               </p>
             </div>
 
