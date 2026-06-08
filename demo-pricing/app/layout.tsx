@@ -10,12 +10,12 @@ const inter = Inter({
 const SITE_URL = "https://styleseed-demo.vercel.app";
 const SITE_NAME = "StyleSeed";
 const SITE_DESC =
-  "Drop-in React design system for vibe coding. 33 components, 7 brand DNAs, 5 motion seeds. Built for Claude Code, Cursor, and AI-assisted product work. MIT licensed.";
+  "Design engine for vibe coding — it teaches Claude Code and Cursor design judgment (69 rules), not just components. A drop-in React design system with 7 brand skins and a named motion system. MIT licensed.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "StyleSeed — Design system for vibe coding",
+    default: "StyleSeed — Design engine for vibe coding",
     template: "%s · StyleSeed",
   },
   description: SITE_DESC,
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: SITE_NAME,
-    title: "StyleSeed — Design system for vibe coding",
+    title: "StyleSeed — Design engine for vibe coding",
     description: SITE_DESC,
     url: SITE_URL,
     locale: "en_US",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "StyleSeed — Design system for vibe coding",
+    title: "StyleSeed — Design engine for vibe coding",
     description: SITE_DESC,
     images: ["/showcase-hero/finance.png"],
     creator: "@bitjaru",

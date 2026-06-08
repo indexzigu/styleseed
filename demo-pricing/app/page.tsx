@@ -31,8 +31,8 @@ const FEATURES = [
   },
   {
     icon: Layers,
-    title: "Production-grade primitives",
-    desc: "33 React components + 16 composed patterns + 69 documented design rules. No surprise gotchas after copy-paste.",
+    title: "Components + the judgment to use them",
+    desc: "33 components and 16 patterns are table stakes. The real payload is 69 documented design rules that tell the AI when and how to use each one — judgment, not just parts.",
   },
   {
     icon: Sparkles,
@@ -128,12 +128,13 @@ export default function HomePage() {
                   Showcase
                 </div>
                 <h2 className="mt-2 max-w-xl text-[36px] font-bold leading-tight tracking-tight text-neutral-900">
-                  {entries.length} finished templates · {entries.length * 7 * seedCount} live
+                  {entries.length} reference builds · {entries.length * 7 * seedCount} live
                   variants.
                 </h2>
                 <p className="mt-3 max-w-md text-[15px] text-neutral-600">
-                  Every template ships across 7 brand DNAs and {seedCount} motion seeds — toggle
-                  live in the browser. Copy the source from the repo.
+                  Not static templates — each one is the engine&rsquo;s output, re-skinning across 7
+                  brand DNAs and {seedCount} motion seeds live in the browser. Copy the source, rules
+                  and all.
                 </p>
               </div>
               <Link
@@ -218,6 +219,11 @@ export default function HomePage() {
               <h2 className="mt-2 text-[36px] font-bold leading-tight tracking-tight text-neutral-900">
                 Built for the AI-assisted product workflow.
               </h2>
+              <p className="mx-auto mt-3 max-w-xl text-[15px] text-neutral-600">
+                Most repos hand the model more data — palettes, tokens, components. StyleSeed hands it{" "}
+                <strong className="font-semibold text-neutral-900">judgment</strong>: the rules a
+                senior designer follows without thinking.
+              </p>
             </div>
 
             <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -243,8 +249,9 @@ export default function HomePage() {
               Stop redrawing. Start shipping.
             </h2>
             <p className="mx-auto mt-5 max-w-md text-[15px] text-neutral-600">
-              One repo, every brand, every motion personality. Drop StyleSeed into your next vibe
-              coding session and let your LLM produce UI that doesn’t look generated.
+              One engine, every brand, every motion personality. Drop StyleSeed into your next vibe
+              coding session and your LLM designs with a senior designer’s judgment — UI that doesn’t
+              look generated.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Link
@@ -282,7 +289,7 @@ export default function HomePage() {
               <span className="text-[15px] font-bold tracking-tight text-white">StyleSeed</span>
             </div>
             <p className="mt-2 max-w-sm text-[12px] text-neutral-400">
-              Design system for vibe coding. MIT licensed. Made by{" "}
+              Design engine for vibe coding. MIT licensed. Made by{" "}
               <a
                 href="https://github.com/bitjaru"
                 className="font-semibold text-neutral-200 hover:text-white"
@@ -297,7 +304,7 @@ export default function HomePage() {
               Showcase
             </Link>
             <Link href="/motion" className="text-neutral-300 hover:text-white">
-              Motion seeds
+              Motion
             </Link>
             <Link href="/interactions" className="text-neutral-300 hover:text-white">
               Interaction gallery
