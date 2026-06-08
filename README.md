@@ -496,7 +496,7 @@ Full guide: [engine/UPDATE.md](engine/UPDATE.md)
 
 ## Acknowledgments
 
-- Design language inspired by [Toss](https://toss.im/design-system)
+- Design language inspired by [Toss](https://toss.im)
 - Components based on [shadcn/ui](https://ui.shadcn.com/)
 - Brand skins sourced from [awesome-design-md](https://github.com/VoltAgent/awesome-design-md)
 - UX principles from [Laws of UX](https://lawsofux.com/) and [Nielsen Norman Group](https://www.nngroup.com/)
