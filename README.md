@@ -9,14 +9,22 @@
 <br />
 
 <a href="https://styleseed-demo.vercel.app">
-  <img src="showcase/demo.gif" width="640" alt="StyleSeed live demo — same chat UI morphing across Toss, Raycast, and Arc brand skins" />
+  <img src="showcase/landing.png" width="760" alt="StyleSeed — a design engine that teaches Claude Code and Cursor design judgment. Landing: Design that scales without you redrawing it." />
 </a>
 
 <br /><br />
 
-[![▶ Open AI Chat Demo](https://img.shields.io/badge/▶_AI_Chat_Demo-Live-FF4E8B?style=for-the-badge&logoColor=white)](https://styleseed-demo.vercel.app)
+[![▶ Live Demo](https://img.shields.io/badge/▶_Live_Demo-Open-111111?style=for-the-badge&logoColor=white)](https://styleseed-demo.vercel.app)
 &nbsp;
-[![▶ Open Pricing Demo](https://img.shields.io/badge/▶_Pricing_Demo-Live-6C5CE7?style=for-the-badge&logoColor=white)](https://styleseed-demo.vercel.app/pricing)
+[![▶ Motion Gallery](https://img.shields.io/badge/▶_Motion_Gallery-Live-8B5CF6?style=for-the-badge&logoColor=white)](https://styleseed-demo.vercel.app/motion)
+&nbsp;
+[![▶ Pricing](https://img.shields.io/badge/▶_Pricing-Live-6C5CE7?style=for-the-badge&logoColor=white)](https://styleseed-demo.vercel.app/pricing)
+
+<br /><br />
+
+<a href="https://styleseed-demo.vercel.app">
+  <img src="showcase/demo.gif" width="560" alt="Same chat UI morphing across Toss, Raycast, and Arc brand skins" />
+</a>
 
 **One component. Three brand DNAs.** Same chat UI morphing across Toss · Raycast · Arc — colors, radius, motion, shadows, gradients all driven by StyleSeed tokens. No rewrites. No conditional code. Just a `data-skin` attribute.
 
@@ -233,6 +241,16 @@ Most projects trying to fix AI-generated UI give the model more **data**. StyleS
 Use them together: data repos provide the skin, StyleSeed provides the brain.
 
 ## Named Motion System
+
+<div align="center">
+  <a href="https://styleseed-demo.vercel.app/motion">
+    <img src="showcase/motion-gallery.gif" width="720" alt="StyleSeed motion gallery — flashy named moves: tilt-3d, magnetic, glow-pulse, gradient-sweep, blob-morph, spotlight" />
+  </a>
+  <br />
+  <em>Flashy, named, copy-paste moves — live at <a href="https://styleseed-demo.vercel.app/motion">/motion</a></em>
+</div>
+
+<br />
 
 Most AI-generated motion is the same default fade. StyleSeed gives motion a **vocabulary** — so you (and the LLM) can name a feel and get consistent, intentional animation across every page. Two layers:
 
