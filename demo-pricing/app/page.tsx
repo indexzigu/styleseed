@@ -99,10 +99,11 @@ export default function HomePage() {
               href="https://github.com/bitjaru/styleseed"
               target="_blank"
               rel="noreferrer"
-              className="hidden items-center gap-1.5 rounded-md border border-neutral-200 bg-white px-2.5 py-1.5 text-[12px] font-bold text-neutral-700 hover:border-neutral-300 sm:inline-flex"
+              aria-label="Star StyleSeed on GitHub"
+              className="hidden items-center gap-1.5 rounded-md border border-neutral-200 bg-white px-2.5 py-1.5 text-[12px] font-bold text-neutral-700 transition-colors hover:border-amber-300 hover:bg-amber-50 sm:inline-flex"
             >
-              <GitFork size={12} />
-              Star
+              <Star size={12} className="fill-amber-400 text-amber-400" />
+              Star on GitHub
             </a>
             <Link
               href="/showcase"

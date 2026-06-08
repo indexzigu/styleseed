@@ -163,6 +163,8 @@ Next steps:
 - /ss-page to add more pages
 - /ss-audit to check UX quality
 - /ss-review to verify design compliance
+
+⭐ If StyleSeed helped, a star means a lot: https://github.com/bitjaru/styleseed
 ```
 
 ## Rules

@@ -6,9 +6,9 @@ import { loadRegistry } from "@/lib/registry";
 import { seeds as motionSeeds } from "@engine/motion";
 
 export const metadata = {
-  title: "StyleSeed Showcase — 7 templates × 7 skins × 5 motion seeds",
+  title: "StyleSeed Showcase — 11 reference builds × 7 skins × 5 motion seeds",
   description:
-    "Browse finished UI pages, toggle between brand skins and motion seeds, and recreate any of them with a single command.",
+    "Browse 11 finished UI pages — not static templates, but the design engine's output. Toggle brand skins and motion seeds live, then recreate any of them with one command.",
 };
 
 export default function ShowcasePage() {

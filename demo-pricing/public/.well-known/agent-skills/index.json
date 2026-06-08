@@ -83,7 +83,7 @@
       "type": "skill-md",
       "description": "Interactive setup wizard — guides you step-by-step to configure the design system for your project",
       "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-setup/SKILL.md",
-      "digest": "sha256:0a78c981de123fcea2d38fa59e38abeadb70e3a71fc3f9f57347301d87c685a6"
+      "digest": "sha256:267406569a2c198660797d500a56b8708edb89944bed7e647c97cbf7d0e231f4"
     },
     {
       "name": "ss-tokens",
