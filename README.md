@@ -215,7 +215,7 @@ npx skills add bitjaru/styleseed --skill ss-motion,ss-page
 
 **Skin** = what your app looks like (visual identity)
 - Just a `theme.css` file with color variables
-- 5 built-in skins: Toss, Stripe, Linear, Vercel, Notion
+- 7 built-in skins: Toss, Stripe, Linear, Notion, Raycast, Arc, Vercel
 - 58+ more available from [awesome-design-md](https://github.com/VoltAgent/awesome-design-md)
 - Or create your own (change `--brand` and you're done)
 

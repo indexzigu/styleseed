@@ -517,6 +517,7 @@ Custom skills available in the project:
 | `/ss-review` | Check UI code for design system compliance | `/ss-review src/app/MyPage.tsx` |
 | `/ss-tokens` | Query/add/modify design tokens | `/ss-tokens list color` |
 | `/ss-pattern` | Generate composed UI patterns | `/ss-pattern grid-2col KPI card grid` |
+| `/ss-motion` | Apply a named motion — a seed or a keyword move | `/ss-motion toggle-flip` |
 | `/ss-a11y` | Accessibility audit and auto-fix | `/ss-a11y src/components/Card.tsx` |
 | `/ss-flow` | Design user flows and navigation maps | `/ss-flow checkout multi-step checkout` |
 | `/ss-audit` | Audit screens for UX issues (Nielsen's heuristics) | `/ss-audit src/app/Dashboard.tsx` |
