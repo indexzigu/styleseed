@@ -2,9 +2,9 @@
 
 <br />
 
-# styleseed
+# StyleSeed
 
-### The design system for Claude Code, Cursor, and vibe coding.
+### The design engine for Claude Code, Cursor, and vibe coding.
 
 <br />
 
