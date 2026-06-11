@@ -42,13 +42,13 @@ export const metadata: Metadata = {
     title: "Motion Keywords — name the motion, drop it in, ship the feel",
     description,
     siteName: "StyleSeed",
-    images: [{ url: `${BASE}/showcase-hero/finance.png`, width: 1440, height: 900 }],
+    images: [{ url: `${BASE}/og/motion.png`, width: 1280, height: 640 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Motion Keywords — copy-paste framer-motion presets",
     description,
-    images: [`${BASE}/showcase-hero/finance.png`],
+    images: [`${BASE}/og/motion.png`],
   },
 };
 

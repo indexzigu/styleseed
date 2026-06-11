@@ -29,13 +29,13 @@ export const metadata: Metadata = {
     title: "Same prompt. Same components. One has judgment.",
     description,
     siteName: "StyleSeed",
-    images: [{ url: `${BASE}/showcase-hero/finance.png`, width: 1440, height: 900 }],
+    images: [{ url: `${BASE}/og/why.png`, width: 1280, height: 640 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Same prompt. Same components. One has judgment.",
     description,
-    images: [`${BASE}/showcase-hero/finance.png`],
+    images: [`${BASE}/og/why.png`],
   },
 };
 

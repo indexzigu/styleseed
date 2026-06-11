@@ -5,10 +5,28 @@ import { listShowcase } from "@/lib/showcase";
 import { loadRegistry } from "@/lib/registry";
 import { seeds as motionSeeds } from "@engine/motion";
 
+const OG = "https://styleseed-demo.vercel.app/og/showcase.png";
+const SHOW_DESC =
+  "Browse 11 finished UI pages — not static templates, but the design engine's output. Toggle brand skins and motion seeds live, then recreate any of them with one command.";
+
 export const metadata = {
   title: "StyleSeed Showcase — 11 reference builds × 7 skins × 5 motion seeds",
-  description:
-    "Browse 11 finished UI pages — not static templates, but the design engine's output. Toggle brand skins and motion seeds live, then recreate any of them with one command.",
+  description: SHOW_DESC,
+  alternates: { canonical: "https://styleseed-demo.vercel.app/showcase" },
+  openGraph: {
+    type: "website",
+    url: "https://styleseed-demo.vercel.app/showcase",
+    title: "StyleSeed Showcase — 11 reference builds, every brand, every motion",
+    description: SHOW_DESC,
+    siteName: "StyleSeed",
+    images: [{ url: OG, width: 1280, height: 640 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "StyleSeed Showcase — 11 reference builds, every brand, every motion",
+    description: SHOW_DESC,
+    images: [OG],
+  },
 };
 
 export default function ShowcasePage() {
