@@ -223,7 +223,10 @@ export default function HomePage() {
               <p className="mx-auto mt-3 max-w-xl text-[15px] text-neutral-600">
                 Most repos hand the model more data — palettes, tokens, components. StyleSeed hands it{" "}
                 <strong className="font-semibold text-neutral-900">judgment</strong>: the rules a
-                senior designer follows without thinking.
+                senior designer follows without thinking.{" "}
+                <Link href="/why" className="font-semibold text-violet-600 underline underline-offset-2">
+                  See the before/after →
+                </Link>
               </p>
             </div>
 
@@ -301,6 +304,9 @@ export default function HomePage() {
             </p>
           </div>
           <nav className="flex flex-wrap gap-x-6 gap-y-2 text-[12px] font-semibold">
+            <Link href="/why" className="text-neutral-300 hover:text-white">
+              Why StyleSeed
+            </Link>
             <Link href="/showcase" className="text-neutral-300 hover:text-white">
               Showcase
             </Link>
