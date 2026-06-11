@@ -107,6 +107,16 @@ Drop `DESIGN-LANGUAGE.md` into your Claude Design workflow and the same model pr
 
 ## Get Started
 
+### ⚡ Fastest: the one-click starter
+
+[**styleseed-starter**](https://github.com/bitjaru/styleseed-starter) is a working React app with the whole engine pre-installed — rules, skills, components, motion, and a sample dashboard. Deploy it, or use it as a GitHub template, then just ask Claude Code / Cursor for UI.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbitjaru%2Fstyleseed-starter&project-name=styleseed-app&repository-name=styleseed-app)
+&nbsp;
+[![Use this template](https://img.shields.io/badge/Use_this_template-2ea44f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/bitjaru/styleseed-starter/generate)
+
+Prefer to add StyleSeed to an existing project? Use one of the options below.
+
 > **New to this? Read top to bottom — every step matters.** The most common
 > mistake is expecting `/ss-setup` to work before the skills are copied into
 > `.claude/skills/`. Do step 1 first.
