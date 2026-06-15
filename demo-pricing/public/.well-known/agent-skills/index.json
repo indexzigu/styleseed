@@ -104,7 +104,7 @@
       "type": "skill-md",
       "description": "Update StyleSeed engine in your project — analyzes what's outdated and updates safely",
       "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-update/SKILL.md",
-      "digest": "sha256:82ff5266a94a081fc4a279aa2ab932c26b842a13f2c9032265e1e047387879c0"
+      "digest": "sha256:da7971129b59fd68a227baf5328acd43e2eb6fb33cfc2f0fa550f78bbc9a50d3"
     }
   ]
 }

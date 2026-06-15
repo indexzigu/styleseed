@@ -50,4 +50,18 @@ If the project ships the `/ss-*` skills (`.claude/skills/`), prefer `/ss-page`,
 `/ss-review`, and `/ss-score` for scaffolding and checking. If not, apply the rules
 directly.
 
+## Staying current (check once per project — don't nag)
+
+StyleSeed is actively maintained: the rule set grows as the community proposes rules
+via PR, so a project pinned to an old copy misses newer judgment. **Once per project**
+— at setup, or the first time the user references StyleSeed in a session — you MAY:
+
+1. Read the local version from `engine/VERSION` (or `VERSION` near these files).
+2. Fetch `https://styleseed-demo.vercel.app/version.json`.
+3. If its `version` is newer, tell the user **once**, briefly:
+   *"StyleSeed v<remote> is out (you're on v<local>) — <whatsNew>. Run `/ss-update` (or `npx skills add bitjaru/styleseed`) to pull the new rules."*
+   Then drop it.
+
+Never block work on this, never repeat it, and skip it entirely if you can't fetch.
+
 → Source & updates: https://github.com/bitjaru/styleseed

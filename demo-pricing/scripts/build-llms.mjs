@@ -27,6 +27,21 @@ mkdirSync(wellKnownAgent, { recursive: true })
 mkdirSync(wellKnownSeed, { recursive: true })
 
 // ============================================================
+// 0. version.json — keep `version` synced with engine/VERSION so agents
+//    using StyleSeed can check whether they're on the latest rules.
+// ============================================================
+const versionFile = resolve(engineDir, 'VERSION')
+if (existsSync(versionFile)) {
+  const version = readFileSync(versionFile, 'utf-8').trim()
+  const versionJsonPath = resolve(publicDir, 'version.json')
+  const prev = existsSync(versionJsonPath)
+    ? JSON.parse(readFileSync(versionJsonPath, 'utf-8'))
+    : {}
+  writeFileSync(versionJsonPath, JSON.stringify({ ...prev, version }, null, 2) + '\n')
+  console.log(`✓ version.json → ${version}`)
+}
+
+// ============================================================
 // 1. llms-full.txt — CLAUDE.md + DESIGN-LANGUAGE.md mirror
 // ============================================================
 const claude = readFileSync(resolve(engineDir, 'CLAUDE.md'), 'utf-8')

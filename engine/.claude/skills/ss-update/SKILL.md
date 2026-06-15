@@ -54,7 +54,17 @@ Report what was found and where.
 
 ### Step 2: Check StyleSeed Version
 
-Clone or pull latest styleseed:
+**Fast check first** — compare the local version to the published one without cloning:
+```bash
+# local marker (may be absent on older installs)
+cat engine/VERSION 2>/dev/null || cat VERSION 2>/dev/null || echo "unknown"
+# latest published version + what's new
+curl -s https://styleseed-demo.vercel.app/version.json
+```
+If the local version already matches `version.json`'s `version`, tell the user they're
+up to date and stop. Otherwise report `whatsNew` and continue.
+
+Then clone/pull to actually diff the files:
 ```bash
 if [ -d "/tmp/styleseed" ]; then
   cd /tmp/styleseed && git pull
@@ -63,11 +73,12 @@ else
 fi
 ```
 
-Compare versions:
-- Check if DESIGN-LANGUAGE.md has the Table of Contents (new version does)
-- Check if Golden Rules exist in CLAUDE.md
-- Count skills (latest = 12)
-- Check if .cursorrules exists
+Compare:
+- `engine/VERSION` (or `version.json`) vs the local copy — the source of truth
+- DESIGN-LANGUAGE.md rule count + Table of Contents
+- Skills present in `.claude/skills/` vs upstream (don't hardcode a count — list the diff)
+- Whether `CLAUDE.md`, `AGENTS.md`, and `.cursorrules` exist (ship all three)
+- New engine docs (VISUAL-CRAFT.md, APP-PLAYBOOKS.md, PAGE-TYPES.md)
 
 ### Step 3: Report & Ask
 

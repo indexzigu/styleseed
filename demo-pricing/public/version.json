@@ -1,0 +1,11 @@
+{
+  "version": "2.3.0",
+  "released": "2026-06-15",
+  "rules": 74,
+  "skills": 15,
+  "skins": 7,
+  "whatsNew": "Design judgment: APP-PLAYBOOKS + PAGE-TYPES (domain & page-type bias), VISUAL-CRAFT.md (coherence laws), /ss-score, 8 /guides pages, agent-agnostic (CLAUDE.md/AGENTS.md/.cursorrules).",
+  "update": "Run /ss-update, or: npx skills add bitjaru/styleseed",
+  "changelog": "https://github.com/bitjaru/styleseed/releases",
+  "repo": "https://github.com/bitjaru/styleseed"
+}

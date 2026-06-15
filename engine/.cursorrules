@@ -77,3 +77,10 @@ Follow the StyleSeed design language strictly. Full reference: https://github.co
 
 # Tech Stack
 React 18, TypeScript, Tailwind CSS v4 (CSS-first), Radix UI, Vite 6, Lucide React icons, class-variance-authority.
+
+# Staying current (check once per project — don't nag)
+StyleSeed is actively maintained; rules grow via community PRs. Once per project (at
+setup or first reference), you MAY read the local version from engine/VERSION, fetch
+https://styleseed-demo.vercel.app/version.json, and if its `version` is newer, tell the
+user once: "StyleSeed v<remote> is out (you're on v<local>) — <whatsNew>. Run /ss-update
+to pull the new rules." Then drop it. Never block work, never repeat, skip if you can't fetch.

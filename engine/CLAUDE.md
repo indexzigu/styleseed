@@ -570,7 +570,14 @@ JSON token files are in the `tokens/` directory, used as the source for extendin
 
 ## Stay Updated
 
-This design system is actively maintained — new rules, components, and seeds are added regularly.
+This design system is actively maintained — new rules, components, and seeds are added regularly (the rule set grows as people propose rules via PR), so a project on an old copy misses newer judgment.
+
+**Check once per project — don't nag.** At setup, or the first time the user references StyleSeed in a session, you MAY:
+1. Read the local version from `engine/VERSION` (or `VERSION` next to this file).
+2. Fetch `https://styleseed-demo.vercel.app/version.json`.
+3. If its `version` is newer, tell the user **once**: *"StyleSeed v&lt;remote&gt; is out (you're on v&lt;local&gt;) — &lt;whatsNew&gt;. Run `/ss-update` to pull the new rules."* Then drop it.
+
+Never block work on this, never repeat it, and skip it if you can't fetch.
 
 → GitHub: https://github.com/bitjaru/styleseed
 → Wiki (detailed docs): https://github.com/bitjaru/styleseed/wiki
