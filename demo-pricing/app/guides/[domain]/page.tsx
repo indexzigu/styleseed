@@ -18,7 +18,7 @@ export async function generateMetadata({
   const { domain } = await params;
   const d = DOMAIN_BY_SLUG[domain];
   if (!d) return {};
-  const title = `${d.seoName} — color, density, typography & motion · StyleSeed`;
+  const title = `${d.seoName} — color, density, typography & motion`;
   const description = `${d.dna} A practical design guide for ${d.name.toLowerCase()}: how to bias color, density, typography, motion, and patterns — and which StyleSeed skin fits.`;
   return {
     title,
