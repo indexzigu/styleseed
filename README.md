@@ -463,25 +463,38 @@ Full docs in the **[Wiki](../../wiki)** — design rules reference, composition 
 
 ## Contributing
 
+StyleSeed is a **living judgment framework** — the rules aren't carved in stone. If you use it and
+find a pattern that reliably makes UI better, teach it to everyone's AI by proposing it as a rule.
+
+### ⭐ Propose a design rule (the heart of it)
+
+A good rule is a **decision + the reason it works**, written so a model can apply it — not an opinion.
+
+```markdown
+**Rule:** Numbers are 2:1 with their unit (a 48px value over a 24px unit).
+**Why it works:** The eye locks onto magnitude first; equal sizes flatten the value into noise.
+**Source:** Refactoring UI.
+```
+
+Open a **["Propose a design rule"](https://github.com/bitjaru/styleseed/issues/new?template=design_rule.yml)**
+issue, or PR it into `engine/DESIGN-LANGUAGE.md` (visual/layout) or `engine/VISUAL-CRAFT.md` (craft &
+coherence). The judgment compounds as the community adds to it.
+
 ### Create a New Skin
 
 Just a `theme.css` + `skin.json`:
 ```bash
 mkdir skins/your-brand
-# Copy any existing skin as starting point
-cp skins/toss/theme.css skins/your-brand/theme.css
+cp skins/toss/theme.css skins/your-brand/theme.css   # copy a skin as a starting point
 # Change the --brand color and other values
 ```
 
 ### Improve the Engine
 
-Better rules → better AI output:
-- More specific design rules
-- New pattern components
-- Accessibility improvements
-- New AI skills
+Better rules → better AI output: more specific design rules, new pattern components, accessibility
+improvements, new AI skills.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the full rule format and quality checklist.
 
 ## Updating
 
