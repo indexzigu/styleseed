@@ -1,7 +1,7 @@
 # StyleSeed — Full Context
 
 Source: github.com/bitjaru/styleseed (engine/CLAUDE.md + engine/DESIGN-LANGUAGE.md)
-Generated: 2026-06-15T04:11:48.634Z
+Generated: 2026-06-15T04:34:45.790Z
 
 ---
 
@@ -32,6 +32,8 @@ Reference this guide when Claude Code sets up a new project or implements UI.
 > - **This file (CLAUDE.md)**: Tokens, component API, imports, forbidden patterns — reference while coding
 > - **DESIGN-LANGUAGE.md**: Visual design rules, page layout, composition recipes — read **before** building a new page. Start with the Table of Contents, then rules 14, 18, 19, 61-63.
 > - **METHODOLOGY.md**: UI/UX reasoning patterns (progressive disclosure, info density, atomic design, skeleton/empty/microinteraction, contextual onboarding, Linear/Toss aesthetic, color discipline, motion vibe vocabulary) — read **before scaffolding a new dashboard** or when wondering *why* the rules in DESIGN-LANGUAGE.md exist. Chapter 8 (Motion Vibe Vocabulary) is the entry point for the `engine/motion/` seed system.
+> - **APP-PLAYBOOKS.md**: How to **bias** the rules for the app's domain (fintech, SaaS, e-commerce, social, content, productivity, health, education, dev-tools, marketplace, booking, AI/chat). Read **right after you know what kind of app this is** (e.g. from `/ss-setup`), before scaffolding — a fintech dashboard and a social dashboard apply the same 69 rules differently.
+> - **PAGE-TYPES.md**: How to bias the rules for the **screen type** (dashboard / form / landing / detail / list / settings / onboarding). Read before building a specific page. Domain × page-type together = the actual design judgment.
 
 ## Quick Start — New Project Setup
 
@@ -3260,3 +3262,104 @@ A dashboard page should have **at least 4 sections** to feel complete:
 ### Context (2)
 10. Charts always paired with stat context (footer or header)
 11. Empty sections show EmptyState, never removed from layout
+
+---
+
+## 70. Form & Input Rules
+
+Forms are where StyleSeed was historically thin (dashboard-heavy). These are
+binding rules, not suggestions.
+
+1. **Single column.** Multi-column forms make the eye zig-zag. One column, top to
+   bottom. (Exception: short, tightly-related pairs like City/Zip.)
+2. **Labels above fields, never as placeholder.** Placeholder-as-label disappears
+   on focus and fails accessibility. Placeholders are for *examples* only.
+3. **Group into SectionCards** by topic. A 12-field form is three 4-field cards,
+   not one wall.
+4. **One primary action.** Bottom or sticky. Primary is visually dominant;
+   secondary/cancel is quiet (ghost/text). Never two primaries.
+5. **Validate on blur, not on every keystroke.** Don't yell at someone mid-typing.
+   Show success/error after the field loses focus or on submit.
+6. **Errors must guide recovery.** "Invalid email" is bad; "Use the format
+   name@domain.com" is good. Pair the error color with text + an icon (never color
+   alone). A subtle `wiggle` on the field is allowed.
+7. **Required vs optional must be explicit** — mark one consistently (usually mark
+   optional, since most are required).
+8. **Don't disable the submit silently.** If disabled, say why ("Fill required
+   fields"). Prefer enabled + validate-on-submit.
+9. **Inputs use `--radius` (md), ≥44px tall on touch, proper keyboard** (`type` /
+   `inputmode` for numbers, email, tel).
+
+## 71. State Rules (Empty / Loading / Error / Success)
+
+Every data surface has four states, not one. Designing only the "happy, full"
+state is the most common AI omission.
+
+1. **Empty is onboarding.** `EmptyState` = icon + title + one-line description +
+   a primary action. Never a blank area, never just "No data."
+2. **Loading uses skeletons, not spinners,** for content that has a known shape
+   (lists, cards, tables) — `shimmer` over the real layout. Spinners only for
+   indeterminate, full-page waits.
+3. **Never lay out around missing data.** An empty section keeps its slot with an
+   EmptyState (Rule 11) — don't collapse the layout and shift everything.
+4. **Error states are recoverable.** Show what failed + a retry/next action. Don't
+   dump a stack trace; don't leave a dead screen.
+5. **Success is felt, briefly.** A toast or inline confirmation, then get out of
+   the way. Celebration motion (`pop-in`, `confetti-pop`) only for a genuine
+   milestone (first deposit, course complete), not routine saves.
+6. **Optimistic where safe** — reflect the action immediately, reconcile on
+   response; roll back visibly on failure.
+
+## 72. Accessibility Rules (non-negotiable)
+
+1. **Contrast:** body text ≥ 4.5:1, large text/icons ≥ 3:1 against their
+   background. The "#2A2A2A not #000" rule still must clear contrast on your skin.
+2. **Never convey meaning by color alone.** Status = color **+** dot/icon/text.
+   A red number is also labeled or arrowed.
+3. **Touch targets ≥ 44×44px.** Tiny icon-only buttons get padding to reach it.
+4. **Focus is always visible** — `focus-visible:ring-2 ring-ring ring-offset-2` on
+   every interactive element. Never `outline: none` without a replacement.
+5. **Semantic structure** — one `h1`, logical heading order, real `<button>`/
+   `<a>` (not click-divs), `alt` on images, `aria-label` on icon-only controls,
+   `sr-only` for visually-hidden context.
+6. **Respect `prefers-reduced-motion`** — all entrance/loop/parallax motion drops
+   to ~0.01s (the motion seeds already do this; custom motion must too).
+
+## 73. Responsive & Mobile Rules
+
+StyleSeed is mobile-first; desktop is the enhancement.
+
+1. **One column on mobile.** Multi-column grids collapse to a single column or a
+   horizontal-scroll carousel — never shrink 4 columns into unreadable slivers.
+2. **`mx-6` for single cards, `px-6` for grids/carousels** — at every breakpoint.
+   Never `px-4`/`px-8`.
+3. **Thumb reach:** primary actions in the bottom third on mobile; sticky
+   action/save bars sit above the keyboard.
+4. **Type scales, hierarchy doesn't.** A 48px hero may become 36px on mobile, but
+   it stays the largest thing — don't flatten the hierarchy to fit.
+5. **Touch affordances:** swipe-to-act on list rows, bottom sheets instead of
+   center modals, ≥44px everything.
+6. **Hover is a bonus, not a requirement** — anything reachable only on hover must
+   also be reachable by tap/focus.
+
+## 74. Rule Priority & Conflict Resolution
+
+When rules, domain bias, and page-type needs pull different directions, resolve in
+this fixed order — higher wins:
+
+1. **Accessibility (§72)** — never traded away. A "prettier" choice that fails
+   contrast or focus is wrong, full stop.
+2. **Prohibition Rules (§18)** — the absolute don'ts (#000, content outside cards,
+   6 accents, visible shadows…).
+3. **Page-type job** (`PAGE-TYPES.md`) — the screen must do its job (a form must
+   be fillable, a landing must convert, a dashboard must be scannable).
+4. **Core hierarchy rules** (color discipline, 2:1 numbers, rhythm, density).
+5. **Domain bias** (`APP-PLAYBOOKS.md`) — lean into the domain's DNA *within* all
+   of the above.
+6. **Local aesthetic preference** — only after 1–5 are satisfied.
+
+> Worked example: a fintech app (domain: maximum restraint) onboarding screen
+> (page-type job: reward the first win). Restraint loses to neither accessibility
+> nor the page-type job — so one celebratory `confetti-pop` on the first deposit
+> is correct, while a rainbow palette across the app is not. The domain biases the
+> *resting* state; the page-type earns the *exception*.
