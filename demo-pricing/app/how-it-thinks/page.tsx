@@ -114,6 +114,14 @@ export default function HowItThinks() {
             This is the framework your AI is reading.
           </p>
         </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/coherence-mixed-vs-unified.svg"
+          alt="Same content, two cards: a 'mixed' card with three accent colors and mixed corner radii looks off; a 'one system' card with one accent and one radius looks designed. The only difference is coherence."
+          width={1200}
+          height={680}
+          className="mx-auto mt-2 w-full max-w-3xl px-6 pb-10"
+        />
       </section>
 
       {/* reasoning blocks */}
