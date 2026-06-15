@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import "./showcase/examples";
 import { listShowcase } from "@/lib/showcase";
+import { MOTION_LIBRARY } from "@engine/motion";
 
 const BASE = "https://styleseed-demo.vercel.app";
 
@@ -24,5 +25,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...showcaseRoutes];
+  // programmatic SEO: one page per named motion keyword
+  const motionRoutes: MetadataRoute.Sitemap = MOTION_LIBRARY.map((m) => ({
+    url: `${BASE}/motion/${m.key}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...staticRoutes, ...showcaseRoutes, ...motionRoutes];
 }
