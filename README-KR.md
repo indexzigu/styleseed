@@ -92,7 +92,19 @@ Claude Code한테 "대시보드 만들어줘" 하면 보통 이런 결과가 나
 
 차이점? AI한테 **디자이너의 판단 기준**을 심어준 것.
 
+**[before/after 직접 보기 →](https://styleseed-demo.vercel.app/why)** — 같은 대시보드 브리프를, 일반 AI 출력 vs 69룰 적용으로 나란히. 각 차이가 어떤 룰 때문인지 주석까지.
+
 ## 사용법
+
+### ⚡ 가장 빠른 방법: 원클릭 스타터
+
+[**styleseed-starter**](https://github.com/bitjaru/styleseed-starter)는 엔진이 전부 깔린 실제 동작 React 앱입니다 — 룰·스킬·컴포넌트·모션·샘플 대시보드까지. 배포하거나 템플릿으로 복사한 뒤, Claude Code/Cursor에 UI를 요청하면 됩니다.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbitjaru%2Fstyleseed-starter&project-name=styleseed-app&repository-name=styleseed-app)
+&nbsp;
+[![Use this template](https://img.shields.io/badge/Use_this_template-2ea44f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/bitjaru/styleseed-starter/generate)
+
+기존 프로젝트에 추가하려면 아래 방법을 쓰세요.
 
 ### 방법 1: 인터랙티브 설정 (추천)
 

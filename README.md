@@ -65,6 +65,8 @@ Then it hit me: **a junior designer with Toss's palette still ships ugly dashboa
 
 Design data is the paint. Design judgment is knowing where to put it.
 
+**[See the before/after →](https://styleseed-demo.vercel.app/why)** — the same dashboard brief, generated generically vs. with the 69 rules applied. Every fix annotated with the rule behind it.
+
 StyleSeed is a **design engine** — 69 visual rules, 48 components, a named motion system, and 14 slash commands that teach LLMs the judgment, not just the data:
 
 ```
