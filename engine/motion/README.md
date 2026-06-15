@@ -47,6 +47,33 @@ import { motion } from "framer-motion"
 | floaty, gentle, weightless, dreamy, ambient, drifting | Float |
 | rhythmic, punchy, pulsing, heartbeat, beat | Pulse |
 
+## Motion by use-case (a light rule)
+
+`MOTION_BY_USECASE` maps a common UI moment to the seed or keyword that fits — a
+*starting point*, not a mandate. Powers the "which motion when" cheat on `/motion`
+and the recommend mode in `/ss-motion`.
+
+| Use case | Reach for | Why |
+|---|---|---|
+| Primary button / CTA press | `spring · press` | tactile, confident |
+| Modal / dialog / sheet enter | `silk · entrance` | smooth; never bounce serious content |
+| Dropdown / popover / menu | `snap · entrance` | instant, precise |
+| Toast / notification | `spring · entrance` | friendly, non-blocking |
+| List / feed items appearing | `stagger-cascade` | choreograph order |
+| Marketing card hover | `tilt-3d` | depth/flair on content-light surfaces |
+| Dashboard / data card hover | `snap · hover` | a subtle lift; keep dense UI calm |
+| Like / favorite | `like-burst` | celebratory one-shot |
+| Live / online dot | `pulse-beat` | looping "alive" |
+| Loading / skeleton | `shimmer` | calm progress |
+| Success | `pop-in` | positive "done" |
+| Toggle / tab switch | `toggle-flip` | distinctive switch |
+| Page transition | `silk · entrance` | smooth, minimal |
+| Number / balance / price reveal | **none** | never animate the payload — it must read instantly |
+
+**Two anti-rules override the table:** (1) **one seed per product** — keep one
+personality; (2) **never delay the payload** — don't animate a balance, price, or
+search result into view. Motion is for affordance, not content.
+
 ## Brand → seed defaults
 
 `BRAND_DEFAULT_SEED` ships a sensible motion default per StyleSeed skin. Users may override per page or per element.

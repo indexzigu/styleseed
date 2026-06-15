@@ -31,6 +31,33 @@ Translate the user's prompt to one of the five seeds before applying. Use this l
 
 If the user says only a *brand* name, use that brand's default seed from `BRAND_DEFAULT_SEED`. If the user is explicit about a seed name (`spring`, `silk`, etc.), respect it verbatim.
 
+## Recommend mode — use-case → motion (when the user describes the *moment*, not the vibe)
+
+If the user describes **what the thing is** ("a like button", "a modal", "the loading
+state", "items in a feed") rather than a feeling, recommend from the use-case map
+(`MOTION_BY_USECASE` in `engine/motion/library.ts`, exported from `@engine/motion`):
+
+| Use case | Reach for | Why |
+|---|---|---|
+| Primary button / CTA press | `spring · press` | tactile, confident — the press should "give" |
+| Modal / dialog / sheet enter | `silk · entrance` | smooth; never bounce serious/destructive content |
+| Dropdown / popover / menu | `snap · entrance` | instant, precise — frequent UI shouldn't wait |
+| Toast / inline notification | `spring · entrance` | small friendly arrival, non-blocking |
+| List / feed items appearing | `stagger-cascade` | choreograph order, gently |
+| Feature / marketing card hover | `tilt-3d` | depth/flair OK on content-light marketing |
+| Dashboard / data card hover | `snap · hover` | a subtle lift only — keep dense UI calm |
+| Like / favorite / reaction | `like-burst` | a celebratory one-shot; reward the tap |
+| Live / online / recording dot | `pulse-beat` | looping heartbeat = "alive" |
+| Loading / skeleton | `shimmer` | calm directional progress |
+| Success / confirmation | `pop-in` | positive little "done" |
+| Toggle / tab / segment switch | `toggle-flip` | distinctive, recognizable switch |
+| Page / route transition | `silk · entrance` | smooth, minimal, get out of the way |
+| Number / balance / KPI / price reveal | **none** | don't animate the payload — it must read instantly |
+
+**Two anti-rules override the table** (state them if you deviate):
+1. **One seed per product.** If the project already uses a seed, match it — don't introduce a second personality.
+2. **Never delay the payload.** Don't animate a balance, price, or search result into view; motion is for affordance, not content.
+
 ## Named motion keywords (distinctive moves)
 
 Seeds set a *personality* (how a fade/scale feels). The **motion library** in

@@ -48,6 +48,42 @@ export const MOTION_CATEGORIES: { id: MotionCategory; label: string; blurb: stri
   { id: "list", label: "List", blurb: "Choreography across many items." },
 ];
 
+/**
+ * Motion by use-case — a LIGHT rule, not a mandate. Maps a common UI moment to
+ * the seed or keyword that fits, with the one-line reason. Powers the "which
+ * motion when" cheat on /motion and the recommend mode in /ss-motion.
+ *
+ * Two anti-rules override everything below:
+ *   1. ONE seed per product — pick a personality and keep it; mixing reads as sloppy.
+ *   2. NEVER delay content the user came for — don't animate a balance, a search
+ *      result, or a price into view. Motion is for affordance, not for the payload.
+ */
+export interface MotionUseCase {
+  /** the UI moment */
+  useCase: string;
+  /** recommended seed id or keyword handle */
+  recommend: string;
+  /** one-line why */
+  why: string;
+}
+
+export const MOTION_BY_USECASE: MotionUseCase[] = [
+  { useCase: "Primary button / CTA press", recommend: "spring · press", why: "Tactile, confident feedback — the press should feel like it 'gives'." },
+  { useCase: "Modal / dialog / bottom sheet enter", recommend: "silk · entrance", why: "Smooth and composed; never bounce serious or destructive content in." },
+  { useCase: "Dropdown / popover / menu", recommend: "snap · entrance", why: "Instant and precise — frequent UI shouldn't make you wait." },
+  { useCase: "Toast / inline notification", recommend: "spring · entrance", why: "A small friendly arrival that catches the eye without blocking." },
+  { useCase: "List / feed items appearing", recommend: "stagger-cascade", why: "Choreograph many items so the eye follows the order, gently." },
+  { useCase: "Feature / marketing card hover", recommend: "tilt-3d", why: "Depth and flair are welcome on content-light marketing surfaces." },
+  { useCase: "Dashboard / data card hover", recommend: "snap · hover", why: "A subtle lift only — restraint keeps a dense data UI calm." },
+  { useCase: "Like / favorite / reaction", recommend: "like-burst", why: "A celebratory one-shot; reward the tap." },
+  { useCase: "Live / online / recording dot", recommend: "pulse-beat", why: "A looping heartbeat signals 'alive' without stealing focus." },
+  { useCase: "Loading / skeleton", recommend: "shimmer", why: "Calm, directional progress — communicates work without anxiety." },
+  { useCase: "Success / confirmation", recommend: "pop-in", why: "A positive little arrival that says 'done'." },
+  { useCase: "Toggle / tab / segment switch", recommend: "toggle-flip", why: "A distinctive, recognizable switch tied to one handle." },
+  { useCase: "Page / route transition", recommend: "silk · entrance", why: "Smooth and minimal; get out of the way fast." },
+  { useCase: "Number / balance / KPI / price reveal", recommend: "none", why: "Don't animate the payload — the user came to read it instantly." },
+];
+
 export const MOTION_LIBRARY: MotionKeyword[] = [
   // ── Flair (showy, cursor/scroll-aware) ───────────────────
   {

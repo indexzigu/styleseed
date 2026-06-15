@@ -6,6 +6,7 @@ import { Check, Copy } from "lucide-react";
 import {
   MOTION_LIBRARY,
   MOTION_CATEGORIES,
+  MOTION_BY_USECASE,
   type MotionKeyword,
 } from "@engine/motion";
 import { ACCENT, DEMOS, FallbackDemo } from "./_demos";
@@ -35,6 +36,50 @@ export default function MotionLibraryPage() {
             Vibe-code your own motion → read the guide
           </Link>
         </header>
+
+        {/* which motion when — a light rule, not a mandate */}
+        <section className="mb-14">
+          <div className="mb-1 flex items-baseline gap-3">
+            <h2 className="text-[20px] font-bold tracking-tight">Which motion when</h2>
+            <span className="text-[13px] text-neutral-500">a starting point, not a mandate</span>
+          </div>
+          <p className="mb-5 max-w-2xl text-[13px] leading-relaxed text-neutral-500">
+            Two rules override the table: <strong className="text-neutral-700">pick one seed and keep
+            it</strong> across the product, and <strong className="text-neutral-700">never animate the
+            payload</strong> — don&rsquo;t bounce a balance, price, or search result into view.
+          </p>
+          <div className="overflow-hidden rounded-2xl bg-white" style={{ boxShadow: "0 1px 2px rgba(0,0,0,0.04), 0 6px 18px rgba(0,0,0,0.06)" }}>
+            <table className="w-full text-left text-[13px]">
+              <thead>
+                <tr className="border-b border-neutral-100 text-[11px] font-bold uppercase tracking-wider text-neutral-400">
+                  <th className="px-4 py-3 font-bold">Use case</th>
+                  <th className="px-4 py-3 font-bold">Reach for</th>
+                  <th className="hidden px-4 py-3 font-bold sm:table-cell">Why</th>
+                </tr>
+              </thead>
+              <tbody>
+                {MOTION_BY_USECASE.map((u) => (
+                  <tr key={u.useCase} className="border-b border-neutral-50 last:border-0">
+                    <td className="px-4 py-2.5 font-semibold text-neutral-800">{u.useCase}</td>
+                    <td className="px-4 py-2.5">
+                      <code
+                        className="rounded-md px-2 py-1 text-[12px] font-bold"
+                        style={
+                          u.recommend === "none"
+                            ? { background: "#F1F5F9", color: "#64748B" }
+                            : { background: `${ACCENT.reveal}14`, color: ACCENT.reveal }
+                        }
+                      >
+                        {u.recommend}
+                      </code>
+                    </td>
+                    <td className="hidden px-4 py-2.5 text-neutral-500 sm:table-cell">{u.why}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
 
         {MOTION_CATEGORIES.map((cat) => {
           const entries = MOTION_LIBRARY.filter((m) => m.category === cat.id);
