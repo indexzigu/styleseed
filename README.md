@@ -46,7 +46,7 @@ Data vs judgment. 74 design rules that Claude Code, Codex, and Cursor read autom
 
 <br /><br />
 
-[Get Started](#get-started) · [Engine + Skins](#how-it-works-engine--skins) · [Motion](#named-motion-system) · [Skills](#14-ai-powered-skills) · [Wiki](../../wiki) · [한국어](README-KR.md)
+[Get Started](#get-started) · [Engine + Skins](#how-it-works-engine--skins) · [Motion](#named-motion-system) · [Skills](#15-ai-powered-skills) · [Wiki](../../wiki) · [한국어](README-KR.md)
 
 <br />
 
@@ -220,7 +220,7 @@ cp engine/.cursorrules your-project/.cursorrules
 The slash-command skills are published in the standard `SKILL.md` format, so you can install them straight into any agent (Claude Code, Codex, Cursor, …) with [Vercel's `skills` CLI](https://github.com/vercel-labs/skills) — no manual copying:
 
 ```bash
-# add all 14 StyleSeed skills to the current project
+# add all 15 StyleSeed skills to the current project
 npx skills add bitjaru/styleseed
 
 # or pick specific ones
@@ -343,6 +343,7 @@ engine/
 │   ├── ss-tokens/            #   Manage tokens
 │   ├── ss-a11y/              #   Accessibility audit
 │   ├── ss-lint/              #   Quick violation scan
+│   ├── ss-score/             #   Score UI 0-100 + fix list
 │   ├── ss-update/            #   Pull latest engine
 │   ├── ss-flow/              #   Design user flows
 │   ├── ss-audit/             #   UX heuristic evaluation
@@ -359,7 +360,7 @@ engine/
 └── scaffold/                 # Vite 6 + React 18 starter
 ```
 
-## 14 AI-Powered Skills
+## 15 AI-Powered Skills
 
 ### Setup
 | Skill | What It Does |
@@ -377,6 +378,7 @@ engine/
 | `/ss-tokens` | View, add, or modify design tokens |
 | `/ss-a11y` | Accessibility audit (WCAG 2.2 AA) |
 | `/ss-lint` | Quick automated lint — catches common violations in seconds |
+| `/ss-score` | Score UI quality 0-100 with a category breakdown + prioritized fix list |
 | `/ss-update` | Pull latest engine updates — analyzes your project and updates safely |
 
 ### UX — Design It Right (No Designer Needed)
