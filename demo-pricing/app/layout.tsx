@@ -11,7 +11,7 @@ const inter = Inter({
 const SITE_URL = "https://styleseed-demo.vercel.app";
 const SITE_NAME = "StyleSeed";
 const SITE_DESC =
-  "Design engine for vibe coding — it teaches Claude Code and Cursor design judgment (74 rules), not just components. A drop-in React design system with 7 brand skins and a named motion system. MIT licensed.";
+  "Design engine for vibe coding — it teaches Claude Code, Codex, and Cursor design judgment (74 rules), not just components. A drop-in React design system with 7 brand skins and a named motion system. MIT licensed.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

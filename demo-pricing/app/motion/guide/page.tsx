@@ -8,7 +8,7 @@ const BASE = "https://styleseed-demo.vercel.app";
 const description =
   "Learn to vibe-code your own motion with StyleSeed: combine 5 motion seeds " +
   "(personality) with named keyword moves (toggle-flip, tilt-3d, glow-pulse…) " +
-  "and copy-paste prompts for Claude Code & Cursor to ship consistent, original animation.";
+  "and copy-paste prompts for Claude Code, Codex & Cursor to ship consistent, original animation.";
 
 export const metadata: Metadata = {
   title: "Motion Guide — vibe-code your own animation with seeds + keywords",
@@ -80,7 +80,7 @@ export default function MotionGuidePage() {
           <p className="mt-4 text-[16px] leading-relaxed text-neutral-600">
             You don&rsquo;t pick easing curves and spring constants anymore — you name a
             feeling. This guide shows how StyleSeed&rsquo;s two motion layers combine, and
-            gives you copy-paste prompts so Claude Code or Cursor produces{" "}
+            gives you copy-paste prompts so Claude Code, Codex, or Cursor produces{" "}
             <span className="font-semibold text-neutral-900">consistent, original</span>{" "}
             animation instead of another default fade.
           </p>
@@ -140,7 +140,7 @@ export default function MotionGuidePage() {
         {/* 3. Vibe-coding prompts */}
         <Section n={3} title="Prompts that just work">
           <p className="mb-5 text-[15px] leading-relaxed text-neutral-700">
-            Paste any of these into Claude Code or Cursor. Because the keywords map to one
+            Paste any of these into Claude Code, Codex, or Cursor. Because the keywords map to one
             registry, the AI resolves them to real framer-motion code — the same every time.
           </p>
           <div className="flex flex-col gap-3">

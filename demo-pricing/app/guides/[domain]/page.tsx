@@ -151,7 +151,7 @@ export default async function DomainGuidePage({
         <section className="mt-10 flex flex-col items-start gap-4 rounded-2xl bg-neutral-900 p-7 text-white sm:flex-row sm:items-center sm:justify-between">
           <div>
             <div className="text-[18px] font-bold">Make your AI design {d.name.toLowerCase()} right</div>
-            <div className="mt-1 text-[14px] text-neutral-400">Open source design engine for Claude Code & Cursor. MIT.</div>
+            <div className="mt-1 text-[14px] text-neutral-400">Open source design engine for Claude Code, Codex & Cursor. MIT.</div>
           </div>
           <a href="https://github.com/bitjaru/styleseed" target="_blank" rel="noreferrer" className="inline-flex shrink-0 items-center gap-1.5 rounded-xl bg-white px-5 py-3 text-[14px] font-bold text-neutral-900 transition-transform hover:scale-[1.03]">
             <Star size={15} className="fill-amber-400 text-amber-400" /> Star on GitHub

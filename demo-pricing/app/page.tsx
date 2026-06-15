@@ -28,7 +28,7 @@ const FEATURES = [
   {
     icon: Sparkles,
     title: "Your AI reads it automatically",
-    desc: "15 slash skills (/ss-page, /ss-review, /ss-score, …) that Claude Code and Cursor pick up on their own — including a coherence grader that flags 'this looks AI-generated' before you ship.",
+    desc: "15 slash skills (/ss-page, /ss-review, /ss-score, …) that Claude Code, Codex, and Cursor pick up on their own — including a coherence grader that flags 'this looks AI-generated' before you ship.",
   },
   {
     icon: Palette,
@@ -137,7 +137,7 @@ export default function HomePage() {
                   The fastest way is one sentence.
                 </h2>
                 <p className="mt-2 max-w-xl text-[15px] text-neutral-400">
-                  No install required. Paste this into Claude Code, Cursor, or any AI agent and it reads
+                  No install required. Paste this into Claude Code, Codex, Cursor, or any AI agent and it reads
                   the rules and applies them to whatever you build next.
                 </p>
               </div>

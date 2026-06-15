@@ -228,7 +228,7 @@ export function Comparison() {
         <div>
           <div className="text-[20px] font-bold">Give your AI the judgment.</div>
           <div className="mt-1 text-[14px] text-neutral-400">
-            MIT licensed. Works with Claude Code & Cursor out of the box.
+            MIT licensed. Works with Claude Code, Codex & Cursor out of the box.
           </div>
         </div>
         <div className="flex flex-wrap gap-3">

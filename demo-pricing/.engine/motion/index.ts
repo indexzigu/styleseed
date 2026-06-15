@@ -26,8 +26,10 @@ export {
   MOTION_LIBRARY,
   MOTION_BY_KEY,
   MOTION_CATEGORIES,
+  MOTION_BY_USECASE,
   type MotionKeyword,
   type MotionCategory,
+  type MotionUseCase,
 } from "./library";
 // usePrefersReducedMotion is a React hook — import directly from
 // "@engine/motion/reduced-motion" inside a "use client" file to keep

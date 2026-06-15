@@ -50,7 +50,7 @@ export function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-neutral-600"
           >
             <Sparkles size={11} className="text-violet-500" />
-            A thinking framework for UI · Claude Code & Cursor
+            A thinking framework for UI · Claude Code, Codex & Cursor
           </motion.div>
         </motion.div>
 
@@ -69,7 +69,7 @@ export function Hero() {
         >
           Most design repos hand your AI a pile of components and hope for the best. StyleSeed hands
           it the <strong className="font-semibold text-neutral-900">judgment</strong> — 74 rules
-          <em> and the reasoning behind each</em> — so Claude Code and Cursor ship UI that looks
+          <em> and the reasoning behind each</em> — so Claude Code, Codex, and Cursor ship UI that looks
           designed, not generated. Swap the brand DNA with one attribute; add motion in plain
           English. MIT licensed.
         </motion.p>
@@ -96,7 +96,7 @@ export function Hero() {
         {/* how to actually use it — one paste, visible on the first screen */}
         <motion.div variants={item} className="mx-auto mt-7 max-w-xl">
           <span className="text-[12px] font-semibold uppercase tracking-widest text-neutral-400">
-            Already in Claude Code or Cursor? Paste this 👇
+            Already in Claude Code, Codex, or Cursor? Paste this 👇
           </span>
           <div className="mt-2">
             <PromptBox />

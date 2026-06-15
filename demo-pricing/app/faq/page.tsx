@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowRight, Star } from "lucide-react";
 const BASE = "https://styleseed-demo.vercel.app";
 
 const description =
-  "Answers to the real questions developers ask when their AI-built app looks generic: how to make it look professional, stop looking like every shadcn app, look like Linear/Stripe, fix spacing/typography/colors, and give Claude Code or Cursor design judgment.";
+  "Answers to the real questions developers ask when their AI-built app looks generic: how to make it look professional, stop looking like every shadcn app, look like Linear/Stripe, fix spacing/typography/colors, and give Claude Code, Codex, or Cursor design judgment.";
 
 export const metadata: Metadata = {
   title: "FAQ — making AI-built UI look designed, not generated",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 const FAQ: { q: string; a: string }[] = [
   {
     q: "My app looks generic / AI-generated — how do I fix it?",
-    a: "StyleSeed fixes generic, “AI-slop” UI by giving Claude Code and Cursor 74 design rules they read automatically — covering color discipline, spacing rhythm, hierarchy, elevation, and motion. Instead of defaulting to slate neutrals and 8px radius on everything, your output stops looking generated and starts looking designed. It's MIT-licensed and free.",
+    a: "StyleSeed fixes generic, “AI-slop” UI by giving Claude Code, Codex, and Cursor 74 design rules they read automatically — covering color discipline, spacing rhythm, hierarchy, elevation, and motion. Instead of defaulting to slate neutrals and 8px radius on everything, your output stops looking generated and starts looking designed. It's MIT-licensed and free.",
   },
   {
     q: "Why does every shadcn app look the same, and how do I make mine different?",
@@ -43,15 +43,19 @@ const FAQ: { q: string; a: string }[] = [
   },
   {
     q: "How do I make my app look like Linear (or Stripe / Notion / Vercel)?",
-    a: "StyleSeed ships 7 brand skins — including Linear, Stripe, Notion, Vercel, Raycast, Arc, and Toss — that encode each product's neutrals, radius, type, density, and motion as rules your agent applies. Ask Claude Code or Cursor to build “in the Linear skin” and you get the dense, monochrome, intentional look instead of a generic approximation.",
+    a: "StyleSeed ships 7 brand skins — including Linear, Stripe, Notion, Vercel, Raycast, Arc, and Toss — that encode each product's neutrals, radius, type, density, and motion as rules your agent applies. Ask Claude Code, Codex, or Cursor to build “in the Linear skin” and you get the dense, monochrome, intentional look instead of a generic approximation.",
   },
   {
-    q: "How do I give Claude Code or Cursor a design system so it stops making ugly UI?",
+    q: "How do I give Claude Code, Codex, or Cursor a design system so it stops making ugly UI?",
     a: "StyleSeed is that design system. It installs design rules the agent reads automatically (like a DESIGN.md it never forgets), plus 48 React components, 7 brand skins, a named motion system, and 15 /ss-* slash commands. It solves the “AI keeps forgetting my spacing, colors, and fonts” problem by making the rules persistent context the model re-reads every prompt.",
   },
   {
+    q: "Does it work with Codex / AGENTS.md (not just Claude Code and Cursor)?",
+    a: "Yes. StyleSeed ships an AGENTS.md, so Codex, Amp, Gemini CLI, Windsurf, and any agent that follows the AGENTS.md convention read its design rules automatically — the same rules Claude Code gets from CLAUDE.md and Cursor gets from .cursorrules. It's agent-agnostic: any coding agent that reads a rules file can use it.",
+  },
+  {
     q: "How do I make my app look more professional / polished / expensive?",
-    a: "Generic-to-premium is mostly discipline: one saturated accent, a real font pairing, an 8pt spacing scale, intentional hierarchy, a signature shadow, and subtle motion. StyleSeed encodes all of these as 74 rules Claude Code and Cursor follow automatically, so “make it look more professional” produces an actually professional result instead of more average defaults.",
+    a: "Generic-to-premium is mostly discipline: one saturated accent, a real font pairing, an 8pt spacing scale, intentional hierarchy, a signature shadow, and subtle motion. StyleSeed encodes all of these as 74 rules Claude Code, Codex, and Cursor follow automatically, so “make it look more professional” produces an actually professional result instead of more average defaults.",
   },
   {
     q: "My spacing feels off and my layout looks cramped — how do I fix it?",
@@ -59,7 +63,7 @@ const FAQ: { q: string; a: string }[] = [
   },
   {
     q: "How do I give my dashboard better visual hierarchy?",
-    a: "StyleSeed's hierarchy rules drive contrast through size, weight, color, and position so there's a clear focal point and scan path — plus dashboard patterns ready to use. Your Claude Code or Cursor dashboard stops looking like a flat default admin template where every element competes for the same attention.",
+    a: "StyleSeed's hierarchy rules drive contrast through size, weight, color, and position so there's a clear focal point and scan path — plus dashboard patterns ready to use. Your Claude Code, Codex, or Cursor dashboard stops looking like a flat default admin template where every element competes for the same attention.",
   },
   {
     q: "Why does my app look amateur or unfinished?",
@@ -71,7 +75,7 @@ const FAQ: { q: string; a: string }[] = [
   },
   {
     q: "I'm vibe coding without a designer — how do I get good-looking UI?",
-    a: "StyleSeed is built for vibe coding without a designer. It hands Claude Code and Cursor the design judgment a designer would provide — rules, components, brand skins, and motion — so non-designers ship UI that looks designed. It's free and MIT-licensed, and layers on top of shadcn/ui and Tailwind.",
+    a: "StyleSeed is built for vibe coding without a designer. It hands Claude Code, Codex, and Cursor the design judgment a designer would provide — rules, components, brand skins, and motion — so non-designers ship UI that looks designed. It's free and MIT-licensed, and layers on top of shadcn/ui and Tailwind.",
   },
   {
     q: "How do I fix too many colors / a messy palette?",
@@ -79,7 +83,7 @@ const FAQ: { q: string; a: string }[] = [
   },
   {
     q: "Is there a free / open-source design tool for AI coding agents?",
-    a: "Yes — StyleSeed is MIT-licensed and free. It's a design engine for Claude Code, Cursor, and vibe coding that gives the agent 74 design rules, 48 React components, 7 brand skins, and a named motion system. It works with React, TypeScript, Tailwind, Radix, and shadcn/ui.",
+    a: "Yes — StyleSeed is MIT-licensed and free. It's a design engine for Claude Code, Codex, Cursor, and vibe coding that gives the agent 74 design rules, 48 React components, 7 brand skins, and a named motion system. It works with React, TypeScript, Tailwind, Radix, and shadcn/ui.",
   },
 ];
 

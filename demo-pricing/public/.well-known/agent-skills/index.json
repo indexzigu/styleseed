@@ -55,7 +55,7 @@
       "type": "skill-md",
       "description": "Apply a named StyleSeed motion to a component — either one of the 5 personality seeds (Spring/Silk/Snap/Float/Pulse × entrance/exit/hover/press/layout) or a distinctive keyword move from the motion library (toggle-flip, toggle-curtain, reveal-blur, pop-in, shimmer, …). Translates vibe words into framer-motion code from one source of truth.",
       "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-motion/SKILL.md",
-      "digest": "sha256:afc341e5858dec2493b841e9e01a7edc5bb1d1945e2618dbb1d5d9e87f5c311c"
+      "digest": "sha256:ac5af2415ef0cdb5cc940c84f673a796b2ab26e1fad630cb51a7252591e65e9c"
     },
     {
       "name": "ss-page",

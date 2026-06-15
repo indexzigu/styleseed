@@ -23,7 +23,7 @@
 <br />
 
 **다른 repo는 LLM한테 브랜드가 어떻게 생겼는지 가르칩니다. StyleSeed는 디자이너가 어떻게 생각하는지 가르칩니다.**<br />
-Data vs Judgment. 74개 디자인 룰을 Claude Code와 Cursor가 자동으로 읽어요. 결과물이 "생성된 것" 처럼 안 보이고 "디자인된 것" 처럼 나옵니다.
+Data vs Judgment. 74개 디자인 룰을 Claude Code·Codex·Cursor가 자동으로 읽어요. 결과물이 "생성된 것" 처럼 안 보이고 "디자인된 것" 처럼 나옵니다.
 
 <br />
 

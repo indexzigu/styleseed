@@ -4,12 +4,12 @@
 
 # StyleSeed
 
-### The design engine for Claude Code, Cursor, and vibe coding.
+### The design engine for Claude Code, Codex, Cursor, and vibe coding.
 
 <br />
 
 <a href="https://styleseed-demo.vercel.app">
-  <img src="showcase/landing.png" width="760" alt="StyleSeed — a design engine that teaches Claude Code and Cursor design judgment. Landing: Design that scales without you redrawing it." />
+  <img src="showcase/landing.png" width="760" alt="StyleSeed — a design engine that teaches Claude Code, Codex, and Cursor design judgment. Landing: Design that scales without you redrawing it." />
 </a>
 
 <br /><br />
@@ -36,7 +36,7 @@
 ![License](https://img.shields.io/github/license/bitjaru/styleseed?style=flat-square)
 
 **Other repos teach LLMs what brands look like. StyleSeed teaches LLMs how designers think.**<br />
-Data vs judgment. 74 design rules that Claude Code and Cursor read automatically — so the output stops looking generated and starts looking designed.
+Data vs judgment. 74 design rules that Claude Code, Codex, and Cursor read automatically — so the output stops looking generated and starts looking designed.
 
 <br />
 
@@ -56,13 +56,13 @@ Data vs judgment. 74 design rules that Claude Code and Cursor read automatically
 
 ## Get started in 30 seconds
 
-**The fastest way — paste this one sentence** into Claude Code, Cursor, or any AI agent. No install:
+**The fastest way — paste this one sentence** into Claude Code, Codex, Cursor, or any AI agent. No install:
 
 ```
 Read https://styleseed-demo.vercel.app/llms.txt and apply StyleSeed's design rules to every UI you build in this project.
 ```
 
-That's it — the agent reads the rules and applies them to whatever you build next.
+That's it — the agent reads the rules and applies them to whatever you build next. Works with **Claude Code (`CLAUDE.md`), Codex / Amp / Gemini CLI (`AGENTS.md`), and Cursor (`.cursorrules`)** — StyleSeed ships all three, so any agent picks the rules up automatically.
 
 **Prefer to install it** (adds the rules + `/ss-*` skills locally)?
 
@@ -93,6 +93,14 @@ Every "help LLMs design better" project solves the wrong half of the problem. Th
 Then it hit me: **a junior designer with Toss's palette still ships ugly dashboards. A senior designer with only grayscale ships something refined.** The difference isn't what they have. It's what they know to do with it.
 
 Design data is the paint. Design judgment is knowing where to put it.
+
+<div align="center">
+  <a href="https://styleseed-demo.vercel.app/how-it-thinks">
+    <img src="assets/coherence-mixed-vs-unified.svg" width="840" alt="Same content, two cards. The 'mixed' card uses three accent colors and three corner radii and looks off; the 'one system' card uses one accent and one radius and looks designed. The only difference is coherence." />
+  </a>
+</div>
+
+<br />
 
 **[See the before/after →](https://styleseed-demo.vercel.app/why)** — the same dashboard brief, generated generically vs. with the 74 rules applied. Every fix annotated with the rule behind it.
 
@@ -219,7 +227,7 @@ cp engine/.cursorrules your-project/.cursorrules
 
 ### Option 5: Install the skills with `npx skills`
 
-The slash-command skills are published in the standard `SKILL.md` format, so you can install them straight into any agent (Claude Code, Cursor, …) with [Vercel's `skills` CLI](https://github.com/vercel-labs/skills) — no manual copying:
+The slash-command skills are published in the standard `SKILL.md` format, so you can install them straight into any agent (Claude Code, Codex, Cursor, …) with [Vercel's `skills` CLI](https://github.com/vercel-labs/skills) — no manual copying:
 
 ```bash
 # add all 14 StyleSeed skills to the current project
