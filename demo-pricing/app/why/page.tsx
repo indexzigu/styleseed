@@ -7,7 +7,7 @@ const BASE = "https://styleseed-demo.vercel.app";
 
 const description =
   "Same prompt, same components — one has design judgment. A side-by-side of " +
-  "generic AI-generated UI vs the same dashboard with StyleSeed's 69 design " +
+  "generic AI-generated UI vs the same dashboard with StyleSeed's 74 design " +
   "rules applied: grayscale discipline, one accent, 2:1 numbers, visual rhythm, " +
   "intentional motion.";
 
@@ -77,7 +77,7 @@ export default function WhyPage() {
           <p className="mt-4 text-[16px] leading-relaxed text-neutral-600">
             Both dashboards below were &ldquo;built by AI&rdquo; from the same brief, with the
             same component library available. The left is what models ship by default. The
-            right is the same model reading StyleSeed&rsquo;s 69 design rules. Every fix is
+            right is the same model reading StyleSeed&rsquo;s 74 design rules. Every fix is
             annotated with the rule that caused it.
           </p>
         </header>

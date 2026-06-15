@@ -8,7 +8,7 @@ import { ArrowRight, ArrowUpRight, Bell, RefreshCw, Star, Wallet } from "lucide-
 /**
  * The before/after proof. Both panels are REAL rendered UI (not screenshots),
  * built from the same brief: "revenue dashboard with KPIs and recent orders".
- * Left = what AI ships by default. Right = same model + 69 rules.
+ * Left = what AI ships by default. Right = same model + 74 rules.
  */
 
 const ORDERS = [
@@ -100,7 +100,7 @@ export function Comparison() {
                 After
               </span>
               <span className="text-[13px] font-semibold text-neutral-500">
-                Same brief + StyleSeed&rsquo;s 69 rules
+                Same brief + StyleSeed&rsquo;s 74 rules
               </span>
             </div>
             <button
@@ -217,7 +217,7 @@ export function Comparison() {
         <p className="mt-5 text-[14px] text-neutral-500">
           These 7 are the visible ones. The full design language has{" "}
           <a href="https://github.com/bitjaru/styleseed/blob/main/engine/DESIGN-LANGUAGE.md" className="font-semibold text-neutral-900 underline underline-offset-2">
-            69 rules
+            74 rules
           </a>{" "}
           — color discipline, spatial rhythm, hierarchy, elevation, component variance, motion.
         </p>

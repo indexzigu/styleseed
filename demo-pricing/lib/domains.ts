@@ -1,12 +1,21 @@
 /**
  * App-domain design guides — the data behind /guides and /guides/[domain].
- * Mirrors engine/APP-PLAYBOOKS.md, structured for programmatic SEO pages
- * targeting "<domain> app design / ui patterns" long-tail queries.
+ * Mirrors engine/APP-PLAYBOOKS.md + the type recipe in engine/VISUAL-CRAFT.md,
+ * structured for programmatic SEO pages targeting "<domain> app design / ui
+ * patterns / typography" long-tail queries.
  */
 
 export interface Dial {
   label: string;
   value: string;
+}
+
+/** Research-backed type recipe (VISUAL-CRAFT.md §C2 table). */
+export interface TypeSpec {
+  character: string;
+  hero: string;
+  body: string;
+  numerals: string;
 }
 
 export interface Domain {
@@ -16,6 +25,9 @@ export interface Domain {
   seoName: string;
   accent: string;
   dna: string;
+  /** the recommended corner personality (VISUAL-CRAFT §C0 coherence law) */
+  radius: string;
+  type: TypeSpec;
   dials: Dial[];
   antiPatterns: string[];
   seed: string;
@@ -31,6 +43,13 @@ export const DOMAINS: Domain[] = [
     seoName: "Fintech app design",
     accent: "#3182F6",
     dna: "Trust through restraint. The accent is reserved for money in motion; calm reads as careful.",
+    radius: "Soft (8–12px) — approachable but composed",
+    type: {
+      character: "Restrained neo-grotesque, low contrast (Inter, IBM Plex Sans, Söhne)",
+      hero: "36–48px",
+      body: "15–16px",
+      numerals: "Tabular lining — mandatory; pick a font with disambiguated 0/O & 1/l",
+    },
     dials: [
       { label: "Color", value: "Maximum restraint — accent only for CTAs, positive trend, active balance. Green/red for up/down, never decoration." },
       { label: "Density", value: "Medium-low. One number dominates each card. Whitespace signals care." },
@@ -49,6 +68,13 @@ export const DOMAINS: Domain[] = [
     seoName: "SaaS dashboard design",
     accent: "#5E6AD2",
     dna: "Information per pixel. Power users want density, speed, and one quiet accent.",
+    radius: "Sharp–medium (4–8px) — precise, dense",
+    type: {
+      character: "Humanist screen-sans built for small sizes (Inter)",
+      hero: "28–36px",
+      body: "14px (13px in dense tables)",
+      numerals: "Tabular in every table; weight (not size) carries hierarchy",
+    },
     dials: [
       { label: "Color", value: "Disciplined grayscale, one accent for primary action + selected state. Charts use a small fixed scale." },
       { label: "Density", value: "High. Tables, filters, multi-KPI rows. Density is a feature — keep rhythm." },
@@ -67,6 +93,13 @@ export const DOMAINS: Domain[] = [
     seoName: "E-commerce UI design",
     accent: "#FF6B35",
     dna: "Product imagery is the hero; the accent drives one thing — buy.",
+    radius: "Soft (8–12px) — friendly, tactile",
+    type: {
+      character: "Friendly humanist sans + optional characterful brand display",
+      hero: "32–48px",
+      body: "16px",
+      numerals: "Tabular for price & grids; price weighted, not colored",
+    },
     dials: [
       { label: "Color", value: "Neutral chrome so photos pop. Accent only for add-to-cart/buy. Price gets weight, not color." },
       { label: "Density", value: "Medium. Browsing = generous product cards; PDP = focused, CTA above the fold." },
@@ -85,6 +118,13 @@ export const DOMAINS: Domain[] = [
     seoName: "Social app design",
     accent: "#FF4E8B",
     dna: "User content leads; the UI is alive but never competes with it.",
+    radius: "Soft → pill — playful, avatars fully round",
+    type: {
+      character: "System humanist sans (SF Pro, Roboto) — fast, familiar",
+      hero: "title via weight, ~20–28px",
+      body: "15–17px",
+      numerals: "Proportional (counts read inline)",
+    },
     dials: [
       { label: "Color", value: "Energetic, warmer accent — appears for likes, mentions, online dots. Still one accent." },
       { label: "Density", value: "Medium, content-led. Avatars and media drive layout; chrome is minimal." },
@@ -103,6 +143,13 @@ export const DOMAINS: Domain[] = [
     seoName: "Content & blog UI design",
     accent: "#635BFF",
     dna: "Typography is the design. Reading is the product; color is a distraction.",
+    radius: "Sharp (0–4px) — editorial, print-like",
+    type: {
+      character: "High-contrast serif display + humanist sans/serif body",
+      hero: "40–64px",
+      body: "18–21px, measure 60–75ch",
+      numerals: "Oldstyle figures in serif prose",
+    },
     dials: [
       { label: "Color", value: "Near-monochrome; accent for links and one CTA only." },
       { label: "Density", value: "Low in the reading column (~60–75ch), denser in nav/index." },
@@ -121,6 +168,13 @@ export const DOMAINS: Domain[] = [
     seoName: "Productivity app design",
     accent: "#5E6AD2",
     dna: "Calm chrome so the user's work is the focus; keyboard-first, fast.",
+    radius: "Sharp–medium (4–8px) — crisp, efficient",
+    type: {
+      character: "Humanist / neo-grotesque screen sans (Inter, Geist)",
+      hero: "24–32px",
+      body: "14–15px",
+      numerals: "Tabular where numbers align (counts, dates)",
+    },
     dials: [
       { label: "Color", value: "Quiet grayscale, one accent for primary action + active item." },
       { label: "Density", value: "High but organized — sidebars, panels, keyboard shortcuts." },
@@ -139,6 +193,13 @@ export const DOMAINS: Domain[] = [
     seoName: "Health & fitness app design",
     accent: "#10B981",
     dna: "Calm and reassuring. One clear focus per screen; reduce load on a tired user.",
+    radius: "Soft → pill (12px+) — calm, gentle",
+    type: {
+      character: "Warm humanist sans, open counters (Lato-type)",
+      hero: "32–44px",
+      body: "16–18px, line-height 1.6",
+      numerals: "Proportional (tabular for vitals/streaks)",
+    },
     dials: [
       { label: "Color", value: "Soft accent, vivid only for metric rings/progress on a calm base. Reds only for real alerts." },
       { label: "Density", value: "Low-medium. One focus per screen (today's rings, next action)." },
@@ -157,6 +218,13 @@ export const DOMAINS: Domain[] = [
     seoName: "Developer tool UI design",
     accent: "#8B5CF6",
     dna: "Dark-first, dense, precise. Devs distrust slow or flashy UI.",
+    radius: "Sharp (4px) — technical, exact",
+    type: {
+      character: "Grotesque + matched mono superfamily (Geist Sans/Mono, IBM Plex)",
+      hero: "32–48px",
+      body: "14–16px (code 13–14px mono)",
+      numerals: "Tabular / monospace for IDs, logs, tokens",
+    },
     dials: [
       { label: "Color", value: "Dark-first, restrained, one accent. Syntax colors are their own controlled scale." },
       { label: "Density", value: "High — devs read dense screens fine. Monospace for code/IDs/logs." },

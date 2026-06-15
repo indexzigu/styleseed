@@ -25,7 +25,7 @@ Reference this guide when Claude Code sets up a new project or implements UI.
 > - **This file (CLAUDE.md)**: Tokens, component API, imports, forbidden patterns — reference while coding
 > - **DESIGN-LANGUAGE.md**: Visual design rules, page layout, composition recipes — read **before** building a new page. Start with the Table of Contents, then rules 14, 18, 19, 61-63.
 > - **METHODOLOGY.md**: UI/UX reasoning patterns (progressive disclosure, info density, atomic design, skeleton/empty/microinteraction, contextual onboarding, Linear/Toss aesthetic, color discipline, motion vibe vocabulary) — read **before scaffolding a new dashboard** or when wondering *why* the rules in DESIGN-LANGUAGE.md exist. Chapter 8 (Motion Vibe Vocabulary) is the entry point for the `engine/motion/` seed system.
-> - **APP-PLAYBOOKS.md**: How to **bias** the rules for the app's domain (fintech, SaaS, e-commerce, social, content, productivity, health, education, dev-tools, marketplace, booking, AI/chat). Read **right after you know what kind of app this is** (e.g. from `/ss-setup`), before scaffolding — a fintech dashboard and a social dashboard apply the same 69 rules differently.
+> - **APP-PLAYBOOKS.md**: How to **bias** the rules for the app's domain (fintech, SaaS, e-commerce, social, content, productivity, health, education, dev-tools, marketplace, booking, AI/chat). Read **right after you know what kind of app this is** (e.g. from `/ss-setup`), before scaffolding — a fintech dashboard and a social dashboard apply the same 74 rules differently.
 > - **PAGE-TYPES.md**: How to bias the rules for the **screen type** (dashboard / form / landing / detail / list / settings / onboarding). Read before building a specific page. Domain × page-type together = the actual design judgment.
 > - **VISUAL-CRAFT.md**: Research-backed **craft** — the concrete numeric decisions that make a component look intentional and keep the *whole* UI **coherent** (one radius personality, one shadow language, one accent, layered shadows, nested-radius law, type recipe by app type, contrast floors). **§C0 (Coherence Laws) is the antidote to "AI-generated UI looks off."** Read before scaffolding a product surface, and whenever a UI looks wrong but you can't say why. Grounded in Refactoring UI, Material 3, Apple HIG, WCAG 2.2, FT Visual Vocabulary.
 
@@ -527,6 +527,7 @@ Custom skills available in the project:
 | `/ss-copy` | Generate UX microcopy (buttons, errors, toasts) | `/ss-copy empty-state no orders` |
 | `/ss-feedback` | Design feedback patterns (toasts, dialogs, states) | `/ss-feedback error payment failed` |
 | `/ss-lint` | Quick automated lint for common violations | `/ss-lint src/app/Dashboard.tsx` |
+| `/ss-score` | Score UI design quality 0-100 with a category breakdown + fix list | `/ss-score src/app/Dashboard.tsx` |
 | `/ss-update` | Pull latest StyleSeed engine updates | `/ss-update` |
 
 ## How to Use StyleSeed (Tell Users This)

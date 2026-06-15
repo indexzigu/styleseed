@@ -24,12 +24,13 @@ map to the design language. Total = 100.
 
 | Category | Weight | Reads from |
 |---|---|---|
-| **Color discipline** | 20 | DESIGN-LANGUAGE §1, §18, §72 |
-| **Hierarchy & typography** | 20 | §2, §3, §4, §16 + Font Size table |
-| **Layout & rhythm** | 15 | §13, §14, §15, §61 |
-| **Cards & elevation** | 15 | §7, §8, §12, §1 |
-| **States & a11y** | 20 | §11, §70, §71, §72 |
-| **Motion & interaction** | 10 | §24, §59 + `engine/motion` |
+| **Color discipline** | 18 | DESIGN-LANGUAGE §1, §18, §72 + VISUAL-CRAFT §C4 |
+| **Hierarchy & typography** | 18 | §2, §3, §4, §16 + Font Size table + VISUAL-CRAFT §C2 |
+| **Layout & rhythm** | 14 | §13, §14, §15, §61 + VISUAL-CRAFT §C1 |
+| **Cards & elevation** | 12 | §7, §8, §12, §1 + VISUAL-CRAFT §C3 |
+| **States & a11y** | 18 | §11, §70, §71, §72 + VISUAL-CRAFT §C3 |
+| **Motion & interaction** | 8 | §24, §59 + `engine/motion` |
+| **Coherence** | 12 | VISUAL-CRAFT §C0 (one choice per axis) |
 
 ## How to score each category
 
@@ -57,30 +58,40 @@ surface (−5 each, cap −10); contrast below 4.5:1 body / 3:1 large (−6); to
 target < 44px (−4); no visible focus / `outline:none` (−5); icon-only control
 without `aria-label` (−3).
 
-**Motion & interaction (10)** — deduct for: random/ad-hoc fades instead of a named
+**Motion & interaction (8)** — deduct for: random/ad-hoc fades instead of a named
 seed/keyword (−3); motion that delays content or blocks an action (−4); no
 `prefers-reduced-motion` handling on custom motion (−3); scroll-linked/parallax
 (forbidden, §59) (−5).
+
+**Coherence (12)** — the "one choice per axis" laws (VISUAL-CRAFT §C0). Deduct for
+each axis that is *mixed* rather than unified across the file: mixed radius
+personalities, e.g. sharp panel + pill buttons (−5); two+ competing accent hues used
+for emphasis (−4); mixed shadow languages / light directions (−3); mixed icon
+families, fill modes, or stroke weights (−3); same radius on a nested element instead
+of `inner = outer − padding` (−2); inconsistent control heights for buttons/inputs
+(−2). This is the category that most predicts "looks AI-generated" — weight evidence
+of system-wide consistency, not per-component prettiness.
 
 Clamp each category at 0. Sum to a total.
 
 ## Output format
 
 ```
-## Design Score: 72 / 100   (src/app/Dashboard.tsx)
+## Design Score: 70 / 100   (src/app/Dashboard.tsx)
 
-█████████████████░░░░░  C+
+████████████████░░░░░░  C-
 
-Color discipline      14/20   ▓▓▓░  #000 headings (l.12,40); orange+blue+green accents (l.28-34)
-Hierarchy & typography 16/20  ▓▓▓▓  number/unit 1:1 on hero (l.18)
-Layout & rhythm        12/15  ▓▓▓░  two identical KPI rows (l.22-31)
-Cards & elevation      10/15  ▓▓░░  1px borders doing separation (l.22)
-States & a11y          12/20  ▓▓░░  no empty/loading state; focus ring missing (l.55)
-Motion & interaction    8/10  ▓▓▓░  default fade, not a named seed
+Color discipline      13/18   ▓▓▓░  #000 headings (l.12,40); orange+blue+green accents (l.28-34)
+Hierarchy & typography 15/18  ▓▓▓▓  number/unit 1:1 on hero (l.18)
+Layout & rhythm        11/14  ▓▓▓░  two identical KPI rows (l.22-31)
+Cards & elevation       8/12  ▓▓░░  1px borders doing separation (l.22)
+States & a11y          11/18  ▓▓░░  no empty/loading state; focus ring missing (l.55)
+Motion & interaction    6/8   ▓▓▓░  default fade, not a named seed
+Coherence               6/12  ▓▓░░  sharp cards (l.22) + pill buttons (l.48); 3 accent hues (§C0)
 
 ### Fix first (highest score gain)
-1. Replace #000 → #2A2A2A and collapse to one accent  → +6 color  (§3, §2)
-2. Add empty + loading states to the orders list       → +10 states (§71)
+1. Add empty + loading states to the orders list       → +7 states (§71)
+2. Unify radius (pick soft 8-12px) + collapse to one accent → +9 coherence+color (§C0, §2)
 3. Drop the 1px borders, use tone + ≤8% shadow         → +4 cards  (§7)
 
 Re-score after: ~92 / 100.

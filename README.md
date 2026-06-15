@@ -36,7 +36,7 @@
 ![License](https://img.shields.io/github/license/bitjaru/styleseed?style=flat-square)
 
 **Other repos teach LLMs what brands look like. StyleSeed teaches LLMs how designers think.**<br />
-Data vs judgment. 69 design rules that Claude Code and Cursor read automatically — so the output stops looking generated and starts looking designed.
+Data vs judgment. 74 design rules that Claude Code and Cursor read automatically — so the output stops looking generated and starts looking designed.
 
 <br />
 
@@ -65,9 +65,9 @@ Then it hit me: **a junior designer with Toss's palette still ships ugly dashboa
 
 Design data is the paint. Design judgment is knowing where to put it.
 
-**[See the before/after →](https://styleseed-demo.vercel.app/why)** — the same dashboard brief, generated generically vs. with the 69 rules applied. Every fix annotated with the rule behind it.
+**[See the before/after →](https://styleseed-demo.vercel.app/why)** — the same dashboard brief, generated generically vs. with the 74 rules applied. Every fix annotated with the rule behind it.
 
-StyleSeed is a **design engine** — 69 visual rules, 48 components, a named motion system, and 14 slash commands that teach LLMs the judgment, not just the data:
+StyleSeed is a **design engine** — 74 visual rules, 48 components, a named motion system, and 15 slash commands that teach LLMs the judgment, not just the data:
 
 ```
 "The most refined black isn't #000 — it's #2A2A2A"
@@ -97,12 +97,12 @@ The rules are **brand-agnostic** — they don't reference specific colors, only 
 
 ## Works with Claude Design
 
-[Claude Design](https://claude.ai/design/) generates UI fast — but it still picks `#000` for text, reaches for six accent colors, and floats cards with no background separation. The missing piece isn't more templates. It's the 69 rules that tell the model *when* to use which pattern and *why*.
+[Claude Design](https://claude.ai/design/) generates UI fast — but it still picks `#000` for text, reaches for six accent colors, and floats cards with no background separation. The missing piece isn't more templates. It's the 74 rules that tell the model *when* to use which pattern and *why*.
 
 **StyleSeed + Claude Design together:**
 
 1. Claude Design generates the layout and components (fast scaffolding)
-2. StyleSeed's 69 rules refine the output (design judgment layer)
+2. StyleSeed's 74 rules refine the output (design judgment layer)
 3. Brand skins make it look like your brand, not like "AI made this"
 
 Drop `DESIGN-LANGUAGE.md` into your Claude Design workflow and the same model produces noticeably more refined output — without changing a single prompt.
@@ -206,7 +206,7 @@ npx skills add bitjaru/styleseed --skill ss-motion,ss-page
 ┌─────────────────────────────────────────────────┐
 │  StyleSeed Engine (brand-agnostic)              │
 │                                                 │
-│  69 rules · 48 components · 14 skills · motion  │
+│  74 rules · 48 components · 15 skills · motion  │
 │  Layout · Composition · Typography · UX · A11y  │
 └──────────────────────┬──────────────────────────┘
                        │
@@ -219,10 +219,10 @@ npx skills add bitjaru/styleseed --skill ss-motion,ss-page
 ```
 
 **Engine** = how your app is structured (design intelligence)
-- 69 visual design rules (layout, composition, rhythm, forbidden patterns)
+- 74 visual design rules (layout, composition, rhythm, forbidden patterns)
 - 48 React components (32 primitives + 16 patterns)
 - A named motion system (5 seeds + a copy-paste keyword library)
-- 14 Claude Code skills (setup, UI, motion, UX, accessibility)
+- 15 Claude Code skills (setup, UI, motion, UX, accessibility)
 - Works with ANY color palette
 
 **Skin** = what your app looks like (visual identity)
@@ -239,11 +239,11 @@ Most projects trying to fix AI-generated UI give the model more **data**. StyleS
 |---|---|---|
 | **Approach** | Brand palette collection | Design judgment engine |
 | **Teaches the model** | What brands *look like* | How designers *think* |
-| **Provides** | Colors, fonts, shadow values | 69 rules + semantic tokens + executable skills |
+| **Provides** | Colors, fonts, shadow values | 74 rules + semantic tokens + executable skills |
 | **Example output** | "Use this shade of blue" | "The refined black isn't #000, it's #2A2A2A" |
 | **Brand-specific?** | Yes — rules are tied to one brand | No — rules reference semantic tokens, work with any skin |
 | **Components** | None | 48 React components |
-| **AI skills** | None | 14 slash commands (executable rules) |
+| **AI skills** | None | 15 slash commands (executable rules) |
 | **Motion** | None | 5 named seeds + copy-paste keyword library |
 | **Scales with new brands** | Re-extract everything | Write one `theme.css`, reuse all rules |
 
@@ -305,8 +305,8 @@ All seeds auto-respect `prefers-reduced-motion`, and the `/ss-motion` skill pull
 ```
 engine/
 ├── CLAUDE.md                 # AI reads this automatically
-├── DESIGN-LANGUAGE.md        # 69 visual design rules (brand-agnostic)
-├── .claude/skills/           # 14 slash commands (/ss-*)
+├── DESIGN-LANGUAGE.md        # 74 visual design rules (brand-agnostic)
+├── .claude/skills/           # 15 slash commands (/ss-*)
 │   ├── ss-setup/             #   Interactive setup wizard
 │   ├── ss-page/              #   Scaffold pages
 │   ├── ss-component/         #   Generate components
@@ -421,7 +421,7 @@ Rule: Information density increases as you scroll down.
       Top: 48px (one number) → Bottom: 14px (detailed lists)
 ```
 
-69 rules total. [See the full design language →](engine/DESIGN-LANGUAGE.md)
+74 rules total. [See the full design language →](engine/DESIGN-LANGUAGE.md)
 
 ## Tech Stack
 
@@ -432,8 +432,8 @@ React 18 · TypeScript · Tailwind CSS v4 · Radix UI · Vite 6 · Lucide Icons 
 | | StyleSeed | shadcn/ui | Tailwind UI | Material UI | Generic AI output |
 |---|---|---|---|---|---|
 | Components | ✅ 48 | ✅ 50+ | ✅ | ✅ | ❌ |
-| Design **judgment** (when to use what) | ✅ 69 rules | ❌ | ❌ | Partial | ❌ |
-| Claude Code / Cursor integration | ✅ 14 skills | ❌ | ❌ | ❌ | — |
+| Design **judgment** (when to use what) | ✅ 74 rules | ❌ | ❌ | Partial | ❌ |
+| Claude Code / Cursor integration | ✅ 15 skills | ❌ | ❌ | ❌ | — |
 | Brand skins (Toss, Stripe, Linear...) | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Price | Free (MIT) | Free | $299+ | Free | — |
 | Works *with* AI coding tools | ✅ | Indirect | Indirect | Indirect | — |
@@ -449,7 +449,7 @@ Because LLMs optimize for functional correctness, not visual refinement. They'll
 No — it's built *on top of* shadcn/ui patterns. StyleSeed components use the same Radix primitives and CVA conventions. Think of it as shadcn/ui + design judgment + AI-tool integration.
 
 **Q: Does it work with Cursor too?**
-Yes. The 69 design rules live in a `.cursorrules` file and `CLAUDE.md`. Cursor reads them automatically.
+Yes. The 74 design rules live in a `.cursorrules` file and `CLAUDE.md`. Cursor reads them automatically.
 
 **Q: How is this different from awesome-design-md?**
 awesome-design-md gives you brand DESIGN.md files (what). StyleSeed gives you the engine that turns any brand into a working app (how). They pair well.

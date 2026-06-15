@@ -32,12 +32,12 @@ const FEATURES = [
   {
     icon: Layers,
     title: "Components + the judgment to use them",
-    desc: "33 components and 16 patterns are table stakes. The real payload is 69 documented design rules that tell the AI when and how to use each one — judgment, not just parts.",
+    desc: "33 components and 16 patterns are table stakes. The real payload is 74 documented design rules that tell the AI when and how to use each one — judgment, not just parts.",
   },
   {
     icon: Sparkles,
     title: "AI-ready out of the box",
-    desc: "14 slash skills (/ss-component, /ss-page, /ss-motion, …) that Claude Code and Cursor read automatically. Stop fighting generic shadcn output.",
+    desc: "15 slash skills (/ss-component, /ss-page, /ss-motion, …) that Claude Code and Cursor read automatically. Stop fighting generic shadcn output.",
   },
   {
     icon: Package,

@@ -5,7 +5,7 @@ Design judgment has **two axes**:
 1. **App domain** — *what kind of product is this?* (this file)
 2. **Page type** — *what kind of screen is this?* (`PAGE-TYPES.md`)
 
-The 69 rules in `DESIGN-LANGUAGE.md` are **universal** — they always apply. These
+The 74 rules in `DESIGN-LANGUAGE.md` are **universal** — they always apply. These
 playbooks tell the AI **how to bias the dials** for a domain: a fintech app and a
 social app can both have a "dashboard," but they should not look the same.
 

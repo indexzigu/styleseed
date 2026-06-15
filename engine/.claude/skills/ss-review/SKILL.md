@@ -70,6 +70,18 @@ Review the file: **$ARGUMENTS**
 - [ ] Uses `ms-*/me-*` instead of `ml-*/mr-*` (logical properties)
 - [ ] Motion transitions use design tokens (`duration-[var(--duration-fast)]`)
 
+### 8. Coherence (VISUAL-CRAFT.md §C0 — the "one choice per axis" laws)
+> The biggest reason a UI reads as "AI-generated" isn't ugly parts — it's *mixed*
+> parts. Check that each axis below uses ONE value system-wide; flag a mix as a real
+> issue, not a nitpick.
+- [ ] **One radius personality** — sharp (0-4px) OR soft (8-12px) OR pill, applied to every card/button/input/modal. No mixing (e.g. a `rounded-none` panel with `rounded-full` buttons).
+- [ ] **One accent color** for interactive emphasis (+ semantic red/green/amber only) — not two+ competing accents.
+- [ ] **One shadow language** — same light direction, same scale/tint; not some black + some tinted, some up-lit + some down-lit.
+- [ ] **One icon family / fill mode / stroke weight** across the file.
+- [ ] **Nested-radius law** — an element inside a rounded container uses `inner = outer − padding`, not the same radius (which bulges).
+- [ ] **Consistent control heights** — buttons, inputs, selects share a height set (e.g. 40px).
+- [ ] Errors/states never rely on color alone (icon + text too).
+
 ## Output Format
 
 Provide:

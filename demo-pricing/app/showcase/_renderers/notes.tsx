@@ -62,7 +62,7 @@ const NOTES: Note[] = [
   {
     id: "n4",
     title: "Design rule audit",
-    preview: "69 rules · need new entries for motion + density triage.",
+    preview: "74 rules · need new entries for motion + density triage.",
     emoji: "📐",
     updated: "2d",
   },

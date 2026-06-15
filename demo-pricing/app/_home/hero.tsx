@@ -8,7 +8,7 @@ const STATS = [
   { value: "33", label: "components" },
   { value: "7", label: "brand skins" },
   { value: "5", label: "motion seeds" },
-  { value: "69", label: "design rules" },
+  { value: "74", label: "design rules" },
 ];
 
 const container: Variants = {
@@ -67,7 +67,7 @@ export function Hero() {
           className="mx-auto mt-6 max-w-2xl text-[17px] leading-relaxed text-neutral-600"
         >
           Not a component library or a template pack — a <strong className="font-semibold text-neutral-900">design engine</strong>.
-          StyleSeed teaches Claude Code and Cursor how designers actually think — 69 rules, not just
+          StyleSeed teaches Claude Code and Cursor how designers actually think — 74 rules, not just
           tokens — so AI ships intentional UI instead of generic output. Swap the brand DNA with one
           attribute; add motion in plain English. MIT licensed.
         </motion.p>

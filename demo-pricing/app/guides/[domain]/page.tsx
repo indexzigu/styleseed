@@ -80,6 +80,27 @@ export default async function DomainGuidePage({
           <p className="mt-4 text-[17px] leading-relaxed text-neutral-600">{d.dna}</p>
         </header>
 
+        {/* type recipe + corner personality (VISUAL-CRAFT §C2/§C0) */}
+        <section className="mb-6 grid gap-3 sm:grid-cols-2">
+          <div className="rounded-2xl bg-white p-5" style={{ boxShadow: "0 1px 2px rgba(0,0,0,0.04), 0 6px 18px rgba(0,0,0,0.06)" }}>
+            <div className="text-[12px] font-bold uppercase tracking-wider" style={{ color: d.accent }}>Typography</div>
+            <dl className="mt-2 space-y-1.5 text-[13px] leading-relaxed text-neutral-700">
+              <div><dt className="inline font-semibold text-neutral-500">Typeface · </dt><dd className="inline">{d.type.character}</dd></div>
+              <div><dt className="inline font-semibold text-neutral-500">Hero · </dt><dd className="inline">{d.type.hero}</dd></div>
+              <div><dt className="inline font-semibold text-neutral-500">Body · </dt><dd className="inline">{d.type.body}</dd></div>
+              <div><dt className="inline font-semibold text-neutral-500">Numerals · </dt><dd className="inline">{d.type.numerals}</dd></div>
+            </dl>
+          </div>
+          <div className="rounded-2xl bg-white p-5" style={{ boxShadow: "0 1px 2px rgba(0,0,0,0.04), 0 6px 18px rgba(0,0,0,0.06)" }}>
+            <div className="text-[12px] font-bold uppercase tracking-wider" style={{ color: d.accent }}>Corner personality</div>
+            <p className="mt-2 text-[15px] font-semibold text-neutral-800">{d.radius}</p>
+            <p className="mt-2 text-[13px] leading-relaxed text-neutral-600">
+              Pick one and apply it to <em>every</em> card, button, input, and modal. Mixing sharp and
+              round corners is the #1 tell of un-designed UI.
+            </p>
+          </div>
+        </section>
+
         {/* the six dials */}
         <section className="space-y-3">
           {d.dials.map((dial) => (
@@ -106,7 +127,7 @@ export default async function DomainGuidePage({
         <section className="mt-10 rounded-2xl bg-white p-6" style={{ boxShadow: "0 1px 2px rgba(0,0,0,0.04), 0 6px 18px rgba(0,0,0,0.06)" }}>
           <h2 className="text-[18px] font-bold tracking-tight">Build it with StyleSeed</h2>
           <p className="mt-2 text-[14px] leading-relaxed text-neutral-600">
-            StyleSeed bakes this judgment into 69+ rules your AI reads automatically.
+            StyleSeed bakes this judgment into 74 rules your AI reads automatically.
             For {d.name.toLowerCase()}, start from the{" "}
             <strong className="text-neutral-900">{d.skins.map((s) => s[0].toUpperCase() + s.slice(1)).join(" / ")}</strong>{" "}
             skin and the{" "}

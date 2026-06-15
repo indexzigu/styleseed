@@ -1,6 +1,6 @@
 # StyleSeed — Page-Type Playbooks
 
-The second axis of design judgment (see `APP-PLAYBOOKS.md` for the first). The 69
+The second axis of design judgment (see `APP-PLAYBOOKS.md` for the first). The 74
 rules in `DESIGN-LANGUAGE.md` always apply; this file says **what a given kind of
 screen needs to get right**, regardless of domain.
 
