@@ -20,6 +20,16 @@ const HERO_SHOWCASE_IDS = ["finance", "food", "fitness", "music", "issues", "wal
 
 const FEATURES = [
   {
+    icon: Layers,
+    title: "Judgment, not just parts",
+    desc: "The real payload is 74 documented design rules — each with the reasoning behind it — that tell the AI when and how to use a component, and why. Components are table stakes; the judgment is the product.",
+  },
+  {
+    icon: Sparkles,
+    title: "Your AI reads it automatically",
+    desc: "15 slash skills (/ss-page, /ss-review, /ss-score, …) that Claude Code and Cursor pick up on their own — including a coherence grader that flags 'this looks AI-generated' before you ship.",
+  },
+  {
     icon: Palette,
     title: "Brand-agnostic by design",
     desc: "One attribute (data-skin) morphs the entire UI across 7 hand-tuned brand DNAs — Toss, Stripe, Linear, Notion, Raycast, Arc, Vercel.",
@@ -30,24 +40,14 @@ const FEATURES = [
     desc: "5 named seeds (Spring, Silk, Snap, Float, Pulse) for personality, plus 20+ flashy keyword moves — tilt-3d, magnetic, glow-pulse, confetti-pop. Copy-paste, no guessing spring stiffness.",
   },
   {
-    icon: Layers,
-    title: "Components + the judgment to use them",
-    desc: "33 components and 16 patterns are table stakes. The real payload is 74 documented design rules that tell the AI when and how to use each one — judgment, not just parts.",
-  },
-  {
-    icon: Sparkles,
-    title: "AI-ready out of the box",
-    desc: "15 slash skills (/ss-component, /ss-page, /ss-motion, …) that Claude Code and Cursor read automatically. Stop fighting generic shadcn output.",
-  },
-  {
     icon: Package,
     title: "Drop-in, not all-in",
     desc: "Copy engine/ into any React + Tailwind v4 project. No build step, no runtime dependency, no lock-in.",
   },
   {
-    icon: Star,
-    title: "Free under MIT",
-    desc: "Production use, fork, white-label, internal tooling — all fair game. No usage caps, no telemetry.",
+    icon: GitFork,
+    title: "A living, open framework",
+    desc: "The rules aren't carved in stone — they're an open ecosystem. Use StyleSeed, find a pattern that works, and propose it as a rule via PR. The judgment compounds as the community adds to it.",
   },
 ];
 
@@ -73,6 +73,9 @@ export default function HomePage() {
             <span className="text-[15px] font-bold tracking-tight">StyleSeed</span>
           </Link>
           <nav className="hidden items-center gap-6 text-[13px] font-semibold text-neutral-600 sm:flex">
+            <Link href="/how-it-thinks" className="hover:text-neutral-900">
+              How it thinks
+            </Link>
             <Link href="/showcase" className="hover:text-neutral-900">
               Showcase
             </Link>
@@ -119,6 +122,42 @@ export default function HomePage() {
       <main>
         {/* Hero */}
         <Hero />
+
+        {/* How it thinks — the differentiator, before the gallery */}
+        <section className="border-t border-neutral-200 bg-white">
+          <div className="mx-auto max-w-5xl px-6 py-20">
+            <div className="text-[11px] font-bold uppercase tracking-widest text-neutral-500">
+              Why it works
+            </div>
+            <h2 className="mt-2 max-w-2xl text-[clamp(28px,4vw,40px)] font-bold leading-tight tracking-tight text-neutral-900">
+              Other repos give your AI components. We give it the reasoning.
+            </h2>
+            <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-neutral-600">
+              Every decision in a StyleSeed UI has a stated reason — the rule it follows and why that
+              rule makes the result look designed. That&rsquo;s what an AI can actually read, apply,
+              and repeat. Walk a real screen, decision by decision.
+            </p>
+            <div className="mt-7 grid gap-3 sm:grid-cols-3">
+              {[
+                { k: "The decision", v: "Balance 48px, unit 24px" },
+                { k: "The rule", v: "Rule 4 · Numbers 2:1 with units" },
+                { k: "Why it works", v: "The eye locks onto magnitude first; equal sizes flatten it into noise." },
+              ].map((c, i) => (
+                <div key={c.k} className="rounded-2xl bg-neutral-50 p-5" style={{ boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.04)" }}>
+                  <div className="text-[11px] font-bold uppercase tracking-widest" style={{ color: i === 2 ? "#3182F6" : "#9CA3AF" }}>{c.k}</div>
+                  <div className="mt-1.5 text-[14px] font-semibold leading-snug text-neutral-800">{c.v}</div>
+                </div>
+              ))}
+            </div>
+            <Link
+              href="/how-it-thinks"
+              className="mt-7 inline-flex items-center gap-1.5 rounded-xl bg-neutral-900 px-5 py-3 text-[14px] font-bold text-white hover:bg-black"
+            >
+              See how it thinks — the full walkthrough
+              <ArrowRight size={14} />
+            </Link>
+          </div>
+        </section>
 
         {/* Showcase preview */}
         <section className="border-t border-neutral-200 bg-neutral-50">

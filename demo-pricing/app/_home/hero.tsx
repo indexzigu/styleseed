@@ -5,10 +5,10 @@ import { ArrowRight, GitFork, Sparkles } from "lucide-react";
 import { motion, useSpring, type Variants } from "framer-motion";
 
 const STATS = [
-  { value: "33", label: "components" },
+  { value: "74", label: "design rules" },
+  { value: "15", label: "AI skills" },
   { value: "7", label: "brand skins" },
   { value: "5", label: "motion seeds" },
-  { value: "74", label: "design rules" },
 ];
 
 const container: Variants = {
@@ -49,7 +49,7 @@ export function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-neutral-600"
           >
             <Sparkles size={11} className="text-violet-500" />
-            v2 · now with 20+ motion moves
+            A thinking framework for UI · Claude Code & Cursor
           </motion.div>
         </motion.div>
 
@@ -57,27 +57,28 @@ export function Hero() {
           variants={item}
           className="mx-auto mt-7 max-w-3xl text-[clamp(40px,7vw,68px)] font-bold leading-[1.04] tracking-tight text-neutral-900"
         >
-          Design that <GradientWord>scales</GradientWord>{" "}
+          Teach your AI design <GradientWord>judgment</GradientWord>.{" "}
           <br className="hidden sm:block" />
-          without you redrawing it.
+          Not just components.
         </motion.h1>
 
         <motion.p
           variants={item}
           className="mx-auto mt-6 max-w-2xl text-[17px] leading-relaxed text-neutral-600"
         >
-          Not a component library or a template pack — a <strong className="font-semibold text-neutral-900">design engine</strong>.
-          StyleSeed teaches Claude Code and Cursor how designers actually think — 74 rules, not just
-          tokens — so AI ships intentional UI instead of generic output. Swap the brand DNA with one
-          attribute; add motion in plain English. MIT licensed.
+          Most design repos hand your AI a pile of components and hope for the best. StyleSeed hands
+          it the <strong className="font-semibold text-neutral-900">judgment</strong> — 74 rules
+          <em> and the reasoning behind each</em> — so Claude Code and Cursor ship UI that looks
+          designed, not generated. Swap the brand DNA with one attribute; add motion in plain
+          English. MIT licensed.
         </motion.p>
 
         <motion.div
           variants={item}
           className="mt-9 flex flex-wrap items-center justify-center gap-3"
         >
-          <MagneticLink href="/showcase">
-            Browse the showcase
+          <MagneticLink href="/how-it-thinks">
+            See how it thinks
             <ArrowRight size={14} />
           </MagneticLink>
           <a
