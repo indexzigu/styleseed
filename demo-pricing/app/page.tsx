@@ -157,37 +157,19 @@ export default function HomePage() {
             </div>
 
             <div className="mt-10 text-[11px] font-bold uppercase tracking-widest text-neutral-500">
-              Prefer to install it? Two ways
+              Prefer to install it?
             </div>
-            <div className="mt-4 grid gap-4 md:grid-cols-2">
-              {/* 1 — starter */}
-              <div className="flex flex-col rounded-2xl bg-white/[0.06] p-6 ring-1 ring-white/10">
-                <div className="text-[12px] font-bold uppercase tracking-widest text-emerald-400">Zero config</div>
-                <h3 className="mt-2 text-[17px] font-bold">Start from the template</h3>
-                <p className="mt-1.5 flex-1 text-[13px] leading-relaxed text-neutral-400">
-                  A working React app with the whole engine pre-installed. Deploy it, or use it as a
-                  GitHub template, then ask your AI for UI.
-                </p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbitjaru%2Fstyleseed-starter" target="_blank" rel="noreferrer" className="rounded-lg bg-white px-3 py-2 text-[12px] font-bold text-neutral-900 hover:bg-neutral-200">Deploy ▲</a>
-                  <a href="https://github.com/bitjaru/styleseed-starter/generate" target="_blank" rel="noreferrer" className="rounded-lg bg-white/10 px-3 py-2 text-[12px] font-bold text-white hover:bg-white/20">Use template</a>
-                </div>
+            <div className="mt-4 max-w-xl rounded-2xl bg-white/[0.06] p-6 ring-1 ring-white/10">
+              <div className="text-[12px] font-bold uppercase tracking-widest text-sky-400">Existing project</div>
+              <h3 className="mt-2 text-[17px] font-bold">Add it in two commands</h3>
+              <p className="mt-1.5 text-[13px] leading-relaxed text-neutral-400">
+                Installs all 15 skills universally — Claude Code, Codex, Cursor, Gemini CLI & 12+
+                more — then run the setup wizard.
+              </p>
+              <div className="mt-4 space-y-1.5">
+                <code className="block rounded-lg bg-black/40 px-3 py-2 font-mono text-[12px] text-neutral-100">npx skills add bitjaru/styleseed</code>
+                <code className="block rounded-lg bg-black/40 px-3 py-2 font-mono text-[12px]"><span className="text-neutral-500"># in Claude Code: </span><span className="text-emerald-400">/ss-setup</span></code>
               </div>
-
-              {/* 2 — add to existing */}
-              <div className="flex flex-col rounded-2xl bg-white/[0.06] p-6 ring-1 ring-white/10">
-                <div className="text-[12px] font-bold uppercase tracking-widest text-sky-400">Existing project</div>
-                <h3 className="mt-2 text-[17px] font-bold">Add it in two commands</h3>
-                <p className="mt-1.5 flex-1 text-[13px] leading-relaxed text-neutral-400">
-                  Installs all 15 skills universally — Claude Code, Codex, Cursor, Gemini CLI & 12+
-                  more — then run the setup wizard.
-                </p>
-                <div className="mt-4 space-y-1.5">
-                  <code className="block rounded-lg bg-black/40 px-3 py-2 font-mono text-[12px] text-neutral-100">npx skills add bitjaru/styleseed</code>
-                  <code className="block rounded-lg bg-black/40 px-3 py-2 font-mono text-[12px]"><span className="text-neutral-500"># in Claude Code: </span><span className="text-emerald-400">/ss-setup</span></code>
-                </div>
-              </div>
-
             </div>
           </div>
         </section>

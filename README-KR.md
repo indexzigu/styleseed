@@ -102,15 +102,15 @@ Claude Code한테 "대시보드 만들어줘" 하면 보통 이런 결과가 나
 
 ## 사용법
 
-### ⚡ 가장 빠른 방법: 원클릭 스타터
+### ⚡ 가장 빠른 방법: 한 문장 붙여넣기
 
-[**styleseed-starter**](https://github.com/bitjaru/styleseed-starter)는 엔진이 전부 깔린 실제 동작 React 앱입니다 — 룰·스킬·컴포넌트·모션·샘플 대시보드까지. 배포하거나 템플릿으로 복사한 뒤, Claude Code/Cursor에 UI를 요청하면 됩니다.
+Claude Code·Codex·Cursor 등 아무 AI 에이전트에 이 한 문장을 붙여넣으면 끝 — 설치 불필요:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbitjaru%2Fstyleseed-starter&project-name=styleseed-app&repository-name=styleseed-app)
-&nbsp;
-[![Use this template](https://img.shields.io/badge/Use_this_template-2ea44f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/bitjaru/styleseed-starter/generate)
+```
+Read https://styleseed-demo.vercel.app/llms.txt and apply StyleSeed's design rules to every UI you build in this project.
+```
 
-기존 프로젝트에 추가하려면 아래 방법을 쓰세요.
+설치형이 좋으면 `npx skills add bitjaru/styleseed` → `/ss-setup`. 기존 프로젝트에 직접 넣으려면 아래 방법을 쓰세요.
 
 ### 방법 1: 인터랙티브 설정 (추천)
 

@@ -71,8 +71,6 @@ npx skills add bitjaru/styleseed
 ```
 This installs all 15 `/ss-*` skills **universally** — they work with Claude Code, Codex, Cursor, Gemini CLI, Amp, and 12+ other agents. Then run `/ss-setup` — the wizard picks your app type, brand/skin, and fonts, and builds your first page.
 
-**Starting fresh?** Clone the [**styleseed-starter**](https://github.com/bitjaru/styleseed-starter) — a working app with the whole engine pre-installed.
-
 <sub>More paths (manual copy, Cursor, awesome-design-md brands) in [Get Started](#get-started) below.</sub>
 
 ---
@@ -146,15 +144,7 @@ Drop `DESIGN-LANGUAGE.md` into your Claude Design workflow and the same model pr
 
 ## Get Started
 
-### ⚡ Fastest: the one-click starter
-
-[**styleseed-starter**](https://github.com/bitjaru/styleseed-starter) is a working React app with the whole engine pre-installed — rules, skills, components, motion, and a sample dashboard. Deploy it, or use it as a GitHub template, then just ask Claude Code / Cursor for UI.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbitjaru%2Fstyleseed-starter&project-name=styleseed-app&repository-name=styleseed-app)
-&nbsp;
-[![Use this template](https://img.shields.io/badge/Use_this_template-2ea44f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/bitjaru/styleseed-starter/generate)
-
-Prefer to add StyleSeed to an existing project? Use one of the options below.
+The fastest paths are at the top — [paste one prompt](#get-started-in-30-seconds), or `npx skills add bitjaru/styleseed`. To wire StyleSeed into an existing project by hand, use one of the options below.
 
 > **New to this? Read top to bottom — every step matters.** The most common
 > mistake is expecting `/ss-setup` to work before the skills are copied into
