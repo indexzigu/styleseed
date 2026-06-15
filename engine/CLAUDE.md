@@ -25,6 +25,8 @@ Reference this guide when Claude Code sets up a new project or implements UI.
 > - **This file (CLAUDE.md)**: Tokens, component API, imports, forbidden patterns — reference while coding
 > - **DESIGN-LANGUAGE.md**: Visual design rules, page layout, composition recipes — read **before** building a new page. Start with the Table of Contents, then rules 14, 18, 19, 61-63.
 > - **METHODOLOGY.md**: UI/UX reasoning patterns (progressive disclosure, info density, atomic design, skeleton/empty/microinteraction, contextual onboarding, Linear/Toss aesthetic, color discipline, motion vibe vocabulary) — read **before scaffolding a new dashboard** or when wondering *why* the rules in DESIGN-LANGUAGE.md exist. Chapter 8 (Motion Vibe Vocabulary) is the entry point for the `engine/motion/` seed system.
+> - **APP-PLAYBOOKS.md**: How to **bias** the rules for the app's domain (fintech, SaaS, e-commerce, social, content, productivity, health, education, dev-tools, marketplace, booking, AI/chat). Read **right after you know what kind of app this is** (e.g. from `/ss-setup`), before scaffolding — a fintech dashboard and a social dashboard apply the same 69 rules differently.
+> - **PAGE-TYPES.md**: How to bias the rules for the **screen type** (dashboard / form / landing / detail / list / settings / onboarding). Read before building a specific page. Domain × page-type together = the actual design judgment.
 
 ## Quick Start — New Project Setup
 
