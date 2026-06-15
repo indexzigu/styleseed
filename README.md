@@ -54,6 +54,29 @@ Data vs judgment. 74 design rules that Claude Code and Cursor read automatically
 
 ---
 
+## Get started in 30 seconds
+
+**The fastest way — paste this one sentence** into Claude Code, Cursor, or any AI agent. No install:
+
+```
+Read https://styleseed-demo.vercel.app/llms.txt and apply StyleSeed's design rules to every UI you build in this project.
+```
+
+That's it — the agent reads the rules and applies them to whatever you build next.
+
+**Prefer to install it** (adds the rules + `/ss-*` skills locally)?
+
+```bash
+npx skills add bitjaru/styleseed
+```
+Then restart Claude Code and run `/ss-setup` — the wizard picks your app type, brand/skin, and fonts, then builds your first page.
+
+**Starting fresh?** Clone the [**styleseed-starter**](https://github.com/bitjaru/styleseed-starter) — a working app with the whole engine pre-installed.
+
+<sub>More paths (manual copy, Cursor, awesome-design-md brands) in [Get Started](#get-started) below.</sub>
+
+---
+
 ## Who is this for?
 
 - You asked **Claude Code** or **Cursor** to build a dashboard and it came out amateur-looking

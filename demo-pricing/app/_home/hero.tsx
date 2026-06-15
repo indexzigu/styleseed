@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowRight, GitFork, Sparkles } from "lucide-react";
 import { motion, useSpring, type Variants } from "framer-motion";
+import { PromptBox } from "./prompt-box";
 
 const STATS = [
   { value: "74", label: "design rules" },
@@ -90,6 +91,19 @@ export function Hero() {
             <GitFork size={14} />
             View source on GitHub
           </a>
+        </motion.div>
+
+        {/* how to actually use it — one paste, visible on the first screen */}
+        <motion.div variants={item} className="mx-auto mt-7 max-w-xl">
+          <span className="text-[12px] font-semibold uppercase tracking-widest text-neutral-400">
+            Already in Claude Code or Cursor? Paste this 👇
+          </span>
+          <div className="mt-2">
+            <PromptBox />
+          </div>
+          <p className="mt-2 text-[12px] text-neutral-400">
+            or install it: <code className="font-mono text-neutral-600">npx skills add bitjaru/styleseed</code> → <code className="font-mono text-neutral-600">/ss-setup</code>
+          </p>
         </motion.div>
 
         <motion.dl

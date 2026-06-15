@@ -15,6 +15,7 @@ import { listShowcase } from "@/lib/showcase";
 import { seeds as motionSeeds } from "@engine/motion";
 import { SeedDemo } from "./_home/seed-demo";
 import { Hero } from "./_home/hero";
+import { PromptBox } from "./_home/prompt-box";
 
 const HERO_SHOWCASE_IDS = ["finance", "food", "fitness", "music", "issues", "wallet"];
 
@@ -73,6 +74,9 @@ export default function HomePage() {
             <span className="text-[15px] font-bold tracking-tight">StyleSeed</span>
           </Link>
           <nav className="hidden items-center gap-6 text-[13px] font-semibold text-neutral-600 sm:flex">
+            <a href="#get-started" className="hover:text-neutral-900">
+              Get started
+            </a>
             <Link href="/how-it-thinks" className="hover:text-neutral-900">
               How it thinks
             </Link>
@@ -122,6 +126,70 @@ export default function HomePage() {
       <main>
         {/* Hero */}
         <Hero />
+
+        {/* Get started — the first thing a visitor needs: how to use it */}
+        <section id="get-started" className="scroll-mt-20 border-t border-neutral-200 bg-neutral-900 text-white">
+          <div className="mx-auto max-w-6xl px-6 py-16">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <div className="text-[11px] font-bold uppercase tracking-widest text-neutral-500">Get started</div>
+                <h2 className="mt-2 text-[clamp(26px,4vw,36px)] font-bold tracking-tight">
+                  The fastest way is one sentence.
+                </h2>
+                <p className="mt-2 max-w-xl text-[15px] text-neutral-400">
+                  No install required. Paste this into Claude Code, Cursor, or any AI agent and it reads
+                  the rules and applies them to whatever you build next.
+                </p>
+              </div>
+              <a
+                href="https://github.com/bitjaru/styleseed#get-started"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-xl border border-white/20 px-4 py-2.5 text-[13px] font-bold text-white hover:bg-white/10"
+              >
+                Full setup guide <ArrowRight size={14} />
+              </a>
+            </div>
+
+            {/* the one-paste path — the primary, lowest-friction way */}
+            <div className="mt-8 max-w-3xl">
+              <PromptBox tone="dark" />
+            </div>
+
+            <div className="mt-10 text-[11px] font-bold uppercase tracking-widest text-neutral-500">
+              Prefer to install it? Two ways
+            </div>
+            <div className="mt-4 grid gap-4 md:grid-cols-2">
+              {/* 1 — starter */}
+              <div className="flex flex-col rounded-2xl bg-white/[0.06] p-6 ring-1 ring-white/10">
+                <div className="text-[12px] font-bold uppercase tracking-widest text-emerald-400">Zero config</div>
+                <h3 className="mt-2 text-[17px] font-bold">Start from the template</h3>
+                <p className="mt-1.5 flex-1 text-[13px] leading-relaxed text-neutral-400">
+                  A working React app with the whole engine pre-installed. Deploy it, or use it as a
+                  GitHub template, then ask your AI for UI.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbitjaru%2Fstyleseed-starter" target="_blank" rel="noreferrer" className="rounded-lg bg-white px-3 py-2 text-[12px] font-bold text-neutral-900 hover:bg-neutral-200">Deploy ▲</a>
+                  <a href="https://github.com/bitjaru/styleseed-starter/generate" target="_blank" rel="noreferrer" className="rounded-lg bg-white/10 px-3 py-2 text-[12px] font-bold text-white hover:bg-white/20">Use template</a>
+                </div>
+              </div>
+
+              {/* 2 — add to existing */}
+              <div className="flex flex-col rounded-2xl bg-white/[0.06] p-6 ring-1 ring-white/10">
+                <div className="text-[12px] font-bold uppercase tracking-widest text-sky-400">Existing project</div>
+                <h3 className="mt-2 text-[17px] font-bold">Add it in two commands</h3>
+                <p className="mt-1.5 flex-1 text-[13px] leading-relaxed text-neutral-400">
+                  Drop the rules + skills into any React + Tailwind repo, then run the setup wizard.
+                </p>
+                <div className="mt-4 space-y-1.5">
+                  <code className="block rounded-lg bg-black/40 px-3 py-2 font-mono text-[12px] text-neutral-100">npx skills add bitjaru/styleseed</code>
+                  <code className="block rounded-lg bg-black/40 px-3 py-2 font-mono text-[12px]"><span className="text-neutral-500"># in Claude Code: </span><span className="text-emerald-400">/ss-setup</span></code>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
 
         {/* How it thinks — the differentiator, before the gallery */}
         <section className="border-t border-neutral-200 bg-white">
