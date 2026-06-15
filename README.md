@@ -40,6 +40,12 @@ Data vs judgment. 74 design rules that Claude Code and Cursor read automatically
 
 <br />
 
+<a href="https://styleseed-demo.vercel.app/how-it-thinks">
+  <img src="assets/rules-blueprint.svg" width="840" alt="Every decision is a rule with a reason. A StyleSeed UI card annotated with the rule behind each choice — Rule 1 content in cards, Rule 4 numbers 2:1 with units, Rule 2 one accent, one corner radius, Rule 72 never color alone, Rule 71 real states. Other repos hand your AI components; StyleSeed hands it the judgment." />
+</a>
+
+<br /><br />
+
 [Get Started](#get-started) · [Engine + Skins](#how-it-works-engine--skins) · [Motion](#named-motion-system) · [Skills](#14-ai-powered-skills) · [Wiki](../../wiki) · [한국어](README-KR.md)
 
 <br />

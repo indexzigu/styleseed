@@ -26,9 +26,9 @@ export const metadata: Metadata = {
     title: "How StyleSeed thinks",
     description,
     siteName: "StyleSeed",
-    images: [{ url: `${BASE}/og/showcase.png`, width: 1280, height: 640 }],
+    images: [{ url: `${BASE}/og/rules-blueprint.png`, width: 1280, height: 640 }],
   },
-  twitter: { card: "summary_large_image", title: "How StyleSeed thinks", description, images: [`${BASE}/og/showcase.png`] },
+  twitter: { card: "summary_large_image", title: "How StyleSeed thinks", description, images: [`${BASE}/og/rules-blueprint.png`] },
 };
 
 /** One reasoning block: a real UI fragment + the decision, the rule, and why it works. */

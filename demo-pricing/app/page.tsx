@@ -137,6 +137,14 @@ export default function HomePage() {
               rule makes the result look designed. That&rsquo;s what an AI can actually read, apply,
               and repeat. Walk a real screen, decision by decision.
             </p>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/rules-blueprint.svg"
+              alt="A StyleSeed UI card annotated with the design rule behind each decision — numbers 2:1, one accent, content in cards, one corner radius, never color alone, real states."
+              width={1200}
+              height={680}
+              className="mt-8 w-full rounded-2xl border border-neutral-200 bg-white"
+            />
             <div className="mt-7 grid gap-3 sm:grid-cols-3">
               {[
                 { k: "The decision", v: "Balance 48px, unit 24px" },
