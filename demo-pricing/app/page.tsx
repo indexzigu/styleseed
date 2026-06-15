@@ -179,7 +179,8 @@ export default function HomePage() {
                 <div className="text-[12px] font-bold uppercase tracking-widest text-sky-400">Existing project</div>
                 <h3 className="mt-2 text-[17px] font-bold">Add it in two commands</h3>
                 <p className="mt-1.5 flex-1 text-[13px] leading-relaxed text-neutral-400">
-                  Drop the rules + skills into any React + Tailwind repo, then run the setup wizard.
+                  Installs all 15 skills universally — Claude Code, Codex, Cursor, Gemini CLI & 12+
+                  more — then run the setup wizard.
                 </p>
                 <div className="mt-4 space-y-1.5">
                   <code className="block rounded-lg bg-black/40 px-3 py-2 font-mono text-[12px] text-neutral-100">npx skills add bitjaru/styleseed</code>

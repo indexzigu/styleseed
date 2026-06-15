@@ -69,7 +69,7 @@ That's it — the agent reads the rules and applies them to whatever you build n
 ```bash
 npx skills add bitjaru/styleseed
 ```
-Then restart Claude Code and run `/ss-setup` — the wizard picks your app type, brand/skin, and fonts, then builds your first page.
+This installs all 15 `/ss-*` skills **universally** — they work with Claude Code, Codex, Cursor, Gemini CLI, Amp, and 12+ other agents. Then run `/ss-setup` — the wizard picks your app type, brand/skin, and fonts, and builds your first page.
 
 **Starting fresh?** Clone the [**styleseed-starter**](https://github.com/bitjaru/styleseed-starter) — a working app with the whole engine pre-installed.
 
