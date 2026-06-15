@@ -9,7 +9,7 @@
 <br />
 
 <a href="https://styleseed-demo.vercel.app">
-  <img src="showcase/landing.png" width="760" alt="StyleSeed — a design engine that teaches Claude Code, Codex, and Cursor design judgment. Landing: Design that scales without you redrawing it." />
+  <img src="showcase/landing.png" width="760" alt="StyleSeed landing — 'Teach your AI design judgment. Not just components.' A design engine for Claude Code, Codex, and Cursor, with a one-paste prompt to start." />
 </a>
 
 <br /><br />
