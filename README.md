@@ -73,7 +73,7 @@ That's it — the agent reads the rules and applies them to whatever you build n
 ```bash
 npx skills add bitjaru/styleseed
 ```
-This installs all 15 skills **universally** (Claude Code, Codex, Cursor, Gemini CLI, Amp + 12 more), then run `/ss-setup`. Because skills are *executable*, your agent will ask you to **approve them once on first use** — that's normal for any third-party skill (good security), not a StyleSeed-specific block. Approve to enable, or skip the skills entirely and just use the rules.
+This installs all 15 skills **universally** (Claude Code, Codex, Cursor, Gemini CLI, Amp + 12 more), then run `/ss-setup`. The skills are a real upgrade — a setup wizard, `/ss-review` and `/ss-score` to grade your UI, scaffolding, motion — so installing them is worth it. Because skills are *executable*, your agent asks you to **approve them once on first use** — that's normal for any third-party skill (good security), a quick one-time step, not a StyleSeed block. (And if you can't install them in your setup, the rules alone still do the core work.)
 
 <sub>More paths (manual copy, Cursor, awesome-design-md brands) in [Get Started](#get-started) below.</sub>
 
