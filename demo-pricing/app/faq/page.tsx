@@ -54,6 +54,10 @@ const FAQ: { q: string; a: string }[] = [
     a: "Yes. StyleSeed ships an AGENTS.md, so Codex, Amp, Gemini CLI, Windsurf, and any agent that follows the AGENTS.md convention read its design rules automatically — the same rules Claude Code gets from CLAUDE.md and Cursor gets from .cursorrules. It's agent-agnostic: any coding agent that reads a rules file can use it.",
   },
   {
+    q: "Installing the skills asks for permission or gets blocked — is that normal? Do I even need them?",
+    a: "Yes, that's normal and expected: the /ss-* skills are executable, so your agent asks you to trust them once on first use — the same approval any third-party skill needs (good security), not a StyleSeed-specific block. But you don't need the skills at all. StyleSeed's core is the rules — plain markdown (CLAUDE.md / AGENTS.md / DESIGN-LANGUAGE.md) — which install with zero permissions. Paste the one-sentence prompt, or copy those files in, and you already get the design judgment. The skills are just optional automation on top.",
+  },
+  {
     q: "How do I make my app look more professional / polished / expensive?",
     a: "Generic-to-premium is mostly discipline: one saturated accent, a real font pairing, an 8pt spacing scale, intentional hierarchy, a signature shadow, and subtle motion. StyleSeed encodes all of these as 74 rules Claude Code, Codex, and Cursor follow automatically, so “make it look more professional” produces an actually professional result instead of more average defaults.",
   },

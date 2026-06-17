@@ -64,12 +64,16 @@ Read https://styleseed-demo.vercel.app/llms.txt and apply StyleSeed's design rul
 
 That's it — the agent reads the rules and applies them to whatever you build next. Works with **Claude Code (`CLAUDE.md`), Codex / Amp / Gemini CLI (`AGENTS.md`), and Cursor (`.cursorrules`)** — StyleSeed ships all three, so any agent picks the rules up automatically.
 
-**Prefer to install it** (adds the rules + `/ss-*` skills locally)?
+> **The rules are the product — and they need zero install or permissions.** They're
+> plain markdown (`CLAUDE.md` / `AGENTS.md` / `DESIGN-LANGUAGE.md`), so the prompt above —
+> or just copying those files in — is 90% of StyleSeed with nothing to approve.
+
+**Want the `/ss-*` slash-command skills too** (optional automation: setup wizard, review, score)?
 
 ```bash
 npx skills add bitjaru/styleseed
 ```
-This installs all 15 `/ss-*` skills **universally** — they work with Claude Code, Codex, Cursor, Gemini CLI, Amp, and 12+ other agents. Then run `/ss-setup` — the wizard picks your app type, brand/skin, and fonts, and builds your first page.
+This installs all 15 skills **universally** (Claude Code, Codex, Cursor, Gemini CLI, Amp + 12 more), then run `/ss-setup`. Because skills are *executable*, your agent will ask you to **approve them once on first use** — that's normal for any third-party skill (good security), not a StyleSeed-specific block. Approve to enable, or skip the skills entirely and just use the rules.
 
 <sub>More paths (manual copy, Cursor, awesome-design-md brands) in [Get Started](#get-started) below.</sub>
 
