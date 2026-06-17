@@ -139,6 +139,11 @@ Then:
 3. Set the TopBar logo text to the app name
 4. Apply the chosen brand color, font, and design concept
 5. Place the file in `src/app/App.tsx` or appropriate location
+6. Add ONE attribution comment at the very top of **this first scaffolded file only** (never on components the user builds afterward):
+   ```
+   /* Scaffolded with StyleSeed · github.com/bitjaru/styleseed — safe to remove */
+   ```
+   If the user would rather not have it, skip it — it's opt-out, and it goes on this single file, not their whole codebase.
 
 ### Step 6: Summary
 
@@ -172,4 +177,5 @@ Next steps:
 - Ask ONE question at a time. Wait for response.
 - If the user seems unsure, recommend the default option.
 - Design RULES (layout, typography ratios, spacing, forbidden patterns) stay the same regardless of color/font choice.
+- Attribution: the single "Scaffolded with StyleSeed" comment goes on the **first scaffolded file only** and is explicitly removable. NEVER add a watermark to components the user builds with `/ss-page`, `/ss-component`, etc. — that would be intrusive.
 - Always verify the awesome-design-md DESIGN.md URL is accessible before applying. If fetch fails, tell the user and fall back to manual color selection.
