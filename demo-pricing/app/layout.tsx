@@ -89,18 +89,38 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const SAME_AS = [
+    "https://github.com/bitjaru/styleseed",
+    "https://x.com/kiwidigs",
+    "https://dev.to/kiwibreaksme",
+  ];
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: SITE_NAME,
-    description: SITE_DESC,
-    url: SITE_URL,
-    applicationCategory: "DeveloperApplication",
-    operatingSystem: "Web",
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    license: "https://opensource.org/licenses/MIT",
-    softwareVersion: "2",
-    sameAs: ["https://github.com/bitjaru/styleseed"],
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        name: SITE_NAME,
+        description: SITE_DESC,
+        url: SITE_URL,
+        applicationCategory: "DeveloperApplication",
+        operatingSystem: "Web",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+        license: "https://opensource.org/licenses/MIT",
+        softwareVersion: "2.3.0",
+        programmingLanguage: ["TypeScript", "React"],
+        codeRepository: "https://github.com/bitjaru/styleseed",
+        keywords:
+          "design system for AI, Claude Code, Cursor, Codex, design rules, AI UI, vibe coding, design judgment",
+        sameAs: SAME_AS,
+      },
+      {
+        "@type": "Organization",
+        name: "StyleSeed",
+        url: SITE_URL,
+        logo: `${SITE_URL}/og/styleseed-og.png`,
+        sameAs: SAME_AS,
+      },
+    ],
   };
 
   return (
