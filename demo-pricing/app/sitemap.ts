@@ -3,6 +3,7 @@ import "./showcase/examples";
 import { listShowcase } from "@/lib/showcase";
 import { MOTION_LIBRARY } from "@engine/motion";
 import { DOMAINS } from "@/lib/domains";
+import { SCREENS } from "@/lib/screens";
 
 const BASE = "https://styleseed-demo.vercel.app";
 
@@ -17,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/how-it-thinks`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/faq`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/guides`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/screens`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/interactions`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/gallery`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/pricing`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
@@ -45,5 +47,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...showcaseRoutes, ...motionRoutes, ...guideRoutes];
+  // programmatic SEO: one design guide per screen type
+  const screenRoutes: MetadataRoute.Sitemap = SCREENS.map((s) => ({
+    url: `${BASE}/screens/${s.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...showcaseRoutes, ...motionRoutes, ...guideRoutes, ...screenRoutes];
 }
