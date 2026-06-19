@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Check, Inbox, Star, TrendingUp } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Inbox, Star, TrendingUp, X } from "lucide-react";
 
 const BASE = "https://styleseed-demo.vercel.app";
 const ACCENT = "#3182F6";
@@ -270,8 +270,8 @@ export default function HowItThinks() {
           n={8}
           flip
           decision="The button says what happens — not “Submit.”"
-          rule="UX-WRITING WB-1 · Label the action (grounded in Toss's writing principles)"
-          why="The words are part of the design too. “Submit” / “OK” / “Confirm” make the user guess what they're agreeing to; a button that reads “Send $2,400” is its own confirmation. Copy that sounds like a system — “Invalid input,” “An error occurred” — reads as AI-made exactly like the wrong color does. StyleSeed writes the verbal judgment down too: buttons name the action, errors help instead of blame, one term per concept."
+          rule="UX-WRITING WB-1 · Label the action, not the mechanism"
+          why="The words are part of the design too. “Submit” / “OK” / “Confirm” make the user guess what they're agreeing to; a button that reads “Send $2,400” is its own confirmation. Copy that sounds like a system — “Invalid input,” “An error occurred” — reads as AI-made exactly like the wrong color does. StyleSeed writes the verbal judgment down too (buttons name the action, errors help instead of blame, one term per concept) — and you pick the voice, the rules are the floor."
         >
           <div className="rounded-xl bg-white p-5" style={{ boxShadow: "0 1px 2px rgba(0,0,0,0.05), 0 6px 18px rgba(0,0,0,0.06)" }}>
             <div className="flex items-center gap-2.5">

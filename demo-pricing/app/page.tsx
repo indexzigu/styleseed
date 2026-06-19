@@ -23,7 +23,7 @@ const FEATURES = [
   {
     icon: Layers,
     title: "Judgment — visual and verbal",
-    desc: "74 documented design rules — each with the reasoning behind it — for how a UI should look (one accent, hierarchy, coherence) AND how it should read: buttons that name the action, errors that help not blame, calm copy (grounded in Toss's writing principles). The whole 'looks AI-generated' problem, both halves.",
+    desc: "74 documented design rules — each with the reasoning — for how a UI should look (one accent, hierarchy, coherence) AND how it should read: buttons that name the action, errors that help not blame, one term per concept. Pick your own voice; the rules are the floor. The whole 'looks AI-generated' problem, both halves.",
   },
   {
     icon: Sparkles,

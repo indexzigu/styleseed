@@ -35,6 +35,16 @@ a failed payment erodes trust; a celebration on a real win earns it.
 account." Second person, active voice. The product is the user's tool, not an
 institution addressing them.
 
+**WV-4 · Voice is a *choice* — pick one and keep it (the coherence law, for words).**
+Most of this file is voice-neutral and universal: clarity, concision, no jargon,
+action-named buttons, helpful errors, one term per concept — apply these whatever your
+product is. The *flavor* on top is yours to pick: warm & friendly, crisp & formal
+(B2B), or playful (consumer). Choose the voice that fits the product and apply it
+**consistently** — don't drift between tones. **§W8 (Toss) is a *reference* for one
+clear-calm-human voice and where the principles come from — not a mandate to sound like
+any brand.** Want a dry, formal, or quirky voice instead? Keep the principles, change
+the flavor.
+
 ---
 
 ## §W1 — Buttons & actions
