@@ -49,10 +49,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/showcase-hero/finance.png",
-        width: 1440,
-        height: 900,
-        alt: "StyleSeed showcase — finance dashboard in Toss skin with Spring motion",
+        url: "/og/rules-blueprint.png",
+        width: 1200,
+        height: 680,
+        alt: "Every decision is a rule — a StyleSeed UI annotated with the design rule behind each choice. Other repos hand your AI components; StyleSeed hands it the judgment.",
       },
     ],
   },
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "StyleSeed — Design engine for vibe coding",
     description: SITE_DESC,
-    images: ["/showcase-hero/finance.png"],
+    images: ["/og/rules-blueprint.png"],
     creator: "@bitjaru",
   },
   alternates: {

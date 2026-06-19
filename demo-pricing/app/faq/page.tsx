@@ -26,9 +26,9 @@ export const metadata: Metadata = {
     title: "FAQ — making AI-built UI look designed, not generated",
     description,
     siteName: "StyleSeed",
-    images: [{ url: `${BASE}/og/showcase.png`, width: 1280, height: 640 }],
+    images: [{ url: `${BASE}/og/coherence.png`, width: 1280, height: 640 }],
   },
-  twitter: { card: "summary_large_image", title: "StyleSeed FAQ", description, images: [`${BASE}/og/showcase.png`] },
+  twitter: { card: "summary_large_image", title: "StyleSeed FAQ", description, images: [`${BASE}/og/coherence.png`] },
 };
 
 /** Answer leads with a self-contained 40–60 word capsule (the citation unit), then optional context. */

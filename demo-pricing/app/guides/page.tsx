@@ -26,9 +26,9 @@ export const metadata: Metadata = {
     title: "Design guides by app type",
     description,
     siteName: "StyleSeed",
-    images: [{ url: `${BASE}/og/showcase.png`, width: 1280, height: 640 }],
+    images: [{ url: `${BASE}/og/coherence.png`, width: 1280, height: 640 }],
   },
-  twitter: { card: "summary_large_image", title: "Design guides by app type", description, images: [`${BASE}/og/showcase.png`] },
+  twitter: { card: "summary_large_image", title: "Design guides by app type", description, images: [`${BASE}/og/coherence.png`] },
 };
 
 export default function GuidesIndex() {
