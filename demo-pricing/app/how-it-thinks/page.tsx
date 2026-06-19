@@ -266,6 +266,26 @@ export default function HowItThinks() {
           </div>
         </Reason>
 
+        <Reason
+          n={8}
+          flip
+          decision="The button says what happens — not “Submit.”"
+          rule="UX-WRITING WB-1 · Label the action (grounded in Toss's writing principles)"
+          why="The words are part of the design too. “Submit” / “OK” / “Confirm” make the user guess what they're agreeing to; a button that reads “Send $2,400” is its own confirmation. Copy that sounds like a system — “Invalid input,” “An error occurred” — reads as AI-made exactly like the wrong color does. StyleSeed writes the verbal judgment down too: buttons name the action, errors help instead of blame, one term per concept."
+        >
+          <div className="rounded-xl bg-white p-5" style={{ boxShadow: "0 1px 2px rgba(0,0,0,0.05), 0 6px 18px rgba(0,0,0,0.06)" }}>
+            <div className="flex items-center gap-2.5">
+              <button className="rounded-lg bg-neutral-100 px-4 py-2.5 text-[14px] font-bold text-neutral-400 line-through">Submit</button>
+              <X size={16} className="text-red-400" />
+            </div>
+            <div className="mt-3 flex items-center gap-2.5">
+              <button className="rounded-lg px-4 py-2.5 text-[14px] font-bold text-white" style={{ background: ACCENT }}>Send $2,400</button>
+              <Check size={16} style={{ color: "#16A34A" }} />
+            </div>
+            <p className="mt-3 text-[12px] text-neutral-400">You can act from the label alone — no guessing what “Submit” does.</p>
+          </div>
+        </Reason>
+
       </section>
 
       {/* the thesis */}

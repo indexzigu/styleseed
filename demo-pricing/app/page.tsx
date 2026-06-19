@@ -22,8 +22,8 @@ const HERO_SHOWCASE_IDS = ["finance", "food", "fitness", "music", "issues", "wal
 const FEATURES = [
   {
     icon: Layers,
-    title: "Judgment, not just parts",
-    desc: "The real payload is 74 documented design rules — each with the reasoning behind it — that tell the AI when and how to use a component, and why. Components are table stakes; the judgment is the product.",
+    title: "Judgment — visual and verbal",
+    desc: "74 documented design rules — each with the reasoning behind it — for how a UI should look (one accent, hierarchy, coherence) AND how it should read: buttons that name the action, errors that help not blame, calm copy (grounded in Toss's writing principles). The whole 'looks AI-generated' problem, both halves.",
   },
   {
     icon: Sparkles,

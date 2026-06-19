@@ -1,8 +1,14 @@
 # StyleSeed
 
 > The design system for Claude Code, Codex, Cursor, and vibe coding.
-> 48 components + 74 visual rules + 15 slash skills + 7 brand skins + a named motion system (5 seeds × 5 contexts + 20+ keyword moves).
-> "Other repos teach LLMs what brands look like. StyleSeed teaches LLMs how designers think — and how motion should feel."
+> 48 components + 74 visual rules + UX-writing rules + 15 slash skills + 7 brand skins + a named motion system (5 seeds × 5 contexts + 20+ keyword moves).
+> "Other repos teach LLMs what brands look like. StyleSeed teaches LLMs how designers think — how it should look, read, and feel."
+
+## Design judgment = visual + verbal
+
+StyleSeed covers BOTH halves of "looks AI-generated":
+- **Visual** (DESIGN-LANGUAGE.md, VISUAL-CRAFT.md): one accent, one radius personality, spacing rhythm, hierarchy, coherence.
+- **Verbal** (UX-WRITING.md): the text *inside* the UI — buttons that name the action ("Send $2,400", not "Submit"), errors that help instead of blame ("Check the card number" not "Invalid input"), empty states that invite, calm money copy, one term per concept. Korean/CJK projects get the clear-calm-human writing principles (grounded in Toss's published "8 Writing Principles"). Apply these to all user-facing copy automatically. Skills: `/ss-copy`, `/ss-feedback`.
 
 ## Quick Start
 

@@ -58,6 +58,10 @@ const FAQ: { q: string; a: string }[] = [
     a: "Yes, that's normal and expected: the /ss-* skills are executable, so your agent asks you to trust them once on first use — the same approval any third-party skill needs (good security), not a StyleSeed-specific block. But you don't need the skills at all. StyleSeed's core is the rules — plain markdown (CLAUDE.md / AGENTS.md / DESIGN-LANGUAGE.md) — which install with zero permissions. Paste the one-sentence prompt, or copy those files in, and you already get the design judgment. The skills are just optional automation on top.",
   },
   {
+    q: "Does it handle UX writing / microcopy too, or just visuals?",
+    a: "Both. StyleSeed covers verbal judgment as well as visual — buttons that name the action (“Send $2,400”, not “Submit”), error messages that help instead of blame (“Check the card number” not “Invalid input”), empty states that invite, calm money copy, one term per concept. The rules install with everything else, so your agent applies them to button labels, errors, and toasts automatically. Korean/CJK projects get writing principles grounded in Toss's published “8 Writing Principles.”",
+  },
+  {
     q: "How do I make my app look more professional / polished / expensive?",
     a: "Generic-to-premium is mostly discipline: one saturated accent, a real font pairing, an 8pt spacing scale, intentional hierarchy, a signature shadow, and subtle motion. StyleSeed encodes all of these as 74 rules Claude Code, Codex, and Cursor follow automatically, so “make it look more professional” produces an actually professional result instead of more average defaults.",
   },

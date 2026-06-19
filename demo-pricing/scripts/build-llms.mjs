@@ -46,15 +46,23 @@ if (existsSync(versionFile)) {
 // ============================================================
 const claude = readFileSync(resolve(engineDir, 'CLAUDE.md'), 'utf-8')
 const designLang = readFileSync(resolve(engineDir, 'DESIGN-LANGUAGE.md'), 'utf-8')
+// Include the craft + verbal-judgment docs so an agent applying "StyleSeed's rules"
+// from one URL gets visual coherence AND UX writing, not just the base rules.
+const readOpt = (f) => existsSync(resolve(engineDir, f)) ? readFileSync(resolve(engineDir, f), 'utf-8') : ''
+const visualCraft = readOpt('VISUAL-CRAFT.md')
+const uxWriting = readOpt('UX-WRITING.md')
 
 const fullHeader =
   `# StyleSeed — Full Context\n\n` +
-  `Source: github.com/bitjaru/styleseed (engine/CLAUDE.md + engine/DESIGN-LANGUAGE.md)\n` +
+  `Source: github.com/bitjaru/styleseed (CLAUDE.md + DESIGN-LANGUAGE.md + VISUAL-CRAFT.md + UX-WRITING.md)\n` +
   `Generated: ${new Date().toISOString()}\n\n---\n\n`
 
 writeFileSync(
   resolve(publicDir, 'llms-full.txt'),
-  fullHeader + claude + '\n\n---\n\n' + designLang,
+  fullHeader + claude +
+    '\n\n---\n\n' + designLang +
+    (visualCraft ? '\n\n---\n\n' + visualCraft : '') +
+    (uxWriting ? '\n\n---\n\n' + uxWriting : ''),
 )
 
 // ============================================================
