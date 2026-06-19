@@ -49,10 +49,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/og/rules-blueprint.png",
+        url: "/og/styleseed-og.png",
         width: 1200,
-        height: 680,
-        alt: "Every decision is a rule — a StyleSeed UI annotated with the design rule behind each choice. Other repos hand your AI components; StyleSeed hands it the judgment.",
+        height: 630,
+        alt: "StyleSeed — Teach your AI design judgment, not just components. 74 design rules your AI reads automatically.",
       },
     ],
   },
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "StyleSeed — Design engine for vibe coding",
     description: SITE_DESC,
-    images: ["/og/rules-blueprint.png"],
+    images: ["/og/styleseed-og.png"],
     creator: "@bitjaru",
   },
   alternates: {
