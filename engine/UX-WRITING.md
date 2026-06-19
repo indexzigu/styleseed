@@ -143,23 +143,25 @@ one for headings and keep it.
 
 ---
 
-## §W8 — Korean / CJK notes (grounded in Toss's published UX-writing principles)
+## §W8 — Korean / CJK notes — grounded in Toss's "8 Writing Principles"
 
-Toss documents its own UX-writing approach publicly (sources below). These are the
-concrete habits from that material — they map onto the rules above, just sharpened for
-Korean:
+Toss publishes its UX-writing framework (sources below): **5 core values** — 명료(clear)
+· 간결(concise) · 친근(friendly) · 정중(respectful) · 공감(empathetic) — realized through
+**8 named writing principles**, each phrased as a yes/no check. They map onto the rules
+above; for Korean UI, run them as the checklist:
 
-- **잡초 뽑기 — 뜻이 안 바뀌는 말은 뺀다.** "이미 보유하고 계신" → **"보유 중인"**,
-  "성공적으로 전송되었습니다" → **"보냈어요"**. 핵심은 살리고 짧게. (= WX-1)
-- **전문용어 0.** 금융·시스템 용어를 처음 보는 사람도 아는 말로. 전문용어는 정보 장벽이다. (= WX-4)
-- **하나의 보이스 톤.** 팀·화면이 많아도 톤은 하나로 일관되게 — 불일치는 사용자를 혼란스럽게 한다.
-  존댓말도 해요체/합쇼체 섞지 않기. (= WV-1, WX-2)
-- **버튼은 동작 그대로 (Toss Design System).** 단일 CTA는 **"~하기"**("가입하기", "2,400원 보내기"),
-  "확인"·"제출"이 아니라. 내비게이션만 "확인"/"다음". 두 버튼일 땐 취소 쪽을
-  **"취소" 대신 "닫기"·"다음에"** 로 (부정어 줄이기). (= WB-1, WB-3)
-- **공감 + 사용자 관점.** 사용자의 노력을 알아주고("갚느라 고생 많으셨어요"), 에러에선 부정 감정을
-  최소화. "고객님의 계좌"보다 **"내 계좌"**. (= WV-2, WV-3, WE-3)
-- **과장·낚시 카피 금지.** 클릭률이 더 높아도 오해를 부르는 문구는 쓰지 않는다(브랜드 신뢰 > 단기 지표).
+1. **Predictable hint** — 다음 화면을 예상할 수 있는 힌트가 있는가? (버튼·링크가 다음에 뭐가 올지 알려주기) (= WB-1, WL-1)
+2. **Weed cutting (잡초 뽑기)** — 의미 없는 단어를 다 제거했는가? "이미 보유하고 계신" → **"보유 중인"** (= WX-1)
+3. **Remove empty sentences** — 의미 없는 문장을 다 제거했는가? (= WX-1)
+4. **Focus on key message** — 정말 중요한 메시지만 전달하는가? 한 문장에 한 메시지. (= WX-3)
+5. **Easy to speak** — 어려운 용어·표현 없이, 소리 내 읽어도 자연스러운가? (전문용어 0, 사람 말처럼) (= WX-4, WV-1)
+6. **Suggest than force** — 특정 행동을 강요하거나 공포를 주지 않는가? 청유형, 선택권을 준다. (= WV-2, WC-1)
+7. **Universal words** — 모두가 이해하고 누구에게도 무해한가? (= WX-4)
+8. **Find hidden emotion** — 정보 전달을 넘어 사용자 감정에 공감했는가? "갚느라 고생 많으셨어요" (= WV-2, WE-3)
+
+**버튼 (Toss Design System):** 단일 CTA는 **"~하기"**("가입하기", "2,400원 보내기") — "확인"·"제출" X.
+내비게이션만 "확인"/"다음". 두 버튼일 땐 취소 쪽을 **"취소" 대신 "닫기"·"다음에"** 로 (부정어 줄이기).
+**관점·존댓말:** "고객님의 계좌" → **"내 계좌"**; 해요체/합쇼체 섞지 말고 하나로.
 
 ---
 
@@ -169,9 +171,8 @@ Korean:
 Material Design & Apple HIG (writing) · Mailchimp Content Style Guide · Shopify Polaris
 (content) · Google developer-documentation style guide.
 
-**§W8 (Toss):** Toss's own published material on its UX-writing principles —
-[Toss Feed — "토스가 금융을 더 쉽게 만드는 또 하나의 방법, UX Writing"](https://toss.im/tossfeed/article/uxwriter-interview) ·
-[Toss Tech — "첫 UX writer는 무슨 일을 해야 할까"](https://toss.tech/article/1st_uxwriter) ·
-[Toss Tech — "토스 피플 #2: UX 라이팅의 새로운 기준"](https://toss.tech/article/toss-people-2).
-These document Toss's stated principles (잡초 뽑기, 전문용어 0, 하나의 보이스 톤, TDS 버튼 규칙,
-공감/사용자 관점); StyleSeed restates the principles, not Toss's proprietary copy.
+**§W8 (Toss) — primary:** [Toss Tech — "토스의 8가지 라이팅 원칙들"](https://toss.tech/article/8-writing-principles-of-toss)
+(the canonical 8 principles + 5 core values). Supporting: [Toss Tech — "첫 UX writer는 무슨 일을 해야 할까"](https://toss.tech/article/1st_uxwriter) ·
+[Toss Tech — "토스 피플 #2: UX 라이팅의 새로운 기준"](https://toss.tech/article/toss-people-2) ·
+[Toss Feed — UX Writing 인터뷰](https://toss.im/tossfeed/article/uxwriter-interview) (잡초 뽑기, TDS 버튼 규칙).
+StyleSeed restates Toss's published *principles*, not its proprietary copy.
