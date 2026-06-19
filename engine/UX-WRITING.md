@@ -143,24 +143,35 @@ one for headings and keep it.
 
 ---
 
-## §W8 — Korean / CJK notes (the "Toss feel")
+## §W8 — Korean / CJK notes (grounded in Toss's published UX-writing principles)
 
-For Korean (and CJK) UI, the qualities Toss is known for come from a few habits:
+Toss documents its own UX-writing approach publicly (sources below). These are the
+concrete habits from that material — they map onto the rules above, just sharpened for
+Korean:
 
-- **존댓말 한 가지로 일관되게** — 한 제품 안에서 해요체/합쇼체를 섞지 않기. 보통 부드러운 해요체.
-- **사용자 관점**: "고객님의 계좌" → **"내 계좌"**. 시스템이 부르는 말투를 사용자의 말투로.
-- **군더더기 조사·부사 빼기**: "성공적으로 전송되었습니다" → **"보냈어요"**. 짧을수록 신뢰.
-- **에러는 탓하지 않기**: "잘못된 입력입니다" → **"이메일 형식을 확인해 주세요"** (무엇을·어떻게).
-- **돈 다룰 땐 차분하게**: 느낌표·과한 친근함 빼고 명확하게. "8,400원 보냈어요"면 충분.
-- **버튼은 동작을 그대로**: "확인" 대신 **"2,400원 보내기"**, "제출" 대신 **"가입하기"**.
-- **친근하되 과하지 않게**: 이모지·유행어 남발 X. 사람 같되 정돈된 톤이 "이쁜 말"이에요.
+- **잡초 뽑기 — 뜻이 안 바뀌는 말은 뺀다.** "이미 보유하고 계신" → **"보유 중인"**,
+  "성공적으로 전송되었습니다" → **"보냈어요"**. 핵심은 살리고 짧게. (= WX-1)
+- **전문용어 0.** 금융·시스템 용어를 처음 보는 사람도 아는 말로. 전문용어는 정보 장벽이다. (= WX-4)
+- **하나의 보이스 톤.** 팀·화면이 많아도 톤은 하나로 일관되게 — 불일치는 사용자를 혼란스럽게 한다.
+  존댓말도 해요체/합쇼체 섞지 않기. (= WV-1, WX-2)
+- **버튼은 동작 그대로 (Toss Design System).** 단일 CTA는 **"~하기"**("가입하기", "2,400원 보내기"),
+  "확인"·"제출"이 아니라. 내비게이션만 "확인"/"다음". 두 버튼일 땐 취소 쪽을
+  **"취소" 대신 "닫기"·"다음에"** 로 (부정어 줄이기). (= WB-1, WB-3)
+- **공감 + 사용자 관점.** 사용자의 노력을 알아주고("갚느라 고생 많으셨어요"), 에러에선 부정 감정을
+  최소화. "고객님의 계좌"보다 **"내 계좌"**. (= WV-2, WV-3, WE-3)
+- **과장·낚시 카피 금지.** 클릭률이 더 높아도 오해를 부르는 문구는 쓰지 않는다(브랜드 신뢰 > 단기 지표).
 
 ---
 
 ## Sources
 
-Nielsen Norman Group (error messages, empty states, microcopy) · Material Design &
-Apple HIG (writing) · Mailchimp Content Style Guide · Shopify Polaris (content) ·
-Google developer-documentation style guide. The Korean sensibility targets the
-clarity/calm/human qualities common to well-written Korean fintech UI; it documents
-the *principles*, not any brand's proprietary copy.
+**General UX writing:** Nielsen Norman Group (error messages, empty states, microcopy) ·
+Material Design & Apple HIG (writing) · Mailchimp Content Style Guide · Shopify Polaris
+(content) · Google developer-documentation style guide.
+
+**§W8 (Toss):** Toss's own published material on its UX-writing principles —
+[Toss Feed — "토스가 금융을 더 쉽게 만드는 또 하나의 방법, UX Writing"](https://toss.im/tossfeed/article/uxwriter-interview) ·
+[Toss Tech — "첫 UX writer는 무슨 일을 해야 할까"](https://toss.tech/article/1st_uxwriter) ·
+[Toss Tech — "토스 피플 #2: UX 라이팅의 새로운 기준"](https://toss.tech/article/toss-people-2).
+These document Toss's stated principles (잡초 뽑기, 전문용어 0, 하나의 보이스 톤, TDS 버튼 규칙,
+공감/사용자 관점); StyleSeed restates the principles, not Toss's proprietary copy.
