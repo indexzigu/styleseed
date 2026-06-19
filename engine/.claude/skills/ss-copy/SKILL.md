@@ -17,6 +17,11 @@ allowed-tools: Read, Write, Edit, Grep, Glob
 Context: **$0**
 Description: $ARGUMENTS
 
+> **Read `engine/UX-WRITING.md` first** — it's the rule set this skill applies: buttons
+> name the action (not "Submit"), errors help instead of blame, empty states invite,
+> money copy stays calm, one term per concept. Korean/CJK projects: see §W8 for the
+> clear-calm-human "Toss feel" (존댓말 일관성, 사용자 관점 "내 계좌", 군더더기 빼기).
+
 ## Instructions
 
 1. Read the design language reference:
