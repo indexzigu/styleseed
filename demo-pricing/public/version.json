@@ -4,7 +4,7 @@
   "rules": 74,
   "skills": 15,
   "skins": 7,
-  "whatsNew": "Quick Setup protocol: agents now plan the design in plan mode, lock a key color + motion seed before building (the fix for 'colors look random / no key color'), and self-check coherence. New troubleshooting guide + FAQ for inconsistent results.",
+  "whatsNew": "Consistent application: plan-mode Quick Setup (lock a key color before building), a design-lock file agents obey every prompt, and a Quality Gate that self-reviews + fixes UI to a quality floor before showing you (catches rainbow lists, emoji icons, two accents, missing states). Rule gaps fixed via dogfooding.",
   "update": "Run /ss-update, or: npx skills add bitjaru/styleseed",
   "changelog": "https://github.com/bitjaru/styleseed/releases",
   "repo": "https://github.com/bitjaru/styleseed"

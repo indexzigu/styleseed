@@ -107,7 +107,7 @@ Claude Code한테 "대시보드 만들어줘" 하면 보통 이런 결과가 나
 Claude Code·Codex·Cursor 등 아무 AI 에이전트에 이 한 문장을 붙여넣으면 끝 — 설치 불필요:
 
 ```
-Read https://styleseed-demo.vercel.app/llms-full.txt and apply StyleSeed's design rules to every UI in this project. First, in plan mode, lock my key color and motion style with me — then build to the rules and self-check coherence (one accent, one radius) after.
+Read https://styleseed-demo.vercel.app/llms-full.txt and apply StyleSeed's design rules to every UI in this project. First, in plan mode, lock my key color and motion style with me. Then build to the rules, and before showing me anything run StyleSeed's quality gate (one accent, one radius, normal states grey not rainbow, real empty/error states) and fix what fails.
 ```
 
 > 💡 **디자인이 제멋대로 나오면** 거의 항상 "제약 부족"이 원인입니다. 플랜모드로 **키 컬러·모션을 먼저 정하고**, 룰 파일(`CLAUDE.md`/`AGENTS.md`)을 프로젝트에 **설치**하면(매 프롬프트 재참조) 일관성이 확 올라갑니다.

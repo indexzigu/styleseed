@@ -83,7 +83,7 @@
       "type": "skill-md",
       "description": "Score a UI file's design quality 0-100 against StyleSeed's design language — per-category breakdown, the worst offenders, and a prioritized fix list. A quantified version of /ss-review.",
       "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-score/SKILL.md",
-      "digest": "sha256:761387a36b75ecfff7f063e5683d520ec4859388a050b7a8cab2fc86f5f3332e"
+      "digest": "sha256:9eacd950334323b5faf8778e46426c07b2df0e900e6df7e2d4ca2c4f471ddd6e"
     },
     {
       "name": "ss-setup",

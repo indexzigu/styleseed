@@ -102,7 +102,10 @@ Re-score after: ~90 / 100.
 - Order the fix list by **score gain**, not severity alone — fastest path to a better number.
 - For a directory: one-line score per file, then the lowest file's full breakdown.
 - **Don't auto-edit.** This skill measures and recommends. Apply fixes only when asked.
-- The score is a guide, not a gate — a 78 that ships beats a 95 that doesn't.
+- Use it as a **quality gate**: review right after generating UI, apply the fix list, and
+  re-review until the score clears ~80 *before showing the user* — no first-draft, incoherent
+  UI (rainbow status lists, emoji icons, two accents, missing states) should reach them. The
+  bar is a floor, not a ceiling: clear 80 and ship; don't chase 100 to delay.
 
 ---
 

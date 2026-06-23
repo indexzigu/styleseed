@@ -18,7 +18,7 @@ The engine provides layout rules, components, and skills. The skin provides colo
 10. Font sizes from the "Font Size by Context" table ONLY — don't guess
 11. NO emoji as UI icons (🚗🧺⭐) — one line-icon set in currentColor; emoji inject many colors
 12. Status color = severity only — a normal/"보통" state is grey, not colored; don't color every row
-13. After generating ANY page → run /ss-review to verify compliance
+13. After generating ANY UI → run the Quality Gate (below); never show UI that hasn't passed
 ```
 
 Reference this guide when Claude Code sets up a new project or implements UI.
@@ -96,6 +96,35 @@ Run this 4-step setup with the user (in plan mode), then build:
 Confirm each choice before building. **More constraints = less variance.** For the most
 consistent results, copy the rule files into the project (CLAUDE.md / AGENTS.md /
 .cursorrules) so they're re-read every prompt — a one-shot URL read drifts mid-session.
+
+## Quality Gate — run this BEFORE showing the user ANY UI (non-negotiable)
+
+Generating the UI is not "done." Before you present it, it must **pass the gate.** This is
+the single biggest difference between "looks generated" and "looks designed" — the reference
+demo was reviewed and fixed, not a first draft. **Never show the user UI that hasn't passed.**
+
+**The gate** (check every item — each is a common "AI-generated" tell):
+```
+□ Coherence  — ONE accent (no 2nd/3rd hue, NO emoji icons, no gold/decorative color),
+               ONE radius personality, ONE shadow language, ONE icon set  (§C0)
+□ Color=meaning — normal/OK/"보통" rows are GREY; color marks only the minority that needs
+               attention; no rainbow list; same value → same color  (§65, CL-2a)
+□ Hierarchy  — one clear primary per screen; numbers 2:1 with unit; sizes from the table
+□ Layout     — content in cards (not bare bg); 8px rhythm; gap-around-group > gap-inside
+□ States     — every data surface has empty + loading + error (not just the full state)
+□ Copy       — buttons name the action ("Send $2,400" not "Submit"); errors help, not blame
+□ Polish     — visible focus rings; ≥44px targets; prefers-reduced-motion; layered (not
+               hard) shadow; no pure #000
+```
+
+**How to gate:**
+1. If the `/ss-*` skills are installed → run **`/ss-score`** (0–100 + prioritized fix list).
+   Otherwise self-score against the checklist above.
+2. **Target ≥ 80/100.** If anything fails, **fix the violations and re-check** — loop up to ~3×.
+3. Only then present the UI, and briefly tell the user the score + what you fixed.
+
+A 30-second self-review is the product. Skipping the gate "to save time" is how the UI ends
+up looking like every other AI-generated app.
 
 ## Quick Start — New Project Setup
 

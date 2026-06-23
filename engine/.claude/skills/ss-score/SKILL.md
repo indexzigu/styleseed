@@ -103,6 +103,20 @@ Re-score after: ~92 / 100.
 
 Use letter bands: 90+ A · 80-89 B · 70-79 C · 60-69 D · <60 F.
 
+## Gate mode (use this as the Quality Gate before showing the user UI)
+
+The Quality Gate (CLAUDE.md / AGENTS.md) is `/ss-score` run as a loop, not a one-off:
+
+1. Score the just-generated UI.
+2. If **< 80**, apply the "fix first" list (use `/ss-review` to make the edits), then **re-score**.
+3. Repeat up to ~3×, or until ≥ 80.
+4. Present the UI with the final score and a one-line "fixed: …".
+
+The pass bar is a **floor, not a ceiling** — get to ≥ 80 and stop; don't chase 100. The point
+is that no first-draft, obviously-incoherent UI reaches the user. Especially never ship below
+80 with a rainbow status list, emoji icons, two accents, or missing states — those are the
+exact tells the gate exists to catch.
+
 ## Rules
 
 - **Read the file** — score from real evidence (line numbers), never guess.
@@ -110,5 +124,7 @@ Use letter bands: 90+ A · 80-89 B · 70-79 C · 60-69 D · <60 F.
   is the fastest path to a better number.
 - For a directory, print a one-line score per file, then the lowest-scoring file's
   full breakdown.
-- Don't auto-edit. `/ss-score` measures; `/ss-review` and `/ss-motion` fix.
-- The score is a guide, not a gate — a 78 that ships beats a 95 that doesn't.
+- Don't auto-edit in plain scoring. `/ss-score` measures; `/ss-review` and `/ss-motion` fix.
+  In **Gate mode** (above) you do fix-and-re-score until the floor is met.
+- As a *gate*, ≥ 80 is a floor before showing the user — but don't over-polish: chasing 95→100
+  to delay shipping is worse than shipping a clean 85.

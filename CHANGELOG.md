@@ -11,6 +11,11 @@ produce mediocre UI (random colors, no key color, different every run). Root cau
 release raises the floor of the default path.
 
 ### Added
+- **Quality Gate** — a non-negotiable self-review the agent runs *before showing the user any
+  UI*: a 7-point checklist (coherence, color=meaning, hierarchy, layout, states, copy, polish);
+  with the skills installed it's `/ss-score` looped to a ≥80 floor with fixes; without them it's
+  a self-score. No first-draft, incoherent UI (rainbow lists, emoji icons, two accents, missing
+  states) reaches the user. Baked into CLAUDE.md, AGENTS.md, llms.txt, and the paste-prompt.
 - **Quick Setup protocol** (CLAUDE.md, AGENTS.md, llms.txt): agents now work in **plan
   mode**, lock a key color + motion seed *with the user* before building, then self-check.
 - **Design Lock** — agents write and obey a project-root `STYLESEED.md` (skin, accent,

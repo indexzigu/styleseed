@@ -86,6 +86,26 @@ Confirm each choice before building. **More constraints = less variance.** For t
 consistent results, copy the rule files into the project so they're re-read every prompt —
 a one-shot URL read drifts mid-session.
 
+## Quality Gate — run this BEFORE showing the user ANY UI (non-negotiable)
+
+Generating the UI is not "done." Before presenting it, it must pass the gate — the difference
+between "looks generated" and "looks designed." Never show UI that hasn't passed.
+
+```
+□ Coherence  — ONE accent (no 2nd hue, NO emoji icons, no decorative color), ONE radius,
+               ONE shadow, ONE icon set
+□ Color=meaning — normal/OK/"보통" rows GREY; color only the minority needing attention; no
+               rainbow list; same value → same color
+□ Hierarchy  — one clear primary; numbers 2:1 with unit
+□ Layout     — content in cards; 8px rhythm; gap-around-group > gap-inside
+□ States     — empty + loading + error on every data surface
+□ Copy       — buttons name the action; errors help, not blame
+□ Polish     — focus rings; ≥44px targets; prefers-reduced-motion; no pure #000
+```
+If the `/ss-*` skills are installed run `/ss-score` (0–100 + fix list); else self-score against
+the list. **Target ≥ 80** — fix what fails, re-check (loop up to ~3×), then present + report
+the score. A 30-second self-review is the product.
+
 ## How to use StyleSeed
 
 1. Read `DESIGN-LANGUAGE.md` (TOC → rules 14, 18, 19, 61-63) and the Golden Rules above.
