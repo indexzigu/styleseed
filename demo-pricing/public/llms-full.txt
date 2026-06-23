@@ -1,7 +1,7 @@
 # StyleSeed — Full Context
 
 Source: github.com/bitjaru/styleseed (CLAUDE.md + DESIGN-LANGUAGE.md + VISUAL-CRAFT.md + UX-WRITING.md)
-Generated: 2026-06-23T01:46:56.188Z
+Generated: 2026-06-23T01:51:19.174Z
 
 ---
 
@@ -1381,7 +1381,7 @@ Darkest color: `#2A2A2A` (strong), default text: `#3C3C3C` (primary).
 ### Ad-hoc Components Forbidden
 ```
 ✗ Creating new patterns not in the seed
-✗ Full-width CTA buttons (fixed to bottom)
+✗ CTA buttons FIXED to the bottom of the viewport on a dashboard (a full-width button INLINE in the scroll flow is fine — this bans the floating/fixed bottom bar, not width)
 ✗ Card overlapping on top of card
 ✗ Dropdown selectors placed inside cards
 ```
@@ -3238,6 +3238,23 @@ and produces the "rainbow list" that reads as un-designed.
 
 A list where 80% of rows carry color has no hierarchy. Color is the exception that says
 "look here."
+
+**Which mode?** Default to **neutral + exception** for *lists and badges* (a dashboard of
+many indices) — it keeps the surface calm and is hardest to get wrong. Use the **sequential/
+diverging ramp** only when the *whole point* of the view is to compare values at a glance (a
+single dedicated air-quality gauge, a heatmap, a legend) — and then commit to it fully (good
+**is** green, bad **is** red, everywhere, by value). Don't mix the two modes on one screen.
+"Good = grey" is intentional in exception mode: a high score is communicated by the **number**,
+not by painting it — saving color for what needs action. If positive reinforcement matters for
+the product, switch the *whole* list to the diverging ramp; don't green-paint one row inside an
+otherwise-grey list.
+
+**A single hero score gauge (ring/arc) uses the brand accent fill, regardless of the value.**
+The score is read from the **arc length + the number**, not from the color — a 48 and a 95 both
+show a brand-accent ring, just filled differently. This keeps the hero on-brand and avoids a
+value-driven color flip competing with the accent. Only swap the fill to a severity color if the
+gauge is *explicitly* a risk/health indicator **and** the accent isn't used elsewhere on the
+screen — otherwise keep one color.
 
 ---
 
