@@ -27,7 +27,7 @@
       "type": "skill-md",
       "description": "Generate UX microcopy (button labels, error messages, empty states, toasts) following a casual-but-polite voice and tone",
       "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-copy/SKILL.md",
-      "digest": "sha256:049875a06fd90db6b560a419463fe24f0746ba1a44a1023f709c71683a1d8756"
+      "digest": "sha256:feb077b840dbb9b5b645d7a82b5c84422802b4af3f469345d897dafa8691e391"
     },
     {
       "name": "ss-feedback",
@@ -90,7 +90,7 @@
       "type": "skill-md",
       "description": "Interactive setup wizard — guides you step-by-step to configure the design system for your project",
       "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-setup/SKILL.md",
-      "digest": "sha256:267406569a2c198660797d500a56b8708edb89944bed7e647c97cbf7d0e231f4"
+      "digest": "sha256:d18a8ecc8497258c069cbb6d320a43d02ff8ed19cce924e1d4672611899e72fb"
     },
     {
       "name": "ss-tokens",

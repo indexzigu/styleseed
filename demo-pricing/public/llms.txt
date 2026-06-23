@@ -15,6 +15,28 @@ StyleSeed covers BOTH halves of "looks AI-generated":
 - Run `/ss-setup` in Claude Code, Codex, or Cursor (interactive wizard)
 - Or manual: `git clone https://github.com/bitjaru/styleseed && cp -r styleseed/engine/.claude/skills .claude/skills && cp styleseed/engine/DESIGN-LANGUAGE.md .claude/DESIGN-LANGUAGE.md`
 
+## Applying StyleSeed in a project (agents: read this before building)
+
+Reading this summary is NOT enough to build good UI — fetch the full rules at
+https://styleseed-demo.vercel.app/llms-full.txt and apply them. Consistent, polished
+output comes from constraints, so before you write any code:
+
+- **Work in plan mode.** If the tool supports it (Claude Code: `Shift+Tab`), plan the
+  design with the user and lock these decisions one at a time, holding full context. This is
+  the #1 fix for "the design looks random / has no key color."
+- **Pin the key color (accent).** Ask the user for a brand color; if none, recommend one by
+  app type (fintech blue `#3182F6`, SaaS indigo `#5E6AD2`, e-commerce orange `#FF6B35`,
+  social pink `#FF4E8B`, content `#635BFF`, health green `#10B981`, dev-tools violet
+  `#8B5CF6`). ONE accent only — everything else greyscale. Or pick a skin.
+- **Pick a motion seed** by vibe: Spring / Silk / Snap / Float / Pulse.
+- **Write a design-lock file.** Save the chosen skin/accent/radius/motion to `STYLESEED.md` in
+  the project root, and re-read + obey it on EVERY prompt. This is the #1 fix for "the design
+  is different every time" — decisions become persistent project state, not chat memory.
+- **Then build, then self-check coherence** (one radius, one accent, real empty/loading/error
+  states) and iterate — the reference demo was not one-shot.
+- **For reliable results, install the rule files** (CLAUDE.md / AGENTS.md / .cursorrules) into
+  the project so they're re-read every prompt. A one-shot URL read drifts mid-session.
+
 ## Slash Skills
 
 - `/ss-setup` — Interactive setup wizard for new projects

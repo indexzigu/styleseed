@@ -38,6 +38,14 @@ const FAQ: { q: string; a: string }[] = [
     a: "StyleSeed fixes generic, “AI-slop” UI by giving Claude Code, Codex, and Cursor 74 design rules they read automatically — covering color discipline, spacing rhythm, hierarchy, elevation, and motion. Instead of defaulting to slate neutrals and 8px radius on everything, your output stops looking generated and starts looking designed. It's MIT-licensed and free.",
   },
   {
+    q: "I applied StyleSeed but the design still looks bad / colors are random / there's no key color — what do I do?",
+    a: "Consistency comes from constraints, and the one-paste prompt is the least-constrained path: the agent reads a summary once and improvises. Fix it in five steps. 1) Plan first — in Claude Code press Shift+Tab for Plan Mode and lock the decisions before any code. 2) Pin one key color (a brand hex, or pick a skin like Linear/Stripe/Toss) — “one accent, everything else greyscale.” 3) Point the agent at the full rules: “read styleseed-demo.vercel.app/llms-full.txt,” not just llms.txt. 4) Install the rule files (CLAUDE.md / AGENTS.md / .cursorrules) into the repo so they're re-read every prompt — a one-shot URL read drifts. 5) Run /ss-review or /ss-score and iterate; the reference demo wasn't one-shot either.",
+  },
+  {
+    q: "Why does the same prompt give a great result one time and a generic one the next?",
+    a: "Because output quality tracks how many constraints the agent has, not luck. A polished result happens when the rules, the key color, the skin, and a review pass are all pinned; a generic one happens when the agent improvised from a summary. Reduce the variance by deciding app type, accent, and motion up front (ideally in plan mode), installing the rule files so they persist across prompts, and running /ss-review to catch drift. More constraints = less variance.",
+  },
+  {
     q: "Why does every shadcn app look the same, and how do I make mine different?",
     a: "Unmodified shadcn converges on a “fingerprint”: slate/zinc neutrals, Inter at default sizes, 8px radius everywhere, a default primary. StyleSeed breaks that fingerprint with rules and 7 brand skins (Toss, Stripe, Linear, Notion, Raycast, Arc, Vercel) so your AI-built app gets a committed accent, a real type pairing, and a signature look — not the default.",
   },

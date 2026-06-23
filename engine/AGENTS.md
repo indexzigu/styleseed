@@ -39,6 +39,53 @@ fastest tell of un-designed UI. See `VISUAL-CRAFT.md` §C0.
 - **`PAGE-TYPES.md`** — how to bias for the screen type (dashboard / form / landing / detail / list / settings). Domain × page-type = the actual judgment.
 - **`METHODOLOGY.md`** — the *why* behind the rules (info density, hierarchy, motion vibe vocabulary).
 
+## Design Lock — read this EVERY prompt before building UI
+
+The #1 cause of "the design looks random / different every time" is that design decisions
+live only in chat memory and drift. Fix with a project design-lock file:
+
+1. **Look for `STYLESEED.md` in the project root.** If it exists, it is the source of truth —
+   obey it every prompt; never add a second accent, a different radius, or an off-lock color.
+2. **If it doesn't exist, run Quick Setup (below) and WRITE it** before scaffolding:
+
+```markdown
+# StyleSeed — Design Lock
+- App domain:        fintech
+- Skin:              toss            # or "custom"
+- Key color (accent): #3182F6        # the ONLY accent — everything else greyscale
+- Radius personality: soft (12px)    # sharp 0-4 | soft 8-12 | pill — one everywhere
+- Motion seed:       Spring          # Spring | Silk | Snap | Float | Pulse
+- Type:              Inter + Pretendard · KPI 48/24
+```
+
+When the user later says "make it more X," update the lock *and* the UI together. The lock is
+what keeps the result consistent across prompts — without it, even perfect rules drift.
+
+## Quick Setup — do this BEFORE building (consistency comes from constraints)
+
+If the user just said "apply StyleSeed and build X," don't start coding yet. Polished,
+*consistent* output comes from constraints — the more you pin down first, the less the
+result varies. **If your tool has a plan/ask mode, use it**: decide the choices below
+**one at a time, with the user, holding the full design context**, then build. This is the
+single biggest reason a result looks intentional instead of "colors went in at random, no
+key color."
+
+1. **App type** — fintech / SaaS / e-commerce / social / content / productivity / health /
+   dev-tools. Bias the rules per `APP-PLAYBOOKS.md`.
+2. **Accent (key color)** — ask for a brand color; if none, recommend by domain (fintech
+   `#3182F6` · SaaS `#5E6AD2` · e-commerce `#FF6B35` · social `#FF4E8B` · content `#635BFF` ·
+   health `#10B981` · dev-tools `#8B5CF6`). **One accent only; everything else greyscale.**
+   Or pick a skin (Toss/Stripe/Linear/Notion/Raycast/Arc/Vercel).
+3. **Motion seed** — Spring (Toss/Arc) · Silk (Stripe/Notion) · Snap (Linear/Raycast/Vercel) ·
+   Float · Pulse. Per moment: CTA→spring press, modal→silk, list→stagger, balance/number→none.
+4. **Write `STYLESEED.md` (the lock), build, then check** — save the choices to the lock file
+   so they persist, apply the full rules (read `DESIGN-LANGUAGE.md` + `VISUAL-CRAFT.md`, not a
+   summary), self-check coherence (one radius, one accent, real states; VISUAL-CRAFT §C0).
+
+Confirm each choice before building. **More constraints = less variance.** For the most
+consistent results, copy the rule files into the project so they're re-read every prompt —
+a one-shot URL read drifts mid-session.
+
 ## How to use StyleSeed
 
 1. Read `DESIGN-LANGUAGE.md` (TOC → rules 14, 18, 19, 61-63) and the Golden Rules above.

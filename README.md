@@ -59,10 +59,10 @@ Data vs judgment. 74 design rules that Claude Code, Codex, and Cursor read autom
 **The fastest way — paste this one sentence** into Claude Code, Codex, Cursor, or any AI agent. No install:
 
 ```
-Read https://styleseed-demo.vercel.app/llms.txt and apply StyleSeed's design rules to every UI you build in this project.
+Read https://styleseed-demo.vercel.app/llms-full.txt and apply StyleSeed's design rules to every UI in this project. First, in plan mode, lock my key color and motion style with me — then build to the rules and self-check coherence (one accent, one radius) after.
 ```
 
-That's it — the agent reads the rules and applies them to whatever you build next. Works with **Claude Code (`CLAUDE.md`), Codex / Amp / Gemini CLI (`AGENTS.md`), and Cursor (`.cursorrules`)** — StyleSeed ships all three, so any agent picks the rules up automatically.
+That's it — the agent plans the design with you, locks a key color, then applies the rules to whatever you build next. (Planning first is what keeps the result from looking random — see [Troubleshooting](#troubleshooting--i-applied-styleseed-but-the-ui-still-looks-bad).) Works with **Claude Code (`CLAUDE.md`), Codex / Amp / Gemini CLI (`AGENTS.md`), and Cursor (`.cursorrules`)** — StyleSeed ships all three, so any agent picks the rules up automatically.
 
 > **The rules are the product — and they need zero install or permissions.** They're
 > plain markdown (`CLAUDE.md` / `AGENTS.md` / `DESIGN-LANGUAGE.md`), so the prompt above —
@@ -230,6 +230,23 @@ npx skills add bitjaru/styleseed
 # or pick specific ones
 npx skills add bitjaru/styleseed --skill ss-motion,ss-page
 ```
+
+## Troubleshooting — "I applied StyleSeed but the UI still looks bad"
+
+The honest reason: **consistency comes from constraints**, and the one-paste prompt is the
+*least*-constrained path — the agent reads a summary once and improvises, so colors land at
+random and there's no key color. The reference demo ([styleseed-demo.vercel.app](https://styleseed-demo.vercel.app))
+came out polished because it was built with the full rules in context and iterated with
+`/ss-review` — not one-shot. Recreate those conditions:
+
+1. **Plan first.** In Claude Code press <kbd>Shift</kbd>+<kbd>Tab</kbd> to enter **Plan Mode**, then decide the design **one step at a time, with full context**, before any code is written. This is the single biggest fix.
+2. **Pin one key color.** Give the agent a brand hex — or pick a skin (Linear / Stripe / Toss / …). The rule is *one accent, everything else greyscale.* No key color = the "random colors" look.
+3. **Point it at the full rules,** not the summary: `read https://styleseed-demo.vercel.app/llms-full.txt` (the short `llms.txt` is an index, not the 74 rules).
+4. **Lock the decisions in a file.** Run `/ss-setup` (or just ask the agent to "write a `STYLESEED.md` design lock"). It records your skin, key color, radius, and motion in `STYLESEED.md` at the repo root, and the rules tell the agent to **obey it on every prompt** — so the design stops being "different every time." This is the single strongest fix for inconsistency. (Also install `CLAUDE.md` / `AGENTS.md` / `.cursorrules` so the rules themselves are re-read every prompt.)
+5. **Be specific:** *"Build a dashboard in the Linear skin, one blue accent, Snap motion, following StyleSeed's rules"* beats *"build a dashboard."*
+6. **Check & iterate.** Run `/ss-review` or `/ss-score`, or tell it: *"self-check coherence — one radius, one accent, real empty/loading/error states — and fix violations."* If it drifts: *"re-read CLAUDE.md and fix the coherence violations."*
+
+> **More constraints = less variance.** Plan mode + a pinned key color + installed rules + a review pass is the difference between "looks generated" and "looks designed."
 
 ## How It Works: Engine + Skins
 

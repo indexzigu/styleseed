@@ -1,10 +1,10 @@
 {
-  "version": "2.3.0",
-  "released": "2026-06-15",
+  "version": "2.4.0",
+  "released": "2026-06-23",
   "rules": 74,
   "skills": 15,
   "skins": 7,
-  "whatsNew": "Design judgment: APP-PLAYBOOKS + PAGE-TYPES (domain & page-type bias), VISUAL-CRAFT.md (coherence laws), /ss-score, 8 /guides pages, agent-agnostic (CLAUDE.md/AGENTS.md/.cursorrules).",
+  "whatsNew": "Quick Setup protocol: agents now plan the design in plan mode, lock a key color + motion seed before building (the fix for 'colors look random / no key color'), and self-check coherence. New troubleshooting guide + FAQ for inconsistent results.",
   "update": "Run /ss-update, or: npx skills add bitjaru/styleseed",
   "changelog": "https://github.com/bitjaru/styleseed/releases",
   "repo": "https://github.com/bitjaru/styleseed"

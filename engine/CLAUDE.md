@@ -30,6 +30,71 @@ Reference this guide when Claude Code sets up a new project or implements UI.
 > - **VISUAL-CRAFT.md**: Research-backed **craft** — the concrete numeric decisions that make a component look intentional and keep the *whole* UI **coherent** (one radius personality, one shadow language, one accent, layered shadows, nested-radius law, type recipe by app type, contrast floors). **§C0 (Coherence Laws) is the antidote to "AI-generated UI looks off."** Read before scaffolding a product surface, and whenever a UI looks wrong but you can't say why. Grounded in Refactoring UI, Material 3, Apple HIG, WCAG 2.2, FT Visual Vocabulary.
 > - **UX-WRITING.md**: Verbal judgment — how to write the **text inside the UI** (buttons that name the action not "Submit", errors that help instead of blame, empty states that invite, calm money copy). Read before writing any user-facing text, and whenever copy "sounds like a robot." Includes Korean/CJK notes (the clear-calm-human "Toss feel"). Pairs with `/ss-copy` and `/ss-feedback`.
 
+## Design Lock — read this EVERY prompt before building UI
+
+The #1 cause of "the design looks random / colors went in anywhere / it's different every
+time" is that design decisions live only in chat memory, so they drift. **Fix: a project
+design-lock file.** Before building any UI:
+
+1. **Look for `STYLESEED.md` in the project root.** If it exists, it is the **source of
+   truth** — obey it on *every* prompt. Never introduce a second accent, a different radius
+   personality, or an off-lock color. If a request conflicts with the lock, say so and ask.
+2. **If it doesn't exist, run Quick Setup (below) and WRITE it** before scaffolding. Use this
+   template (fill from the user's choices):
+
+```markdown
+# StyleSeed — Design Lock
+<!-- Locked design decisions for this project. The agent re-reads this every prompt and
+     must obey it. Change a value here to change it project-wide. -->
+- App domain:        fintech
+- Skin:              toss            # or "custom"
+- Key color (accent): #3182F6        # the ONLY accent — everything else greyscale
+- Radius personality: soft (12px)    # sharp 0-4 | soft 8-12 | pill — one everywhere
+- Shadow language:   layered, low-opacity, above-left
+- Motion seed:       Spring          # Spring | Silk | Snap | Float | Pulse
+- Type:              Inter + Pretendard · KPI 48/24
+- Density:           comfortable
+- Locked:            2026-06-23
+```
+
+Keep it short and human-editable. When the user later says "make it more X," update the lock
+*and* the UI so they never diverge. **The lock is what makes the result consistent across
+prompts** — without it, even perfect rules drift.
+
+## Quick Setup — do this BEFORE building (consistency comes from constraints)
+
+If a user just said "apply StyleSeed and build X," don't start coding yet. Output that
+looks polished and *consistent* comes from constraints: the more of these you pin down
+first, the less the result varies.
+
+**Strongly recommend starting in plan mode** (in Claude Code, press `Shift+Tab` to enter
+Plan Mode). Decide the design decisions below **one at a time, with the user, holding the
+full design context** — then build. Designing interactively in plan mode is the single
+biggest reason a result looks intentional instead of "colors went in at random, no key
+color." Tell the user: *"Let's plan the design first — I'll lock the key color, motion,
+and layout with you before writing code."*
+
+Run this 4-step setup with the user (in plan mode), then build:
+
+1. **App type** — ask the domain (fintech / SaaS / e-commerce / social / content /
+   productivity / health / dev-tools). Bias the rules per **APP-PLAYBOOKS.md**.
+2. **Accent (key color)** — ask for a brand color. If they don't have one, *recommend* by
+   domain: fintech `#3182F6` · SaaS `#5E6AD2` · e-commerce `#FF6B35` · social `#FF4E8B` ·
+   content `#635BFF` (on near-mono) · health `#10B981` · dev-tools `#8B5CF6`. **One accent
+   only; everything else greyscale.** Or pick a skin (Toss/Stripe/Linear/Notion/Raycast/Arc/Vercel).
+3. **Motion seed** — recommend by vibe/brand: Spring (bouncy; Toss/Arc) · Silk (smooth;
+   Stripe/Notion) · Snap (instant; Linear/Raycast/Vercel) · Float (gentle) · Pulse (rhythmic).
+   Per moment: CTA→spring press, modal→silk entrance, list→stagger-cascade, balance/number→**none**.
+4. **Write the lock, then build, then check.** Save the chosen app type / accent / skin /
+   motion to `STYLESEED.md` (see Design Lock above) so they persist. Apply the full rules
+   (read DESIGN-LANGUAGE.md + VISUAL-CRAFT.md — not a summary), then **self-check coherence**
+   (one radius, one accent, real empty/loading/error states; VISUAL-CRAFT §C0) and run
+   `/ss-review` or `/ss-score`. **Iterate** — the reference demo wasn't one-shot either.
+
+Confirm each choice before building. **More constraints = less variance.** For the most
+consistent results, copy the rule files into the project (CLAUDE.md / AGENTS.md /
+.cursorrules) so they're re-read every prompt — a one-shot URL read drifts mid-session.
+
 ## Quick Start — New Project Setup
 
 1. Copy `engine/` files into your project:

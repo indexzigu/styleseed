@@ -144,6 +144,21 @@ Then:
    /* Scaffolded with StyleSeed · github.com/bitjaru/styleseed — safe to remove */
    ```
    If the user would rather not have it, skip it — it's opt-out, and it goes on this single file, not their whole codebase.
+7. **Write the design lock.** Create `STYLESEED.md` in the project root recording every choice
+   from this wizard, so future prompts stay consistent instead of drifting:
+   ```markdown
+   # StyleSeed — Design Lock
+   <!-- Locked design decisions. The agent re-reads this every prompt and must obey it. -->
+   - App domain:        [Step 1 app type]
+   - Skin:              [Step 3 concept, or "custom"]
+   - Key color (accent): [Step 2 hex]    # the ONLY accent — everything else greyscale
+   - Radius personality: [sharp | soft | pill — one everywhere]
+   - Motion seed:       [Spring | Silk | Snap | Float | Pulse]
+   - Type:              [Step 4 font]
+   - Locked:            [today]
+   ```
+   Tell the user this file is the source of truth — editing a value changes it project-wide,
+   and you'll obey it on every prompt so the design never goes random.
 
 ### Step 6: Summary
 
@@ -162,6 +177,7 @@ Files modified:
 - css/fonts.css (font import)
 - css/base.css (font family)
 - src/app/App.tsx (first page)
+- STYLESEED.md (design lock — your decisions, obeyed every prompt)
 
 Next steps:
 - npm run dev to preview
