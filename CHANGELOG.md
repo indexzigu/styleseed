@@ -23,7 +23,11 @@ release raises the floor of the default path.
   writes it automatically.
 - **Troubleshooting guide** (README) + FAQ entries for "applied StyleSeed but it still
   looks bad / results vary."
-- This `CHANGELOG.md`.
+- **Status chip tint tokens** in all 7 skins (`bg-success-tint`/`bg-warning-tint`/
+  `bg-destructive-tint`/`bg-info-tint`, derived via `color-mix`, auto-adapting to dark) so
+  agents stop hand-mixing one-off hex for status backgrounds.
+- **"What's new" section** on the landing page (auto-synced from `version.json`) + this
+  `CHANGELOG.md`.
 
 ### Changed
 - **Stronger canonical paste-prompt** (homepage, both READMEs): points to `llms-full.txt`

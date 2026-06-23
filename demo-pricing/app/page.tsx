@@ -16,6 +16,7 @@ import { seeds as motionSeeds } from "@engine/motion";
 import { SeedDemo } from "./_home/seed-demo";
 import { Hero } from "./_home/hero";
 import { PromptBox } from "./_home/prompt-box";
+import { WhatsNew } from "./_home/whats-new";
 
 const HERO_SHOWCASE_IDS = ["finance", "food", "fitness", "music", "issues", "wallet"];
 
@@ -345,6 +346,8 @@ export default function HomePage() {
         </section>
 
         {/* CTA */}
+        <WhatsNew />
+
         <section className="border-t border-neutral-200 bg-white">
           <div className="mx-auto max-w-3xl px-6 py-24 text-center">
             <h2 className="text-[44px] font-bold leading-tight tracking-tight text-neutral-900">

@@ -245,6 +245,10 @@ warning amber, bad/blocked = error red — and the same score must always get th
 (3) Reserve color for the **minority** of items that actually need attention; if most rows
 are "fine," most rows are grey. (4) Pair the color with text/icon (CL-4) so it survives
 colorblindness and greyscale. *A screen where 80% of badges are colored has no hierarchy.*
+For the **soft chip background** behind a status label, use the skin's tint tokens —
+`bg-success-tint`, `bg-warning-tint`, `bg-destructive-tint`, `bg-info-tint` (a foreground
+of the matching `text-success`/`text-warning`/… ) — **don't hand-mix a one-off hex**; the
+tints auto-adapt to dark mode.
 
 **CL-2b · No decorative hues.** Favorite stars, category dots, avatars, section markers, and
 illustrations must use the **accent or the grey ramp** — not a new color each (gold stars,

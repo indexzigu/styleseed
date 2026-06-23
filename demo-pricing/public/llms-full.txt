@@ -1,7 +1,7 @@
 # StyleSeed — Full Context
 
 Source: github.com/bitjaru/styleseed (CLAUDE.md + DESIGN-LANGUAGE.md + VISUAL-CRAFT.md + UX-WRITING.md)
-Generated: 2026-06-23T02:00:32.222Z
+Generated: 2026-06-23T02:09:07.609Z
 
 ---
 
@@ -334,6 +334,7 @@ For components not included in the seed, check shadcn/ui registry for additional
 | List items | `bg-surface-subtle` | Defined by skin |
 | Progress bars/borders | `bg-surface-muted` | Defined by skin |
 | Brand tint (selected row) | `bg-brand-tint` | Defined by skin |
+| Status chip background | `bg-success-tint` / `bg-warning-tint` / `bg-destructive-tint` / `bg-info-tint` | Soft tint behind a status label — pair with `text-success`/etc. Don't hand-mix a hex. Auto-adapts to dark. |
 | Card background | `bg-card` | Defined by skin |
 | Pure background | `bg-background` | Defined by skin |
 
@@ -3758,6 +3759,10 @@ warning amber, bad/blocked = error red — and the same score must always get th
 (3) Reserve color for the **minority** of items that actually need attention; if most rows
 are "fine," most rows are grey. (4) Pair the color with text/icon (CL-4) so it survives
 colorblindness and greyscale. *A screen where 80% of badges are colored has no hierarchy.*
+For the **soft chip background** behind a status label, use the skin's tint tokens —
+`bg-success-tint`, `bg-warning-tint`, `bg-destructive-tint`, `bg-info-tint` (a foreground
+of the matching `text-success`/`text-warning`/… ) — **don't hand-mix a one-off hex**; the
+tints auto-adapt to dark mode.
 
 **CL-2b · No decorative hues.** Favorite stars, category dots, avatars, section markers, and
 illustrations must use the **accent or the grey ramp** — not a new color each (gold stars,

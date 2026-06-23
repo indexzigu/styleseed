@@ -327,6 +327,7 @@ For components not included in the seed, check shadcn/ui registry for additional
 | List items | `bg-surface-subtle` | Defined by skin |
 | Progress bars/borders | `bg-surface-muted` | Defined by skin |
 | Brand tint (selected row) | `bg-brand-tint` | Defined by skin |
+| Status chip background | `bg-success-tint` / `bg-warning-tint` / `bg-destructive-tint` / `bg-info-tint` | Soft tint behind a status label — pair with `text-success`/etc. Don't hand-mix a hex. Auto-adapts to dark. |
 | Card background | `bg-card` | Defined by skin |
 | Pure background | `bg-background` | Defined by skin |
 

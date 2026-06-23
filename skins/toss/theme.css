@@ -187,6 +187,11 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
+  /* status chip backgrounds (soft tint, auto-adapts to dark via color-mix) */
+  --color-success-tint: color-mix(in srgb, var(--success) 14%, var(--card));
+  --color-warning-tint: color-mix(in srgb, var(--warning) 14%, var(--card));
+  --color-destructive-tint: color-mix(in srgb, var(--destructive) 14%, var(--card));
+  --color-info-tint: color-mix(in srgb, var(--info) 14%, var(--card));
   --color-brand: var(--brand);
   --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
