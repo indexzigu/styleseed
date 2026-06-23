@@ -56,6 +56,9 @@ Follow the StyleSeed design language strictly. Full reference: https://github.co
 
 # Forbidden Patterns
 - No key color on large areas (card backgrounds, gradients).
+- No emoji as UI icons (🚗🧺⭐ for lists/nav/status/categories) — they inject many uncontrolled colors and break the single accent. Use one line-icon set (Lucide) in currentColor.
+- No status color on a normal/OK/"보통" state (use neutral grey) and no colored badge on every row — color marks only the minority that needs attention; same value → same color.
+- No decorative hues (gold stars, rainbow category dots) — favorites/markers use the accent or grey.
 - No pure black (#000) anywhere.
 - No content outside cards.
 - No section dividers between cards (space-y-6 is the separator).

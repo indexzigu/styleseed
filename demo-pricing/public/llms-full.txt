@@ -1,7 +1,7 @@
 # StyleSeed — Full Context
 
 Source: github.com/bitjaru/styleseed (CLAUDE.md + DESIGN-LANGUAGE.md + VISUAL-CRAFT.md + UX-WRITING.md)
-Generated: 2026-06-23T01:31:45.069Z
+Generated: 2026-06-23T01:46:56.188Z
 
 ---
 
@@ -23,7 +23,9 @@ The engine provides layout rules, components, and skills. The skin provides colo
  8. Touch targets ≥ 44×44px — no tiny tap areas
  9. Semantic tokens only (text-brand, bg-card) — NEVER hardcode hex in components
 10. Font sizes from the "Font Size by Context" table ONLY — don't guess
-11. After generating ANY page → run /ss-review to verify compliance
+11. NO emoji as UI icons (🚗🧺⭐) — one line-icon set in currentColor; emoji inject many colors
+12. Status color = severity only — a normal/"보통" state is grey, not colored; don't color every row
+13. After generating ANY page → run /ss-review to verify compliance
 ```
 
 Reference this guide when Claude Code sets up a new project or implements UI.
@@ -3211,15 +3213,31 @@ Per page, key color should appear in:
 That's it. Everything else is grayscale.
 ```
 
-### Status Color Distribution
-Don't cluster all status colors in one area:
+### Status Color Reflects Real State — never "varied for interest"
+
+Status color **encodes meaning, not decoration.** Color the item by its *actual* state; if
+three items are genuinely "Completed," they are all green. **Never scatter different hues
+across rows for visual variety** — that destroys the signal (color stops meaning anything)
+and produces the "rainbow list" that reads as un-designed.
 
 ```
-✗ Bad: All 3 list items have green "Completed" status
-✓ Good: 1 green (Completed) + 1 blue (In Progress) + 1 yellow (Pending)
+✗ Bad: recolor rows for variety → 1 green + 1 blue + 1 yellow when states are unrelated to color
+✗ Bad: a colored badge on EVERY row (no row stands out → no hierarchy)
+✓ Good: rows in a normal/OK state are NEUTRAL grey; color marks only the few that need attention
+✓ Good: same state → same color, every time (3 Completed = 3 green)
 ```
 
-Vary status states in lists to create **visual interest through color diversity**.
+**Quality / score scales (good → bad), e.g. air-quality, health, life-index:** there is no
+"4 task hues" mapping for these. Use ONE of:
+- **Neutral + exception (preferred):** show the number in grey; flag only "needs attention"
+  rows in amber and "bad" rows in red. Most rows stay grey. Cleanest, most coherent.
+- **One sequential ramp:** a single hue light→saturated (or a green→amber→red *diverging*
+  scale) applied **consistently by value** and confined to a small dot/chip — like a data-viz
+  legend, not a row-by-row paint job. Never mix process hues (info-blue, pending-amber) into a
+  quality scale; "보통/normal" is grey, not blue.
+
+A list where 80% of rows carry color has no hierarchy. Color is the exception that says
+"look here."
 
 ---
 
@@ -3332,7 +3350,7 @@ A dashboard page should have **at least 4 sections** to feel complete:
 ### Variety (3)
 4. Vary KPI card secondary elements (trend, progress, comparison, sparkline)
 5. Maximum 2 of the same content type per page
-6. Distribute status colors across list items (don't cluster same color)
+6. Status color reflects each item's REAL state (same state → same color); normal/OK rows are neutral grey, color marks only the few needing attention — never recolor rows for "variety" (§65)
 
 ### Density (3)
 7. Information density increases top-to-bottom
@@ -3653,6 +3671,15 @@ Optically size and center (tall/wide glyphs get nudged), align to text via
 active/selected** — and if you use both, make filled optically lighter so weights
 match. ([Material 3 Icons], [Dutchicon])
 
+**CC-9a · NEVER use emoji as UI icons** (🚗 🧺 🔥 ☀️ ⭐ …). Emoji render in fixed
+multi-color across platforms, so they **inject 5–10 uncontrolled hues** and break the
+single-accent rule instantly — this is one of the most common reasons an AI-built screen
+"looks random/noisy." Emoji also vary per OS and ignore your stroke/size system. Use a
+**single line-icon set** (Lucide, Heroicons, Phosphor) in **`currentColor`**, tinted
+greyscale or the accent — not emoji. Emoji are acceptable *only* as user-generated content
+(a reaction, a name a user typed), never as interface chrome (list bullets, nav, status,
+category markers, favorite stars).
+
 ### States & micro-detail
 **CC-10 · One state-layer ramp everywhere** (Material 3 canonical: hover **8%**, focus
 **10%**, pressed **10%**, dragged **16%**; disabled = 38% content / 12% container) — a
@@ -3675,6 +3702,28 @@ doesn't.* ([Refactoring UI Color], [UX Bootcamp HSL])
 Add only **4 semantic hues** — success/warning/error/info — used strictly by meaning,
 never decoration. Prefer role-named **semantic tokens** (`primary`, `surface`, `error`)
 so themes swap automatically. ([Refactoring UI], [Apple HIG Color])
+
+**CL-2a · Status color is for *severity*, not for every row.** The fastest way to make a
+list look noisy is to put a colored badge on **every** item. Rules: (1) **A normal / OK /
+"보통" / default state is NEUTRAL grey — never colored.** Color is an exception that means
+"look here," so coloring the default makes everything shout and nothing reads. (2) Map color
+to severity **consistently**: positive/good = success green (or neutral), needs-attention =
+warning amber, bad/blocked = error red — and the same score must always get the same color.
+(3) Reserve color for the **minority** of items that actually need attention; if most rows
+are "fine," most rows are grey. (4) Pair the color with text/icon (CL-4) so it survives
+colorblindness and greyscale. *A screen where 80% of badges are colored has no hierarchy.*
+
+**CL-2b · No decorative hues.** Favorite stars, category dots, avatars, section markers, and
+illustrations must use the **accent or the grey ramp** — not a new color each (gold stars,
+rainbow category dots, a different hue per card). Decoration is exactly where the 2nd, 3rd,
+4th accent sneaks in. One accent + greys, everywhere, including the "fun" bits.
+
+**CL-2c · Favorite / saved / rating affordances use shape, not a special color.** A
+bookmark/favorite/star/heart toggle conveys on/off by **fill, not hue**: **filled in the
+accent = on, outline in grey = off** (or filled grey if the accent is already busy nearby).
+A rating shows N filled accent/grey icons of M. Do **not** reach for gold stars, a red heart,
+or any one-off color — that's a hidden second accent. This is the compliant way to express
+"saved/favorite," so the affordance never has to be dropped for coherence.
 
 **CL-3 · Tint your greys.** Give the neutral ramp a **5–15% tint** toward the brand hue
 (or a deliberate warm/cool bias), consistent across all steps. **No pure `#000` text** —

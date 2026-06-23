@@ -32,6 +32,7 @@ and subtract for violations you can cite by line. Be specific and evidence-based
 One choice per axis, applied everywhere. Deduct for each **mixed** axis:
 - mixed corner radii — e.g. a sharp card with pill buttons (−6)
 - two or more accent colors used for emphasis (−5)
+- **emoji used as UI icons** (🚗🧺⭐ as list/nav/status/category markers) — injects many uncontrolled hues; use one line-icon set in currentColor (−6)
 - mixed shadow languages / light directions (−3)
 - mixed icon families, fill modes, or stroke weights (−3)
 - inconsistent control heights (buttons/inputs differ) (−3)
@@ -39,6 +40,9 @@ One choice per axis, applied everywhere. Deduct for each **mixed** axis:
 ### 2. Color discipline — 16
 - pure black (`#000` / `text-black`) text — the refined black is ~`#2A2A2A` (−4 each, cap −8)
 - hardcoded hex where a semantic token exists (−2 each, cap −6)
+- **a normal / OK / default ("보통") state shown in a status color** instead of neutral grey (−4)
+- **status color on most/every row** (no severity hierarchy — color should mark the minority that needs attention) (−4)
+- **decorative hues** — gold stars, rainbow category dots, a different color per card — instead of accent/grey (−3)
 - status conveyed by color alone, no icon/text (−4)
 - contrast below WCAG AA (4.5:1 body, 3:1 large/UI) (−6)
 

@@ -2542,15 +2542,31 @@ Per page, key color should appear in:
 That's it. Everything else is grayscale.
 ```
 
-### Status Color Distribution
-Don't cluster all status colors in one area:
+### Status Color Reflects Real State — never "varied for interest"
+
+Status color **encodes meaning, not decoration.** Color the item by its *actual* state; if
+three items are genuinely "Completed," they are all green. **Never scatter different hues
+across rows for visual variety** — that destroys the signal (color stops meaning anything)
+and produces the "rainbow list" that reads as un-designed.
 
 ```
-✗ Bad: All 3 list items have green "Completed" status
-✓ Good: 1 green (Completed) + 1 blue (In Progress) + 1 yellow (Pending)
+✗ Bad: recolor rows for variety → 1 green + 1 blue + 1 yellow when states are unrelated to color
+✗ Bad: a colored badge on EVERY row (no row stands out → no hierarchy)
+✓ Good: rows in a normal/OK state are NEUTRAL grey; color marks only the few that need attention
+✓ Good: same state → same color, every time (3 Completed = 3 green)
 ```
 
-Vary status states in lists to create **visual interest through color diversity**.
+**Quality / score scales (good → bad), e.g. air-quality, health, life-index:** there is no
+"4 task hues" mapping for these. Use ONE of:
+- **Neutral + exception (preferred):** show the number in grey; flag only "needs attention"
+  rows in amber and "bad" rows in red. Most rows stay grey. Cleanest, most coherent.
+- **One sequential ramp:** a single hue light→saturated (or a green→amber→red *diverging*
+  scale) applied **consistently by value** and confined to a small dot/chip — like a data-viz
+  legend, not a row-by-row paint job. Never mix process hues (info-blue, pending-amber) into a
+  quality scale; "보통/normal" is grey, not blue.
+
+A list where 80% of rows carry color has no hierarchy. Color is the exception that says
+"look here."
 
 ---
 
@@ -2663,7 +2679,7 @@ A dashboard page should have **at least 4 sections** to feel complete:
 ### Variety (3)
 4. Vary KPI card secondary elements (trend, progress, comparison, sparkline)
 5. Maximum 2 of the same content type per page
-6. Distribute status colors across list items (don't cluster same color)
+6. Status color reflects each item's REAL state (same state → same color); normal/OK rows are neutral grey, color marks only the few needing attention — never recolor rows for "variety" (§65)
 
 ### Density (3)
 7. Information density increases top-to-bottom

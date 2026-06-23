@@ -16,7 +16,9 @@ The engine provides layout rules, components, and skills. The skin provides colo
  8. Touch targets ≥ 44×44px — no tiny tap areas
  9. Semantic tokens only (text-brand, bg-card) — NEVER hardcode hex in components
 10. Font sizes from the "Font Size by Context" table ONLY — don't guess
-11. After generating ANY page → run /ss-review to verify compliance
+11. NO emoji as UI icons (🚗🧺⭐) — one line-icon set in currentColor; emoji inject many colors
+12. Status color = severity only — a normal/"보통" state is grey, not colored; don't color every row
+13. After generating ANY page → run /ss-review to verify compliance
 ```
 
 Reference this guide when Claude Code sets up a new project or implements UI.

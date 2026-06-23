@@ -76,14 +76,14 @@
       "type": "skill-md",
       "description": "Review UI code for design system compliance, accessibility, and best practices",
       "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-review/SKILL.md",
-      "digest": "sha256:043f3269e2ec68ebbb96459cc0f3233cfdd9ed243938c1fb3a6f0ebe1cd75716"
+      "digest": "sha256:16c698c3106e34abe723b42458d7e2fd7364dd613121c2f6ae3248e06bdfec8b"
     },
     {
       "name": "ss-score",
       "type": "skill-md",
       "description": "Score a UI file's design quality 0-100 against StyleSeed's design language — per-category breakdown, the worst offenders, and a prioritized fix list. A quantified version of /ss-review.",
       "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-score/SKILL.md",
-      "digest": "sha256:e54a2084b67519d2004457d446f7340505933d1464004294f4a430f3821f77fa"
+      "digest": "sha256:761387a36b75ecfff7f063e5683d520ec4859388a050b7a8cab2fc86f5f3332e"
     },
     {
       "name": "ss-setup",

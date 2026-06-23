@@ -38,8 +38,12 @@ For each category, start at full marks and **subtract** for violations you find 
 reading the code. Be specific and evidence-based — cite the line.
 
 **Color discipline (20)** — deduct for: any `#000`/`text-black` (−4 each, cap −8);
-more than one accent hue used decoratively (−5); hardcoded hex where a semantic
-token exists (−2 each, cap −6); status conveyed by color alone (−4).
+more than one accent hue used decoratively (−5); **emoji used as UI icons** (multi-color,
+breaks single accent) (−5); **a normal/OK/"보통" state shown in a status color** instead of
+neutral grey (−4); **status color on most/every row** (no severity hierarchy) (−4);
+**decorative hues** (gold stars, rainbow category dots) instead of accent/grey (−3);
+hardcoded hex where a semantic token exists (−2 each, cap −6); status conveyed by color
+alone (−4).
 
 **Hierarchy & typography (20)** — deduct for: number/unit not ~2:1 (−4); font
 sizes off the Font Size table / `text-[var(--…)]` for size (−5); everything the
