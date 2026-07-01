@@ -36,6 +36,7 @@
 
 [![GitHub stars](https://badgen.net/github/stars/bitjaru/styleseed)](https://github.com/bitjaru/styleseed/stargazers)
 [![License](https://badgen.net/github/license/bitjaru/styleseed)](https://github.com/bitjaru/styleseed/blob/main/LICENSE)
+[![Top 6 Frontend by acceleration — oosmetrics](https://badgen.net/badge/oosmetrics/Top%206%20Frontend%20by%20acceleration/green)](https://oosmetrics.com/repo/bitjaru/styleseed)
 
 **Other repos teach LLMs what brands look like. StyleSeed teaches LLMs how designers think.**<br />
 Data vs judgment. 74 design rules that Claude Code, Codex, and Cursor read automatically — so the output stops looking generated and starts looking designed.
