@@ -4,7 +4,9 @@
 
 # StyleSeed
 
-### The design engine for Claude Code, Codex, Cursor, and vibe coding.
+### Your AI writes UI that looks like an AI wrote it.<br />StyleSeed is the design engine that fixes that.
+
+<sub>Design judgment for Claude Code · Codex · Cursor · vibe coding — so the output stops looking generated.</sub>
 
 <br />
 
@@ -128,6 +130,44 @@ This installs all 15 skills **universally** (Claude Code, Codex, Cursor, Gemini 
 - You want **Toss-style** refinement without reverse-engineering it yourself
 - You're building a **Claude Code skill** or **Cursor rules** setup for design
 - You ship fast with AI and need professional UI that doesn't look AI-generated
+
+## Where StyleSeed fits among design-AI skills
+
+There are lots of "help your AI design" projects now. Most solve a slice. StyleSeed is the one that
+targets the whole *"looks AI-generated"* problem — and **enforces** the fix.
+
+| | **StyleSeed** | Brand / `DESIGN.md` collections | "Make-it-prettier" skills | UI generators (Claude Design, v0…) |
+|---|:---:|:---:|:---:|:---:|
+| Teaches design **judgment** (how designers *think*) | ✅ | ❌ data only | ⚠️ a few tips | ❌ |
+| **Fights the AI-look itself** — default indigo, icon-chip cliché, template layouts, rainbow lists | ✅ | ❌ | ❌ | ❌ |
+| **Scored Quality Gate** — reviews + fixes the UI *before you see it* | ✅ | ❌ | ❌ | ❌ |
+| **Anti-drift design lock** — decisions persist across sessions | ✅ | ❌ | ❌ | ❌ |
+| Works across **every agent** (Claude Code · Cursor · Codex · Amp · Gemini) | ✅ | ⚠️ | ⚠️ | ❌ one tool |
+| Brand **skins** + named **motion** system | ✅ | ⚠️ colors only | ❌ | ⚠️ |
+| Free & MIT | ✅ | ✅ | usually | freemium |
+
+They're not all competitors — a `DESIGN.md` gives StyleSeed a skin; a generator gives it a first
+draft. StyleSeed is the **judgment + enforcement layer** the others don't have.
+
+## What it actually enforces (a taste)
+
+The kind of specific, named calls a senior designer makes without thinking — written down so an AI
+applies them every time:
+
+- **The refined black is `#2A2A2A`, not `#000`** — a 5-step grayscale ramp, never pure black
+- **One accent, everything else greyscale** — the single-accent law; a second hue is the fastest "un-designed" tell
+- **Numbers 2:1 with their unit** — a 48px value over a 24px unit; equal sizes flatten magnitude into noise
+- **Nested-radius law: `inner = outer − padding`** — concentric corners, so a card and its inner button agree
+- **Layered, low-opacity shadows (≤8%) lit from one direction** — not one hard drop shadow
+- **Tabular numbers** for anything that updates — no width jitter as values change
+- **Status color = severity only** — a "normal/보통" row is grey; color marks the exception, never a rainbow list
+- **No emoji icons, and no Lucide-in-a-pale-chip on every card** (§CC-9b) — the two opposite AI icon tells
+- **8px spatial grid; gap-around-a-group > gap-inside it** — proximity that reads as structure
+- **Optical, not pixel, alignment** — nudge arrows/play glyphs; center type by cap-height
+- **Desktop body ≥16px, one focal point per screen** — the tight mobile scale and an all-even grid both read "machine-made"
+- **One radius personality · one icon set · one shadow language** — the coherence laws (§C0), the #1 fix for "looks AI-generated"
+
+[See all 74 rules →](engine/DESIGN-LANGUAGE.md) · [the craft & coherence laws →](engine/VISUAL-CRAFT.md)
 
 ## Data vs Judgment
 

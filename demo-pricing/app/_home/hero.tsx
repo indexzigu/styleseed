@@ -67,11 +67,12 @@ export function Hero() {
           variants={item}
           className="mx-auto mt-6 max-w-2xl text-[17px] leading-relaxed text-neutral-600"
         >
-          Most design repos hand your AI a pile of components and hope for the best. StyleSeed hands
-          it the <strong className="font-semibold text-neutral-900">judgment</strong> — 74 rules
-          <em> and the reasoning behind each</em> — so Claude Code, Codex, and Cursor ship UI that looks
-          designed, not generated. Swap the brand DNA with one attribute; add motion in plain
-          English. MIT licensed.
+          Your AI writes UI that looks like an AI wrote it — default indigo, an icon in a pale chip
+          on every card, everything a little off. StyleSeed hands it the{" "}
+          <strong className="font-semibold text-neutral-900">judgment</strong> — 74 rules
+          <em> and the reasoning behind each</em> — plus a quality gate that fixes the tells before
+          you see them, so Claude Code, Codex, and Cursor ship UI that looks designed, not generated.
+          MIT licensed.
         </motion.p>
 
         <motion.div
