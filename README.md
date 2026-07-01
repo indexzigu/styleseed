@@ -22,6 +22,10 @@
 
 <br /><br />
 
+[![Mentioned in Awesome AI Tools for UI](https://awesome.re/mentioned-badge.svg)](https://github.com/maxbogo/awesome-ai-tools-for-ui)
+
+<br />
+
 <a href="https://styleseed-demo.vercel.app">
   <img src="showcase/demo.gif" width="560" alt="Same chat UI morphing across Toss, Raycast, and Arc brand skins" />
 </a>
