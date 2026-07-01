@@ -273,6 +273,12 @@ Desktop also gets **more line-height on body** (`leading-relaxed`) and **wider m
 blocks** (`max-w-2xl`/`max-w-3xl`, never full-bleed paragraphs). When in doubt on web, go one
 step **up**, not down.
 
+**Desktop floor — the small end is where it reads "AI-made":** on a web/B2B surface, **no UI text
+below 14px.** Section labels, feature descriptions, pricing sub-text, and **footer text land at
+14–15px, not 11–13px** (that includes text on dark sections — small light-on-dark reads even
+smaller). Reserve 12px *only* for true legal fine print. If you just shipped a screen, the tell to
+check is: are the labels/footer 11–13px? Bump them a step.
+
 #### Font Pairing — choose one, don't leave the default (lock it)
 
 | Skin / domain | Display | Body | Notes |

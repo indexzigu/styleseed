@@ -96,6 +96,15 @@ npx skills add bitjaru/styleseed
 ```
 This installs all 15 skills **universally** (Claude Code, Codex, Cursor, Gemini CLI, Amp + 12 more), then run `/ss-setup`. The skills are a real upgrade — a setup wizard, `/ss-review` and `/ss-score` to grade your UI, scaffolding, motion — so installing them is worth it. Because skills are *executable*, your agent asks you to **approve them once on first use** — that's normal for any third-party skill (good security), a quick one-time step, not a StyleSeed block. (And if you can't install them in your setup, the rules alone still do the core work.)
 
+**Your agent, its exact path:**
+
+| Your agent | Reads | Fastest install |
+|---|---|---|
+| **Claude Code** | `CLAUDE.md` + `/ss-*` skills | `npx skills add bitjaru/styleseed` |
+| **Cursor** | `.cursorrules` | `cp engine/.cursorrules .cursorrules` — or paste the prompt above |
+| **Codex · Amp · Gemini CLI** | `AGENTS.md` + skills | `npx skills add bitjaru/styleseed` |
+| **Windsurf · Copilot · any other** | the paste-prompt above | no install — paste & go |
+
 <sub>More paths (manual copy, Cursor, awesome-design-md brands) in [Get Started](#get-started) below.</sub>
 
 ---
@@ -268,6 +277,23 @@ came out polished because it was built with the full rules in context and iterat
 6. **Check & iterate.** Run `/ss-review` or `/ss-score`, or tell it: *"self-check coherence — one radius, one accent, real empty/loading/error states — and fix violations."* If it drifts: *"re-read CLAUDE.md and fix the coherence violations."*
 
 > **More constraints = less variance.** Plan mode + a pinned key color + installed rules + a review pass is the difference between "looks generated" and "looks designed."
+
+## Already built something generic? Retrofit it
+
+StyleSeed isn't only for new screens — it's **the design counterpart to a code review** for UI you
+already shipped. If an earlier build looks *coherent but generic* (default indigo, tiny desktop
+text, the same Lucide-icon-in-a-pale-chip on every card, no focal point):
+
+1. **`/ss-score src/…`** — grades the screen 0–100 and names the exact "AI-made" tells (default
+   accent, icon-chip cliché, sub-16px body on desktop, no focal point, missing states).
+2. **`/ss-review src/…`** — the design code-review: applies the fixes (retint to your key color,
+   drop the chips, bump the type scale, create a focal point), then re-score to **≥80**.
+3. **`/ss-update` → Retrofit** — no design lock yet? It writes a `STYLESEED.md` (mood, key color,
+   font, surface) so the whole project stops drifting, then upgrades screen by screen.
+
+The rules got stronger in [v2.5.0](https://github.com/bitjaru/styleseed/releases/tag/v2.5.0), so a
+screen that passed the old bar may score lower now — that's the point. Fixing it is what makes it
+stop looking AI-made.
 
 ## How It Works: Engine + Skins
 
