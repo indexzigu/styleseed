@@ -34,9 +34,8 @@
 
 <br />
 
-[![oosmetrics](https://api.oosmetrics.com/api/v1/badge/achievement/41c4272f-b2a8-4c64-8fcb-ca7750603ab9.svg)](https://oosmetrics.com/repo/bitjaru/styleseed)
-[![GitHub stars](https://img.shields.io/github/stars/bitjaru/styleseed?style=flat-square)](https://github.com/bitjaru/styleseed/stargazers)
-![License](https://img.shields.io/github/license/bitjaru/styleseed?style=flat-square)
+[![GitHub stars](https://badgen.net/github/stars/bitjaru/styleseed)](https://github.com/bitjaru/styleseed/stargazers)
+[![License](https://badgen.net/github/license/bitjaru/styleseed)](https://github.com/bitjaru/styleseed/blob/main/LICENSE)
 
 **Other repos teach LLMs what brands look like. StyleSeed teaches LLMs how designers think.**<br />
 Data vs judgment. 74 design rules that Claude Code, Codex, and Cursor read automatically — so the output stops looking generated and starts looking designed.
