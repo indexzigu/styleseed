@@ -219,6 +219,36 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* vs other design-AI skills — the category differentiator */}
+        <section className="border-t border-neutral-200 bg-neutral-900 text-white">
+          <div className="mx-auto max-w-5xl px-6 py-20">
+            <div className="text-[11px] font-bold uppercase tracking-widest text-neutral-400">
+              Vs other design-AI skills
+            </div>
+            <h2 className="mt-2 max-w-3xl text-[clamp(28px,4vw,40px)] font-bold leading-tight tracking-tight">
+              Other design skills make your UI <span className="text-neutral-500">coherent.</span>
+              <br />
+              StyleSeed is the only one that also fights the{" "}
+              <span style={{ color: "#6EA8FE" }}>generic-AI look</span> — and enforces it.
+            </h2>
+            <div className="mt-9 grid gap-px overflow-hidden rounded-2xl bg-white/10 sm:grid-cols-2">
+              {[
+                { t: "Judgment, not data", d: "Teaches how designers think — not a palette or DESIGN.md collection." },
+                { t: "Fights the “AI look” itself", d: "Explicit rules against the default indigo, the icon-chip cliché, template layouts & rainbow lists — not just “use nice spacing.”" },
+                { t: "A scored Quality Gate", d: "Self-reviews and fixes your UI to ≥80/100 before you ever see it. Not a passive rules list." },
+                { t: "Every agent, not one", d: "Claude Code · Cursor · Codex · Amp · Gemini — ships CLAUDE.md + AGENTS.md + .cursorrules." },
+                { t: "A design lock that stops drift", d: "Skin, key color, font, motion persist across every prompt — the design stops changing each session." },
+                { t: "Free & MIT", d: "With a live, interactive demo you can poke right now." },
+              ].map((c) => (
+                <div key={c.t} className="bg-neutral-900 p-6">
+                  <div className="text-[15px] font-bold tracking-tight">{c.t}</div>
+                  <div className="mt-1.5 text-[15px] leading-relaxed text-neutral-400">{c.d}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Showcase preview */}
         <section className="border-t border-neutral-200 bg-neutral-50">
           <div className="mx-auto max-w-6xl px-6 py-20">

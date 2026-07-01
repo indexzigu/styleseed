@@ -48,6 +48,17 @@ Data vs judgment. 74 design rules that Claude Code, Codex, and Cursor read autom
 
 <br />
 
+### Every other design-AI skill makes your UI *coherent.*<br />StyleSeed is the only one that also fights the *generic-AI look* — and enforces it.
+
+**Judgment, not data** — teaches how designers *think*, not a palette or `DESIGN.md` collection &nbsp;·&nbsp;
+**Fights the "AI look" itself** — explicit rules against the default indigo, the icon-chip cliché, template layouts & rainbow lists (not just "use nice spacing") &nbsp;·&nbsp;
+**A scored Quality Gate** — self-reviews + fixes your UI to ≥80/100 *before you ever see it*, not a passive rules list &nbsp;·&nbsp;
+**Every agent, not one** — Claude Code · Cursor · Codex · Amp · Gemini (ships `CLAUDE.md` + `AGENTS.md` + `.cursorrules`) &nbsp;·&nbsp;
+**A design lock that stops drift** across sessions &nbsp;·&nbsp;
+**Free & MIT**, with a live interactive demo
+
+<br />
+
 <a href="https://styleseed-demo.vercel.app/how-it-thinks">
   <img src="assets/rules-blueprint.svg" width="840" alt="Every decision is a rule with a reason. A StyleSeed UI card annotated with the rule behind each choice — Rule 1 content in cards, Rule 4 numbers 2:1 with units, Rule 2 one accent, one corner radius, Rule 72 never color alone, Rule 71 real states. Other repos hand your AI components; StyleSeed hands it the judgment." />
 </a>
