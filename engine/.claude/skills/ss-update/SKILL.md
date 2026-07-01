@@ -12,7 +12,8 @@ allowed-tools: Read, Write, Edit, Grep, Glob, Bash
 - For first-time setup → use `/ss-setup`
 - For just one new component or skin — copy that file manually
 - For projects that have heavily diverged from upstream — manual diff review first
-- For updating user code/components — this updates engine files only, not your custom UI
+- Updating the engine is separate from re-designing your UI. Steps 1–5 update engine files only;
+  if you want an old generic build re-done to the new standard, that's **Step 6 (Retrofit)**.
 
 Automatically detect and update StyleSeed files in the current project.
 
@@ -142,6 +143,29 @@ Not touched:
 
 Next: run /ss-lint on your pages to check for rule violations.
 ```
+
+### Step 6: Retrofit existing UI (optional but recommended) — "re-do a generic old build"
+
+Updating the rules doesn't re-design screens you already built with an older StyleSeed. If the
+user says their existing UI still looks generic/"AI-made" (default indigo, icon-chip cliché,
+tight desktop type, no focal point, no design lock), offer to **retrofit it to the new standard**.
+This is the migration path for anyone who built before the distinctiveness rules existed:
+
+1. **Write a design lock if missing.** Check for `STYLESEED.md` at the project root. If absent,
+   run **Quick Setup** (CLAUDE.md) *now* with the user — pin **mood** (edges/feel/density/tone),
+   a **domain-fit key color** (NOT the default indigo), a **chosen font**, and the **surface**
+   (mobile vs desktop type scale). Write the lock. Existing generic builds almost always never
+   had a lock — this is the biggest fix.
+2. **Re-score the key screens.** Run **`/ss-score`** on the main pages. The new rubric flags
+   exactly the old-build tells: default-indigo accent, the icon-chip cliché (§CC-9b), body <16px
+   on desktop, no focal point, demo layout copied verbatim, missing states.
+3. **Apply the fixes.** Run **`/ss-review`** (or `/ss-review --fix`) screen by screen to retint to
+   the locked key color, replace the uniform icon chips, bump the desktop type scale, and create a
+   focal point. Re-score to **≥ 80**. Do the highest-traffic screen first.
+4. **Report the before/after score** so the upgrade is visible (e.g. "landing 63 → 88").
+
+Frame it honestly: the rules got stronger, so a screen that passed the old bar may score lower
+now — that's the point; fixing it is what makes it stop looking AI-made.
 
 ## Important
 

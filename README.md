@@ -34,6 +34,11 @@
 
 <br />
 
+![74 design rules](https://badgen.net/badge/rules/74/8B5CF6)
+![15 skills](https://badgen.net/badge/skills/15/6C5CE7)
+![7 brand skins](https://badgen.net/badge/skins/7/6C5CE7)
+![48 components](https://badgen.net/badge/components/48/6C5CE7)
+
 [![GitHub stars](https://badgen.net/github/stars/bitjaru/styleseed)](https://github.com/bitjaru/styleseed/stargazers)
 [![License](https://badgen.net/github/license/bitjaru/styleseed)](https://github.com/bitjaru/styleseed/blob/main/LICENSE)
 [![Top 6 Frontend by acceleration — oosmetrics](https://badgen.net/badge/oosmetrics/Top%206%20Frontend%20by%20acceleration/green)](https://oosmetrics.com/repo/bitjaru/styleseed)
@@ -66,6 +71,19 @@ Read https://styleseed-demo.vercel.app/llms-full.txt and apply StyleSeed's desig
 ```
 
 That's it — the agent plans the design with you, locks a key color, then applies the rules to whatever you build next. (Planning first is what keeps the result from looking random — see [Troubleshooting](#troubleshooting--i-applied-styleseed-but-the-ui-still-looks-bad).) Works with **Claude Code (`CLAUDE.md`), Codex / Amp / Gemini CLI (`AGENTS.md`), and Cursor (`.cursorrules`)** — StyleSeed ships all three, so any agent picks the rules up automatically.
+
+**What your agent actually does with StyleSeed loaded:**
+
+```text
+you    ▸  build me a billing settings page
+agent  ▸  (plan mode) key color? I'd use one indigo accent — #5E6AD2 (SaaS). Motion: Snap. ok?  ▸ y
+agent  ▸  ✓ wrote STYLESEED.md — skin, accent, radius, motion locked, re-read every prompt
+agent  ▸  building… running the quality gate before I show you anything
+gate   ▸  ✗ two accent colors   ✗ "normal" rows colored   ✗ no empty state   → fixing
+agent  ▸  ✓ 88/100 — one accent, grey normal states, real empty/error states. here's the page.
+```
+
+**The `STYLESEED.md` lock is the anti-drift mechanic.** Your skin, key color, radius, and motion get written once and the rules make every agent re-read and obey them on *every* prompt — so the design stops being different each session. The [Quality Gate](#troubleshooting--i-applied-styleseed-but-the-ui-still-looks-bad) then self-reviews and fixes the UI (rainbow lists, two accents, missing states) *before* you ever see it.
 
 > **The rules are the product — and they need zero install or permissions.** They're
 > plain markdown (`CLAUDE.md` / `AGENTS.md` / `DESIGN-LANGUAGE.md`), so the prompt above —

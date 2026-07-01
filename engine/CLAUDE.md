@@ -19,6 +19,9 @@ The engine provides layout rules, components, and skills. The skin provides colo
 11. NO emoji as UI icons (🚗🧺⭐) — one line-icon set in currentColor; emoji inject many colors
 12. Status color = severity only — a normal/"보통" state is grey, not colored; don't color every row
 13. After generating ANY UI → run the Quality Gate (below); never show UI that hasn't passed
+14. NEVER ship the default/unlocked accent (generic indigo #5E6AD2/#4F46E5) or a copied demo layout — lock a domain-fit key color + font FIRST (Quick Setup). A coherent-but-generic screen STILL reads "an AI made this"; coherent ≠ distinctive
+15. One focal point per screen — the hero/primary element must visually dominate. An all-even grid of same-weight cards, centered and evenly spaced, is the #1 "machine-composed" tell
+16. Match the type scale to the surface — mobile app uses the tight scale; desktop/web B2B uses the LARGER scale (body ≥16px). Don't ship 14px body on a 1440px screen
 ```
 
 Reference this guide when Claude Code sets up a new project or implements UI.
@@ -49,12 +52,15 @@ design-lock file.** Before building any UI:
 <!-- Locked design decisions for this project. The agent re-reads this every prompt and
      must obey it. Change a value here to change it project-wide. -->
 - App domain:        fintech
-- Skin:              toss            # or "custom"
+- Surface:           desktop-web     # mobile-app | desktop-web (B2B) — decides the type scale
+- Mood:              soft · minimal · airy · calm   # edges · feel · density · tone
+- Skin:              toss            # or "custom" — NEVER the unlocked default indigo
 - Key color (accent): #3182F6        # the ONLY accent — everything else greyscale
-- Radius personality: soft (12px)    # sharp 0-4 | soft 8-12 | pill — one everywhere
+- Font:              Pretendard       # display + body (e.g. "Fraunces / Inter") — chosen, not default
+- Radius personality: soft (12px)    # sharp 0-4 | soft 8-12 | pill — one everywhere (from Mood/edges)
 - Shadow language:   layered, low-opacity, above-left
 - Motion seed:       Spring          # Spring | Silk | Snap | Float | Pulse
-- Type:              Inter + Pretendard · KPI 48/24
+- Type scale:        desktop (body 16-18px)   # mobile-tight | desktop-larger
 - Density:           comfortable
 - Locked:            2026-06-23
 ```
@@ -63,35 +69,60 @@ Keep it short and human-editable. When the user later says "make it more X," upd
 *and* the UI so they never diverge. **The lock is what makes the result consistent across
 prompts** — without it, even perfect rules drift.
 
-## Quick Setup — do this BEFORE building (consistency comes from constraints)
+## Quick Setup — MANDATORY before building (consistency comes from constraints)
 
-If a user just said "apply StyleSeed and build X," don't start coding yet. Output that
-looks polished and *consistent* comes from constraints: the more of these you pin down
-first, the less the result varies.
+**This is not optional.** If there is no `STYLESEED.md` lock in the project and you are about
+to build UI, running this setup is the **FIRST thing you do — before any code.** Skipping it
+is exactly how the output lands generic (default indigo, tight type, template layout) and the
+user says "still looks AI-made." Output that looks *distinctive and consistent* comes from
+pinning these down first.
 
-**Strongly recommend starting in plan mode** (in Claude Code, press `Shift+Tab` to enter
-Plan Mode). Decide the design decisions below **one at a time, with the user, holding the
-full design context** — then build. Designing interactively in plan mode is the single
-biggest reason a result looks intentional instead of "colors went in at random, no key
-color." Tell the user: *"Let's plan the design first — I'll lock the key color, motion,
-and layout with you before writing code."*
+**Start in plan mode** (in Claude Code, `Shift+Tab`). Decide each choice **one at a time, with
+the user, holding full context** — showing a tiny preview/recommendation for each, not a wall
+of questions. Tell the user: *"Let's lock the look first — key color, font, motion — then I build."*
 
-Run this 4-step setup with the user (in plan mode), then build:
+**Smart defaults — recommend, don't just ask (never fall back to the generic default):**
+Infer from the product name, domain, language, and copy, then propose ONE default the user can
+accept with a tap. Examples: Korean + fintech/regulation/trust → **Toss skin, `#3182F6`** ·
+premium SaaS → **Stripe** · dev-tool/dark → **Linear** · editorial/docs → **Notion**.
+**The unlocked default accent (`#5E6AD2`/`#4F46E5` generic indigo) is FORBIDDEN as a final
+choice** — if nothing else is chosen, pick a domain-fit skin, never the bare default.
 
-1. **App type** — ask the domain (fintech / SaaS / e-commerce / social / content /
-   productivity / health / dev-tools). Bias the rules per **APP-PLAYBOOKS.md**.
-2. **Accent (key color)** — ask for a brand color. If they don't have one, *recommend* by
-   domain: fintech `#3182F6` · SaaS `#5E6AD2` · e-commerce `#FF6B35` · social `#FF4E8B` ·
-   content `#635BFF` (on near-mono) · health `#10B981` · dev-tools `#8B5CF6`. **One accent
-   only; everything else greyscale.** Or pick a skin (Toss/Stripe/Linear/Notion/Raycast/Arc/Vercel).
-3. **Motion seed** — recommend by vibe/brand: Spring (bouncy; Toss/Arc) · Silk (smooth;
+Run this setup with the user (in plan mode), then build:
+
+1. **App type + surface** — domain (fintech / SaaS / e-commerce / social / content /
+   productivity / health / dev-tools) **and surface** (mobile app vs desktop/web B2B). Bias
+   rules per **APP-PLAYBOOKS.md** and **PAGE-TYPES.md**. Surface decides the type scale (below).
+2. **Mood / vibe — ask 3–4 aesthetic calls in plain words (or propose them from the skin),
+   then lock.** This is what makes a UI feel *chosen* instead of defaulted. Each axis maps to a
+   concrete rule value, so the whole UI shares one mood:
+   - **Edges** → radius personality: *sharp* (0–4px; technical, serious) · *soft* (8–12px;
+     friendly, trustworthy) · *pill* (playful, consumer)
+   - **Feel** → shadow + ornament: *minimal/restrained* (few shadows, no gradient, mostly
+     greyscale) · *expressive* (layered shadow, subtle gradient, richer accent moments)
+   - **Density** → spacing + type scale: *airy* (generous space, larger type) · *compact*
+     (dense, data-heavy)
+   - **Tone** → motion + saturation: *calm/trustworthy* (Silk/Snap, desaturated) ·
+     *energetic/playful* (Spring/Pulse, saturated)
+   Propose a default from the skin (Toss → soft·minimal·airy·calm · Linear → sharp·minimal·
+   compact·calm · Arc → soft·expressive·airy·playful), let the user tweak in their words
+   ("make the corners sharper", "more playful"), then **lock all four**. One mood → one radius,
+   one shadow language, one density, one motion — applied everywhere.
+3. **Accent (key color)** — recommend a domain-fit color or skin (see Smart defaults). If the
+   user has a brand hex, use it. **One accent only; everything else greyscale.** Skins:
+   Toss/Stripe/Linear/Notion/Raycast/Arc/Vercel.
+4. **Font** — recommend a pairing by skin/language, don't leave the default: Korean/CJK →
+   **Pretendard** · fintech/SaaS neutral → **Inter** · editorial → **Inter/serif display** ·
+   dev/mono-accent → **Geist / IBM Plex**. State the display + body font in the lock.
+5. **Motion seed** — confirm from the Tone above: Spring (bouncy; Toss/Arc) · Silk (smooth;
    Stripe/Notion) · Snap (instant; Linear/Raycast/Vercel) · Float (gentle) · Pulse (rhythmic).
    Per moment: CTA→spring press, modal→silk entrance, list→stagger-cascade, balance/number→**none**.
-4. **Write the lock, then build, then check.** Save the chosen app type / accent / skin /
-   motion to `STYLESEED.md` (see Design Lock above) so they persist. Apply the full rules
-   (read DESIGN-LANGUAGE.md + VISUAL-CRAFT.md — not a summary), then **self-check coherence**
-   (one radius, one accent, real empty/loading/error states; VISUAL-CRAFT §C0) and run
-   `/ss-review` or `/ss-score`. **Iterate** — the reference demo wasn't one-shot either.
+6. **Write the lock, then build, then check.** Save app type / surface / **mood** / accent / skin / **font**
+   / motion / density to `STYLESEED.md` (see Design Lock above). Apply the full rules (read
+   DESIGN-LANGUAGE.md + VISUAL-CRAFT.md — not a summary), pick the type scale for the surface
+   (mobile-tight vs **desktop-larger, body ≥16px**), give the page **one focal point** (don't
+   ship an all-even grid), then **self-check** (VISUAL-CRAFT §C0) and run the Quality Gate.
+   **Iterate** — the reference demo wasn't one-shot either.
 
 Confirm each choice before building. **More constraints = less variance.** For the most
 consistent results, copy the rule files into the project (CLAUDE.md / AGENTS.md /
@@ -107,6 +138,13 @@ demo was reviewed and fixed, not a first draft. **Never show the user UI that ha
 ```
 □ Coherence  — ONE accent (no 2nd/3rd hue, NO emoji icons, no gold/decorative color),
                ONE radius personality, ONE shadow language, ONE icon set  (§C0)
+□ Distinctive — accent is a CHOSEN domain-fit color, NOT the unlocked default indigo
+               (#5E6AD2/#4F46E5); layout is NOT the StyleSeed demo copied verbatim; the hero
+               shows THIS product (not a stock chat card). Coherent-but-generic = FAIL
+□ Focal      — one element clearly dominates; NOT an all-even grid of same-weight, centered,
+               evenly-spaced cards (that flatness is the machine-composed tell)
+□ Type fit   — scale matches the surface: desktop/web B2B body ≥16px, section titles ≥20px;
+               a font was chosen (not the bare default). No 14px body on a wide screen
 □ Color=meaning — normal/OK/"보통" rows are GREY; color marks only the minority that needs
                attention; no rainbow list; same value → same color  (§65, CL-2a)
 □ Hierarchy  — one clear primary per screen; numbers 2:1 with unit; sizes from the table
@@ -214,6 +252,38 @@ Other semantic tokens (`--background`, `--foreground`, `--muted`, etc.) typicall
 | **Badge label** | — | — | `text-[12px] uppercase tracking-wide` | `<span class="text-[12px] font-bold uppercase tracking-[0.05em]">ALERT</span>` |
 
 **Rule: NEVER pick a font size that's not in this table.** If unsure, use the closest context match.
+
+#### Font Size by SURFACE — the table above is the MOBILE-APP scale (tight, dense)
+
+The context table is tuned for a **mobile app** (375–430px, dense, thumb-first). On a **desktop
+/ web B2B** screen (marketing site, admin, dashboard at ≥1024px) that scale reads *too small* —
+14px body on a 1440px canvas is the "AI made this" tell the user notices. **Pick the scale for
+the surface** (locked in `STYLESEED.md`):
+
+| Role | Mobile app | **Desktop / web B2B** |
+|------|-----------|----------------------|
+| Hero display number | `text-[48px]` | `text-[64–80px]` |
+| Page / hero headline | `text-[24px]` | `text-[40–56px]` |
+| Section title | `text-[18px]` | `text-[22–28px]` |
+| Body / description | `text-[14–15px]` | **`text-[16–18px]`** |
+| Supporting / caption | `text-[12–13px]` | `text-[14–15px]` |
+| Label / overline | `text-[11–12px]` | `text-[12–13px]` |
+
+Desktop also gets **more line-height on body** (`leading-relaxed`) and **wider max-width on text
+blocks** (`max-w-2xl`/`max-w-3xl`, never full-bleed paragraphs). When in doubt on web, go one
+step **up**, not down.
+
+#### Font Pairing — choose one, don't leave the default (lock it)
+
+| Skin / domain | Display | Body | Notes |
+|---|---|---|---|
+| Korean / CJK (Toss) | Pretendard | Pretendard | one family, weights do the work |
+| Fintech / SaaS neutral (Stripe) | Inter | Inter | safe, trustworthy |
+| Dev-tool / dark (Linear/Vercel) | Geist / Inter tight | Geist / Inter | slightly tighter tracking |
+| Editorial / content (Notion) | a serif display (Fraunces/Newsreader) | Inter | serif headline = personality |
+
+One display + one body family, max. A distinctive-but-legible display face is a cheap way to
+escape the "default sans everything" look. Set both in the lock and `css/fonts.css`.
 
 #### IMPORTANT: Font Size Anti-Pattern
 

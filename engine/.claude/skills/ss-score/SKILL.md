@@ -24,45 +24,55 @@ map to the design language. Total = 100.
 
 | Category | Weight | Reads from |
 |---|---|---|
-| **Color discipline** | 18 | DESIGN-LANGUAGE §1, §18, §72 + VISUAL-CRAFT §C4 |
-| **Hierarchy & typography** | 18 | §2, §3, §4, §16 + Font Size table + VISUAL-CRAFT §C2 |
-| **Layout & rhythm** | 14 | §13, §14, §15, §61 + VISUAL-CRAFT §C1 |
-| **Cards & elevation** | 12 | §7, §8, §12, §1 + VISUAL-CRAFT §C3 |
+| **Color discipline** | 16 | DESIGN-LANGUAGE §1, §18, §72 + VISUAL-CRAFT §C4 |
+| **Hierarchy & typography** | 16 | §2, §3, §4, §16 + Font Size table + VISUAL-CRAFT §C2 |
+| **Layout & rhythm** | 12 | §13, §14, §15, §61 + VISUAL-CRAFT §C1 |
+| **Cards & elevation** | 10 | §7, §8, §12, §1 + VISUAL-CRAFT §C3 |
 | **States & a11y** | 18 | §11, §70, §71, §72 + VISUAL-CRAFT §C3 |
-| **Motion & interaction** | 8 | §24, §59 + `engine/motion` |
+| **Motion & interaction** | 6 | §24, §59 + `engine/motion` |
 | **Coherence** | 12 | VISUAL-CRAFT §C0 (one choice per axis) |
+| **Distinctiveness** | 10 | Golden Rules 14–16 + VISUAL-CRAFT §CC-9b (not generic/default/template) |
 
 ## How to score each category
 
 For each category, start at full marks and **subtract** for violations you find by
 reading the code. Be specific and evidence-based — cite the line.
 
-**Color discipline (20)** — deduct for: any `#000`/`text-black` (−4 each, cap −8);
+**Color discipline (16)** — deduct for: any `#000`/`text-black` (−4 each, cap −8);
 more than one accent hue used decoratively (−5); **emoji used as UI icons** (multi-color,
 breaks single accent) (−5); **a normal/OK/"보통" state shown in a status color** instead of
 neutral grey (−4); **status color on most/every row** (no severity hierarchy) (−4);
 **decorative hues** (gold stars, rainbow category dots) instead of accent/grey (−3);
 hardcoded hex where a semantic token exists (−2 each, cap −6); status conveyed by color
-alone (−4).
+alone (−4); **the unlocked default indigo (`#5E6AD2`/`#4F46E5`) used as the accent** instead of
+a chosen domain-fit color (−4).
 
-**Hierarchy & typography (20)** — deduct for: number/unit not ~2:1 (−4); font
+**Distinctiveness (10)** — a coherent screen can still read "AI-generated." Deduct for: the
+**icon-chip cliché** — a generic Lucide line-icon in an identical pale-tinted rounded-square,
+repeated for every feature/step (−4, §CC-9b); the **StyleSeed demo layout copied verbatim**
+(hero+chat / 3-step / feature-grid / pricing) with no product-specific identity (−4); **no focal
+point** — an all-even grid of same-weight, centered, evenly-spaced cards (−3); the hero shows a
+stock/placeholder visual instead of *this* product (−3). Cap −10.
+
+**Hierarchy & typography (16)** — deduct for: number/unit not ~2:1 (−4); font
 sizes off the Font Size table / `text-[var(--…)]` for size (−5); everything the
-same weight, no clear primary (−5); cramped or wrong line-height on body (−3).
+same weight, no clear primary (−5); cramped or wrong line-height on body (−3);
+**body < 16px on a desktop/web B2B surface** (tight mobile scale on a wide screen) (−4).
 
-**Layout & rhythm (15)** — deduct for: content on bare background, not in cards
+**Layout & rhythm (12)** — deduct for: content on bare background, not in cards
 (−6); `px-4`/`px-8`/`mx-4` instead of `px-6`/`mx-6` (−3); same section type
 repeated in a row (−4); no `space-y-6` rhythm (−3).
 
-**Cards & elevation (15)** — deduct for: 1px borders doing separation work that
+**Cards & elevation (10)** — deduct for: 1px borders doing separation work that
 tone+shadow should (−4); shadows over ~8% opacity / visibly heavy (−4); no
 card/background tone separation (−5).
 
-**States & a11y (20)** — deduct for: missing empty/loading/error state on a data
+**States & a11y (18)** — deduct for: missing empty/loading/error state on a data
 surface (−5 each, cap −10); contrast below 4.5:1 body / 3:1 large (−6); touch
 target < 44px (−4); no visible focus / `outline:none` (−5); icon-only control
 without `aria-label` (−3).
 
-**Motion & interaction (8)** — deduct for: random/ad-hoc fades instead of a named
+**Motion & interaction (6)** — deduct for: random/ad-hoc fades instead of a named
 seed/keyword (−3); motion that delays content or blocks an action (−4); no
 `prefers-reduced-motion` handling on custom motion (−3); scroll-linked/parallax
 (forbidden, §59) (−5).

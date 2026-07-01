@@ -213,6 +213,18 @@ greyscale or the accent — not emoji. Emoji are acceptable *only* as user-gener
 (a reaction, a name a user typed), never as interface chrome (list bullets, nav, status,
 category markers, favorite stars).
 
+**CC-9b · Avoid the "AI-generated" icon-chip cliché.** The opposite failure from emoji: a
+**generic Lucide line-icon inside an identical pale-tinted rounded-square chip** (`bg-{accent}-50
+rounded-lg p-2` + icon), repeated for *every* feature card, step, and bullet. Because every AI
+agent reaches for the same default icon set and the same default chip treatment, this exact
+pattern has become one of the most recognizable "a coding agent built this" tells — coherent, but
+anonymous. Escape it by choosing at least one: (a) **drop the chip** and let a slightly larger
+mono icon sit inline with the heading; (b) vary treatment by role instead of one uniform chip;
+(c) use an icon set with more character (Phosphor duotone, a custom set) or a signature accent
+shape; (d) replace decorative feature-icons with **numbered/typographic markers** (01 · 02 · 03).
+Icons should earn their place, not auto-decorate every row. One distinctive treatment beats the
+default chip on everything.
+
 ### States & micro-detail
 **CC-10 · One state-layer ramp everywhere** (Material 3 canonical: hover **8%**, focus
 **10%**, pressed **10%**, dragged **16%**; disabled = 38% content / 12% container) — a

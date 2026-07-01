@@ -59,6 +59,10 @@ Follow the StyleSeed design language strictly. Full reference: https://github.co
 - No emoji as UI icons (🚗🧺⭐ for lists/nav/status/categories) — they inject many uncontrolled colors and break the single accent. Use one line-icon set (Lucide) in currentColor.
 - No status color on a normal/OK/"보통" state (use neutral grey) and no colored badge on every row — color marks only the minority that needs attention; same value → same color.
 - No decorative hues (gold stars, rainbow category dots) — favorites/markers use the accent or grey.
+- No AI cliché icon treatment: a generic Lucide line-icon inside an identical pale-tinted rounded-square chip, repeated for every feature/step, is a top "AI made this" tell. Vary the treatment, use a set with more character, or drop the chip.
+- No default/unlocked accent (generic indigo #5E6AD2/#4F46E5) as a final choice, and don't copy the StyleSeed demo layout verbatim — lock a domain-fit key color + font first. Coherent ≠ distinctive.
+- No all-even grid of same-weight, centered, evenly-spaced cards — give each screen ONE focal point that dominates.
+- No 14px body on a desktop/web B2B screen — match the type scale to the surface (desktop body ≥16px, section titles ≥20px).
 - No pure black (#000) anywhere.
 - No content outside cards.
 - No section dividers between cards (space-y-6 is the separator).

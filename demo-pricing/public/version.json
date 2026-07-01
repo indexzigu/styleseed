@@ -1,10 +1,10 @@
 {
-  "version": "2.4.0",
-  "released": "2026-06-23",
+  "version": "2.5.0",
+  "released": "2026-07-01",
   "rules": 74,
   "skills": 15,
   "skins": 7,
-  "whatsNew": "Consistent application: plan-mode Quick Setup (lock a key color before building), a design-lock file agents obey every prompt, and a Quality Gate that self-reviews + fixes UI to a quality floor before showing you (catches rainbow lists, emoji icons, two accents, missing states). Rule gaps fixed via dogfooding.",
+  "whatsNew": "Distinctive, not just coherent. Real builds showed StyleSeed could stop UI being *ugly* but still leave it *generic* (default indigo, tight desktop type, the AI icon-chip cliché, no focal point). This release makes the good path the default: Quick Setup is now mandatory with a Mood step (edges/feel/density/tone) + smart domain defaults (no more default indigo), a type scale that fits the surface (desktop body ≥16px), a ban on the icon-chip cliché, a one-focal-point rule, and a Quality Gate + /ss-score that now fail generic/template output. Plus a retrofit path (/ss-update Step 6) to re-do old generic builds to the new standard.",
   "update": "Run /ss-update, or: npx skills add bitjaru/styleseed",
   "changelog": "https://github.com/bitjaru/styleseed/releases",
   "repo": "https://github.com/bitjaru/styleseed"

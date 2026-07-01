@@ -21,8 +21,11 @@ build any UI, dashboard, page, or component in this project, follow the rules be
  7. Card shadows ≤ 8% opacity — if visible, it's too strong
  8. Touch targets ≥ 44×44px — no tiny tap areas
  9. Semantic tokens only (text-brand, bg-card) — NEVER hardcode hex in components
-10. Font sizes from the "Font Size by Context" table ONLY — don't guess
-11. After generating ANY page → review it against these rules (or run /ss-review)
+10. Font sizes from the "Font Size by Context" table ONLY — don't guess; match scale to surface (desktop/web B2B body ≥16px, not 14px)
+11. NO emoji as UI icons; also AVOID the AI cliché of a generic Lucide line-icon inside an identical pale-tinted rounded-square chip repeated for every feature — vary the treatment or drop the chip
+12. NEVER ship the default/unlocked accent (generic indigo #5E6AD2/#4F46E5) or a copied demo layout — lock a domain-fit key color + font FIRST. Coherent ≠ distinctive
+13. One focal point per screen — the primary must dominate; an all-even grid of same-weight cards is the "machine-composed" tell
+14. After generating ANY page → run the Quality Gate below (or /ss-review); never show UI that hasn't passed
 ```
 
 **The coherence meta-rule (the #1 fix for "looks AI-generated"):** for each axis —
@@ -51,36 +54,51 @@ live only in chat memory and drift. Fix with a project design-lock file:
 ```markdown
 # StyleSeed — Design Lock
 - App domain:        fintech
-- Skin:              toss            # or "custom"
+- Surface:           desktop-web     # mobile-app | desktop-web (B2B) — decides the type scale
+- Mood:              soft · minimal · airy · calm   # edges · feel · density · tone
+- Skin:              toss            # or "custom" — NEVER the unlocked default indigo
 - Key color (accent): #3182F6        # the ONLY accent — everything else greyscale
+- Font:              Pretendard       # display + body, chosen (not the bare default)
 - Radius personality: soft (12px)    # sharp 0-4 | soft 8-12 | pill — one everywhere
 - Motion seed:       Spring          # Spring | Silk | Snap | Float | Pulse
-- Type:              Inter + Pretendard · KPI 48/24
+- Type scale:        desktop (body 16-18px)   # mobile-tight | desktop-larger
 ```
 
 When the user later says "make it more X," update the lock *and* the UI together. The lock is
 what keeps the result consistent across prompts — without it, even perfect rules drift.
 
-## Quick Setup — do this BEFORE building (consistency comes from constraints)
+## Quick Setup — MANDATORY before building (consistency comes from constraints)
 
-If the user just said "apply StyleSeed and build X," don't start coding yet. Polished,
-*consistent* output comes from constraints — the more you pin down first, the less the
-result varies. **If your tool has a plan/ask mode, use it**: decide the choices below
-**one at a time, with the user, holding the full design context**, then build. This is the
-single biggest reason a result looks intentional instead of "colors went in at random, no
-key color."
+**Not optional.** If there's no `STYLESEED.md` lock and you're about to build UI, this is the
+**FIRST thing you do — before any code.** Skipping it is how output lands generic (default
+indigo, tight type, template layout) and the user says "still looks AI-made." **If your tool
+has a plan/ask mode, use it**: decide the choices below **one at a time, with the user**, then
+build.
 
-1. **App type** — fintech / SaaS / e-commerce / social / content / productivity / health /
-   dev-tools. Bias the rules per `APP-PLAYBOOKS.md`.
-2. **Accent (key color)** — ask for a brand color; if none, recommend by domain (fintech
-   `#3182F6` · SaaS `#5E6AD2` · e-commerce `#FF6B35` · social `#FF4E8B` · content `#635BFF` ·
-   health `#10B981` · dev-tools `#8B5CF6`). **One accent only; everything else greyscale.**
-   Or pick a skin (Toss/Stripe/Linear/Notion/Raycast/Arc/Vercel).
-3. **Motion seed** — Spring (Toss/Arc) · Silk (Stripe/Notion) · Snap (Linear/Raycast/Vercel) ·
-   Float · Pulse. Per moment: CTA→spring press, modal→silk, list→stagger, balance/number→none.
-4. **Write `STYLESEED.md` (the lock), build, then check** — save the choices to the lock file
-   so they persist, apply the full rules (read `DESIGN-LANGUAGE.md` + `VISUAL-CRAFT.md`, not a
-   summary), self-check coherence (one radius, one accent, real states; VISUAL-CRAFT §C0).
+**Smart defaults — recommend, never fall back to the generic default.** Infer from product
+name/domain/language/copy and propose ONE default to accept with a tap (Korean + fintech/
+regulation → **Toss `#3182F6`**; premium SaaS → **Stripe**; dev/dark → **Linear**; editorial →
+**Notion**). **The unlocked default indigo (`#5E6AD2`/`#4F46E5`) is FORBIDDEN as a final choice.**
+
+1. **App type + surface** — domain (fintech / SaaS / e-commerce / social / content /
+   productivity / health / dev-tools) **and surface** (mobile app vs desktop/web B2B — sets the
+   type scale). Bias per `APP-PLAYBOOKS.md` + `PAGE-TYPES.md`.
+2. **Mood / vibe** — ask 3–4 aesthetic calls in plain words (or propose from the skin), then
+   lock. Each maps to a concrete value: **Edges** → radius (sharp 0–4 · soft 8–12 · pill) ·
+   **Feel** → shadow/ornament (minimal · expressive) · **Density** → spacing+type (airy ·
+   compact) · **Tone** → motion+saturation (calm · playful). Default from skin (Toss → soft·
+   minimal·airy·calm; Linear → sharp·minimal·compact·calm), let the user tweak ("sharper
+   corners"), lock all four. This is what makes it feel *chosen*, not defaulted.
+3. **Accent (key color)** — a domain-fit color or skin (see Smart defaults), or the user's brand
+   hex. **One accent only; everything else greyscale.**
+4. **Font** — recommend by skin/language, don't leave the default: Korean/CJK → Pretendard ·
+   fintech/SaaS → Inter · editorial → serif display + Inter · dev → Geist. State it in the lock.
+5. **Motion seed** — confirm from Tone: Spring (Toss/Arc) · Silk (Stripe/Notion) · Snap (Linear/
+   Raycast/Vercel) · Float · Pulse. Per moment: CTA→spring press, modal→silk, list→stagger.
+6. **Write `STYLESEED.md` (the lock), build, then check** — save the choices (incl. surface +
+   mood + font), apply the full rules (read `DESIGN-LANGUAGE.md` + `VISUAL-CRAFT.md`, not a summary),
+   pick the type scale for the surface (desktop body ≥16px), give the page **one focal point**,
+   self-check coherence (VISUAL-CRAFT §C0), then run the Quality Gate.
 
 Confirm each choice before building. **More constraints = less variance.** For the most
 consistent results, copy the rule files into the project so they're re-read every prompt —
