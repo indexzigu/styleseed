@@ -35,8 +35,7 @@
 <br />
 
 [![oosmetrics](https://api.oosmetrics.com/api/v1/badge/achievement/41c4272f-b2a8-4c64-8fcb-ca7750603ab9.svg)](https://oosmetrics.com/repo/bitjaru/styleseed)
-![GitHub release](https://img.shields.io/github/v/release/bitjaru/styleseed?style=flat-square)
-![GitHub stars](https://img.shields.io/github/stars/bitjaru/styleseed?style=flat-square)
+[![GitHub stars](https://img.shields.io/github/stars/bitjaru/styleseed?style=flat-square)](https://github.com/bitjaru/styleseed/stargazers)
 ![License](https://img.shields.io/github/license/bitjaru/styleseed?style=flat-square)
 
 **Other repos teach LLMs what brands look like. StyleSeed teaches LLMs how designers think.**<br />
