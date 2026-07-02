@@ -54,7 +54,9 @@ repeated for every feature/step (−4, §CC-9b); the **StyleSeed demo layout cop
 point** — an all-even grid of same-weight, centered, evenly-spaced cards (−3); the hero shows a
 stock/placeholder visual instead of *this* product (−3); the **escape hatch as a new uniform**
 (§CC-9c) — ghost 01/02/03 index numbers on every section, or identical uppercase-overline +
-big-number cards repeated with no variation (−2). Cap −10.
+big-number cards repeated with no variation (−2); **distinctive-but-dated** (§CC-9d) — full
+beige/paper page base, serif body text on a product surface, dark-heavy blocks that read
+"brochure" not "2026 product" (−3). Cap −10.
 
 **Hierarchy & typography (16)** — deduct for: number/unit not ~2:1 (−4); font
 sizes off the Font Size table / `text-[var(--…)]` for size (−5); everything the

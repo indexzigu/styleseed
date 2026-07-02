@@ -1,7 +1,7 @@
 # StyleSeed — Full Context
 
 Source: github.com/bitjaru/styleseed (CLAUDE.md + DESIGN-LANGUAGE.md + VISUAL-CRAFT.md + UX-WRITING.md)
-Generated: 2026-07-02T01:09:50.100Z
+Generated: 2026-07-02T01:18:29.230Z
 
 ---
 
@@ -156,9 +156,11 @@ demo was reviewed and fixed, not a first draft. **Never show the user UI that ha
                ONE radius personality, ONE shadow language, ONE icon set  (§C0)
 □ Distinctive — accent is a CHOSEN domain-fit color, NOT the unlocked default indigo
                (#5E6AD2/#4F46E5); layout is NOT the StyleSeed demo copied verbatim; the hero
-               shows THIS product (not a stock chat card); and the escape hatch isn't a new
-               uniform (ghost 01/02/03 on EVERY section = the same cliché reborn, §CC-9c).
-               Coherent-but-generic = FAIL
+               shows THIS product (not a stock chat card); the escape hatch isn't a new
+               uniform (ghost 01/02/03 on EVERY section, §CC-9c); and distinctive stayed
+               MODERN — white/fresh base, serif as seasoning not diet, whitespace kept
+               (beige-paper + serif everywhere = dated brochure, §CC-9d).
+               Coherent-but-generic = FAIL · distinctive-but-dated = FAIL
 □ Focal      — one element clearly dominates; NOT an all-even grid of same-weight, centered,
                evenly-spaced cards (that flatness is the machine-composed tell)
 □ Type fit   — scale matches the surface: desktop/web B2B body ≥16px; PAGE-level section
@@ -3903,7 +3905,21 @@ full-bleed color band for ONE section, bento variation (one 2×-weight cell), nu
 headers (no ghost styling). If two adjacent sections have identical anatomy (marker + heading +
 body ×N), redesign one of them. Signature = used once or twice with intent; uniform = the tell.
 
-### States & micro-detail
+**CC-9d · Distinctive must not cost freshness ("generic → dated" is a different failure, not an
+escape).** Overshooting the editorial direction — a full beige/paper page background + a serif
+face on *everything* + heavy ink blocks — stops reading "designed" and starts reading "government
+pamphlet / insurance terms," especially in Korean (명조 전면 사용 = 신문/약관 느낌). The modern
+floor:
+- **Base stays fresh**: page background white or near-white; warm/tinted paper tones are a
+  *section* accent (one band, a card), never the whole canvas.
+- **Serif is seasoning, not the diet**: display serif on the hero headline or ONE key number —
+  body, labels, UI chrome stay in a modern sans (Pretendard/Inter). Never serif body on a SaaS/
+  product surface. Prefer contemporary serifs (Fraunces, Newsreader; KR: 본명조 display cuts) over
+  dated ones.
+- **Keep the air**: distinctive treatments must preserve whitespace and lightness — density +
+  dark blocks + serif compounds into "old", not "premium".
+- Quick self-check: *"would this pass as a 2026 product site, or does it look like a 2010s
+  brochure?"* If unsure, pull the base back to white and re-check.
 **CC-10 · One state-layer ramp everywhere** (Material 3 canonical: hover **8%**, focus
 **10%**, pressed **10%**, dragged **16%**; disabled = 38% content / 12% container) — a
 translucent overlay of the on-color, one state at a time. Transitions **150–200ms**

@@ -241,7 +241,21 @@ full-bleed color band for ONE section, bento variation (one 2×-weight cell), nu
 headers (no ghost styling). If two adjacent sections have identical anatomy (marker + heading +
 body ×N), redesign one of them. Signature = used once or twice with intent; uniform = the tell.
 
-### States & micro-detail
+**CC-9d · Distinctive must not cost freshness ("generic → dated" is a different failure, not an
+escape).** Overshooting the editorial direction — a full beige/paper page background + a serif
+face on *everything* + heavy ink blocks — stops reading "designed" and starts reading "government
+pamphlet / insurance terms," especially in Korean (명조 전면 사용 = 신문/약관 느낌). The modern
+floor:
+- **Base stays fresh**: page background white or near-white; warm/tinted paper tones are a
+  *section* accent (one band, a card), never the whole canvas.
+- **Serif is seasoning, not the diet**: display serif on the hero headline or ONE key number —
+  body, labels, UI chrome stay in a modern sans (Pretendard/Inter). Never serif body on a SaaS/
+  product surface. Prefer contemporary serifs (Fraunces, Newsreader; KR: 본명조 display cuts) over
+  dated ones.
+- **Keep the air**: distinctive treatments must preserve whitespace and lightness — density +
+  dark blocks + serif compounds into "old", not "premium".
+- Quick self-check: *"would this pass as a 2026 product site, or does it look like a 2010s
+  brochure?"* If unsure, pull the base back to white and re-check.
 **CC-10 · One state-layer ramp everywhere** (Material 3 canonical: hover **8%**, focus
 **10%**, pressed **10%**, dragged **16%**; disabled = 38% content / 12% container) — a
 translucent overlay of the on-color, one state at a time. Transitions **150–200ms**

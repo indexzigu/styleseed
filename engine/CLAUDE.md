@@ -149,9 +149,11 @@ demo was reviewed and fixed, not a first draft. **Never show the user UI that ha
                ONE radius personality, ONE shadow language, ONE icon set  (§C0)
 □ Distinctive — accent is a CHOSEN domain-fit color, NOT the unlocked default indigo
                (#5E6AD2/#4F46E5); layout is NOT the StyleSeed demo copied verbatim; the hero
-               shows THIS product (not a stock chat card); and the escape hatch isn't a new
-               uniform (ghost 01/02/03 on EVERY section = the same cliché reborn, §CC-9c).
-               Coherent-but-generic = FAIL
+               shows THIS product (not a stock chat card); the escape hatch isn't a new
+               uniform (ghost 01/02/03 on EVERY section, §CC-9c); and distinctive stayed
+               MODERN — white/fresh base, serif as seasoning not diet, whitespace kept
+               (beige-paper + serif everywhere = dated brochure, §CC-9d).
+               Coherent-but-generic = FAIL · distinctive-but-dated = FAIL
 □ Focal      — one element clearly dominates; NOT an all-even grid of same-weight, centered,
                evenly-spaced cards (that flatness is the machine-composed tell)
 □ Type fit   — scale matches the surface: desktop/web B2B body ≥16px; PAGE-level section

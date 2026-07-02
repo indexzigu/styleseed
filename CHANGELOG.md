@@ -17,6 +17,11 @@ clichés.** This release patches all of them.
   text-left/visual-right hero + two pill CTAs, the symmetric 8+4 dashboard grid. Pick ONE
   signature treatment per project and vary section anatomy. Enforced in the Quality Gate and
   `/ss-score` (Distinctiveness).
+- **CC-9d — distinctive must not cost freshness**: "generic → dated" is a different failure, not
+  an escape. Full beige/paper canvas + serif-on-everything + heavy ink blocks reads "government
+  pamphlet," not "designed" (especially in Korean — 명조 전면 = 약관 느낌). Modern floor: white/
+  fresh base, serif as seasoning (one display moment max, never body), keep the air. Gate now
+  fails distinctive-but-dated alongside coherent-but-generic.
 
 ### Contradictions fixed (found by dogfooding)
 - **Dark-mode elevation**: Golden Rule 7 now speaks both languages — light = layered shadows ≤8%,
