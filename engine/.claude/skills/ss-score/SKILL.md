@@ -52,24 +52,32 @@ a chosen domain-fit color (−4).
 repeated for every feature/step (−4, §CC-9b); the **StyleSeed demo layout copied verbatim**
 (hero+chat / 3-step / feature-grid / pricing) with no product-specific identity (−4); **no focal
 point** — an all-even grid of same-weight, centered, evenly-spaced cards (−3); the hero shows a
-stock/placeholder visual instead of *this* product (−3). Cap −10.
+stock/placeholder visual instead of *this* product (−3); the **escape hatch as a new uniform**
+(§CC-9c) — ghost 01/02/03 index numbers on every section, or identical uppercase-overline +
+big-number cards repeated with no variation (−2). Cap −10.
 
 **Hierarchy & typography (16)** — deduct for: number/unit not ~2:1 (−4); font
 sizes off the Font Size table / `text-[var(--…)]` for size (−5); everything the
 same weight, no clear primary (−5); cramped or wrong line-height on body (−3);
-**body < 16px on a desktop/web B2B surface** (tight mobile scale on a wide screen) (−4).
+**body < 16px on a desktop/web B2B surface** (tight mobile scale on a wide screen) (−4 —
+but dense-data chrome is exempt: chart ticks, mono SHAs/timestamps, table metadata at
+12–13px are correct; and dashboard app-chrome h1 at 22–24px is correct, not a violation
+of the marketing 40–56px headline scale).
 
 **Layout & rhythm (12)** — deduct for: content on bare background, not in cards
 (−6); `px-4`/`px-8`/`mx-4` instead of `px-6`/`mx-6` (−3); same section type
 repeated in a row (−4); no `space-y-6` rhythm (−3).
 
 **Cards & elevation (10)** — deduct for: 1px borders doing separation work that
-tone+shadow should (−4); shadows over ~8% opacity / visibly heavy (−4); no
-card/background tone separation (−5).
+tone+shadow should (−4, LIGHT mode only — in DARK mode hairline borders + a tonal surface
+ramp ARE the correct elevation language, don't deduct); shadows over ~8% opacity / visibly
+heavy, or drop shadows used in dark mode (−4); no card/background tone separation (−5).
 
 **States & a11y (18)** — deduct for: missing empty/loading/error state on a data
-surface (−5 each, cap −10); contrast below 4.5:1 body / 3:1 large (−6); touch
-target < 44px (−4); no visible focus / `outline:none` (−5); icon-only control
+surface (−5 each, cap −10 — a static mockup or marketing landing with NO data surface is
+**N/A**: skip these deductions, don't fail the category); contrast below 4.5:1 body / 3:1
+large (−6); touch target < 44px on a touch surface (pointer-first desktop controls at
+36–40px are fine) (−4); no visible focus / `outline:none` (−5); icon-only control
 without `aria-label` (−3).
 
 **Motion & interaction (6)** — deduct for: random/ad-hoc fades instead of a named

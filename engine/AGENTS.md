@@ -16,10 +16,10 @@ build any UI, dashboard, page, or component in this project, follow the rules be
  2. Single accent color (--brand) — everything else grayscale
  3. No pure black (#000) — darkest text is defined by the skin (~#2A2A2A)
  4. Numbers 2:1 with units — 48px number + 24px unit, always
- 5. space-y-6 between sections · mx-6 for single cards · px-6 for grids
+ 5. One spatial rhythm on the 8px grid — mobile: space-y-6 · mx-6 · px-6; desktop: container + gap-6/gap-8
  6. Never repeat the same section type consecutively — create visual rhythm
- 7. Card shadows ≤ 8% opacity — if visible, it's too strong
- 8. Touch targets ≥ 44×44px — no tiny tap areas
+ 7. Elevation, one language: LIGHT = layered shadows ≤ 8%; DARK = tonal surface ramp + hairline borders (shadows don't read on dark)
+ 8. Touch targets ≥ 44×44px on touch surfaces; pointer-first desktop controls may be 36–40px (keep focus rings)
  9. Semantic tokens only (text-brand, bg-card) — NEVER hardcode hex in components
 10. Font sizes from the "Font Size by Context" table ONLY — don't guess; match scale to surface (desktop/web B2B body ≥16px, not 14px)
 11. NO emoji as UI icons; also AVOID the AI cliché of a generic Lucide line-icon inside an identical pale-tinted rounded-square chip repeated for every feature — vary the treatment or drop the chip
@@ -116,9 +116,14 @@ between "looks generated" and "looks designed." Never show UI that hasn't passed
                rainbow list; same value → same color
 □ Hierarchy  — one clear primary; numbers 2:1 with unit
 □ Layout     — content in cards; 8px rhythm; gap-around-group > gap-inside
-□ States     — empty + loading + error on every data surface
+□ States     — empty + loading + error on every data surface (static mockup / landing with no
+               data surface → N/A, don't fail)
 □ Copy       — buttons name the action; errors help, not blame
-□ Polish     — focus rings; ≥44px targets; prefers-reduced-motion; no pure #000
+□ Polish     — focus rings; ≥44px touch / 36–40px pointer targets; prefers-reduced-motion;
+               elevation in one language (light: soft layered shadow · dark: tonal ramp +
+               hairline); no pure #000
+□ Not a new uniform — the cliché escape hatch isn't repeated everywhere (ghost 01/02/03 on
+               every section = the icon-chip cliché reborn; see VISUAL-CRAFT CC-9c)
 ```
 If the `/ss-*` skills are installed run `/ss-score` (0–100 + fix list); else self-score against
 the list. **Target ≥ 80** — fix what fails, re-check (loop up to ~3×), then present + report

@@ -62,7 +62,10 @@ Follow the StyleSeed design language strictly. Full reference: https://github.co
 - No AI cliché icon treatment: a generic Lucide line-icon inside an identical pale-tinted rounded-square chip, repeated for every feature/step, is a top "AI made this" tell. Vary the treatment, use a set with more character, or drop the chip.
 - No default/unlocked accent (generic indigo #5E6AD2/#4F46E5) as a final choice, and don't copy the StyleSeed demo layout verbatim — lock a domain-fit key color + font first. Coherent ≠ distinctive.
 - No all-even grid of same-weight, centered, evenly-spaced cards — give each screen ONE focal point that dominates.
-- No 14px body on a desktop/web B2B screen — match the type scale to the surface (desktop body ≥16px, section titles ≥20px).
+- No 14px body on a desktop/web B2B screen — match the type scale to the surface (desktop body ≥16px, page-level section titles ≥20px; card overline labels 11–12px uppercase and dense-data chrome 12–13px mono are fine).
+- No cliché escape-hatch as a new uniform — ghost index numbers (01/02/03) on EVERY section, or identical uppercase-overline+big-number cards everywhere, is the icon-chip cliché reborn. One signature treatment, varied section anatomy.
+- No drop shadows in dark mode — dark elevation = tonal surface ramp (page < card < raised) + hairline borders; light = layered shadows ≤8%.
+- No two near-identical greens/reds doing different jobs — if the accent collides with a semantic color, route positive-progress through the accent or shift the semantic hue, and write the choice in STYLESEED.md.
 - No pure black (#000) anywhere.
 - No content outside cards.
 - No section dividers between cards (space-y-6 is the separator).

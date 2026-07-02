@@ -225,6 +225,22 @@ shape; (d) replace decorative feature-icons with **numbered/typographic markers*
 Icons should earn their place, not auto-decorate every row. One distinctive treatment beats the
 default chip on everything.
 
+**CC-9c · Don't let the escape hatch become the new uniform (the 2nd-generation tells).** When
+every agent flees the same cliché through the same exit, the exit becomes the next cliché. Already
+recognizable as "an agent did this":
+- **Ghost index numbers (01 · 02 · 03) on every section** — great once, a tell when it's the
+  default replacement for every icon chip
+- **UPPERCASE-overline + big-number card** repeated identically for every KPI
+- **Text-left / visual-right hero + two pill CTAs + a rating row** — the stock DTC composition
+- **The symmetric 8+4 / 8+4 dashboard grid** — correct, but machine-neat
+
+The rule: **pick ONE signature treatment per project and vary the section anatomy.** Rotate from a
+wider menu — oversized serif index on the *single most important* step only, hairline-joined grids
+(one border-box, no per-card chrome), side-margin labels, inline annotations/underlines, a
+full-bleed color band for ONE section, bento variation (one 2×-weight cell), numbered *text*
+headers (no ghost styling). If two adjacent sections have identical anatomy (marker + heading +
+body ×N), redesign one of them. Signature = used once or twice with intent; uniform = the tell.
+
 ### States & micro-detail
 **CC-10 · One state-layer ramp everywhere** (Material 3 canonical: hover **8%**, focus
 **10%**, pressed **10%**, dragged **16%**; disabled = 38% content / 12% container) — a

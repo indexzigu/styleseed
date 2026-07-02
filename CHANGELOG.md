@@ -3,6 +3,50 @@
 All notable changes to StyleSeed. Agents can check the latest version at
 [version.json](https://styleseed-demo.vercel.app/version.json) and run `/ss-update`.
 
+## [2.6.0] — 2026-07-02
+
+**Theme: rules that survive contact.** A three-domain stress test (Korean mobile health app ·
+dark observability dashboard · warm DTC e-commerce landing, all built with ZERO user direction)
+confirmed v2.5.0 escapes the first-generation AI tells — but the builders honestly reported ~12
+rule contradictions and gaps, plus the next battlefield: **the escape hatches themselves becoming
+clichés.** This release patches all of them.
+
+### The 2nd-generation tells (new)
+- **CC-9c — don't let the escape hatch become the new uniform**: ghost index numbers (01·02·03)
+  on every section, identical uppercase-overline + big-number KPI cards, the stock
+  text-left/visual-right hero + two pill CTAs, the symmetric 8+4 dashboard grid. Pick ONE
+  signature treatment per project and vary section anatomy. Enforced in the Quality Gate and
+  `/ss-score` (Distinctiveness).
+
+### Contradictions fixed (found by dogfooding)
+- **Dark-mode elevation**: Golden Rule 7 now speaks both languages — light = layered shadows ≤8%,
+  dark = tonal surface ramp + hairline borders (shadows don't read on dark). Gate + `/ss-score`
+  no longer punish correct dark-mode hairlines.
+- **Spacing**: the stray "6px multiples" guidance now matches VISUAL-CRAFT CR-1 (one 8px grid,
+  4px half-step). Golden Rule 5 scoped: mobile mx-6/space-y-6, desktop container + gap-6/gap-8.
+- **Radius personality → component mapping table** ("one personality ≠ one number"): sharp
+  2–4/6–8 · soft 8–10/12–16 · pill full/20–24, nested law intact.
+- **Touch targets**: ≥44px on touch surfaces; pointer-first desktop controls may be 36–40px.
+
+### Gaps filled
+- **Accent ≈ semantic collision rule** (green accent vs success green): route positive-progress
+  through the accent or shift the semantic hue — decided once, written in the lock. "Completed/
+  normal" resting states default to neutral grey everywhere.
+- **Content/imagery palette clause**: product illustrations may use 2–3 locked material tones
+  (declared in `STYLESEED.md`) — locked content tones ≠ a second accent.
+- **Skinless tint formula**: no theme.css? status/accent chips = color at 10–14% alpha over the
+  card, light and dark.
+- **Type scale additions**: desktop app-chrome scale (dashboard h1 22–24px, hero KPI 48–64px,
+  card overlines are labels not titles), dense-data exceptions to the 14px floor (chart ticks,
+  mono SHAs/timestamps 12–13px), duration/compound KPI sizing, and Korean/CJK tracking guidance
+  (no positive letter-spacing on 한글).
+- **Quality Gate page-type awareness**: static mockups / landings with no data surface mark
+  States N/A instead of failing.
+- **Smart defaults gained warm/consumer examples** (e-commerce → terracotta/coral, health →
+  desaturated green-teal) so warm domains stop drifting cool.
+- Lock template gained `Imagery palette`, `Semantic resolve`, `Signature move`, and dual-mode
+  `Elevation` fields.
+
 ## [2.5.0] — 2026-07-01
 
 **Theme: distinctive, not just coherent.** Dogfooding real product builds surfaced the next
@@ -90,6 +134,7 @@ release raises the floor of the default path.
 - Agent-agnostic delivery: CLAUDE.md + AGENTS.md + .cursorrules.
 - 8 `/guides` + 7 `/screens` programmatic-SEO pages, `/how-it-thinks`, `/faq`.
 
+[2.6.0]: https://github.com/bitjaru/styleseed/releases/tag/v2.6.0
 [2.5.0]: https://github.com/bitjaru/styleseed/releases/tag/v2.5.0
 [2.4.0]: https://github.com/bitjaru/styleseed/releases/tag/v2.4.0
 [2.3.0]: https://github.com/bitjaru/styleseed/releases/tag/v2.3.0

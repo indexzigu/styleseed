@@ -10,10 +10,13 @@ The engine provides layout rules, components, and skills. The skin provides colo
  2. Single accent color (--brand) — everything else grayscale
  3. No pure black (#000) — darkest text is defined by skin (~#2A2A2A)
  4. Numbers 2:1 with units — 48px number + 24px unit, always
- 5. space-y-6 between sections · mx-6 for single cards · px-6 for grids
+ 5. One spatial rhythm on the 8px grid — mobile: space-y-6 · mx-6 · px-6; desktop: same
+    principle via container + gap-6/gap-8 (don't mix off-grid one-offs)
  6. Never repeat same section type consecutively — create visual rhythm
- 7. Card shadows ≤ 8% opacity — if visible, it's too strong
- 8. Touch targets ≥ 44×44px — no tiny tap areas
+ 7. Elevation, one language: LIGHT = layered shadows ≤ 8% opacity (if visible, too strong);
+    DARK = shadows don't read — tonal surface ramp (page < card < raised) + hairline borders
+ 8. Touch targets ≥ 44×44px on touch surfaces; pointer-first desktop controls may be 36–40px
+    (keep visible focus rings either way)
  9. Semantic tokens only (text-brand, bg-card) — NEVER hardcode hex in components
 10. Font sizes from the "Font Size by Context" table ONLY — don't guess
 11. NO emoji as UI icons (🚗🧺⭐) — one line-icon set in currentColor; emoji inject many colors
@@ -57,11 +60,14 @@ design-lock file.** Before building any UI:
 - Skin:              toss            # or "custom" — NEVER the unlocked default indigo
 - Key color (accent): #3182F6        # the ONLY accent — everything else greyscale
 - Font:              Pretendard       # display + body (e.g. "Fraunces / Inter") — chosen, not default
-- Radius personality: soft (12px)    # sharp 0-4 | soft 8-12 | pill — one everywhere (from Mood/edges)
-- Shadow language:   layered, low-opacity, above-left
+- Radius personality: soft           # sharp | soft | pill — one SCALE everywhere (see mapping table)
+- Elevation:         light=layered ≤8% above-left · dark=tonal ramp + hairline
 - Motion seed:       Spring          # Spring | Silk | Snap | Float | Pulse
-- Type scale:        desktop (body 16-18px)   # mobile-tight | desktop-larger
+- Type scale:        desktop (body 16-18px)   # mobile-tight | desktop-larger | app-chrome
 - Density:           comfortable
+- Imagery palette:   (optional) sand #E5CBAA · oak #D9B084 · charcoal #3A2E27  # locked content tones, not accents
+- Semantic resolve:  (if accent ≈ green/red) positive-progress uses accent; success reserved for confirmation moments
+- Signature move:    (optional) oversized serif index on the hero step ONLY  # one treatment, not a uniform (CC-9c)
 - Locked:            2026-06-23
 ```
 
@@ -84,7 +90,10 @@ of questions. Tell the user: *"Let's lock the look first — key color, font, mo
 **Smart defaults — recommend, don't just ask (never fall back to the generic default):**
 Infer from the product name, domain, language, and copy, then propose ONE default the user can
 accept with a tap. Examples: Korean + fintech/regulation/trust → **Toss skin, `#3182F6`** ·
-premium SaaS → **Stripe** · dev-tool/dark → **Linear** · editorial/docs → **Notion**.
+premium SaaS → **Stripe** · dev-tool/dark → **Linear** · editorial/docs → **Notion** ·
+**e-commerce / consumer / lifestyle → a WARM accent** (terracotta `#C14E24`, coral, amber-brown —
+not another cool blue; cool palettes read corporate on consumer surfaces) · health/calm →
+a desaturated green-teal (e.g. `#0D9488`).
 **The unlocked default accent (`#5E6AD2`/`#4F46E5` generic indigo) is FORBIDDEN as a final
 choice** — if nothing else is chosen, pick a domain-fit skin, never the bare default.
 
@@ -140,19 +149,25 @@ demo was reviewed and fixed, not a first draft. **Never show the user UI that ha
                ONE radius personality, ONE shadow language, ONE icon set  (§C0)
 □ Distinctive — accent is a CHOSEN domain-fit color, NOT the unlocked default indigo
                (#5E6AD2/#4F46E5); layout is NOT the StyleSeed demo copied verbatim; the hero
-               shows THIS product (not a stock chat card). Coherent-but-generic = FAIL
+               shows THIS product (not a stock chat card); and the escape hatch isn't a new
+               uniform (ghost 01/02/03 on EVERY section = the same cliché reborn, §CC-9c).
+               Coherent-but-generic = FAIL
 □ Focal      — one element clearly dominates; NOT an all-even grid of same-weight, centered,
                evenly-spaced cards (that flatness is the machine-composed tell)
-□ Type fit   — scale matches the surface: desktop/web B2B body ≥16px, section titles ≥20px;
-               a font was chosen (not the bare default). No 14px body on a wide screen
+□ Type fit   — scale matches the surface: desktop/web B2B body ≥16px; PAGE-level section
+               titles ≥20px (card overline labels 11–12px uppercase are fine — they're labels);
+               dense-data chrome (chart ticks, mono SHAs/timestamps) may be 12–13px; a font was
+               chosen (not the bare default). No 14px body paragraphs on a wide screen
 □ Color=meaning — normal/OK/"보통" rows are GREY; color marks only the minority that needs
                attention; no rainbow list; same value → same color  (§65, CL-2a)
 □ Hierarchy  — one clear primary per screen; numbers 2:1 with unit; sizes from the table
 □ Layout     — content in cards (not bare bg); 8px rhythm; gap-around-group > gap-inside
-□ States     — every data surface has empty + loading + error (not just the full state)
+□ States     — every data surface has empty + loading + error (not just the full state).
+               Static mockup / marketing landing with no data surface → mark N/A, don't fail
 □ Copy       — buttons name the action ("Send $2,400" not "Submit"); errors help, not blame
-□ Polish     — visible focus rings; ≥44px targets; prefers-reduced-motion; layered (not
-               hard) shadow; no pure #000
+□ Polish     — visible focus rings; ≥44px touch / 36–40px pointer targets; prefers-reduced-
+               motion; elevation in ONE language (light: layered soft shadow · dark: tonal
+               surface ramp + hairline border — never a hard shadow); no pure #000
 ```
 
 **How to gate:**
@@ -279,6 +294,25 @@ below 14px.** Section labels, feature descriptions, pricing sub-text, and **foot
 smaller). Reserve 12px *only* for true legal fine print. If you just shipped a screen, the tell to
 check is: are the labels/footer 11–13px? Bump them a step.
 
+**Desktop APP-CHROME scale (dashboards/tools — not marketing pages):** the 40–56px marketing
+headline is wrong inside a product. Use: page h1 **22–24px** · card overline label **11–12px
+UPPERCASE** (this is a *label*, not a "section title" — the ≥20px title rule applies to
+page-level sections, not card labels) · hero KPI number **48–64px** with unit at 2:1 · table body
+**14px** (data tables may be denser than marketing chrome).
+
+**Dense-data exceptions to the 14px floor** (legit, don't "fix" these): chart axis ticks, git
+SHAs / IDs / timestamps in mono, sparkline annotations, and table metadata may be **12–13px** —
+mono + `tabular-nums` + muted color. The floor protects *reading text*, not *data chrome*.
+
+**Duration / compound values** ("7시간 20분", "1h 32m"): treat each number+unit pair at 2:1 within
+the pair, one size step down from a plain KPI (e.g. 28/14px in a half-width card, 36/18px in a
+full-width card) so two pairs fit without wrapping.
+
+**Korean / CJK:** the tracking table assumes Latin. For Korean text: **no positive letter-spacing**
+(0 to −0.01em at all sizes — wide tracking fragments 한글), the uppercase-overline style doesn't
+exist (use size/weight/color for labels instead), and prefer one family (Pretendard) with weight
+doing the work.
+
 #### Font Pairing — choose one, don't leave the default (lock it)
 
 | Skin / domain | Display | Body | Notes |
@@ -315,7 +349,8 @@ escape the "default sans everything" look. Set both in the lock and `css/fonts.c
 
 ### Spacing
 - Uses Tailwind default utilities
-- 6px multiples recommended: `p-1.5`(6px), `p-3`(12px), `p-6`(24px)
+- **One base grid: 8px** (`p-2`/`p-4`/`p-6`/`p-8` — 4px allowed as a half-step for icon↔label gaps).
+  This matches VISUAL-CRAFT CR-1; don't mix in 6/10/14px one-offs (`p-1.5`, `gap-2.5`, `py-3.5`).
 - Page horizontal padding: `px-6` (24px)
 - Between sections: `space-y-6` (24px)
 
@@ -323,6 +358,19 @@ escape the "default sans everything" look. Set both in the lock and `css/fonts.c
 - Default: `--radius: 0.625rem` (10px)
 - Cards: `rounded-2xl` (16px)
 - Inputs/buttons: `rounded-md` (based on --radius)
+
+#### Radius personality → component mapping (one PERSONALITY everywhere, not one number)
+
+"One radius personality" means one *scale*, applied consistently — not literally one value:
+
+| Personality | Controls (buttons/inputs/chips) | Cards | Inner panels | Feel |
+|---|---|---|---|---|
+| **sharp** | 2–4px | 6–8px | 4–6px | technical, serious (dev-tools, data) |
+| **soft** | 8–10px | 12–16px | 10–12px | friendly, trustworthy (fintech, health) |
+| **pill** | 9999px (full) | 20–24px | 14–16px | playful, consumer (e-commerce, social) |
+
+Nested elements still follow `inner = outer − padding` (VISUAL-CRAFT nested-radius law). Mixing
+personalities (sharp cards + pill buttons) is the violation — values within one row are not.
 
 ### Shadows
 - `--shadow-card`: Card default (`0 1px 3px rgba(0,0,0,0.04)`)
@@ -419,7 +467,31 @@ For components not included in the seed, check shadcn/ui registry for additional
 | Alert badge | `bg-alert-badge` | Defined by skin |
 | Border | `border-border` | Defined by skin |
 
-## Pattern Components
+### When the accent collides with a semantic color
+
+If your locked accent is in the green family (health) → it will read as "success", red/orange
+family (commerce) → as "error/warning". Resolve it ONE way and write it in the lock:
+- **Route positive-progress through the accent** and drop the separate success green (progress
+  bars, rings, "done" moments use the accent; keep only warning + destructive as semantics), or
+- **Shift the semantic hues away from the accent** (e.g. accent teal `#0D9488` + success moved to
+  a clearly different green, rarely shown).
+Never ship two near-identical greens/reds doing different jobs. And **"completed / normal" defaults
+to NEUTRAL GREY** everywhere — success color is for a *just-happened confirmation moment*, not a
+resting state.
+
+### Content / imagery palette (product art ≠ accent)
+
+Product illustrations, photos-as-shapes, and material swatches may need 2–3 tones beyond the
+accent (wood, sand, charcoal…). That's legal **if you lock them**: declare `Imagery palette:
+sand #E5CBAA · oak #D9B084 · charcoal #3A2E27` in `STYLESEED.md` and reuse ONLY those tones in
+every illustration. Locked content tones ≠ a second accent; a new random hue per image = the
+violation (CL-2b still applies to UI chrome).
+
+### No skin loaded? Derive tints, don't hand-mix
+
+Without `theme.css` there are no `bg-*-tint` tokens. Derive them the same way the skins do:
+**status/accent tint = the color at 10–14% alpha over the card background** (light AND dark — on
+dark this replaces the pale pastel chip, which goes muddy). One formula, all chips.
 
 ### `<StatCard>` — Stats Card
 ```tsx
