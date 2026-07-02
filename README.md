@@ -42,13 +42,13 @@
 
 <br />
 
-**Same product, same agent — only the rules changed:**
+**Same product, same prompt, same model — only the rules changed:**
 
-| Before — agent defaults | After — StyleSeed v2.5.0 |
+| Before — agent defaults | After — StyleSeed rules |
 |:---:|:---:|
-| <img src="showcase/v25-before.png" width="400" alt="Before: generic AI landing — default indigo accent, identical icon chips on every card, tight type, no focal point" /> | <img src="showcase/v25-after.png" width="400" alt="After: distinctive landing — chosen navy-ink accent, editorial serif headline, typographic 01/02/03 markers, one focal hero" /> |
+| <img src="showcase/v26-before.png" width="400" alt="Before: the default AI landing — indigo gradient headline, sparkle badge, identical icon-chip feature cards, centered template layout, 14px body" /> | <img src="showcase/v26-after.png" width="400" alt="After: a designed 2026 product site — white and airy, chosen emerald accent, a real product panel as the focal hero, varied section anatomy, desktop type scale" /> |
 
-<sub>Default indigo → chosen navy-ink · icon chips → typographic markers · template grid → one focal hero. **[Every fix annotated →](https://styleseed-demo.vercel.app/why)**</sub>
+<sub>Default indigo → chosen accent · icon-chip grid → a real product hero · centered template → varied, focal layout. **[See more before/afters →](https://styleseed-demo.vercel.app/why)**</sub>
 
 <br />
 
