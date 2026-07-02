@@ -1,15 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  GitFork,
-  Layers,
-  Package,
-  Palette,
-  Sparkles,
-  Star,
-  Zap,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import "./showcase/examples";
 import { listShowcase } from "@/lib/showcase";
 import { seeds as motionSeeds } from "@engine/motion";
@@ -17,41 +8,34 @@ import { SeedDemo } from "./_home/seed-demo";
 import { Hero } from "./_home/hero";
 import { PromptBox } from "./_home/prompt-box";
 import { WhatsNew } from "./_home/whats-new";
+import { GithubIcon } from "./_home/github-icon";
 
 const HERO_SHOWCASE_IDS = ["finance", "food", "fitness", "music", "issues", "wallet"];
 
-const FEATURES = [
-  {
-    icon: Layers,
-    title: "Judgment — visual and verbal",
-    desc: "74 documented design rules — each with the reasoning — for how a UI should look (one accent, hierarchy, coherence) AND how it should read: buttons that name the action, errors that help not blame, one term per concept. Pick your own voice; the rules are the floor. The whole 'looks AI-generated' problem, both halves.",
-  },
-  {
-    icon: Sparkles,
-    title: "Your AI reads it automatically",
-    desc: "15 slash skills (/ss-page, /ss-review, /ss-score, …) that Claude Code, Codex, and Cursor pick up on their own — including a coherence grader that flags 'this looks AI-generated' before you ship.",
-  },
-  {
-    icon: Palette,
-    title: "Brand-agnostic by design",
-    desc: "One attribute (data-skin) morphs the entire UI across 7 hand-tuned brand DNAs — Toss, Stripe, Linear, Notion, Raycast, Arc, Vercel.",
-  },
-  {
-    icon: Zap,
-    title: "Motion in vibe words",
-    desc: "5 named seeds (Spring, Silk, Snap, Float, Pulse) for personality, plus 20+ flashy keyword moves — tilt-3d, magnetic, glow-pulse, confetti-pop. Copy-paste, no guessing spring stiffness.",
-  },
-  {
-    icon: Package,
-    title: "Drop-in, not all-in",
-    desc: "Copy engine/ into any React + Tailwind v4 project. No build step, no runtime dependency, no lock-in.",
-  },
-  {
-    icon: GitFork,
-    title: "A living, open framework",
-    desc: "The rules aren't carved in stone — they're an open ecosystem. Use StyleSeed, find a pattern that works, and propose it as a rule via PR. The judgment compounds as the community adds to it.",
-  },
+/** Comparison table — StyleSeed vs the two adjacent categories. ✓/✗ are text glyphs on purpose. */
+const COMPARISON_ROWS: { label: string; kits: string; packs: string; styleseed: string }[] = [
+  { label: "Teaches judgment", kits: "✗", packs: "✗", styleseed: "✓ 74 rules — with the reasoning" },
+  { label: "Fights the AI-look", kits: "✗", packs: "✗", styleseed: "✓ bans the tells by name" },
+  { label: "Scored gate ≥80", kits: "✗", packs: "✗", styleseed: "✓ self-reviews & fixes first" },
+  { label: "Anti-drift lock", kits: "✗", packs: "✗", styleseed: "✓ decisions persist across prompts" },
+  { label: "Works in every agent", kits: "✗", packs: "✓", styleseed: "✓ Claude Code · Cursor · Codex · Gemini" },
+  { label: "Price", kits: "Paid tiers", packs: "Free", styleseed: "Free · MIT" },
 ];
+
+function CompareCell({ value, self = false }: { value: string; self?: boolean }) {
+  if (value === "✗") return <span className="text-[14px] text-neutral-600">✗</span>;
+  if (value === "✓") return <span className="text-[14px] font-bold text-neutral-400">✓</span>;
+  if (value.startsWith("✓ ")) {
+    return (
+      <span className="text-[14px] text-neutral-100">
+        <span className="font-bold text-violet-300">✓</span> {value.slice(2)}
+      </span>
+    );
+  }
+  return (
+    <span className={`text-[14px] ${self ? "text-neutral-100" : "text-neutral-400"}`}>{value}</span>
+  );
+}
 
 export default function HomePage() {
   const entries = listShowcase();
@@ -74,7 +58,7 @@ export default function HomePage() {
             </div>
             <span className="text-[15px] font-bold tracking-tight">StyleSeed</span>
           </Link>
-          <nav className="hidden items-center gap-6 text-[13px] font-semibold text-neutral-600 sm:flex">
+          <nav className="hidden items-center gap-6 text-[14px] font-semibold text-neutral-600 sm:flex">
             <a href="#get-started" className="hover:text-neutral-900">
               Get started
             </a>
@@ -107,18 +91,18 @@ export default function HomePage() {
               href="https://github.com/bitjaru/styleseed"
               target="_blank"
               rel="noreferrer"
-              aria-label="Star StyleSeed on GitHub"
-              className="hidden items-center gap-1.5 rounded-md border border-neutral-200 bg-white px-2.5 py-1.5 text-[12px] font-bold text-neutral-700 transition-colors hover:border-amber-300 hover:bg-amber-50 sm:inline-flex"
+              aria-label="Star StyleSeed on GitHub — 600+ stars"
+              className="hidden items-center gap-1.5 rounded-md border border-neutral-200 bg-white px-2.5 py-1.5 text-[14px] font-bold text-neutral-700 transition-colors hover:border-neutral-900 sm:inline-flex"
             >
-              <Star size={12} className="fill-amber-400 text-amber-400" />
               Star on GitHub
+              <span className="font-semibold text-neutral-500">★ 600+</span>
             </a>
             <Link
               href="/showcase"
-              className="inline-flex items-center gap-1.5 rounded-md bg-neutral-900 px-3 py-1.5 text-[12px] font-bold text-white hover:bg-black"
+              className="inline-flex items-center gap-1.5 rounded-md bg-neutral-900 px-3 py-1.5 text-[14px] font-bold text-white hover:bg-black"
             >
               Browse showcase
-              <ArrowRight size={12} />
+              <ArrowRight size={13} />
             </Link>
           </div>
         </div>
@@ -146,7 +130,7 @@ export default function HomePage() {
                 href="https://github.com/bitjaru/styleseed#get-started"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-xl border border-white/20 px-4 py-2.5 text-[13px] font-bold text-white hover:bg-white/10"
+                className="inline-flex items-center gap-1.5 rounded-xl border border-white/20 px-4 py-2.5 text-[14px] font-bold text-white hover:bg-white/10"
               >
                 Full setup guide <ArrowRight size={14} />
               </a>
@@ -161,15 +145,15 @@ export default function HomePage() {
               Prefer to install it?
             </div>
             <div className="mt-4 max-w-xl rounded-2xl bg-white/[0.06] p-6 ring-1 ring-white/10">
-              <div className="text-[12px] font-bold uppercase tracking-widest text-sky-400">Existing project</div>
+              <div className="text-[12px] font-bold uppercase tracking-widest text-violet-300">Existing project</div>
               <h3 className="mt-2 text-[17px] font-bold">Add it in two commands</h3>
-              <p className="mt-1.5 text-[13px] leading-relaxed text-neutral-400">
+              <p className="mt-1.5 text-[14px] leading-relaxed text-neutral-400">
                 Installs all 15 skills universally — Claude Code, Codex, Cursor, Gemini CLI & 12+
                 more — then run the setup wizard.
               </p>
               <div className="mt-4 space-y-1.5">
-                <code className="block rounded-lg bg-black/40 px-3 py-2 font-mono text-[12px] text-neutral-100">npx skills add bitjaru/styleseed</code>
-                <code className="block rounded-lg bg-black/40 px-3 py-2 font-mono text-[12px]"><span className="text-neutral-500"># in Claude Code: </span><span className="text-emerald-400">/ss-setup</span></code>
+                <code className="block rounded-lg bg-black/40 px-3 py-2 font-mono text-[13px] text-neutral-100">npx skills add bitjaru/styleseed</code>
+                <code className="block rounded-lg bg-black/40 px-3 py-2 font-mono text-[13px]"><span className="text-neutral-500"># in Claude Code: </span><span className="text-violet-300">/ss-setup</span></code>
               </div>
             </div>
           </div>
@@ -204,7 +188,7 @@ export default function HomePage() {
                 { k: "Why it works", v: "The eye locks onto magnitude first; equal sizes flatten it into noise." },
               ].map((c, i) => (
                 <div key={c.k} className="rounded-2xl bg-neutral-50 p-5" style={{ boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.04)" }}>
-                  <div className="text-[11px] font-bold uppercase tracking-widest" style={{ color: i === 2 ? "#3182F6" : "#9CA3AF" }}>{c.k}</div>
+                  <div className="text-[11px] font-bold uppercase tracking-widest" style={{ color: i === 2 ? "#7C3AED" : "#9CA3AF" }}>{c.k}</div>
                   <div className="mt-1.5 text-[14px] font-semibold leading-snug text-neutral-800">{c.v}</div>
                 </div>
               ))}
@@ -229,23 +213,49 @@ export default function HomePage() {
               Other design skills make your UI <span className="text-neutral-500">coherent.</span>
               <br />
               StyleSeed is the only one that also fights the{" "}
-              <span style={{ color: "#6EA8FE" }}>generic-AI look</span> — and enforces it.
+              <span className="text-violet-300">generic-AI look</span> — and enforces it.
             </h2>
-            <div className="mt-9 grid gap-px overflow-hidden rounded-2xl bg-white/10 sm:grid-cols-2">
-              {[
-                { t: "Judgment, not data", d: "Teaches how designers think — not a palette or DESIGN.md collection." },
-                { t: "Fights the “AI look” itself", d: "Explicit rules against the default indigo, the icon-chip cliché, template layouts & rainbow lists — not just “use nice spacing.”" },
-                { t: "A scored Quality Gate", d: "Self-reviews and fixes your UI to ≥80/100 before you ever see it. Not a passive rules list." },
-                { t: "Every agent, not one", d: "Claude Code · Cursor · Codex · Amp · Gemini — ships CLAUDE.md + AGENTS.md + .cursorrules." },
-                { t: "A design lock that stops drift", d: "Skin, key color, font, motion persist across every prompt — the design stops changing each session." },
-                { t: "Free & MIT", d: "With a live, interactive demo you can poke right now." },
-              ].map((c) => (
-                <div key={c.t} className="bg-neutral-900 p-6">
-                  <div className="text-[15px] font-bold tracking-tight">{c.t}</div>
-                  <div className="mt-1.5 text-[15px] leading-relaxed text-neutral-400">{c.d}</div>
-                </div>
-              ))}
+            <div className="mt-9 overflow-x-auto">
+              <table className="w-full min-w-[600px] border-collapse text-left">
+                <thead>
+                  <tr className="border-b border-white/15">
+                    <th scope="col" className="w-[28%] pb-3 pr-4">
+                      <span className="sr-only">Capability</span>
+                    </th>
+                    <th scope="col" className="pb-3 pr-4 text-[14px] font-bold text-neutral-400">
+                      Component kits
+                    </th>
+                    <th scope="col" className="pb-3 pr-4 text-[14px] font-bold text-neutral-400">
+                      DESIGN.md packs
+                    </th>
+                    <th scope="col" className="pb-3 text-[14px] font-bold text-white">
+                      StyleSeed
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {COMPARISON_ROWS.map((row) => (
+                    <tr key={row.label} className="border-b border-white/10">
+                      <th scope="row" className="py-3.5 pr-4 text-[15px] font-semibold text-neutral-200">
+                        {row.label}
+                      </th>
+                      <td className="py-3.5 pr-4"><CompareCell value={row.kits} /></td>
+                      <td className="py-3.5 pr-4"><CompareCell value={row.packs} /></td>
+                      <td className="py-3.5"><CompareCell value={row.styleseed} self /></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
+            <p className="mt-5 max-w-3xl text-[14px] leading-relaxed text-neutral-400">
+              Also in the box: 7 brand skins from one <code className="rounded bg-white/10 px-1 font-mono text-[13px]">data-skin</code>{" "}
+              attribute, 5 motion seeds plus 20+ keyword moves, and a drop-in{" "}
+              <code className="rounded bg-white/10 px-1 font-mono text-[13px]">engine/</code> — no build step, no lock-in.
+              The rules are open: propose new ones via PR.{" "}
+              <Link href="/why" className="font-semibold text-violet-300 underline underline-offset-2">
+                See the before/after →
+              </Link>
+            </p>
           </div>
         </section>
 
@@ -269,7 +279,7 @@ export default function HomePage() {
               </div>
               <Link
                 href="/showcase"
-                className="inline-flex items-center gap-1 text-[13px] font-bold text-neutral-900 hover:underline"
+                className="inline-flex items-center gap-1 text-[14px] font-bold text-neutral-900 hover:underline"
               >
                 View all {entries.length} →
               </Link>
@@ -296,11 +306,11 @@ export default function HomePage() {
                       <h3 className="text-[15px] font-bold tracking-tight text-neutral-900">
                         {entry.name}
                       </h3>
-                      <span className="text-[10px] uppercase tracking-widest text-neutral-400">
+                      <span className="text-[11px] font-semibold uppercase tracking-widest text-neutral-400">
                         {entry.category}
                       </span>
                     </div>
-                    <p className="mt-1.5 line-clamp-2 text-[13px] text-neutral-600">
+                    <p className="mt-1.5 line-clamp-2 text-[14px] text-neutral-600">
                       {entry.blurb}
                     </p>
                   </div>
@@ -339,42 +349,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Features */}
-        <section className="border-t border-neutral-200 bg-neutral-50">
-          <div className="mx-auto max-w-6xl px-6 py-20">
-            <div className="text-center">
-              <div className="text-[11px] font-bold uppercase tracking-widest text-neutral-500">
-                Why StyleSeed
-              </div>
-              <h2 className="mt-2 text-[36px] font-bold leading-tight tracking-tight text-neutral-900">
-                Built for the AI-assisted product workflow.
-              </h2>
-              <p className="mx-auto mt-3 max-w-xl text-[15px] text-neutral-600">
-                Most repos hand the model more data — palettes, tokens, components. StyleSeed hands it{" "}
-                <strong className="font-semibold text-neutral-900">judgment</strong>: the rules a
-                senior designer follows without thinking.{" "}
-                <Link href="/why" className="font-semibold text-violet-600 underline underline-offset-2">
-                  See the before/after →
-                </Link>
-              </p>
-            </div>
-
-            <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {FEATURES.map((f) => (
-                <div key={f.title} className="rounded-2xl bg-white p-6 shadow-sm">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-neutral-900 text-white">
-                    <f.icon size={18} />
-                  </div>
-                  <h3 className="mt-5 text-[16px] font-bold tracking-tight text-neutral-900">
-                    {f.title}
-                  </h3>
-                  <p className="mt-2 text-[13px] leading-relaxed text-neutral-600">{f.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* CTA */}
         <WhatsNew />
 
@@ -383,31 +357,29 @@ export default function HomePage() {
             <h2 className="text-[44px] font-bold leading-tight tracking-tight text-neutral-900">
               Stop redrawing. Start shipping.
             </h2>
-            <p className="mx-auto mt-5 max-w-md text-[15px] text-neutral-600">
-              One engine, every brand, every motion personality. Drop StyleSeed into your next vibe
-              coding session and your LLM designs with a senior designer’s judgment — UI that doesn’t
-              look generated.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <Link
-                href="/showcase"
-                className="inline-flex items-center gap-1.5 rounded-xl bg-neutral-900 px-5 py-3 text-[14px] font-bold text-white hover:bg-black"
-              >
-                Browse the showcase
-                <ArrowRight size={14} />
-              </Link>
+            <div className="mx-auto mt-8 max-w-2xl">
+              <PromptBox />
+            </div>
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
               <a
                 href="https://github.com/bitjaru/styleseed"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-xl border border-neutral-200 bg-white px-5 py-3 text-[14px] font-bold text-neutral-900 hover:border-neutral-300"
+                className="inline-flex items-center gap-2 rounded-xl border border-neutral-200 bg-white px-5 py-3 text-[14px] font-bold text-neutral-900 transition-colors hover:border-neutral-900"
               >
-                <GitFork size={14} />
-                Drop StyleSeed in
+                <GithubIcon size={15} />
+                Star on GitHub
+                <span className="font-semibold text-neutral-500">★ 600+</span>
               </a>
             </div>
-            <p className="mt-6 text-[12px] text-neutral-500">
-              MIT licensed · zero install fee · no telemetry · production-ready
+            <p className="mx-auto mt-5 max-w-md text-[15px] text-neutral-600">
+              One paste away from UI that doesn&rsquo;t look generated.
+            </p>
+            <p className="mt-6 text-[14px] text-neutral-500">
+              MIT licensed · no telemetry ·{" "}
+              <Link href="/showcase" className="font-semibold text-violet-600 underline underline-offset-2">
+                browse the showcase
+              </Link>
             </p>
           </div>
         </section>
@@ -423,7 +395,7 @@ export default function HomePage() {
               </div>
               <span className="text-[15px] font-bold tracking-tight text-white">StyleSeed</span>
             </div>
-            <p className="mt-2 max-w-sm text-[12px] text-neutral-400">
+            <p className="mt-2 max-w-sm text-[14px] text-neutral-400">
               Design engine for vibe coding. MIT licensed. Made by{" "}
               <a
                 href="https://github.com/bitjaru"
@@ -434,7 +406,7 @@ export default function HomePage() {
               in Seoul.
             </p>
           </div>
-          <nav className="flex flex-wrap gap-x-6 gap-y-2 text-[12px] font-semibold">
+          <nav className="flex flex-wrap gap-x-6 gap-y-2 text-[14px] font-semibold">
             <Link href="/why" className="text-neutral-300 hover:text-white">
               Why StyleSeed
             </Link>

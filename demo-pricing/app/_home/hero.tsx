@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, GitFork, Sparkles } from "lucide-react";
-import { motion, useSpring, type Variants } from "framer-motion";
+import { ArrowRight, Sparkles } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
 import { PromptBox } from "./prompt-box";
+import { GithubIcon } from "./github-icon";
 
 const STATS = [
   { value: "74", label: "design rules" },
@@ -65,46 +66,50 @@ export function Hero() {
 
         <motion.p
           variants={item}
-          className="mx-auto mt-6 max-w-2xl text-[17px] leading-relaxed text-neutral-600"
+          className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-neutral-600"
         >
-          Your AI writes UI that looks like an AI wrote it — default indigo, an icon in a pale chip
-          on every card, everything a little off. StyleSeed hands it the{" "}
-          <strong className="font-semibold text-neutral-900">judgment</strong> — 74 rules
-          <em> and the reasoning behind each</em> — plus a quality gate that fixes the tells before
-          you see them, so Claude Code, Codex, and Cursor ship UI that looks designed, not generated.
-          MIT licensed.
+          Your AI ships default-indigo, icon-chip, template UI. StyleSeed hands it 74 rules of
+          designer judgment — and a quality gate that fixes the tells before you see them.
         </motion.p>
 
         <motion.div
           variants={item}
-          className="mt-9 flex flex-wrap items-center justify-center gap-3"
+          className="mt-3 text-[11px] font-bold uppercase tracking-widest text-neutral-400"
         >
-          <MagneticLink href="/how-it-thinks">
-            See how it thinks
-            <ArrowRight size={14} />
-          </MagneticLink>
+          MIT licensed · open source
+        </motion.div>
+
+        {/* primary action — the one-paste prompt */}
+        <motion.div variants={item} className="mx-auto mt-9 max-w-2xl">
+          <p className="text-[14px] font-bold text-neutral-700">
+            Try it in 30 seconds — paste into Claude Code, Cursor, or Codex
+          </p>
+          <div className="mt-3">
+            <PromptBox />
+          </div>
+        </motion.div>
+
+        <motion.div
+          variants={item}
+          className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-3"
+        >
           <a
             href="https://github.com/bitjaru/styleseed"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-xl border border-neutral-200 bg-white px-5 py-3 text-[14px] font-bold text-neutral-900 transition-colors hover:border-neutral-300"
+            className="inline-flex items-center gap-2 rounded-xl border border-neutral-200 bg-white px-5 py-3 text-[14px] font-bold text-neutral-900 transition-colors hover:border-neutral-900"
           >
-            <GitFork size={14} />
-            View source on GitHub
+            <GithubIcon size={15} />
+            Star on GitHub
+            <span className="font-semibold text-neutral-500">★ 600+</span>
           </a>
-        </motion.div>
-
-        {/* how to actually use it — one paste, visible on the first screen */}
-        <motion.div variants={item} className="mx-auto mt-7 max-w-xl">
-          <span className="text-[12px] font-semibold uppercase tracking-widest text-neutral-400">
-            Already in Claude Code, Codex, or Cursor? Paste this 👇
-          </span>
-          <div className="mt-2">
-            <PromptBox />
-          </div>
-          <p className="mt-2 text-[12px] text-neutral-400">
-            or install it: <code className="font-mono text-neutral-600">npx skills add bitjaru/styleseed</code> → <code className="font-mono text-neutral-600">/ss-setup</code>
-          </p>
+          <Link
+            href="/how-it-thinks"
+            className="inline-flex items-center gap-1 text-[14px] font-semibold text-violet-600 hover:underline"
+          >
+            See how it thinks
+            <ArrowRight size={14} />
+          </Link>
         </motion.div>
 
         <motion.dl
@@ -147,32 +152,5 @@ function GradientWord({ children }: { children: React.ReactNode }) {
     >
       {children}
     </motion.span>
-  );
-}
-
-function MagneticLink({ href, children }: { href: string; children: React.ReactNode }) {
-  const x = useSpring(0, { stiffness: 300, damping: 18 });
-  const y = useSpring(0, { stiffness: 300, damping: 18 });
-  return (
-    <motion.div
-      style={{ x, y }}
-      onPointerMove={(e) => {
-        const r = e.currentTarget.getBoundingClientRect();
-        x.set((e.clientX - r.left - r.width / 2) * 0.4);
-        y.set((e.clientY - r.top - r.height / 2) * 0.4);
-      }}
-      onPointerLeave={() => {
-        x.set(0);
-        y.set(0);
-      }}
-      className="inline-block"
-    >
-      <Link
-        href={href}
-        className="inline-flex items-center gap-1.5 rounded-xl bg-neutral-900 px-5 py-3 text-[14px] font-bold text-white transition-colors hover:bg-black"
-      >
-        {children}
-      </Link>
-    </motion.div>
   );
 }

@@ -31,12 +31,12 @@ export function WhatsNew() {
           </div>
           <div className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
             <span className="text-[22px] font-bold tracking-tight text-neutral-900">v{v.version}</span>
-            <span className="text-[13px] text-neutral-500">
+            <span className="text-[14px] text-neutral-500">
               {v.released} · {v.rules} rules · {v.skills} skills · {v.skins} skins
             </span>
           </div>
           <p className="mt-3 text-[15px] leading-relaxed text-neutral-700">{v.whatsNew}</p>
-          <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-[13px] font-semibold">
+          <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-[14px] font-semibold">
             <a
               href="https://github.com/bitjaru/styleseed/releases"
               target="_blank"
@@ -54,7 +54,7 @@ export function WhatsNew() {
               Full changelog
             </a>
             <span className="text-neutral-500">
-              Update with <code className="rounded bg-neutral-200 px-1.5 py-0.5 text-[12px] text-neutral-800">/ss-update</code>
+              Update with <code className="rounded bg-neutral-200 px-1.5 py-0.5 text-[13px] text-neutral-800">/ss-update</code>
             </span>
           </div>
         </div>

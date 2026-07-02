@@ -41,11 +41,11 @@ export function PromptBox({
           : "bg-neutral-900 hover:bg-black"
       }`}
     >
-      <code className={`flex-1 font-mono text-[12.5px] leading-relaxed ${dark ? "text-neutral-100" : "text-neutral-100"}`}>
+      <code className={`flex-1 font-mono text-[13px] leading-relaxed ${dark ? "text-neutral-100" : "text-neutral-100"}`}>
         {prompt}
       </code>
       <span
-        className={`inline-flex shrink-0 items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-[12px] font-bold ${
+        className={`inline-flex shrink-0 items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-[14px] font-bold ${
           copied ? "bg-emerald-500 text-white" : dark ? "bg-white/10 text-white group-hover:bg-white/20" : "bg-white/10 text-white group-hover:bg-white/20"
         }`}
       >
