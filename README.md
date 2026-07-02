@@ -11,63 +11,48 @@
 <br />
 
 <a href="https://styleseed-demo.vercel.app">
-  <img src="showcase/landing.png" width="760" alt="StyleSeed landing — 'Teach your AI design judgment. Not just components.' A design engine for Claude Code, Codex, and Cursor, with a one-paste prompt to start." />
+  <img src="showcase/demo.gif" width="560" alt="Same chat UI morphing across Toss, Raycast, and Arc brand skins" />
 </a>
 
-<br /><br />
+**One component. Three brand DNAs.** Same chat UI morphing across Toss · Raycast · Arc — colors, radius, motion, shadows, gradients all driven by StyleSeed tokens. Just a `data-skin` attribute.
+
+<br />
 
 [![▶ Live Demo](https://img.shields.io/badge/▶_Live_Demo-Open-111111?style=for-the-badge&logoColor=white)](https://styleseed-demo.vercel.app)
 &nbsp;
 [![▶ Motion Gallery](https://img.shields.io/badge/▶_Motion_Gallery-Live-8B5CF6?style=for-the-badge&logoColor=white)](https://styleseed-demo.vercel.app/motion)
-&nbsp;
-[![▶ Pricing](https://img.shields.io/badge/▶_Pricing-Live-6C5CE7?style=for-the-badge&logoColor=white)](https://styleseed-demo.vercel.app/pricing)
-
-<br /><br />
-
-[![Mentioned in Awesome AI Tools for UI](https://awesome.re/mentioned-badge.svg)](https://github.com/maxbogo/awesome-ai-tools-for-ui)
-
-<br />
-
-<a href="https://styleseed-demo.vercel.app">
-  <img src="showcase/demo.gif" width="560" alt="Same chat UI morphing across Toss, Raycast, and Arc brand skins" />
-</a>
-
-**One component. Three brand DNAs.** Same chat UI morphing across Toss · Raycast · Arc — colors, radius, motion, shadows, gradients all driven by StyleSeed tokens. No rewrites. No conditional code. Just a `data-skin` attribute.
-
-<br />
 
 ![74 design rules](https://badgen.net/badge/rules/74/8B5CF6)
 ![15 skills](https://badgen.net/badge/skills/15/6C5CE7)
 ![7 brand skins](https://badgen.net/badge/skins/7/6C5CE7)
-![48 components](https://badgen.net/badge/components/48/6C5CE7)
-
 [![GitHub stars](https://badgen.net/github/stars/bitjaru/styleseed)](https://github.com/bitjaru/styleseed/stargazers)
 [![License](https://badgen.net/github/license/bitjaru/styleseed)](https://github.com/bitjaru/styleseed/blob/main/LICENSE)
-[![Top 6 Frontend by acceleration — oosmetrics](https://badgen.net/badge/oosmetrics/Top%206%20Frontend%20by%20acceleration/green)](https://oosmetrics.com/repo/bitjaru/styleseed)
-
-**Other repos teach LLMs what brands look like. StyleSeed teaches LLMs how designers think.**<br />
-Data vs judgment. 74 design rules that Claude Code, Codex, and Cursor read automatically — so the output stops looking generated and starts looking designed.
+[![Mentioned in Awesome AI Tools for UI](https://awesome.re/mentioned-badge.svg)](https://github.com/maxbogo/awesome-ai-tools-for-ui)
 
 <br />
 
-### Every other design-AI skill makes your UI *coherent.*<br />StyleSeed is the only one that also fights the *generic-AI look* — and enforces it.
+**Every design-AI skill makes your UI *coherent*. StyleSeed also fights the *generic-AI look* — and enforces it.**
 
-**Judgment, not data** — teaches how designers *think*, not a palette or `DESIGN.md` collection &nbsp;·&nbsp;
-**Fights the "AI look" itself** — explicit rules against the default indigo, the icon-chip cliché, template layouts & rainbow lists (not just "use nice spacing") &nbsp;·&nbsp;
-**A scored Quality Gate** — self-reviews + fixes your UI to ≥80/100 *before you ever see it*, not a passive rules list &nbsp;·&nbsp;
-**Every agent, not one** — Claude Code · Cursor · Codex · Amp · Gemini (ships `CLAUDE.md` + `AGENTS.md` + `.cursorrules`) &nbsp;·&nbsp;
-**A design lock that stops drift** across sessions &nbsp;·&nbsp;
-**Free & MIT**, with a live interactive demo
+**Judgment, not data** — how designers *think*, not a palette collection &nbsp;·&nbsp;
+**Fights the AI tells** — the default indigo, the icon-chip cliché, template layouts, rainbow lists &nbsp;·&nbsp;
+**A scored Quality Gate** — reviews + fixes to ≥80/100 *before you see it* &nbsp;·&nbsp;
+**Every agent** — ships `CLAUDE.md` + `AGENTS.md` + `.cursorrules` &nbsp;·&nbsp;
+**A design lock that stops drift** &nbsp;·&nbsp;
+**Free & MIT**
 
 <br />
 
-<a href="https://styleseed-demo.vercel.app/how-it-thinks">
-  <img src="assets/rules-blueprint.svg" width="840" alt="Every decision is a rule with a reason. A StyleSeed UI card annotated with the rule behind each choice — Rule 1 content in cards, Rule 4 numbers 2:1 with units, Rule 2 one accent, one corner radius, Rule 72 never color alone, Rule 71 real states. Other repos hand your AI components; StyleSeed hands it the judgment." />
-</a>
+**Same product, same agent — only the rules changed:**
 
-<br /><br />
+| Before — agent defaults | After — StyleSeed v2.5.0 |
+|:---:|:---:|
+| <img src="showcase/v25-before.png" width="400" alt="Before: generic AI landing — default indigo accent, identical icon chips on every card, tight type, no focal point" /> | <img src="showcase/v25-after.png" width="400" alt="After: distinctive landing — chosen navy-ink accent, editorial serif headline, typographic 01/02/03 markers, one focal hero" /> |
 
-[Get Started](#get-started) · [Engine + Skins](#how-it-works-engine--skins) · [Motion](#named-motion-system) · [Skills](#15-ai-powered-skills) · [Wiki](../../wiki) · [한국어](README-KR.md)
+<sub>Default indigo → chosen navy-ink · icon chips → typographic markers · template grid → one focal hero. **[Every fix annotated →](https://styleseed-demo.vercel.app/why)**</sub>
+
+<br />
+
+[Get Started](#get-started-in-30-seconds) · [Engine + Skins](#how-it-works-engine--skins) · [Motion](#named-motion-system) · [Skills](#15-ai-powered-skills) · [Wiki](../../wiki) · [한국어](README-KR.md)
 
 <br />
 
@@ -89,14 +74,15 @@ That's it — the agent plans the design with you, locks a key color, then appli
 
 ```text
 you    ▸  build me a billing settings page
-agent  ▸  (plan mode) key color? I'd use one indigo accent — #5E6AD2 (SaaS). Motion: Snap. ok?  ▸ y
-agent  ▸  ✓ wrote STYLESEED.md — skin, accent, radius, motion locked, re-read every prompt
+agent  ▸  (plan mode) key color? for billing I'd go deep teal — #0F766E, mood: sharp · calm ·
+          trustworthy (not the default indigo). Motion: Snap. ok?  ▸ y
+agent  ▸  ✓ wrote STYLESEED.md — skin, accent, font, radius, motion locked, re-read every prompt
 agent  ▸  building… running the quality gate before I show you anything
 gate   ▸  ✗ two accent colors   ✗ "normal" rows colored   ✗ no empty state   → fixing
 agent  ▸  ✓ 88/100 — one accent, grey normal states, real empty/error states. here's the page.
 ```
 
-**The `STYLESEED.md` lock is the anti-drift mechanic.** Your skin, key color, radius, and motion get written once and the rules make every agent re-read and obey them on *every* prompt — so the design stops being different each session. The [Quality Gate](#troubleshooting--i-applied-styleseed-but-the-ui-still-looks-bad) then self-reviews and fixes the UI (rainbow lists, two accents, missing states) *before* you ever see it.
+**The `STYLESEED.md` lock is the anti-drift mechanic.** Your skin, key color, radius, and motion get written once and the rules make every agent re-read and obey them on *every* prompt — so the design stops being different each session. The Quality Gate then self-reviews and fixes the UI (rainbow lists, two accents, missing states) *before* you ever see it — and it can [retrofit an old generic build](#already-built-something-generic-retrofit-it) too.
 
 > **The rules are the product — and they need zero install or permissions.** They're
 > plain markdown (`CLAUDE.md` / `AGENTS.md` / `DESIGN-LANGUAGE.md`), so the prompt above —
@@ -107,7 +93,7 @@ agent  ▸  ✓ 88/100 — one accent, grey normal states, real empty/error stat
 ```bash
 npx skills add bitjaru/styleseed
 ```
-This installs all 15 skills **universally** (Claude Code, Codex, Cursor, Gemini CLI, Amp + 12 more), then run `/ss-setup`. The skills are a real upgrade — a setup wizard, `/ss-review` and `/ss-score` to grade your UI, scaffolding, motion — so installing them is worth it. Because skills are *executable*, your agent asks you to **approve them once on first use** — that's normal for any third-party skill (good security), a quick one-time step, not a StyleSeed block. (And if you can't install them in your setup, the rules alone still do the core work.)
+Installs all 15 skills into Claude Code, Codex, Cursor, Gemini CLI, Amp and more — then run `/ss-setup`. Your agent will ask you to approve them once on first use (standard for any executable skill). No install possible? The rules alone still do the core work.
 
 **Your agent, its exact path:**
 
@@ -118,7 +104,7 @@ This installs all 15 skills **universally** (Claude Code, Codex, Cursor, Gemini 
 | **Codex · Amp · Gemini CLI** | `AGENTS.md` + skills | `npx skills add bitjaru/styleseed` |
 | **Windsurf · Copilot · any other** | the paste-prompt above | no install — paste & go |
 
-<sub>More paths (manual copy, Cursor, awesome-design-md brands) in [Get Started](#get-started) below.</sub>
+<sub>More paths (manual copy, Cursor, awesome-design-md brands) in [Install by hand](#install-by-hand) below.</sub>
 
 ---
 
@@ -160,7 +146,7 @@ applies them every time:
 - **Nested-radius law: `inner = outer − padding`** — concentric corners, so a card and its inner button agree
 - **Layered, low-opacity shadows (≤8%) lit from one direction** — not one hard drop shadow
 - **Tabular numbers** for anything that updates — no width jitter as values change
-- **Status color = severity only** — a "normal/보통" row is grey; color marks the exception, never a rainbow list
+- **Status color = severity only** — a "normal" row is grey; color marks the exception, never a rainbow list
 - **No emoji icons, and no Lucide-in-a-pale-chip on every card** (§CC-9b) — the two opposite AI icon tells
 - **8px spatial grid; gap-around-a-group > gap-inside it** — proximity that reads as structure
 - **Optical, not pixel, alignment** — nudge arrows/play glyphs; center type by cap-height
@@ -227,9 +213,9 @@ The rules are **brand-agnostic** — they don't reference specific colors, only 
 
 Drop `DESIGN-LANGUAGE.md` into your Claude Design workflow and the same model produces noticeably more refined output — without changing a single prompt.
 
-## Get Started
+## Install by hand
 
-The fastest paths are at the top — [paste one prompt](#get-started-in-30-seconds), or `npx skills add bitjaru/styleseed`. To wire StyleSeed into an existing project by hand, use one of the options below.
+The fastest paths are at the top — [paste one prompt](#get-started-in-30-seconds), or `npx skills add bitjaru/styleseed`. To wire StyleSeed into an existing project manually, use one of the options below.
 
 > **New to this? Read top to bottom — every step matters.** The most common
 > mistake is expecting `/ss-setup` to work before the skills are copied into
@@ -300,23 +286,14 @@ Use skins/stripe/theme.css for the color palette.
 cp engine/.cursorrules your-project/.cursorrules
 ```
 
-### Option 5: Install the skills with `npx skills`
-
-The slash-command skills are published in the standard `SKILL.md` format, so you can install them straight into any agent (Claude Code, Codex, Cursor, …) with [Vercel's `skills` CLI](https://github.com/vercel-labs/skills) — no manual copying:
-
-```bash
-# add all 15 StyleSeed skills to the current project
-npx skills add bitjaru/styleseed
-
-# or pick specific ones
-npx skills add bitjaru/styleseed --skill ss-motion,ss-page
-```
+<sub>Want just some skills? `npx skills add bitjaru/styleseed --skill ss-motion,ss-page` cherry-picks.</sub>
 
 ## Troubleshooting — "I applied StyleSeed but the UI still looks bad"
 
-The honest reason: **consistency comes from constraints**, and the one-paste prompt is the
-*least*-constrained path — the agent reads a summary once and improvises, so colors land at
-random and there's no key color. The reference demo ([styleseed-demo.vercel.app](https://styleseed-demo.vercel.app))
+The honest reason: **consistency comes from constraints.** If you used a bare *"apply StyleSeed"*
+prompt (without the plan-mode + key-color + quality-gate steps [the prompt above](#get-started-in-30-seconds)
+includes), the agent reads a summary once and improvises — so colors land at random and there's
+no key color. The reference demo ([styleseed-demo.vercel.app](https://styleseed-demo.vercel.app))
 came out polished because it was built with the full rules in context and iterated with
 `/ss-review` — not one-shot. Recreate those conditions:
 
@@ -377,26 +354,9 @@ stop looking AI-made.
 - 58+ more available from [awesome-design-md](https://github.com/VoltAgent/awesome-design-md)
 - Or create your own (change `--brand` and you're done)
 
-### Data vs Judgment — how StyleSeed differs from every other "design for AI" repo
-
-Most projects trying to fix AI-generated UI give the model more **data**. StyleSeed gives it **judgment**. They're complementary, not competing:
-
-| | Data repos (e.g. [awesome-design-md](https://github.com/VoltAgent/awesome-design-md)) | StyleSeed |
-|---|---|---|
-| **Approach** | Brand palette collection | Design judgment engine |
-| **Teaches the model** | What brands *look like* | How designers *think* |
-| **Provides** | Colors, fonts, shadow values | 74 rules + semantic tokens + executable skills |
-| **Example output** | "Use this shade of blue" | "The refined black isn't #000, it's #2A2A2A" |
-| **Brand-specific?** | Yes — rules are tied to one brand | No — rules reference semantic tokens, work with any skin |
-| **Components** | None | 48 React components |
-| **AI skills** | None | 15 slash commands (executable rules) |
-| **Motion** | None | 5 named seeds + copy-paste keyword library |
-| **Scales with new brands** | Re-extract everything | Write one `theme.css`, reuse all rules |
-
-**Data repos** = paint colors.<br/>
-**StyleSeed** = the rulebook for where to put the paint.
-
-Use them together: data repos provide the skin, StyleSeed provides the brain.
+**Data repos** ([awesome-design-md](https://github.com/VoltAgent/awesome-design-md)) = paint colors.
+**StyleSeed** = the rulebook for where to put the paint. Use them together: they provide the skin,
+StyleSeed provides the brain. (Full comparison in [Where StyleSeed fits](#where-styleseed-fits-among-design-ai-skills).)
 
 ## Named Motion System
 
@@ -444,7 +404,9 @@ All seeds auto-respect `prefers-reduced-motion`, and the `/ss-motion` skill pull
 | **[linear](skins/linear/)** | Dark-first — violet, minimal, developer-focused | awesome-design-md |
 | **[vercel](skins/vercel/)** | Monochrome — black & white, geometric | awesome-design-md |
 | **[notion](skins/notion/)** | Warm — blue accent, friendly, warm neutrals | awesome-design-md |
-| **[58+ more](skins/_from-awesome-design-md/)** | Any brand from awesome-design-md | Auto-fetch via `/ss-setup` |
+| **[raycast](skins/raycast/)** | Dark, punchy — red accent, snappy, launcher energy | awesome-design-md |
+| **[arc](skins/arc/)** | Playful — bold gradients, rounded, expressive | awesome-design-md |
+| **58+ more** | Any brand from [awesome-design-md](https://github.com/VoltAgent/awesome-design-md) | Auto-fetched via `/ss-setup` — nothing vendored |
 
 ## Engine Contents
 
@@ -547,29 +509,6 @@ Check visual rhythm (rule 61) and KPI variation (rule 62).
 ```
 /ss-update
 ```
-
-## Example Design Rules
-
-These are the kind of rules that make AI output look professional:
-
-```
-Rule: The most refined black isn't #000 — it's #2A2A2A.
-      5-level grayscale: #2A → #3C → #6A → #7A → #9B
-
-Rule: All content lives inside cards. Never on page background.
-      Card (#FFF) vs background (#FAFAFA) contrast IS the separator.
-
-Rule: Never repeat the same section type consecutively.
-      Hero → Grid → Chart → Carousel → List (visual rhythm)
-
-Rule: KPI cards must vary: 2 with trend arrows, 1 with progress bar,
-      1 with comparison text. Never 4 identical cards.
-
-Rule: Information density increases as you scroll down.
-      Top: 48px (one number) → Bottom: 14px (detailed lists)
-```
-
-74 rules total. [See the full design language →](engine/DESIGN-LANGUAGE.md)
 
 ## Tech Stack
 
