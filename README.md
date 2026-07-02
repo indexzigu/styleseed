@@ -42,13 +42,9 @@
 
 <br />
 
-**Same product, same prompt, same model — only the rules changed:**
+<img src="showcase/v26-compare.png" width="840" alt="Same product, same prompt — only the rules changed. Hero: default indigo gradient text, sparkle badge and a placeholder mock vs a chosen emerald accent with the real product panel as the focal point. How-it-works: three identical icon-chip cards vs a hairline-joined numbered flow that reads designed." />
 
-| Before — agent defaults | After — StyleSeed rules |
-|:---:|:---:|
-| <img src="showcase/v26-before.png" width="400" alt="Before: the default AI landing — indigo gradient headline, sparkle badge, identical icon-chip feature cards, centered template layout, 14px body" /> | <img src="showcase/v26-after.png" width="400" alt="After: a designed 2026 product site — white and airy, chosen emerald accent, a real product panel as the focal hero, varied section anatomy, desktop type scale" /> |
-
-<sub>Default indigo → chosen accent · icon-chip grid → a real product hero · centered template → varied, focal layout. **[See more before/afters →](https://styleseed-demo.vercel.app/why)**</sub>
+<sub>Full pages: [before](showcase/v26-before.png) · [after](showcase/v26-after.png) · **[more before/afters →](https://styleseed-demo.vercel.app/why)**</sub>
 
 <br />
 
