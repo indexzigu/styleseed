@@ -23,7 +23,7 @@
 [![▶ Motion Gallery](https://img.shields.io/badge/▶_Motion_Gallery-Live-8B5CF6?style=for-the-badge&logoColor=white)](https://styleseed-demo.vercel.app/motion)
 
 ![74 design rules](https://badgen.net/badge/rules/74/8B5CF6)
-![15 skills](https://badgen.net/badge/skills/15/6C5CE7)
+![16 skills](https://badgen.net/badge/skills/16/6C5CE7)
 ![7 brand skins](https://badgen.net/badge/skins/7/6C5CE7)
 [![GitHub stars](https://badgen.net/github/stars/bitjaru/styleseed)](https://github.com/bitjaru/styleseed/stargazers)
 [![License](https://badgen.net/github/license/bitjaru/styleseed)](https://github.com/bitjaru/styleseed/blob/main/LICENSE)
@@ -58,13 +58,13 @@
 
 ## Get started in 30 seconds
 
-**The fastest way — paste this one sentence** into Claude Code, Codex, Cursor, or any AI agent. No install:
+**The fastest way — paste this one sentence** into Claude Code, Codex, Cursor, or any AI agent. It installs StyleSeed *and* runs the whole loop:
 
 ```
-Read https://styleseed-demo.vercel.app/llms-full.txt and apply StyleSeed's design rules to every UI in this project. First, in plan mode, lock my key color and motion style with me. Then build to the rules, and before showing me anything run StyleSeed's quality gate (one accent, one radius, normal states grey not rainbow, real empty/error states) and fix what fails.
+Install StyleSeed so its checks actually run: `npx skills add bitjaru/styleseed` (if you can't, read https://styleseed-demo.vercel.app/llms-full.txt instead). Then use it for every UI in this project. First, in plan mode, lock my key color, font, and motion with me and save them to STYLESEED.md so they don't drift. Build to the rules with ONE focal point and one accent. Before showing me anything, run the quality gate (/ss-score to ≥ 80: one accent, one radius, normal states grey not rainbow, real empty/error states) and fix what fails. If you're building a full screen, just run /ss-build — it enforces this whole loop.
 ```
 
-That's it — the agent plans the design with you, locks a key color, then applies the rules to whatever you build next. (Planning first is what keeps the result from looking random — see [Troubleshooting](#troubleshooting--i-applied-styleseed-but-the-ui-still-looks-bad).) Works with **Claude Code (`CLAUDE.md`), Codex / Amp / Gemini CLI (`AGENTS.md`), and Cursor (`.cursorrules`)** — StyleSeed ships all three, so any agent picks the rules up automatically.
+**Why the prompt installs first:** the quality gate is the step that makes output stop looking generic — but `/ss-score` and `/ss-build` can only *run* if the skills are installed. Point an agent at the rules-URL alone and the "gate" degrades to an honor-system self-check it usually skips. Installing makes the loop real: the lock persists in `STYLESEED.md` (no drift), and the gate actually scores and fixes before you see anything. Can't install? The URL still teaches the rules — just weaker. Works with **Claude Code (`CLAUDE.md`), Codex / Amp / Gemini CLI (`AGENTS.md`), and Cursor (`.cursorrules`)** — StyleSeed ships all three. (Planning first is what keeps the result from looking random — see [Troubleshooting](#troubleshooting--i-applied-styleseed-but-the-ui-still-looks-bad).)
 
 **What your agent actually does with StyleSeed loaded:**
 
@@ -89,7 +89,7 @@ agent  ▸  ✓ 88/100 — one accent, grey normal states, real empty/error stat
 ```bash
 npx skills add bitjaru/styleseed
 ```
-Installs all 15 skills into Claude Code, Codex, Cursor, Gemini CLI, Amp and more — then run `/ss-setup`. Your agent will ask you to approve them once on first use (standard for any executable skill). No install possible? The rules alone still do the core work.
+Installs all 16 skills into Claude Code, Codex, Cursor, Gemini CLI, Amp and more — then run `/ss-setup`. Your agent will ask you to approve them once on first use (standard for any executable skill). No install possible? The rules alone still do the core work.
 
 **Your agent, its exact path:**
 
@@ -169,7 +169,7 @@ Design data is the paint. Design judgment is knowing where to put it.
 
 **[See the before/after →](https://styleseed-demo.vercel.app/why)** — the same dashboard brief, generated generically vs. with the 74 rules applied. Every fix annotated with the rule behind it.
 
-StyleSeed is a **design engine** — 74 visual rules, 48 components, a named motion system, and 15 slash commands that teach LLMs the judgment, not just the data:
+StyleSeed is a **design engine** — 74 visual rules, 48 components, a named motion system, and 16 slash commands that teach LLMs the judgment, not just the data:
 
 ```
 "The most refined black isn't #000 — it's #2A2A2A"
@@ -325,7 +325,7 @@ stop looking AI-made.
 ┌─────────────────────────────────────────────────┐
 │  StyleSeed Engine (brand-agnostic)              │
 │                                                 │
-│  74 rules · 48 components · 15 skills · motion  │
+│  74 rules · 48 components · 16 skills · motion  │
 │  Layout · Composition · Typography · UX · A11y  │
 └──────────────────────┬──────────────────────────┘
                        │
@@ -410,7 +410,7 @@ All seeds auto-respect `prefers-reduced-motion`, and the `/ss-motion` skill pull
 engine/
 ├── CLAUDE.md                 # AI reads this automatically
 ├── DESIGN-LANGUAGE.md        # 74 visual design rules (brand-agnostic)
-├── .claude/skills/           # 15 slash commands (/ss-*)
+├── .claude/skills/           # 16 slash commands (/ss-*)
 │   ├── ss-setup/             #   Interactive setup wizard
 │   ├── ss-page/              #   Scaffold pages
 │   ├── ss-component/         #   Generate components
@@ -442,6 +442,7 @@ engine/
 ### Setup
 | Skill | What It Does |
 |-------|-------------|
+| `/ss-build` | **The whole loop, enforced** — lock the look → build → score → fix to ≥80 → *then* show. Use this instead of building UI free-hand |
 | `/ss-setup` | **Interactive wizard** — pick skin, brand color, font, generates first page |
 
 ### UI — Build It Right
@@ -516,7 +517,7 @@ React 18 · TypeScript · Tailwind CSS v4 · Radix UI · Vite 6 · Lucide Icons 
 |---|---|---|---|---|---|
 | Components | ✅ 48 | ✅ 50+ | ✅ | ✅ | ❌ |
 | Design **judgment** (when to use what) | ✅ 74 rules | ❌ | ❌ | Partial | ❌ |
-| Claude Code / Cursor integration | ✅ 15 skills | ❌ | ❌ | ❌ | — |
+| Claude Code / Cursor integration | ✅ 16 skills | ❌ | ❌ | ❌ | — |
 | Brand skins (Toss, Stripe, Linear...) | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Price | Free (MIT) | Free | $299+ | Free | — |
 | Works *with* AI coding tools | ✅ | Indirect | Indirect | Indirect | — |

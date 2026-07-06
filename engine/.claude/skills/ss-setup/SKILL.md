@@ -7,6 +7,12 @@ allowed-tools: Read, Write, Edit, Grep, Glob, Bash, WebFetch
 
 # Design System Setup Wizard
 
+> **Building a full screen, not just wiring up the project?** Prefer **`/ss-build`** — it runs
+> this setup's lock step AND the Quality Gate loop (build → `/ss-score` → fix to ≥ 80 → then
+> show), which this wizard doesn't. Use `/ss-setup` to install + configure; use `/ss-build` to
+> actually produce a screen that passes the gate. When this wizard scaffolds the first page
+> (Step 5), run the Quality Gate on it before finishing — don't present an unscored draft.
+
 ## When NOT to use
 
 - For projects already configured with StyleSeed → use `/ss-update` instead

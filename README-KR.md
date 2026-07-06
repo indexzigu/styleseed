@@ -104,15 +104,15 @@ Claude Code한테 "대시보드 만들어줘" 하면 보통 이런 결과가 나
 
 ### ⚡ 가장 빠른 방법: 한 문장 붙여넣기
 
-Claude Code·Codex·Cursor 등 아무 AI 에이전트에 이 한 문장을 붙여넣으면 끝 — 설치 불필요:
+Claude Code·Codex·Cursor 등 아무 AI 에이전트에 이 한 문장을 붙여넣으면 됩니다 — **설치 + 전체 루프를 한 번에**:
 
 ```
-Read https://styleseed-demo.vercel.app/llms-full.txt and apply StyleSeed's design rules to every UI in this project. First, in plan mode, lock my key color and motion style with me. Then build to the rules, and before showing me anything run StyleSeed's quality gate (one accent, one radius, normal states grey not rainbow, real empty/error states) and fix what fails.
+Install StyleSeed so its checks actually run: `npx skills add bitjaru/styleseed` (if you can't, read https://styleseed-demo.vercel.app/llms-full.txt instead). Then use it for every UI in this project. First, in plan mode, lock my key color, font, and motion with me and save them to STYLESEED.md so they don't drift. Build to the rules with ONE focal point and one accent. Before showing me anything, run the quality gate (/ss-score to ≥ 80: one accent, one radius, normal states grey not rainbow, real empty/error states) and fix what fails. If you're building a full screen, just run /ss-build — it enforces this whole loop.
 ```
 
-> 💡 **디자인이 제멋대로 나오면** 거의 항상 "제약 부족"이 원인입니다. 플랜모드로 **키 컬러·모션을 먼저 정하고**, 룰 파일(`CLAUDE.md`/`AGENTS.md`)을 프로젝트에 **설치**하면(매 프롬프트 재참조) 일관성이 확 올라갑니다.
+> 💡 **왜 설치부터 시키나:** 결과가 "AI스러움"을 벗는 결정적 단계는 **퀄리티 게이트**인데, `/ss-score`·`/ss-build`는 **스킬이 설치돼 있어야 실제로 돌아갑니다.** URL만 읽히면 게이트가 "자가채점(대충 넘어감)"으로 전락해요. 설치하면 락이 `STYLESEED.md`에 **저장돼 안 흔들리고**, 게이트가 진짜로 채점·수정한 뒤에 보여줍니다. 설치가 안 되면 URL로도 규칙은 배우지만 더 약합니다.
 
-설치형이 좋으면 `npx skills add bitjaru/styleseed` → `/ss-setup`. 기존 프로젝트에 직접 넣으려면 아래 방법을 쓰세요.
+설치형이 좋으면 `npx skills add bitjaru/styleseed` → `/ss-build` (또는 `/ss-setup`).
 
 ### 방법 1: 인터랙티브 설정 (추천)
 
@@ -323,7 +323,7 @@ import { spring } from "@engine/motion";
 |---|---|---|---|---|---|
 | 컴포넌트 | ✅ 48개 | ✅ 50+ | ✅ | ✅ | ❌ |
 | 디자인 **판단 기준** (언제 뭘 쓸지) | ✅ 74개 룰 | ❌ | ❌ | 일부 | ❌ |
-| Claude Code / Cursor 통합 | ✅ 15개 스킬 | ❌ | ❌ | ❌ | — |
+| Claude Code / Cursor 통합 | ✅ 16개 스킬 | ❌ | ❌ | ❌ | — |
 | 브랜드 스킨 (Toss, Stripe, Linear...) | ✅ | ❌ | ❌ | ❌ | ❌ |
 | 가격 | 무료 (MIT) | 무료 | $299+ | 무료 | — |
 | AI 코딩툴과 *함께* 동작 | ✅ | 간접 | 간접 | 간접 | — |

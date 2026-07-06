@@ -1,7 +1,7 @@
 # StyleSeed — Full Context
 
 Source: github.com/bitjaru/styleseed (CLAUDE.md + DESIGN-LANGUAGE.md + VISUAL-CRAFT.md + UX-WRITING.md)
-Generated: 2026-07-02T01:18:29.230Z
+Generated: 2026-07-06T09:28:01.108Z
 
 ---
 
@@ -769,6 +769,7 @@ Custom skills available in the project:
 
 | Skill | Description | Usage |
 |-------|-------------|-------|
+| `/ss-build` | **Build a screen the demo way — enforces the whole loop (lock → build → score → fix to ≥80 → then show). Use this instead of building UI free-hand.** | `/ss-build inventory dashboard` |
 | `/ss-setup` | Interactive setup wizard for new projects | `/ss-setup` |
 | `/ss-component` | Create a new component following design system rules | `/ss-component Button large CTA button` |
 | `/ss-page` | Scaffold a mobile page | `/ss-page Dashboard main dashboard` |
@@ -787,13 +788,20 @@ Custom skills available in the project:
 
 ## How to Use StyleSeed (Tell Users This)
 
-When a user asks you to build UI, follow this workflow:
+When a user asks you to build UI, **run `/ss-build`** — it enforces the exact loop that made
+the reference demo look designed instead of generic. Building free-hand is precisely how the
+output lands "AI-made" (skipped lock → default indigo; skipped gate → first draft shipped). If
+the skills aren't installed, follow the same loop by hand:
 
-1. **Read DESIGN-LANGUAGE.md** (Table of Contents → rules 14, 18, 19, 61-63)
-2. **Check the Golden Rules** at the top of this file
-3. **Build** using existing components from `components/ui/` and `components/patterns/`
-4. **Verify** by running through the Golden Rules checklist
-5. **Lint** with `/ss-lint` to catch violations
+1. **Lock the look FIRST** — no `STYLESEED.md`? Run Quick Setup (plan mode: domain·surface·
+   mood·accent·font·motion) and write the lock **before any code.** If it exists, obey it.
+2. **Read the real rules** — DESIGN-LANGUAGE.md (ToC → 14, 18, 19, 61-63) + VISUAL-CRAFT.md
+   (§C0, §CC-9x) + the domain/page bias — not a one-shot summary.
+3. **Build** with one focal point, the surface's type scale, no icon-chip cliché, the lock's
+   accent/font/mood everywhere.
+4. **Gate loop (don't skip)** — `/ss-score` → if < 80, fix the top items → re-score → repeat
+   to ≥ 80. Never present a first draft you haven't scored.
+5. **Present** with the final score + what the gate caught and you fixed.
 
 When a user references StyleSeed or this repo for the first time:
 - Help them set up with `/ss-setup`

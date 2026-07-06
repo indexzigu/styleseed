@@ -3,6 +3,35 @@
 All notable changes to StyleSeed. Agents can check the latest version at
 [version.json](https://styleseed-demo.vercel.app/version.json) and run `/ss-update`.
 
+## [2.7.0] — 2026-07-06
+
+**Theme: close the gap between *knowing* the rules and *following* them.** The reference demo
+(styleseed-demo.vercel.app) looks designed and a free-hand build often doesn't — with the *same
+74 rules*. The difference was never the rules; it was a **loop** the demo ran and a free-hand
+build skips: lock the look → build → run the Quality Gate → fix to a floor → repeat. This
+release turns that loop from prose-you-can-ignore into machinery.
+
+### Added
+- **`/ss-build`** — build a screen the demo way, enforced. One command that refuses to write UI
+  before the look is locked in `STYLESEED.md`, reads the *full* rules (not a summary), builds
+  with one focal point / surface-correct type / no icon-chip cliché, then runs `/ss-score` as a
+  **loop** — fixing the top offenders and re-scoring until ≥ 80 — and only *then* presents, with
+  the score and what it fixed. This is the front door for building UI now; free-hand is the
+  fallback. (16 skills total.)
+
+### Changed
+- **The one-paste prompt now bootstraps its own install.** It starts with
+  `npx skills add bitjaru/styleseed` (falling back to the rules-URL only if install isn't
+  possible), because **the Quality Gate is the step that strips the "AI look" — and `/ss-score`
+  / `/ss-build` can only *run* when the skills are installed.** Pointed at the rules-URL alone,
+  the "gate" degrades to an honor-system self-check the agent usually skips, the lock never
+  persists, and output drifts generic. Install-first makes the gate real and the lock durable.
+  Updated on the landing hero, both READMEs, and `llms.txt`.
+- **Landing "install" tier rewritten** to state *why* install beats paste (the gate only runs
+  when installed; the lock persists; every screen is scored before you see it).
+- **CLAUDE.md / AGENTS.md "How to use"** now lead with `/ss-build` (or the same loop by hand:
+  lock first → full rules → build → gate loop), instead of a build-then-maybe-lint flow.
+
 ## [2.6.0] — 2026-07-02
 
 **Theme: rules that survive contact.** A three-domain stress test (Korean mobile health app ·
@@ -139,6 +168,7 @@ release raises the floor of the default path.
 - Agent-agnostic delivery: CLAUDE.md + AGENTS.md + .cursorrules.
 - 8 `/guides` + 7 `/screens` programmatic-SEO pages, `/how-it-thinks`, `/faq`.
 
+[2.7.0]: https://github.com/bitjaru/styleseed/releases/tag/v2.7.0
 [2.6.0]: https://github.com/bitjaru/styleseed/releases/tag/v2.6.0
 [2.5.0]: https://github.com/bitjaru/styleseed/releases/tag/v2.5.0
 [2.4.0]: https://github.com/bitjaru/styleseed/releases/tag/v2.4.0

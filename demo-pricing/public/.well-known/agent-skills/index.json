@@ -16,6 +16,13 @@
       "digest": "sha256:d584ae4c015bca25cc8eff7a9444fcb69923f14c10d8e672451e206999f1f217"
     },
     {
+      "name": "ss-build",
+      "type": "skill-md",
+      "description": "Build a screen the way the StyleSeed reference demo was built — one command that ENFORCES the full loop (lock the look → build → score → fix to ≥80 → only then show). Use this instead of building UI free-hand; it closes the gap between \"knows the rules\" and \"actually followed them.\"",
+      "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-build/SKILL.md",
+      "digest": "sha256:f5f46d5a9eb941d4023ef3d7eb1eee0599a19ec950634258ff2e548bce751bf7"
+    },
+    {
       "name": "ss-component",
       "type": "skill-md",
       "description": "Generate a new UI component following the StyleSeed design conventions",

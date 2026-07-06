@@ -131,14 +131,21 @@ the score. A 30-second self-review is the product.
 
 ## How to use StyleSeed
 
-1. Read `DESIGN-LANGUAGE.md` (TOC → rules 14, 18, 19, 61-63) and the Golden Rules above.
-2. If you know the app domain and screen type, skim the matching `APP-PLAYBOOKS.md` + `PAGE-TYPES.md` entries.
-3. Build using the components in `components/ui/` and `components/patterns/`.
-4. Verify against the Golden Rules + the coherence meta-rule before you finish.
+**If the `/ss-*` skills are installed, run `/ss-build` to build a screen** — it enforces the
+exact loop that made the reference demo look designed instead of generic (lock the look →
+build → `/ss-score` → fix to ≥ 80 → *then* show). Building free-hand and skipping that loop is
+precisely how output lands "AI-made" (no lock → default indigo; no gate → first draft shipped).
 
-If the project ships the `/ss-*` skills (`.claude/skills/`), prefer `/ss-page`,
-`/ss-review`, and `/ss-score` for scaffolding and checking. If not, apply the rules
-directly.
+If the skills aren't installed, do the same loop by hand:
+
+1. **Lock the look FIRST** — no `STYLESEED.md`? Run Quick Setup in plan mode (domain·surface·
+   mood·accent·font·motion) and write the lock **before any code**. If it exists, obey it.
+2. Read `DESIGN-LANGUAGE.md` (TOC → rules 14, 18, 19, 61-63) + `VISUAL-CRAFT.md` (§C0, §CC-9x)
+   and the matching `APP-PLAYBOOKS.md` × `PAGE-TYPES.md` — not a one-shot summary.
+3. Build with ONE focal point, the surface's type scale, no icon-chip cliché, the lock's
+   accent/font/mood everywhere.
+4. **Gate loop** — `/ss-score` (else self-score) → if < 80, fix the top items → re-score →
+   repeat to ≥ 80. Never present a draft you haven't scored. Then present + report the score.
 
 ## Staying current (check once per project — don't nag)
 

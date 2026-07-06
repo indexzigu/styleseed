@@ -1,10 +1,10 @@
 {
-  "version": "2.6.0",
-  "released": "2026-07-02",
+  "version": "2.7.0",
+  "released": "2026-07-06",
   "rules": 74,
-  "skills": 15,
+  "skills": 16,
   "skins": 7,
-  "whatsNew": "Rules that survive contact. A 3-domain stress test (mobile health · dark observability · warm e-commerce, zero user direction) confirmed the 1st-gen AI tells are gone — and exposed the 2nd generation: the escape hatches becoming clichés (ghost 01/02/03 on every section, identical overline+number cards). New CC-9c fights it: one signature treatment per project, varied section anatomy. Also fixed the contradictions the test surfaced: dark-mode elevation (tonal ramp + hairlines, not shadows), one 8px grid, radius personality mapping, accent-vs-semantic-green collision rules, locked imagery palettes, desktop app-chrome + dense-data type scales, CJK tracking, and a page-type-aware Quality Gate.",
+  "whatsNew": "Close the gap between knowing the rules and following them. The reference demo looks designed because it went through a loop — lock the look, build, run the quality gate, fix to a floor, repeat — that a free-hand build silently skips. New /ss-build makes that loop one command: it refuses to write UI before the look is locked in STYLESEED.md, then scores and fixes to ≥80 before showing you anything. And the one-paste prompt now bootstraps its own install (npx skills add bitjaru/styleseed) first — because /ss-score and /ss-build can only *run* when installed; point an agent at the rules-URL alone and the gate degrades to an honor-system self-check it skips. Install-first = the gate is real, the lock persists, output stops looking generated.",
   "update": "Run /ss-update, or: npx skills add bitjaru/styleseed",
   "changelog": "https://github.com/bitjaru/styleseed/releases",
   "repo": "https://github.com/bitjaru/styleseed"

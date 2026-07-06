@@ -142,18 +142,23 @@ export default function HomePage() {
             </div>
 
             <div className="mt-10 text-[11px] font-bold uppercase tracking-widest text-neutral-500">
-              Prefer to install it?
+              For real projects — install it
             </div>
             <div className="mt-4 max-w-xl rounded-2xl bg-white/[0.06] p-6 ring-1 ring-white/10">
-              <div className="text-[12px] font-bold uppercase tracking-widest text-violet-300">Existing project</div>
-              <h3 className="mt-2 text-[17px] font-bold">Add it in two commands</h3>
-              <p className="mt-1.5 text-[14px] leading-relaxed text-neutral-400">
-                Installs all 15 skills universally — Claude Code, Codex, Cursor, Gemini CLI & 12+
-                more — then run the setup wizard.
+              <div className="text-[12px] font-bold uppercase tracking-widest text-violet-300">Why install beats paste</div>
+              <h3 className="mt-2 text-[17px] font-bold">The quality gate only runs when it&rsquo;s installed</h3>
+              <p className="mt-1.5 text-[15px] leading-relaxed text-neutral-400">
+                Paste alone teaches the rules, but the step that strips the &ldquo;AI look&rdquo; is
+                the gate &mdash; and <code className="font-mono text-[13px] text-violet-300">/ss-score</code> /{" "}
+                <code className="font-mono text-[13px] text-violet-300">/ss-build</code> can only
+                <em> run</em> once installed. Then your lock persists in{" "}
+                <code className="font-mono text-[13px] text-neutral-300">STYLESEED.md</code> (no drift),
+                and every screen is scored and fixed before you see it. All 16 skills, universally —
+                Claude Code, Codex, Cursor, Gemini CLI &amp; 12+ more.
               </p>
               <div className="mt-4 space-y-1.5">
                 <code className="block rounded-lg bg-black/40 px-3 py-2 font-mono text-[13px] text-neutral-100">npx skills add bitjaru/styleseed</code>
-                <code className="block rounded-lg bg-black/40 px-3 py-2 font-mono text-[13px]"><span className="text-neutral-500"># in Claude Code: </span><span className="text-violet-300">/ss-setup</span></code>
+                <code className="block rounded-lg bg-black/40 px-3 py-2 font-mono text-[13px]"><span className="text-neutral-500"># then, to build a screen: </span><span className="text-violet-300">/ss-build</span></code>
               </div>
             </div>
           </div>
