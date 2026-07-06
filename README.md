@@ -46,6 +46,12 @@
 
 <sub>Full pages: [before](showcase/v26-before.png) · [after](showcase/v26-after.png) · **[more before/afters →](https://styleseed-demo.vercel.app/why)**</sub>
 
+<br /><br />
+
+<img src="showcase/style-gallery.png" width="840" alt="The same Relay product rendered in six StyleSeed presets — swiss (sharp grid, red), editorial (serif seasoning, oxblood), technical (dark, dense, teal), warm-dtc (pill, terracotta), minimal-mono (whitespace, one accent), brutalist-lite (hard borders, cobalt). Each is coherent and distinct, none looks generic." />
+
+<sub>Same product, six looks — each one `/ss-restyle <preset>` away. Coherent, distinct, never generic.</sub>
+
 <br />
 
 [Get Started](#get-started-in-30-seconds) · [Engine + Skins](#how-it-works-engine--skins) · [Motion](#named-motion-system) · [Skills](#15-ai-powered-skills) · [Wiki](../../wiki) · [한국어](README-KR.md)

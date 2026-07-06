@@ -164,6 +164,39 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Restyle gallery — same product, six presets, proof of distinctiveness */}
+        <section className="border-t border-neutral-900 bg-neutral-950 text-white">
+          <div className="mx-auto max-w-6xl px-6 py-20">
+            <div className="text-[11px] font-bold uppercase tracking-widest text-violet-300">
+              One engine, many looks
+            </div>
+            <h2 className="mt-2 max-w-3xl text-[clamp(28px,4vw,40px)] font-bold leading-tight tracking-tight">
+              Same product. Six presets. One <code className="rounded bg-white/10 px-1.5 py-0.5 font-mono text-[0.85em] text-violet-200">/ss-restyle</code> away.
+            </h2>
+            <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-neutral-400">
+              Distinctive isn&rsquo;t a coat of paint. Each preset is a coherent coordinate across the
+              dial axes — radius, density, color, weight, motion, plus a font and a signature move —
+              so every look reads <em>designed</em>, never generic. Trend gimmicks (glass, neumorphism)
+              are deliberately left out.
+            </p>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/style-gallery.png"
+              alt="The same Relay product rendered in six StyleSeed presets — swiss, editorial, technical, warm-dtc, minimal-mono, brutalist-lite. Each is coherent and distinct, none looks generic."
+              width={2416}
+              height={1422}
+              className="mt-8 w-full rounded-2xl border border-white/10"
+            />
+            <div className="mt-6 flex flex-wrap gap-2">
+              {["swiss", "editorial", "technical", "warm-dtc", "minimal-mono", "brutalist-lite"].map((p) => (
+                <code key={p} className="rounded-lg bg-white/[0.06] px-3 py-1.5 font-mono text-[13px] text-neutral-300 ring-1 ring-white/10">
+                  /ss-restyle {p}
+                </code>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* How it thinks — the differentiator, before the gallery */}
         <section className="border-t border-neutral-200 bg-white">
           <div className="mx-auto max-w-5xl px-6 py-20">
