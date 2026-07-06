@@ -3,6 +3,35 @@
 All notable changes to StyleSeed. Agents can check the latest version at
 [version.json](https://styleseed-demo.vercel.app/version.json) and run `/ss-update`.
 
+## [2.8.0] — 2026-07-06
+
+**Theme: change the look without breaking coherence.** "Make it more minimal" is something you
+can just *say* — the model already reads plain language. A skill only earns its place where **one
+word must move many tokens at once, in a coordinated way, without breaking a rule**, and where
+doing it by hand gives an inconsistent one-off. Two new skills cover exactly that space; vibes
+stay words.
+
+### Added
+- **`/ss-dial <axis> <direction>`** — turn ONE design axis up or down as a deterministic
+  transform. Seven axes: **density · hierarchy · radius · elevation · color (saturation +
+  temperature) · weight · motion**. Each is a defined ramp that moves the whole coordinated token
+  set together (e.g. `density denser` = spacing + card padding + gap + line-height + type scale,
+  all at once), respects the guardrails (8px grid, ≥44px touch, single accent, nested-radius,
+  ≤8% shadow / dark tonal ramp, font-size table), **clamps at the ends** (bounded, not runaway),
+  writes the new position to `STYLESEED.md`, and re-runs the Quality Gate to ≥ 80.
+- **`/ss-restyle <preset>`** — apply a named aesthetic as a *coordinate* across the dial axes
+  plus a font, accent family, and one signature move: **swiss · editorial · technical · warm-dtc
+  · minimal-mono · brutalist-lite**. A preset is a full identity, not a filter you stack — two
+  presets = the mixed-personality tell. Honors a deliberate brand hex, holds the modern floor
+  (§CC-9d: white/fresh base, serif as seasoning), rewrites the lock, re-gates. Trend styles
+  (glassmorphism, neumorphism) are **deliberately excluded** as dated.
+
+### Why this shape
+A mood word ("premium", "editorial") isn't one axis — it's a position across several, so it's a
+**preset** (`/ss-restyle`), not a dial. A single measurable axis with a guardrail ("denser",
+"sharper", "more muted") is a **dial** (`/ss-dial`). Anything the model handles from plain words
+stays words — no skill. (18 skills total.)
+
 ## [2.7.0] — 2026-07-06
 
 **Theme: close the gap between *knowing* the rules and *following* them.** The reference demo
@@ -168,6 +197,7 @@ release raises the floor of the default path.
 - Agent-agnostic delivery: CLAUDE.md + AGENTS.md + .cursorrules.
 - 8 `/guides` + 7 `/screens` programmatic-SEO pages, `/how-it-thinks`, `/faq`.
 
+[2.8.0]: https://github.com/bitjaru/styleseed/releases/tag/v2.8.0
 [2.7.0]: https://github.com/bitjaru/styleseed/releases/tag/v2.7.0
 [2.6.0]: https://github.com/bitjaru/styleseed/releases/tag/v2.6.0
 [2.5.0]: https://github.com/bitjaru/styleseed/releases/tag/v2.5.0

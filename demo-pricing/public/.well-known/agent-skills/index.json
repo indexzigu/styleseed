@@ -37,6 +37,13 @@
       "digest": "sha256:feb077b840dbb9b5b645d7a82b5c84422802b4af3f469345d897dafa8691e391"
     },
     {
+      "name": "ss-dial",
+      "type": "skill-md",
+      "description": "Turn ONE design axis up or down as a coordinated, deterministic transform — \"denser\", \"sharper corners\", \"more muted\", \"bolder\", \"flatter\", \"livelier\". Not a vibe the model reinterprets each time; a defined ramp that moves many tokens together, respects the guardrails (8px grid, a11y floors, single accent, nested-radius), updates the lock, and re-runs the gate. Use this when a human saying \"more X\" would otherwise get an inconsistent one-off.",
+      "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-dial/SKILL.md",
+      "digest": "sha256:bbd23f1beca05985d1ea93b124ec1ea7dbd130c97c3bba1140258ccb6540c703"
+    },
+    {
       "name": "ss-feedback",
       "type": "skill-md",
       "description": "Add appropriate user feedback states (loading, success, error, empty) to a component or page",
@@ -79,6 +86,13 @@
       "digest": "sha256:4070dcb6f931837630ee96de96829287958ed583ab67144a3f9cfadd2a9f13b5"
     },
     {
+      "name": "ss-restyle",
+      "type": "skill-md",
+      "description": "Re-style a project to a named aesthetic — swiss, editorial, technical, warm-dtc, minimal-mono, brutalist-lite. A preset is a *coordinate* across the dial axes (radius + density + color + weight + motion) plus a font, accent family, and one signature move — applied coherently as a single identity, written to the lock, and re-gated. This is for mood words (\"more editorial\") that aren't one axis; for a single axis use /ss-dial.",
+      "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-restyle/SKILL.md",
+      "digest": "sha256:92124877b4830e3fc022e45b1755b27594ca2c4a12419bbf18f8a0deaa4eb95d"
+    },
+    {
       "name": "ss-review",
       "type": "skill-md",
       "description": "Review UI code for design system compliance, accessibility, and best practices",
@@ -97,7 +111,7 @@
       "type": "skill-md",
       "description": "Interactive setup wizard — guides you step-by-step to configure the design system for your project",
       "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-setup/SKILL.md",
-      "digest": "sha256:d18a8ecc8497258c069cbb6d320a43d02ff8ed19cce924e1d4672611899e72fb"
+      "digest": "sha256:30571591657f8c10bdbe777d4d271d0f580e12b6463cbc0fbf1cc3ff34456085"
     },
     {
       "name": "ss-tokens",

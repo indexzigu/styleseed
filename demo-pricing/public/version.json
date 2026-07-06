@@ -1,10 +1,10 @@
 {
-  "version": "2.7.0",
+  "version": "2.8.0",
   "released": "2026-07-06",
   "rules": 74,
-  "skills": 16,
+  "skills": 18,
   "skins": 7,
-  "whatsNew": "Close the gap between knowing the rules and following them. The reference demo looks designed because it went through a loop — lock the look, build, run the quality gate, fix to a floor, repeat — that a free-hand build silently skips. New /ss-build makes that loop one command: it refuses to write UI before the look is locked in STYLESEED.md, then scores and fixes to ≥80 before showing you anything. And the one-paste prompt now bootstraps its own install (npx skills add bitjaru/styleseed) first — because /ss-score and /ss-build can only *run* when installed; point an agent at the rules-URL alone and the gate degrades to an honor-system self-check it skips. Install-first = the gate is real, the lock persists, output stops looking generated.",
+  "whatsNew": "Dials and presets — change the look without breaking coherence. 'Make it more minimal' is something you can just say; a skill only earns its place where one word must move many tokens at once without breaking a rule. New /ss-dial does exactly that for seven axes (density · hierarchy · radius · elevation · color · weight · motion): a deterministic ramp that shifts the whole token set together, keeps the guardrails (8px grid, ≥44px touch, single accent, nested-radius, ≤8% shadow), clamps at the ends, and re-runs the gate. New /ss-restyle applies a named aesthetic — swiss · editorial · technical · warm-dtc · minimal-mono · brutalist-lite — as a coherent coordinate across those axes plus a font and a signature move, written to the lock (glassmorphism/neumorphism deliberately excluded as dated, §CC-9d). One axis per dial, one preset replaces the look — stacking is the mixed-personality tell we ban.",
   "update": "Run /ss-update, or: npx skills add bitjaru/styleseed",
   "changelog": "https://github.com/bitjaru/styleseed/releases",
   "repo": "https://github.com/bitjaru/styleseed"

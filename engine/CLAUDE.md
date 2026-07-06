@@ -763,6 +763,8 @@ Custom skills available in the project:
 | Skill | Description | Usage |
 |-------|-------------|-------|
 | `/ss-build` | **Build a screen the demo way — enforces the whole loop (lock → build → score → fix to ≥80 → then show). Use this instead of building UI free-hand.** | `/ss-build inventory dashboard` |
+| `/ss-dial` | Turn ONE design axis up/down as a deterministic transform (density/hierarchy/radius/elevation/color/weight/motion) — moves many tokens together, respects guardrails, re-gates | `/ss-dial density denser` |
+| `/ss-restyle` | Re-style to a named aesthetic (swiss/editorial/technical/warm-dtc/minimal-mono/brutalist-lite) — a coherent coordinate across the dial axes + font + signature, written to the lock | `/ss-restyle editorial` |
 | `/ss-setup` | Interactive setup wizard for new projects | `/ss-setup` |
 | `/ss-component` | Create a new component following design system rules | `/ss-component Button large CTA button` |
 | `/ss-page` | Scaffold a mobile page | `/ss-page Dashboard main dashboard` |
