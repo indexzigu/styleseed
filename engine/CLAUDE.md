@@ -10,8 +10,8 @@ The engine provides layout rules, components, and skills. The skin provides colo
  2. Single accent color (--brand) — everything else grayscale
  3. No pure black (#000) — darkest text is defined by skin (~#2A2A2A)
  4. Numbers 2:1 with units — 48px number + 24px unit, always
- 5. One spatial rhythm on the 8px grid — mobile: space-y-6 · mx-6 · px-6; desktop: same
-    principle via container + gap-6/gap-8 (don't mix off-grid one-offs)
+ 5. One spatial rhythm on the 6px grid (all spacing = multiples of 6px) — mobile: space-y-6 ·
+    mx-6 · px-6; desktop: same principle via container + gap-6/gap-9 (don't mix off-grid one-offs)
  6. Never repeat same section type consecutively — create visual rhythm
  7. Elevation, one language: LIGHT = layered shadows ≤ 8% opacity (if visible, too strong);
     DARK = shadows don't read — tonal surface ramp (page < card < raised) + hairline borders
@@ -68,12 +68,23 @@ design-lock file.** Before building any UI:
 - Imagery palette:   (optional) sand #E5CBAA · oak #D9B084 · charcoal #3A2E27  # locked content tones, not accents
 - Semantic resolve:  (if accent ≈ green/red) positive-progress uses accent; success reserved for confirmation moments
 - Signature move:    (optional) oversized serif index on the hero step ONLY  # one treatment, not a uniform (CC-9c)
+- Brand intent:                      # prose carries intent — tokens are context, not instructions
+  - Reference:      Toss home tab            # ONE concrete reference (product/era/artifact) — never bare adjectives
+  - Implied traits: flat surfaces · single hue + grey · generous whitespace   # 3 traits the reference implies — spell them out so every model tier reads it the same
+  - Never:          gradients · glassmorphism · decorative serif              # 3 negative constraints — what this design is NOT
+  - Feeling:        calm, in-control, scannable in 3 seconds
 - Locked:            2026-06-23
 ```
 
 Keep it short and human-editable. When the user later says "make it more X," update the lock
 *and* the UI so they never diverge. **The lock is what makes the result consistent across
 prompts** — without it, even perfect rules drift.
+
+**Why Brand intent works (concept ported from google-labs-code/design.md):** a specific
+reference carries more constraint than a dozen adjectives, and a strong reference implies its
+own "Never" list for free. But reference interpretation varies by model — so the lock always
+pairs the reference with its 3 implied traits as an explicit anchor. A reference alone is
+FORBIDDEN in the lock; adjectives alone ("modern, clean") are equally forbidden.
 
 ## Quick Setup — MANDATORY before building (consistency comes from constraints)
 
@@ -117,6 +128,9 @@ Run this setup with the user (in plan mode), then build:
    compact·calm · Arc → soft·expressive·airy·playful), let the user tweak in their words
    ("make the corners sharper", "more playful"), then **lock all four**. One mood → one radius,
    one shadow language, one density, one motion — applied everywhere.
+   Then capture **Brand intent**: ONE concrete reference (a product, era, or artifact — not
+   adjectives), the 3 traits it implies, 3 "Never" constraints, and a one-line feeling —
+   confirm with the user and write all of it into the lock (see the Brand intent template).
 3. **Accent (key color)** — recommend a domain-fit color or skin (see Smart defaults). If the
    user has a brand hex, use it. **One accent only; everything else greyscale.** Skins:
    Toss/Stripe/Linear/Notion/Raycast/Arc/Vercel.
@@ -163,7 +177,7 @@ demo was reviewed and fixed, not a first draft. **Never show the user UI that ha
 □ Color=meaning — normal/OK/"보통" rows are GREY; color marks only the minority that needs
                attention; no rainbow list; same value → same color  (§65, CL-2a)
 □ Hierarchy  — one clear primary per screen; numbers 2:1 with unit; sizes from the table
-□ Layout     — content in cards (not bare bg); 8px rhythm; gap-around-group > gap-inside
+□ Layout     — content in cards (not bare bg); 6px rhythm; gap-around-group > gap-inside
 □ States     — every data surface has empty + loading + error (not just the full state).
                Static mockup / marketing landing with no data surface → mark N/A, don't fail
 □ Copy       — buttons name the action ("Send $2,400" not "Submit"); errors help, not blame
@@ -365,8 +379,8 @@ escape the "default sans everything" look. Set both in the lock and `css/fonts.c
 
 ### Spacing
 - Uses Tailwind default utilities
-- **One base grid: 8px** (`p-2`/`p-4`/`p-6`/`p-8` — 4px allowed as a half-step for icon↔label gaps).
-  This matches VISUAL-CRAFT CR-1; don't mix in 6/10/14px one-offs (`p-1.5`, `gap-2.5`, `py-3.5`).
+- **One base grid: 6px** (`p-1.5`/`p-3`/`p-6`/`p-9` — all margin/padding/gap in multiples of 6px).
+  This matches VISUAL-CRAFT CR-1; don't mix in 8/10/14px one-offs (`p-2`, `gap-2.5`, `py-3.5`).
 - Page horizontal padding: `px-6` (24px)
 - Between sections: `space-y-6` (24px)
 

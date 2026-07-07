@@ -16,7 +16,7 @@ build any UI, dashboard, page, or component in this project, follow the rules be
  2. Single accent color (--brand) — everything else grayscale
  3. No pure black (#000) — darkest text is defined by the skin (~#2A2A2A)
  4. Numbers 2:1 with units — 48px number + 24px unit, always
- 5. One spatial rhythm on the 8px grid — mobile: space-y-6 · mx-6 · px-6; desktop: container + gap-6/gap-8
+ 5. One spatial rhythm on the 6px grid (all spacing = multiples of 6px) — mobile: space-y-6 · mx-6 · px-6; desktop: container + gap-6/gap-9
  6. Never repeat the same section type consecutively — create visual rhythm
  7. Elevation, one language: LIGHT = layered shadows ≤ 8%; DARK = tonal surface ramp + hairline borders (shadows don't read on dark)
  8. Touch targets ≥ 44×44px on touch surfaces; pointer-first desktop controls may be 36–40px (keep focus rings)
@@ -62,10 +62,21 @@ live only in chat memory and drift. Fix with a project design-lock file:
 - Radius personality: soft (12px)    # sharp 0-4 | soft 8-12 | pill — one everywhere
 - Motion seed:       Spring          # Spring | Silk | Snap | Float | Pulse
 - Type scale:        desktop (body 16-18px)   # mobile-tight | desktop-larger
+- Brand intent:                      # prose carries intent — tokens are context, not instructions
+  - Reference:      Toss home tab            # ONE concrete reference (product/era/artifact) — never bare adjectives
+  - Implied traits: flat surfaces · single hue + grey · generous whitespace   # 3 traits the reference implies — spell them out so every model tier reads it the same
+  - Never:          gradients · glassmorphism · decorative serif              # 3 negative constraints — what this design is NOT
+  - Feeling:        calm, in-control, scannable in 3 seconds
 ```
 
 When the user later says "make it more X," update the lock *and* the UI together. The lock is
 what keeps the result consistent across prompts — without it, even perfect rules drift.
+
+**Why Brand intent works (concept ported from google-labs-code/design.md):** a specific
+reference carries more constraint than a dozen adjectives, and a strong reference implies its
+own "Never" list for free. But reference interpretation varies by model — so the lock always
+pairs the reference with its 3 implied traits as an explicit anchor. A reference alone is
+FORBIDDEN in the lock; adjectives alone ("modern, clean") are equally forbidden.
 
 ## Quick Setup — MANDATORY before building (consistency comes from constraints)
 
@@ -89,6 +100,9 @@ regulation → **Toss `#3182F6`**; premium SaaS → **Stripe**; dev/dark → **L
    compact) · **Tone** → motion+saturation (calm · playful). Default from skin (Toss → soft·
    minimal·airy·calm; Linear → sharp·minimal·compact·calm), let the user tweak ("sharper
    corners"), lock all four. This is what makes it feel *chosen*, not defaulted.
+   Then capture **Brand intent**: ONE concrete reference (a product, era, or artifact — not
+   adjectives), the 3 traits it implies, 3 "Never" constraints, and a one-line feeling —
+   confirm with the user and write all of it into the lock (see the Brand intent template).
 3. **Accent (key color)** — a domain-fit color or skin (see Smart defaults), or the user's brand
    hex. **One accent only; everything else greyscale.**
 4. **Font** — recommend by skin/language, don't leave the default: Korean/CJK → Pretendard ·
@@ -115,7 +129,7 @@ between "looks generated" and "looks designed." Never show UI that hasn't passed
 □ Color=meaning — normal/OK/"보통" rows GREY; color only the minority needing attention; no
                rainbow list; same value → same color
 □ Hierarchy  — one clear primary; numbers 2:1 with unit
-□ Layout     — content in cards; 8px rhythm; gap-around-group > gap-inside
+□ Layout     — content in cards; 6px rhythm; gap-around-group > gap-inside
 □ States     — empty + loading + error on every data surface (static mockup / landing with no
                data surface → N/A, don't fail)
 □ Copy       — buttons name the action; errors help, not blame

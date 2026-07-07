@@ -589,7 +589,7 @@ Placing content directly on the page background without a card breaks the design
 ### Type D: Hero Card — Special Large Format
 ```
 ┌── mx-6 ──────────────────────────────────┐
-│  bg-card rounded-2xl p-8 shadow-card     │
+│  bg-card rounded-2xl p-9 shadow-card     │
 │  relative overflow-hidden                │
 │                                          │
 │  [background chart/watermark]            │
@@ -599,7 +599,7 @@ Placing content directly on the page background without a card breaks the design
 └──────────────────────────────────────────┘
 ```
 - **Use for**: hero revenue card
-- `p-8` (32px): more generous padding than standard cards
+- `p-9` (36px): more generous padding than standard cards
 - Transparent chart/icon watermark in background
 - No title, straight to metric
 
@@ -723,7 +723,7 @@ If existing pattern combinations cannot solve it, confirm with the user first.
 ✗ Placing dividers (hr, border-b, Separator) between sections
 ✗ Changing section gap to anything other than space-y-6
 ✗ Using left/right margin/padding other than mx-6/px-6
-✗ Changing card padding to anything other than p-6/p-8
+✗ Changing card padding to anything other than p-6/p-9
 ✗ Changing card radius to anything other than rounded-2xl
 ✗ Placing floating buttons above bottom nav
 ```
@@ -799,7 +799,7 @@ When building a new page from scratch, follow this order:
 ### Step 5: Layout Check
 - [ ] Are all section gaps space-y-6?
 - [ ] Single cards use mx-6, multiple use px-6?
-- [ ] Card padding is p-6 (hero only p-8)?
+- [ ] Card padding is p-6 (hero only p-9)?
 - [ ] Card radius is rounded-2xl?
 - [ ] No overlapping elements?
 
@@ -2628,7 +2628,7 @@ screen — otherwise keep one color.
 
 | Card Purpose | Padding | Internal Spacing | Resulting Height |
 |-------------|---------|-----------------|-----------------|
-| **Hero** | `p-8` (32px) | Generous `gap-3` | ~200px (tallest) |
+| **Hero** | `p-9` (36px) | Generous `gap-3` | ~200px (tallest) |
 | **Stat/KPI** | `p-6` (24px) | Tight `gap-2` | ~140px |
 | **Chart** | `p-6` (24px) | Chart `h-40` + stats | ~280px |
 | **List** | `p-6` (24px) | `space-y-3` items | ~200px (3 items) |

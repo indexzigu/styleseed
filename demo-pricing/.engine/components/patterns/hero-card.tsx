@@ -31,7 +31,7 @@ function HeroCard({
     <div
       data-slot="hero-card"
       className={cn(
-        "mx-6 rounded-2xl bg-card p-8 shadow-[var(--shadow-card)] relative overflow-hidden",
+        "mx-6 rounded-2xl bg-card p-9 shadow-[var(--shadow-card)] relative overflow-hidden",
         className,
       )}
       {...props}

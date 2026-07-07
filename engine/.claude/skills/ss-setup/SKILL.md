@@ -100,6 +100,17 @@ If they pick a brand (options 1-7 or 9):
 
 If they pick 8 (No thanks): skip, keep current brand color from Step 2.
 
+**Then, whatever they chose, distill a Brand intent** (goes into the lock in Step 5):
+- **Reference** — ONE concrete reference (the brand they picked, or a product/era/artifact
+  they name). Never bare adjectives like "modern, clean".
+- **Implied traits** — 3 concrete attributes that reference implies (e.g. Stripe →
+  "restrained color · dense type · precise borders"). Spelling these out anchors the
+  reference so every model/agent reads it the same way.
+- **Never** — 3 negative constraints the reference rules out (e.g. "no gradients ·
+  no glassmorphism · no decorative serif").
+- **Feeling** — one line: what the user should feel in 3 seconds.
+Confirm the four lines with the user in ONE message, then move on.
+
 ### Step 4: Font
 
 Ask:
@@ -161,6 +172,11 @@ Then:
    - Radius personality: [sharp | soft | pill — one everywhere]
    - Motion seed:       [Spring | Silk | Snap | Float | Pulse]
    - Type:              [Step 4 font]
+   - Brand intent:
+     - Reference:      [Step 3 reference — ONE concrete product/era/artifact]
+     - Implied traits: [3 attributes the reference implies]
+     - Never:          [3 negative constraints]
+     - Feeling:        [one line]
    - Locked:            [today]
    ```
    Tell the user this file is the source of truth — editing a value changes it project-wide,

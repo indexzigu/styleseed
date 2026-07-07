@@ -17,7 +17,7 @@ Follow the StyleSeed design language strictly. Full reference: https://github.co
 # Layout
 - Mobile-first, max-w-[430px], bg-surface-page.
 - Page structure: PageShell > TopBar > PageContent (space-y-6) > BottomNav.
-- 4 section types: Full Card (mx-6), Grid (px-6 grid-cols-2 gap-4), Carousel (px-6 flex gap-3 overflow-x-auto), Hero (mx-6 p-8).
+- 4 section types: Full Card (mx-6), Grid (px-6 grid-cols-2 gap-4), Carousel (px-6 flex gap-3 overflow-x-auto), Hero (mx-6 p-9).
 - Section spacing: space-y-6 between all sections. No section dividers.
 - Bottom padding: pb-24 for BottomNav clearance.
 

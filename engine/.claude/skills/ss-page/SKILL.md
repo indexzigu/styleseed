@@ -20,6 +20,8 @@ Description: $ARGUMENTS
 ## Instructions
 
 1. Read the design system reference:
+   - `STYLESEED.md` (project root) FIRST — the Design Lock incl. **Brand intent**; obey its
+     "Never" constraints in every section and keep the reference's implied traits visible
    - `CLAUDE.md` for file structure and conventions
    - `components/patterns/page-shell.tsx` for page layout
    - `components/patterns/top-bar.tsx` for header pattern
@@ -72,4 +74,5 @@ export default function PageName() {
    - [ ] Spacing uses 6px multiples (p-1.5, p-3, p-6)
    - [ ] `mx-6` for single cards, `px-6` for grids/carousels
    - [ ] Touch targets ≥ 44px on all interactive elements
+   - [ ] Brand intent respected — no "Never" violation, implied traits present (skip if no lock)
    If any violation is found, fix it before presenting the page to the user.
