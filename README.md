@@ -150,7 +150,7 @@ applies them every time:
 - **Tabular numbers** for anything that updates — no width jitter as values change
 - **Status color = severity only** — a "normal" row is grey; color marks the exception, never a rainbow list
 - **No emoji icons, and no Lucide-in-a-pale-chip on every card** (§CC-9b) — the two opposite AI icon tells
-- **8px spatial grid; gap-around-a-group > gap-inside it** — proximity that reads as structure
+- **6px spatial grid; gap-around-a-group > gap-inside it** — proximity that reads as structure
 - **Optical, not pixel, alignment** — nudge arrows/play glyphs; center type by cap-height
 - **Desktop body ≥16px, one focal point per screen** — the tight mobile scale and an all-even grid both read "machine-made"
 - **One radius personality · one icon set · one shadow language** — the coherence laws (§C0), the #1 fix for "looks AI-generated"

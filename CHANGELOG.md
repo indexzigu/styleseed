@@ -3,6 +3,45 @@
 All notable changes to StyleSeed. Agents can check the latest version at
 [version.json](https://styleseed-demo.vercel.app/version.json) and run `/ss-update`.
 
+## [2.10.0] — 2026-07-08
+
+**Theme: one grid, and a lock that carries intent.** The engine had two spacing canons living
+side by side — Golden Rule 5 and the Quality Gate said **8px grid**, while `.cursorrules` and
+`/ss-page` prescribed **6px multiples** (`p-1.5 · p-3 · p-6`). An agent reading both had a
+contradiction to resolve silently, and resolved it differently each time. **6px is now the
+single spatial canon everywhere.** And the Design Lock learns to carry *brand intent* as
+anchored prose, not just tokens.
+
+### Changed
+- **6px grid is the one spatial rhythm** (Golden Rule 5: "all spacing = multiples of 6px";
+  desktop pairing `gap-6/gap-9`; Quality Gate checks "6px rhythm"). Restated consistently in
+  CLAUDE.md's Spacing section (`p-1.5/p-3/p-6/p-9`), VISUAL-CRAFT §C0's spacing row and CR-1
+  (scale `{3, 6, 12, 18, 24, 30, 36, 48, 60, 72, 96}` — it maps 1:1 onto Tailwind's 1.5-step
+  utilities), the form ladder (CR-3), card padding tiers (CR-4, CC-7), icon↔label gap (CC-5),
+  field rhythm (CC-8), and grid gutters (CR-10).
+- **Hero card padding `p-8` → `p-9`** (32 → 36px) everywhere it was prescribed *and* shipped:
+  DESIGN-LANGUAGE Type D, `.cursorrules` section types, `/ss-feedback` error-state example,
+  and the `hero-card.tsx` component itself; `donut-chart-card.tsx` legend gap `gap-8` → `gap-9`.
+- **`/ss-dial` density ramp is now a clean 6px ladder** — airy 36 / comfortable 24 /
+  compact 18 / dense 12px (`p-9 · p-6 · p-4.5 · p-3`); guardrails updated to match.
+- **A11y minimums untouched by design**: ≥44px touch targets and the ≥8px gap between
+  adjacent touch targets stay as-is — that 8px is a WCAG spacing floor, not the layout grid.
+
+### Added
+- **Brand intent in the Design Lock** (concept ported from
+  [google-labs-code/design.md](https://github.com/google-labs-code/design.md)) — four fields:
+  **Reference** (ONE concrete product/era/artifact — never bare adjectives), **Implied
+  traits** (the 3 attributes the reference implies, spelled out so every model tier reads it
+  the same), **Never** (3 negative constraints), **Feeling** (one line). A specific reference
+  carries more constraint than a dozen adjectives and implies its own "Never" list for free —
+  but reference interpretation varies by model, so the lock always pairs the reference with
+  its implied traits as an explicit anchor. A reference alone is forbidden; adjectives alone
+  are equally forbidden.
+- **The skills capture and obey it**: Quick Setup step 2 and `/ss-setup` Step 3 distill the
+  four lines with the user and write them into the lock; `/ss-page` and `/ss-component` now
+  read `STYLESEED.md` **first** and obey its "Never" constraints; `/ss-page`'s post-generation
+  checklist verifies no "Never" violation and that the implied traits are present.
+
 ## [2.9.0] — 2026-07-08
 
 **Theme: motion is scoped by surface — stop banning what makes a landing page premium.** A blanket

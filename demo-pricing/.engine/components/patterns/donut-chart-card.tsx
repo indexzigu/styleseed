@@ -56,7 +56,7 @@ function DonutChartCard({
         {title}
       </h3>
 
-      <div className="flex items-center gap-8">
+      <div className="flex items-center gap-9">
         <div className="relative size-32 flex-shrink-0">
           {chartElement}
           {(centerValue !== undefined || centerLabel) && (

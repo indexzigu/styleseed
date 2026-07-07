@@ -1,6 +1,6 @@
 ---
 name: ss-dial
-description: Turn ONE design axis up or down as a coordinated, deterministic transform — "denser", "sharper corners", "more muted", "bolder", "flatter", "livelier". Not a vibe the model reinterprets each time; a defined ramp that moves many tokens together, respects the guardrails (8px grid, a11y floors, single accent, nested-radius), updates the lock, and re-runs the gate. Use this when a human saying "more X" would otherwise get an inconsistent one-off.
+description: Turn ONE design axis up or down as a coordinated, deterministic transform — "denser", "sharper corners", "more muted", "bolder", "flatter", "livelier". Not a vibe the model reinterprets each time; a defined ramp that moves many tokens together, respects the guardrails (6px grid, a11y floors, single accent, nested-radius), updates the lock, and re-runs the gate. Use this when a human saying "more X" would otherwise get an inconsistent one-off.
 argument-hint: "<axis> <direction>  — e.g. \"density denser\", \"radius sharper\", \"color more-muted\", \"weight bolder\""
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash
 ---
@@ -52,13 +52,13 @@ Ramp: `airy → comfortable → compact → dense`. The page gutter stays `px-6`
 
 | Position | Section `space-y` | Card padding | Grid `gap` | Body line-height | Type scale |
 |---|---|---|---|---|---|
-| **airy** | `space-y-10` | `p-8` | `gap-8` | `leading-relaxed` | one step up (desktop-larger) |
+| **airy** | `space-y-9` | `p-9` | `gap-9` | `leading-relaxed` | one step up (desktop-larger) |
 | **comfortable** | `space-y-6` | `p-6` | `gap-6` | `leading-normal` | surface default |
-| **compact** | `space-y-4` | `p-4` | `gap-4` | `leading-normal` | surface default, tighter headings |
-| **dense** | `space-y-4` | `p-4` | `gap-3` (12px half-step) | `leading-snug` on data | data-table scale |
+| **compact** | `space-y-4.5` | `p-4.5` | `gap-4.5` | `leading-normal` | surface default, tighter headings |
+| **dense** | `space-y-3` | `p-3` | `gap-3` | `leading-snug` on data | data-table scale |
 
-**Guardrails:** stay on the 8px grid (only `p-2/4/6/8`, `gap-*` on grid or the 4px half-step —
-never invent `p-5`/`gap-2.5`); **touch controls stay ≥ 44px even at `dense`** (shrink padding,
+**Guardrails:** stay on the 6px grid — a clean 36/24/18/12px ladder (`p-1.5/3/4.5/6/9`,
+`gap-*` in 6px multiples — never invent `p-5`/`gap-2.5`); **touch controls stay ≥ 44px even at `dense`** (shrink padding,
 not tap targets); body never drops below the surface floor (desktop 16px). Dense is for
 data-heavy surfaces; don't dense-ify a marketing landing.
 

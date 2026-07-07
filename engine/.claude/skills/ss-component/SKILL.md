@@ -20,6 +20,8 @@ Description: $ARGUMENTS
 ## Instructions
 
 1. First, read the design system seed for context:
+   - Read `STYLESEED.md` (project root) if it exists — the Design Lock incl. **Brand intent**;
+     obey its "Never" constraints and radius/motion personality
    - Read `CLAUDE.md` for component conventions
    - Read `css/theme.css` for available design tokens
    - Read `components/ui/button.tsx` as a reference pattern

@@ -1,10 +1,10 @@
 {
-  "version": "2.9.0",
+  "version": "2.10.0",
   "released": "2026-07-08",
   "rules": 74,
   "skills": 18,
   "skins": 7,
-  "whatsNew": "Motion is now scoped by surface. A blanket 'no scroll-linked / no parallax / no 3D / no animated gradients' was right for product surfaces (dashboards, data, forms — keep them calm) but wrong for the exact brand pages StyleSeed points to as best-in-class (family.co, stripe.com, linear.app) — those pages ARE scroll-choreographed. New Cinematic tier: on a marketing/landing/brand page, scroll-LINKED reveals, pinned sections, the 'product assembles as you scroll' move, subtle parallax, a 3D/tilt hero, animated gradient/video backgrounds, and rich hover are explicitly allowed — with guardrails (60fps transform/opacity only, never blocks the first read or the CTA, prefers-reduced-motion leaves a complete static page, one motion language). The distinction the old rule blurred: scroll-JACKING (hijacking scroll, trapping) stays banned everywhere; scroll-LINKED (native scroll drives it, user in control) is encouraged on brand pages. App surfaces keep the restraint — the bans got a surface, they didn't go away.",
+  "whatsNew": "One grid, and a lock that carries intent. The engine's two spacing canons (Golden Rule 5 said 8px; the component rules and skills said 6px multiples) are unified: 6px is now the single spatial grid everywhere — Golden Rule 5, the Quality Gate, VISUAL-CRAFT CR-1's scale, hero card padding (p-8 → p-9), and /ss-dial's density ramp (now a clean 36/24/18/12px ladder). A11y floors are untouched (≥44px touch targets, ≥8px between adjacent targets — that's WCAG spacing, not the grid). And the Design Lock gains Brand intent (concept ported from google-labs-code/design.md): Reference · Implied traits · Never · Feeling — ONE concrete reference anchored by the 3 traits it implies plus 3 negative constraints; a bare reference or bare adjectives are both forbidden. /ss-setup captures it, /ss-page and /ss-component read the lock first and obey it.",
   "update": "Run /ss-update, or: npx skills add bitjaru/styleseed",
   "changelog": "https://github.com/bitjaru/styleseed/releases",
   "repo": "https://github.com/bitjaru/styleseed"

@@ -37,7 +37,7 @@ of this table.
 | **Corner / radius** | One personality: **sharp 0–4px** · **soft 8–12px** · **pill 9999px**. Card, button, input, modal, image, avatar all obey it. | Sharp dialog + rounded buttons = "two products glued together." The #1 tell of un-designed UI. |
 | **Shadow** | One scale, one light source (**above-left**), one hue tint. A modal and a card use the *same* family, different tiers. | Mixed light directions / some-black-some-tinted = "scene with two suns." |
 | **Accent color** | **One** primary accent for interactive emphasis (+ semantic red/green/amber). One CTA color across the whole app. | Multiple accents → nothing reads as "the" action; hierarchy collapses. |
-| **Spacing unit** | One base grid: **8px** (4px allowed as a half-step for icon↔label). Every margin/padding/gap is a multiple. | Off-grid values (7, 13, 19px) read as "sloppy" without users knowing why. |
+| **Spacing unit** | One base grid: **6px** (3px allowed as a half-step for icon↔label). Every margin/padding/gap is a multiple. | Off-grid values (7, 13, 19px) read as "sloppy" without users knowing why. |
 | **Icon style** | One family, one fill mode (all outline **or** all filled), one stroke weight (e.g. **2px @ 24px**). | Mixing Material + Feather + emoji, or 1.5px and 2px strokes, looks "out of place." |
 | **Type scale** | One modular scale, ≤2 font families, one weight ramp. | Arbitrary sizes destroy rhythm; >2 families looks amateur. |
 | **Motion / easing** | One duration set (~150/200/300ms) + one easing family; same enter/exit logic everywhere. | Some snappy, some sluggish = feels like different apps. |
@@ -52,10 +52,11 @@ decision already made elsewhere in the product rather than inventing a new one.
 
 ## §C1 — Spacing & rhythm
 
-**CR-1 · Snap everything to one scale.** Use `{2, 4, 8, 12, 16, 24, 32, 40, 48, 64, 80, 96}`px.
-No arbitrary values (no 13px, no 7px). 8px base; 4px only as a half-step for
+**CR-1 · Snap everything to one scale.** Use `{3, 6, 12, 18, 24, 30, 36, 48, 60, 72, 96}`px.
+No arbitrary values (no 13px, no 7px). 6px base; 3px only as a half-step for
 icon↔text and tightly stacked small text. *Why: a constrained scale forces
-deliberate, repeatable layout; 8px divides cleanly across 1x/1.5x/2x/3x densities.*
+deliberate, repeatable layout; 6px maps 1:1 onto the Tailwind 1.5-step utilities
+(p-1.5 · p-3 · p-6 · p-9) the component rules prescribe.*
 ([Refactoring UI], [Material 3 Spacing], [IBM Carbon 2x Grid])
 
 **CR-2 · Proximity = relatedness.** The space *around* a group must be **≥ 2×** the
@@ -63,12 +64,12 @@ space *within* it. Uniform spacing everywhere is the #1 beginner failure — it
 destroys all grouping signal. *Why: Gestalt — the eye reads tight items as one unit,
 loose items as separate.* ([Refactoring UI "Avoid ambiguous spacing"])
 
-**CR-3 · The form spacing ladder.** label→input **4–8px** · field→field **12–16px** ·
-section→section **24–32px** mobile / **32–48px** desktop. Each tier ~doubles the last,
+**CR-3 · The form spacing ladder.** label→input **3–6px** · field→field **12–18px** ·
+section→section **24–36px** mobile / **36–48px** desktop. Each tier ~doubles the last,
 so hierarchy is unambiguous. ([Designary], [Atlassian Spacing])
 
-**CR-4 · Card padding by size.** compact **12–16px** · standard **16–24px** · large/marketing
-**24–32px** · hero **48–64px+**. And the outer margin between cards must be **≥** the
+**CR-4 · Card padding by size.** compact **12–18px** · standard **18–24px** · large/marketing
+**24–36px** · hero **48–60px+**. And the outer margin between cards must be **≥** the
 card's inner padding, so each card reads as self-contained. ([Refactoring UI], [UX Lab])
 
 **CR-5 · Start over-spaced, then reduce.** Designers under-space by default; "ample"
@@ -94,7 +95,7 @@ fixed heights it doesn't have. Repetition of the spacing scale creates rhythm; a
 baseline grid does not. ([Imperavi Vertical Rhythm])
 
 **CR-10 · Everything lines up to something.** Establish a small set of shared
-left/right edges (a 12-col grid, 16px gutters) and align all content to them. Apply
+left/right edges (a 12-col grid, 18px gutters) and align all content to them. Apply
 *optical* (not pixel) alignment for weighted glyphs: nudge arrow/play icons, trim
 the icon-side padding of icon-buttons, center type by cap-height. ([IBM Carbon], [Liferay Optical Alignment])
 
@@ -177,14 +178,14 @@ corner "bulges" past the outer arc.* Apple's Liquid Glass formalizes this. ([Clo
 
 ### Buttons
 **CC-5 · Heights 36 / 40 / 44–48px;** touch target ≥ **44px** (iOS) / **48dp** (Android).
-Horizontal padding ≈ **2× vertical**, on grid. Icon+label gap **8px** (4px dense). ([Justinmind], [Apple HIG])
+Horizontal padding ≈ **2× vertical**, on grid. Icon+label gap **6px** (3px dense). ([Justinmind], [Apple HIG])
 
 **CC-6 · One primary button per view.** Hierarchy by **contrast** (filled → outline →
 ghost), never by size. Destructive is red but **never** more prominent than the
 primary. All buttons in a row share one height. ([Cieden Button Hierarchy], [Carbon])
 
 ### Cards
-**CC-7 · Padding 16 / 24 / 32px** equal on all sides; radius obeys the system
+**CC-7 · Padding 18 / 24 / 36px** equal on all sides; radius obeys the system
 personality and the nested law for inner media/buttons. **Border XOR shadow, never
 both** — flat/dense UI uses a 1px border (elevation 0); standalone/floating uses a soft
 shadow (elevation 1). Hover on an interactive card = raise **one** elevation tier over
@@ -195,7 +196,7 @@ shadow (elevation 1). Hover on an interactive card = raise **one** elevation tie
 field (top-aligned scans fastest); **labels never vanish** (no placeholder-as-label).
 Focus ring **≥2px, 3:1 contrast**, visible on light *and* dark (WCAG 2.2). Errors
 **never color alone**: red border + icon + a message saying what's wrong and how to fix
-it. Rhythm: 8px label→field, 4px field→helper, 16–24px between fields. ([UX Collective Text Fields], [WCAG 2.2])
+it. Rhythm: 6px label→field, 3px field→helper, 18–24px between fields. ([UX Collective Text Fields], [WCAG 2.2])
 
 ### Icons
 **CC-9 · One family, one fill mode, one stroke weight** (typically **2px @ 24px**).

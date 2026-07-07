@@ -62,7 +62,7 @@ Rules:
 
 ### State 3: Error (Load Failed)
 ```tsx
-<div className="flex flex-col items-center justify-center py-8 text-center">
+<div className="flex flex-col items-center justify-center py-9 text-center">
   <AlertCircle className="size-8 text-destructive mb-3" />
   <p className="text-[14px] text-text-secondary mb-4">Couldn't load the data</p>
   <Button variant="brandGhost" size="sm" onClick={retry}>Try again</Button>
