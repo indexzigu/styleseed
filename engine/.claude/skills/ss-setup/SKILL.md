@@ -42,6 +42,13 @@ What type of app are you building?
 
 Remember the answer — it determines which page composition recipe to use (DESIGN-LANGUAGE.md Section 63).
 
+Then ask the **surface** (same message is fine):
+```
+Is this primarily a mobile app or a desktop/web (B2B) product?
+```
+The surface decides the type scale (Golden Rule 16: desktop/web B2B body ≥16px,
+mobile-tight allows 14px) — record it for the lock.
+
 ### Step 2: Brand Color
 
 Ask:
@@ -109,7 +116,11 @@ If they pick 8 (No thanks): skip, keep current brand color from Step 2.
 - **Never** — 3 negative constraints the reference rules out (e.g. "no gradients ·
   no glassmorphism · no decorative serif").
 - **Feeling** — one line: what the user should feel in 3 seconds.
-Confirm the four lines with the user in ONE message, then move on.
+In the SAME confirmation message, also propose the **Mood** (4 axes with defaults from
+the chosen skin: Edges sharp/soft/pill · Feel minimal/expressive · Density airy/compact ·
+Tone calm/playful) and the **Motion seed** derived from Tone (calm → Silk or Spring,
+playful → Pulse; skin default wins: Toss → Spring, Stripe/Notion → Silk, Linear → Snap).
+Confirm everything in ONE message, then move on.
 
 ### Step 4: Font
 
@@ -167,11 +178,14 @@ Then:
    # StyleSeed — Design Lock
    <!-- Locked design decisions. The agent re-reads this every prompt and must obey it. -->
    - App domain:        [Step 1 app type]
+   - Surface:           [mobile-app | desktop-web (B2B) — from Step 1]
+   - Mood:              [edges · feel · density · tone — from Step 3, e.g. soft · minimal · airy · calm]
    - Skin:              [Step 3 concept, or "custom"]
    - Key color (accent): [Step 2 hex]    # the ONLY accent — everything else greyscale
    - Radius personality: [sharp | soft | pill — one everywhere]
-   - Motion seed:       [Spring | Silk | Snap | Float | Pulse]
-   - Type:              [Step 4 font]
+   - Motion seed:       [Spring | Silk | Snap | Float | Pulse — from Step 3 Tone]
+   - Font:              [Step 4 font]
+   - Type scale:        [mobile-tight | desktop (body 16-18px) — from Surface]
    - Brand intent:
      - Reference:      [Step 3 reference — ONE concrete product/era/artifact]
      - Implied traits: [3 attributes the reference implies]

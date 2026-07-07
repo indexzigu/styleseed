@@ -21,9 +21,10 @@ Automatically detect and update StyleSeed files in the current project.
 
 Updating is **safe and reversible**. Updates are additive — new rules,
 components, skins, and skills get added; your `theme.css`, your components, and
-your app code are never overwritten, and design rules only ever get added (never
-changed in a breaking way). A big version jump looks like a lot changed, but
-it's almost all additions. **Do NOT warn the user that the build will break**
+your app code are never overwritten, and design rules almost only ever get added.
+Rarely an existing rule VALUE is corrected (e.g. the 2026-07 grid-unit fix, 8px → 6px);
+those are surfaced one-by-one in the Step 4 changed-rule gate — never applied silently.
+A big version jump looks like a lot changed, but it's almost all additions. **Do NOT warn the user that the build will break**
 unless you actually find a changed component/import API. Tell them: commit first,
 copy the new rules + skills, run a build, and `git reset --hard` if anything is
 off — they can't permanently break their project.
@@ -115,6 +116,12 @@ For each update, in order:
 
 For DESIGN-LANGUAGE.md:
 - Show diff summary: how many new rules, what sections added
+- **Changed-rule gate (design-diff):** diff the Golden Rules and enforcement values
+  (grid unit, radius scale, type minimums, accent policy) specifically. Any rule that
+  CHANGED (not merely added) gets its own ⚠️ line — old value → new value → what it
+  re-flags in this project — and a per-item OK before applying. A changed enforcement
+  value can flip existing passing screens to failing, so it is never bundled into a
+  blanket "Y".
 - Ask: "Update DESIGN-LANGUAGE.md? (Y/N)"
 - If yes: copy to the detected location
 
