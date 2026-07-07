@@ -20,6 +20,8 @@ cp skins/toss/theme.css skins/[brand]/theme.css
 
 # 4. Replace --brand and color values with the brand's palette
 # (found in the "Color Palette & Roles" section of DESIGN.md)
+# Keep --brand-foreground ≥ 4.5:1 on the new --brand (white on a dark brand,
+# dark ink on a light brand) — verify with the /ss-lint contrast script.
 ```
 
 ## Available Brands

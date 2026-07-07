@@ -57,7 +57,7 @@ function ChartCard({
                 className={cn(
                   "px-4 py-1.5 text-[11px] font-semibold rounded-full transition-all",
                   activePeriod === period
-                    ? "bg-brand text-white shadow-sm"
+                    ? "bg-brand text-brand-foreground shadow-sm"
                     : "text-text-tertiary",
                 )}
               >

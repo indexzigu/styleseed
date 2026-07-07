@@ -5,6 +5,7 @@
 
   /* === CUSTOMIZE: Brand Colors === */
   --brand: #5e6ad2;
+  --brand-foreground: #ffffff;
   --primary: #171717;
   --primary-foreground: #ffffff;
 
@@ -20,7 +21,7 @@
   --secondary: #f3f4f5;
   --secondary-foreground: #171717;
   --muted: #e6e6e6;
-  --muted-foreground: #8a8f98;
+  --muted-foreground: #70757f;
   --accent: #f3f4f5;
   --accent-foreground: #171717;
 
@@ -124,6 +125,7 @@
 
   /* === Key Color & Status (brightened for dark mode) === */
   --brand: #7170ff;
+  --brand-foreground: #08090a;
   --primary: #f7f8f8;
   --primary-foreground: #08090a;
   --secondary: #191a1b;
@@ -193,6 +195,7 @@
   --color-destructive-tint: color-mix(in srgb, var(--destructive) 14%, var(--card));
   --color-info-tint: color-mix(in srgb, var(--info) 14%, var(--card));
   --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
   --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
   --color-warning: var(--warning);

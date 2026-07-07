@@ -8,3 +8,4 @@ dist/
 # Promo & blog (local only)
 showcase/PROMO*.md
 showcase/blog-*.md
+__pycache__/

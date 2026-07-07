@@ -51,7 +51,7 @@ function RankedList({
                 className={cn(
                   "size-8 rounded-lg flex items-center justify-center text-[12px] font-bold",
                   item.isHighlighted
-                    ? "bg-brand text-white"
+                    ? "bg-brand text-brand-foreground"
                     : "bg-surface-muted text-text-tertiary",
                 )}
               >
@@ -67,7 +67,7 @@ function RankedList({
                   {item.name}
                 </p>
                 {item.badge && (
-                  <span className="px-2 py-0.5 bg-brand text-white text-[9px] font-bold rounded uppercase tracking-wider">
+                  <span className="px-2 py-0.5 bg-brand text-brand-foreground text-[9px] font-bold rounded uppercase tracking-wider">
                     {item.badge}
                   </span>
                 )}

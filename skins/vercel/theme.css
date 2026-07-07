@@ -5,6 +5,7 @@
 
   /* === CUSTOMIZE: Brand Colors === */
   --brand: #171717;
+  --brand-foreground: #ffffff;
   --primary: #171717;
   --primary-foreground: #ffffff;
 
@@ -25,7 +26,7 @@
   --accent-foreground: #171717;
 
   /* === Status Colors === */
-  --destructive: #ff5b4f;
+  --destructive: #dc2626;
   --destructive-foreground: #ffffff;
   --success: #0a72ef;
   --success-foreground: #ffffff;
@@ -46,7 +47,7 @@
   --surface-subtle: #fafafa;
   --surface-muted: #ebebeb;
   --brand-tint: #f5f5f5;
-  --alert-badge: #ff5b4f;
+  --alert-badge: #dc2626;
 
   /* === Borders & Inputs === */
   --border: #ebebeb;
@@ -124,12 +125,13 @@
 
   /* === Key Color & Status (brightened for dark mode) === */
   --brand: #ffffff;
+  --brand-foreground: #0a0a0a;
   --primary: #ededed;
   --primary-foreground: #0a0a0a;
   --secondary: #1a1a1a;
   --secondary-foreground: #ededed;
   --muted: #1a1a1a;
-  --muted-foreground: #777777;
+  --muted-foreground: #7f7f7f;
   --accent: #1a1a1a;
   --accent-foreground: #ededed;
   --destructive: #ff6b61;
@@ -193,6 +195,7 @@
   --color-destructive-tint: color-mix(in srgb, var(--destructive) 14%, var(--card));
   --color-info-tint: color-mix(in srgb, var(--info) 14%, var(--card));
   --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
   --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
   --color-warning: var(--warning);

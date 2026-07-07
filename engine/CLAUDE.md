@@ -228,6 +228,7 @@ Modify in `:root` of `src/styles/theme.css`:
 | Variable | Purpose | Default |
 |----------|---------|---------|
 | `--brand` | Brand accent color | Defined by skin (e.g. `#721FE5` for toss) |
+| `--brand-foreground` | Label on brand surfaces (buttons/chips) — components use `text-brand-foreground`, never hardcoded white | `#FFFFFF` (skins with a light brand use dark ink) |
 | `--primary` | Buttons, links, primary UI | `#030213` |
 | `--destructive` | Error/danger | `#d4183d` |
 | `--success` | Success indicator | `#6B9B7A` |
@@ -776,6 +777,7 @@ Exact contrast ratios depend on your skin's color values. Verify your skin meets
 | `--foreground` | 7:1+ | Body text |
 | `--muted-foreground` | 4.5:1+ | Secondary text |
 | `--brand` | 4.5:1+ | Accent (verify with your brand color) |
+| `--brand-foreground` | 4.5:1+ vs `--brand` | Button/chip labels on brand |
 | `--destructive` | 4.5:1+ | Error |
 | `--warning` | 4.5:1+ | Warning text |
 | `--success` | 3:1+ | Large text/icons only |

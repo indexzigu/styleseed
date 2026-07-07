@@ -66,8 +66,10 @@ function ConfirmModal({
             <button
               onClick={onConfirm}
               className={cn(
-                "flex-1 h-11 rounded-full text-[16px] font-semibold text-white active:opacity-85 transition-colors duration-150",
-                variant === "destructive" ? "bg-destructive" : "bg-brand",
+                "flex-1 h-11 rounded-full text-[16px] font-semibold active:opacity-85 transition-colors duration-150",
+                variant === "destructive"
+                  ? "bg-destructive text-destructive-foreground"
+                  : "bg-brand text-brand-foreground",
               )}
             >
               {confirmText}

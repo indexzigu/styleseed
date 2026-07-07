@@ -4,8 +4,9 @@
   --font-size: 16px;
 
   /* === CUSTOMIZE: Brand Colors === */
-  --brand: #FF5E7E;
-  --primary: #FF5E7E;
+  --brand: #e11d48;
+  --brand-foreground: #FFFFFF;
+  --primary: #e11d48;
   --primary-foreground: #FFFFFF;
 
   /* === Arc signature rainbow gradient === */
@@ -30,7 +31,7 @@
   --accent-foreground: #1A1A1A;
 
   /* === Status Colors === */
-  --destructive: #FF5E7E;
+  --destructive: #e11d48;
   --destructive-foreground: #FFFFFF;
   --success: #4ECDC4;
   --success-foreground: #FFFFFF;
@@ -51,7 +52,7 @@
   --surface-subtle: #F5F2ED;
   --surface-muted: #EFECE6;
   --brand-tint: rgba(255, 94, 126, 0.1);
-  --alert-badge: #FF5E7E;
+  --alert-badge: #e11d48;
 
   /* === Borders & Inputs === */
   --border: rgba(26, 26, 26, 0.08);
@@ -96,7 +97,7 @@
   /* === Sidebar === */
   --sidebar: #FFFFFF;
   --sidebar-foreground: #1A1A1A;
-  --sidebar-primary: #FF5E7E;
+  --sidebar-primary: #e11d48;
   --sidebar-primary-foreground: #FFFFFF;
   --sidebar-accent: #F7F4EF;
   --sidebar-accent-foreground: #1A1A1A;
@@ -127,6 +128,7 @@
   --color-destructive-tint: color-mix(in srgb, var(--destructive) 14%, var(--card));
   --color-info-tint: color-mix(in srgb, var(--info) 14%, var(--card));
   --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
   --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
   --color-warning: var(--warning);
