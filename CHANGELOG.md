@@ -26,6 +26,15 @@ anchored prose, not just tokens.
   compact 18 / dense 12px (`p-9 · p-6 · p-4.5 · p-3`); guardrails updated to match.
 - **A11y minimums untouched by design**: ≥44px touch targets and the ≥8px gap between
   adjacent touch targets stay as-is — that 8px is a WCAG spacing floor, not the layout grid.
+- **`/ss-setup`'s lock template caught up with the engine lock** (the two templates had
+  drifted): Step 1 now also asks the **surface** (mobile app vs desktop/web B2B — it decides
+  the type scale, Golden Rule 16), Step 3's Brand-intent confirmation also proposes the
+  **Mood** (4 axes: edges · feel · density · tone, defaults from the chosen skin) and derives
+  the **Motion seed** from Tone; the written lock gains **Surface / Mood / Type scale** fields
+  and renames **Type → Font**, matching CLAUDE.md's Design Lock template.
+- **`/ss-update` stops over-promising immutability**: update copy now says rules *almost*
+  only ever get added — rarely an existing rule VALUE is corrected (e.g. this release's
+  8px → 6px grid fix), and those go through the new changed-rule gate below.
 
 ### Added
 - **Brand intent in the Design Lock** (concept ported from
@@ -41,6 +50,20 @@ anchored prose, not just tokens.
   four lines with the user and write them into the lock; `/ss-page` and `/ss-component` now
   read `STYLESEED.md` **first** and obey its "Never" constraints; `/ss-page`'s post-generation
   checklist verifies no "Never" violation and that the implied traits are present.
+- **WCAG token-contrast lint** (`/ss-lint` check 9) — a bundled deterministic checker
+  (`scripts/contrast_check.py`, Python stdlib only) parses `:root` + `.dark` custom
+  properties (hex / `rgb()` / `hsl()` / `oklch()`), resolves `var()` chains, and verifies
+  the standard token pairs in BOTH scopes: body & muted text on background/card ≥ 4.5:1,
+  brand UI on page ≥ 3:1, label on brand/destructive button ≥ 4.5:1. LLMs are told to run
+  it, never to compute WCAG luminance by mental arithmetic — the gamma math is exactly
+  where they slip. Alpha/`color-mix()` values are reported as SKIP, never silently passed;
+  `--self-test` verifies the math.
+- **Changed-rule gate in `/ss-update`** — the DESIGN-LANGUAGE update step now diffs the
+  Golden Rules and enforcement values (grid unit, radius scale, type minimums, accent
+  policy) specifically; any rule that CHANGED (not merely added) gets its own ⚠️ line —
+  old value → new value → what it re-flags in this project — and a per-item OK before
+  applying. A changed enforcement value can flip existing passing screens to failing, so
+  it is never bundled into a blanket "Y".
 
 ## [2.9.0] — 2026-07-08
 
