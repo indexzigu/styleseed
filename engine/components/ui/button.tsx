@@ -9,9 +9,9 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // 토스 스타일: brandSolid — 키컬러 배경, 흰 텍스트
+        // 토스 스타일: brandSolid — 키컬러 배경, 스킨이 정한 라벨색(--brand-foreground)
         default:
-          "bg-brand text-white active:bg-brand/85 disabled:bg-surface-muted disabled:text-text-disabled",
+          "bg-brand text-brand-foreground active:bg-brand/85 disabled:bg-surface-muted disabled:text-text-disabled",
         // neutralSolid — 어두운 배경, 흰 텍스트
         neutral:
           "bg-[#2A2A2A] text-white active:bg-[#3C3C3C] disabled:bg-surface-muted disabled:text-text-disabled dark:bg-[#E0E0E0] dark:text-[#121212] dark:active:bg-[#C0C0C0]",
@@ -20,7 +20,7 @@ const buttonVariants = cva(
           "bg-[#F3F4F5] text-text-primary active:bg-[#EAEBEC] disabled:bg-surface-muted disabled:text-text-disabled dark:bg-[#2B2E35] dark:text-[#E0E0E0] dark:active:bg-[#393D46]",
         // criticalSolid — 위험 액션
         destructive:
-          "bg-destructive text-white active:bg-destructive/85 focus-visible:ring-destructive/20 disabled:bg-surface-muted disabled:text-text-disabled",
+          "bg-destructive text-destructive-foreground active:bg-destructive/85 focus-visible:ring-destructive/20 disabled:bg-surface-muted disabled:text-text-disabled",
         // outline — 테두리만
         outline:
           "border border-border bg-transparent text-text-primary active:bg-surface-muted/50 disabled:border-surface-muted disabled:text-text-disabled dark:border-white/8",

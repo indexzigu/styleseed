@@ -96,7 +96,8 @@ python3 "$(dirname "$SKILL_MD")/scripts/contrast_check.py" css/theme.css
 It parses `:root` + `.dark` custom properties (hex / rgb() / hsl() / oklch()),
 resolves `var()` chains, and checks the standard pairs in BOTH scopes:
 body & muted text on background/card ≥ 4.5:1 · brand UI on page ≥ 3:1 ·
-label on brand/destructive button ≥ 4.5:1.
+label on brand/primary/destructive controls ≥ 4.5:1 (brand-foreground —
+or the hardcoded white that pre-2.9 components used — on brand, etc.).
 **Violation:** any `🔴 FAIL` line (exit code 1).
 **Fix:** darken/lighten the failing token in `theme.css` — adjust the token, never
 the component. `🟡 SKIP` lines (alpha compositing, `color-mix()`) are NOT passes:

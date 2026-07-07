@@ -35,6 +35,24 @@ anchored prose, not just tokens.
 - **`/ss-update` stops over-promising immutability**: update copy now says rules *almost*
   only ever get added — rarely an existing rule VALUE is corrected (e.g. this release's
   8px → 6px grid fix), and those go through the new changed-rule gate below.
+- **Button/chip labels are tokenized — no more hardcoded white.** `button.tsx` (default +
+  destructive variants), `confirm-modal.tsx`, `chart-card.tsx`'s period toggle, and
+  `ranked-list.tsx` now use `text-brand-foreground` / `text-destructive-foreground`, and
+  DESIGN-LANGUAGE's nine `bg-brand + text-white` prescriptions follow. This fixes a real
+  shipped bug: vercel's dark scope has a **white** brand, so brand buttons rendered
+  white-on-white (1.0:1). Skins already carried scope-adaptive foreground tokens — the
+  hardcode was ignoring them.
+- **All seven skins now pass their own WCAG floors** (the new `/ss-lint` check 9 runs
+  clean on every skin, both scopes). Every skin gains `--brand-foreground` (+ its
+  `@theme` mapping): white where the brand is dark, the skin's ink where it's light
+  (linear/notion/toss/vercel dark scopes, raycast). Muted text nudged to ≥ 4.5:1
+  (linear light `#8a8f98→#70757f`, notion dark `#7a7672→#908c88`, toss dark
+  `#808080→#868686`, vercel dark `#777777→#7f7f7f`). Light-scope destructive darkened to
+  hold its white label (notion `#dd5b00→#c65200`, + warning to match; stripe
+  `#ea2261→#e41657`; vercel `#ff5b4f→#dc2626`; alert-badge follows destructive). Arc's
+  single pink was under every floor (2.94:1 even as plain text), so brand/primary/
+  destructive/alert-badge move `#FF5E7E→#e11d48`; raycast keeps its pink and flips labels
+  to dark ink instead. Chart/gradient palettes untouched — data-viz, not text-bearing.
 
 ### Added
 - **Brand intent in the Design Lock** (concept ported from
@@ -57,7 +75,14 @@ anchored prose, not just tokens.
   brand UI on page ≥ 3:1, label on brand/destructive button ≥ 4.5:1. LLMs are told to run
   it, never to compute WCAG luminance by mental arithmetic — the gamma math is exactly
   where they slip. Alpha/`color-mix()` values are reported as SKIP, never silently passed;
-  `--self-test` verifies the math.
+  `--self-test` verifies the math. The pair table checks what components actually render:
+  brand-foreground (or the hardcoded white of pre-2.9 components) on brand,
+  primary-foreground on primary (badge/tooltip/checkbox) — never primary-foreground on
+  brand, which no component renders.
+- **`/ss-update` migrates the new token** — if the updated components reference
+  `brand-foreground` and the project's theme.css lacks it, the update offers an ADDITIVE
+  append (value picked by contrast against the project's `--brand`); the only permitted
+  theme.css touch, and only with the user's OK.
 - **Changed-rule gate in `/ss-update`** — the DESIGN-LANGUAGE update step now diffs the
   Golden Rules and enforcement values (grid unit, radius scale, type minimums, accent
   policy) specifically; any rule that CHANGED (not merely added) gets its own ⚠️ line —

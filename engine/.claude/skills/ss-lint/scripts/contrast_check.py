@@ -138,15 +138,20 @@ def _resolve(name, scope, depth=0):
 
 # ---------- pair table ----------
 
-# (role_fg candidates, role_bg candidates, min ratio, label)
+# (role_fg candidates — token names or '#literal', role_bg candidates, min ratio, label)
+# The fg candidates mirror what StyleSeed components actually render: buttons/chips put
+# brand-foreground (older skins: hardcoded white) on brand/destructive, and badge/tooltip/
+# checkbox put primary-foreground on primary. Don't pair primary-foreground with brand —
+# no component renders that combination.
 PAIRS = [
     (["foreground", "text-primary"], ["background"], 4.5, "body text on page"),
     (["foreground", "text-primary"], ["card"], 4.5, "body text on card"),
     (["muted-foreground", "text-secondary"], ["background"], 4.5, "muted text on page"),
     (["muted-foreground", "text-secondary"], ["card"], 4.5, "muted text on card"),
     (["brand", "primary"], ["background"], 3.0, "brand UI on page (3:1 non-text)"),
-    (["brand-foreground", "primary-foreground"], ["brand", "primary"], 4.5, "label on brand button"),
-    (["destructive-foreground"], ["destructive"], 4.5, "label on destructive"),
+    (["brand-foreground", "#ffffff"], ["brand"], 4.5, "label on brand button"),
+    (["primary-foreground"], ["primary"], 4.5, "label on primary (badge/tooltip)"),
+    (["destructive-foreground", "#ffffff"], ["destructive"], 4.5, "label on destructive"),
 ]
 
 
@@ -170,22 +175,24 @@ def check_file(path):
     fails, skipped, checked = 0, 0, 0
     for scope_name, scope in scopes:
         for fg_names, bg_names, minimum, label in PAIRS:
-            fg_name = next((n for n in fg_names if n in scope), None)
+            fg_name = next((n for n in fg_names if n.startswith("#") or n in scope), None)
             bg_name = next((n for n in bg_names if n in scope), None)
             if not fg_name or not bg_name:
                 continue  # pair not present in this theme — not an error
-            fg_val, bg_val = _resolve(fg_name, scope), _resolve(bg_name, scope)
+            fg_val = fg_name if fg_name.startswith("#") else _resolve(fg_name, scope)
+            bg_val = _resolve(bg_name, scope)
+            fg_disp = fg_name if fg_name.startswith("#") else "--" + fg_name
             try:
                 ratio = contrast(luminance(fg_val), luminance(bg_val))
             except (ValueError, TypeError) as e:
                 skipped += 1
-                print("🟡 SKIP [%s] %s (--%s on --%s): %s" % (scope_name, label, fg_name, bg_name, e))
+                print("🟡 SKIP [%s] %s (%s on --%s): %s" % (scope_name, label, fg_disp, bg_name, e))
                 continue
             checked += 1
             mark = "🟢 PASS" if ratio >= minimum else "🔴 FAIL"
             fails += 0 if ratio >= minimum else 1
-            print("%s [%s] %s: --%s on --%s = %.2f:1 (min %.1f)"
-                  % (mark, scope_name, label, fg_name, bg_name, ratio, minimum))
+            print("%s [%s] %s: %s on --%s = %.2f:1 (min %.1f)"
+                  % (mark, scope_name, label, fg_disp, bg_name, ratio, minimum))
     print("Contrast: %d checked, %d failed, %d skipped" % (checked, fails, skipped))
     return 1 if fails else 0
 

@@ -125,13 +125,22 @@ For DESIGN-LANGUAGE.md:
 - Ask: "Update DESIGN-LANGUAGE.md? (Y/N)"
 - If yes: copy to the detected location
 
+For theme.css — `--brand-foreground` (v2.9 components reference it):
+- If the updated components use `text-brand-foreground` but the project's theme.css
+  has no `--brand-foreground`, offer to APPEND it (one line per scope + the
+  `--color-brand-foreground: var(--brand-foreground);` mapping in `@theme inline`).
+  Pick the value by contrast: white if it reaches ≥ 4.5:1 on the project's `--brand`
+  (run the `/ss-lint` contrast script to verify), otherwise the skin's darkest ink.
+  This is ADDITIVE only — never modify existing token values.
+
 For CLAUDE.md (Golden Rules):
 - Check if Golden Rules section already exists
 - If not: ask "Add Golden Rules section to your CLAUDE.md? This adds 10 lines at the top. Your existing content stays untouched."
 - If yes: insert Golden Rules after the first heading
 
 **Never touch:**
-- theme.css — say "Your theme.css (skin) is untouched."
+- theme.css — say "Your theme.css (skin) is untouched." (Sole exception: the additive
+  `--brand-foreground` append above, and only with the user's OK.)
 - components/ — say "Your components are untouched. Run `/ss-lint` to check compliance."
 
 ### Step 5: Summary

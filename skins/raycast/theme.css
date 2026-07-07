@@ -5,8 +5,9 @@
 
   /* === CUSTOMIZE: Brand Colors === */
   --brand: #FF4E8B;
+  --brand-foreground: #0A0A0A;
   --primary: #FF4E8B;
-  --primary-foreground: #FFFFFF;
+  --primary-foreground: #0A0A0A;
 
   /* === Raycast signature gradient === */
   --gradient-brand: linear-gradient(135deg, #FF6363 0%, #FF8E3C 30%, #E84A8E 65%, #A855F7 100%);
@@ -30,7 +31,7 @@
 
   /* === Status Colors === */
   --destructive: #FF5C5C;
-  --destructive-foreground: #FFFFFF;
+  --destructive-foreground: #0A0A0A;
   --success: #4ADE80;
   --success-foreground: #0A0A0A;
   --warning: #FBBF24;
@@ -127,6 +128,7 @@
   --color-destructive-tint: color-mix(in srgb, var(--destructive) 14%, var(--card));
   --color-info-tint: color-mix(in srgb, var(--info) 14%, var(--card));
   --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
   --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
   --color-warning: var(--warning);

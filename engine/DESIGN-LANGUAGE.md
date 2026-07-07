@@ -400,7 +400,7 @@ Rules:
 Normal row:   bg-surface-subtle (#FAFAF9)
 My row:       bg-brand-tint (#F0E8FF) + border-2 border-brand
 Normal rank:  bg-surface-muted (#E8E6E1) + text-text-tertiary
-My rank:      bg-brand + text-white
+My rank:      bg-brand + text-brand-foreground
 Normal name:  text-text-primary (#3C3C3C)
 My name:      text-brand
 ```
@@ -427,14 +427,14 @@ If there are 2-4 options, use a **Pill toggle**. If 5 or more, **separate into a
 ### Pattern 1: Capsule Pill Toggle
 ```
 Container:     bg-surface-muted rounded-full p-1
-Active button: bg-brand text-white rounded-full shadow
+Active button: bg-brand text-brand-foreground rounded-full shadow
 Inactive:      text-text-disabled (#9B9B9B)
 ```
 
 | Property | Active | Inactive |
 |----------|--------|----------|
 | Background | `bg-brand` | transparent |
-| Text | `text-white` | `text-text-disabled` |
+| Text | `text-brand-foreground` | `text-text-disabled` |
 | Corners | `rounded-full` | `rounded-full` |
 | Shadow | `shadow-sm` | none |
 | Size | 11px bold | 11px bold |
@@ -442,7 +442,7 @@ Inactive:      text-text-disabled (#9B9B9B)
 
 ```tsx
 <div className="flex gap-1 bg-surface-muted p-1 rounded-full">
-  <button className="px-4 py-1.5 text-[11px] font-bold rounded-full bg-brand text-white shadow-sm">
+  <button className="px-4 py-1.5 text-[11px] font-bold rounded-full bg-brand text-brand-foreground shadow-sm">
     1W
   </button>
   <button className="px-4 py-1.5 text-[11px] font-bold rounded-full text-text-disabled">
@@ -942,7 +942,7 @@ Applies to: hero metrics, KPI metrics, list amounts, chart prices, donut center,
 | TopBar icon button | Tap | Shadow change (hover) |
 | Donut chart segment | Tap → select/deselect | opacity 0.3 ↔ 1 + key color change |
 | Donut legend item | Tap → select/deselect | opacity 0.4 ↔ 1 + glow |
-| Period toggle button | Tap → switch | bg-brand + text-white |
+| Period toggle button | Tap → switch | bg-brand + text-brand-foreground |
 | Bottom nav item | Tap → page switch | text-brand |
 
 ### Hover Effect Types
@@ -1938,7 +1938,7 @@ NO  More than 1 Primary CTA per screen
 
 #### 3. Pill Badge
 ```tsx
-<span className="px-2 py-0.5 bg-brand text-white text-[9px] font-bold
+<span className="px-2 py-0.5 bg-brand text-brand-foreground text-[9px] font-bold
   rounded uppercase tracking-wider">
   MY WORKSPACE
 </span>
@@ -2190,7 +2190,7 @@ Inactive segment: bg-transparent text-text-disabled
 ### Pill Toggle vs Segment Control
 | | Pill Toggle | Segment Control |
 |-|-------------|----------------|
-| Active style | `bg-brand text-white` | `bg-card text-text-primary shadow` |
+| Active style | `bg-brand text-brand-foreground` | `bg-card text-text-primary shadow` |
 | Usage | Key color emphasis needed (period switch) | Neutral switching (filter, view mode) |
 | Option count | 2-3 | 2-5 |
 
@@ -2240,7 +2240,7 @@ Buttons: horizontal layout, gap-2, both flex-1
 ### Button Rules
 ```
 Left: "Close" -- outline style (border-brand text-brand bg-card)
-Right: Action CTA -- solid style (bg-brand text-white)
+Right: Action CTA -- solid style (bg-brand text-brand-foreground)
 ```
 - Button corners: `rounded-full` (pill)
 - Height: `h-11` (44px)
@@ -2248,7 +2248,7 @@ Right: Action CTA -- solid style (bg-brand text-white)
 
 ### Dangerous Action Dialog
 ```
-Right button: bg-destructive text-white ("Delete")
+Right button: bg-destructive text-destructive-foreground ("Delete")
 Left button: same ("Close")
 ```
 
