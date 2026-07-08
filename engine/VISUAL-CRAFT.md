@@ -58,6 +58,9 @@ icon↔text and tightly stacked small text. *Why: a constrained scale forces
 deliberate, repeatable layout; 6px maps 1:1 onto the Tailwind 1.5-step utilities
 (p-1.5 · p-3 · p-6 · p-9) the component rules prescribe.*
 ([Refactoring UI], [Material 3 Spacing], [IBM Carbon 2x Grid])
+*Footnote: marketing/landing section **vertical padding** may extend past 96 on the ramp
+120/144/168/192px (DESIGN-LANGUAGE §63 "Marketing Section Vertical Rhythm") — the scale set
+above is unchanged for everything else.*
 
 **CR-2 · Proximity = relatedness.** The space *around* a group must be **≥ 2×** the
 space *within* it. Uniform spacing everywhere is the #1 beginner failure — it

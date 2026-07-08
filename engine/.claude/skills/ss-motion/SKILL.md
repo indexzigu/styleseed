@@ -1,6 +1,6 @@
 ---
 name: ss-motion
-description: Apply a named StyleSeed motion to a component — either one of the 5 personality seeds (Spring/Silk/Snap/Float/Pulse × entrance/exit/hover/press/layout) or a distinctive keyword move from the motion library (toggle-flip, toggle-curtain, reveal-blur, pop-in, shimmer, …). Translates vibe words into framer-motion code from one source of truth.
+description: Apply a named StyleSeed motion to a component — either one of the 5 personality seeds (Spring/Silk/Snap/Float/Pulse × entrance/exit/hover/press/layout) or a distinctive keyword move from the motion library (toggle-flip, toggle-curtain, reveal-blur, pop-in, shimmer, …). Translates vibe words into framer-motion code from one source of truth. Also carries the Cinematic tier appendix (DESIGN-LANGUAGE §43) — GSAP + ScrollTrigger + Lenis scroll-choreography tokens for marketing/landing surfaces.
 argument-hint: "[vibe-seed-or-keyword] [context] [file-path]"
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash
 ---
@@ -10,10 +10,11 @@ allowed-tools: Read, Write, Edit, Grep, Glob, Bash
 ## When NOT to use
 
 - For general framer-motion docs or learning → use the framer-motion site
-- For non-React motion (CSS-only transitions, GSAP) — this skill targets `motion.X` JSX only
-- For full scroll-linked timelines or parallax — out of scope for *this* skill (it does per-component
-  seeds/moves). Note these ARE allowed on a marketing/landing/brand page (DESIGN-LANGUAGE §43
-  Cinematic tier); just build them with a scroll library, not this skill. On app/data surfaces they
+- For non-React motion (CSS-only transitions) — the seed/keyword system targets `motion.X` JSX
+  only (GSAP on a marketing surface → see the Cinematic tier appendix below)
+- For full scroll-linked timelines or parallax — out of scope for the *seed/keyword system* (it does
+  per-component seeds/moves). These ARE allowed on a marketing/landing/brand page (DESIGN-LANGUAGE §43
+  Cinematic tier) — build them per the Cinematic tier appendix below. On app/data surfaces they
   stay banned.
 - For tweaking the existing FadeIn/FadeUp/Stagger wrappers — edit `engine/components/ui/motion.tsx` directly
 
@@ -165,8 +166,52 @@ Apply seed: **$0** · Context: **$1** · Target: **$ARGUMENTS**
 
 - Do not invent new seed names. There are exactly five.
 - Do not edit `engine/motion/seeds/*.ts` from this skill — those are calibrated by hand. Add a new seed only via a separate, explicit ask.
-- Do not introduce a third-party animation lib (gsap, anime.js). StyleSeed targets framer-motion exclusively.
-- Do not add scroll-linked, parallax, or infinite animations *via this skill* — it does
-  per-component seeds/moves. (Scroll-linked/parallax/3D ARE allowed on a marketing/landing/brand
-  page per DESIGN-LANGUAGE §43 Cinematic tier — build those directly with a scroll lib; on
+- Do not introduce a third-party animation lib on app/data surfaces — those stay framer-motion
+  exclusive. On marketing/landing surfaces (DESIGN-LANGUAGE §43 Cinematic tier) GSAP + ScrollTrigger
+  and Lenis are allowed per the Cinematic tier appendix below; anime.js and other animation libs
+  stay out everywhere.
+- Do not add scroll-linked, parallax, or infinite animations *via this skill's seeds/moves* — they do
+  per-component work. (Scroll-linked/parallax/3D ARE allowed on a marketing/landing/brand
+  page per DESIGN-LANGUAGE §43 Cinematic tier — build those per the Cinematic tier appendix below; on
   app/data surfaces they stay forbidden.) Infinite loops remain banned everywhere except skeleton pulse.
+
+## Cinematic tier (marketing surfaces ONLY)
+
+<!-- Adapted from MengTo/Skills (MIT): cinematic-gsap-lenis-motion-system + animation-systems -->
+
+**Surface gate:** marketing/landing pages ONLY (DESIGN-LANGUAGE.md §43). App/data surfaces stay
+framer-motion-only with no scroll-linked motion (§59).
+
+**Eases:** `power3.out` / `power4.out` / `expo.out` — NO bounce/elastic/spring on cinematic
+surfaces (the Spring seed remains an app-side micro-interaction personality).
+
+**Timing tokens** (calibrated — use these, don't guess):
+
+| Token | Value |
+|---|---|
+| Scroll scrub | 0.8–1.4 |
+| Reveals | 0.75–1.1s |
+| Hover | 0.35–0.6s |
+| Cursor lag | 0.25–0.45s |
+| Stagger — words | 0.035–0.07s |
+| Stagger — lines | 0.08–0.14s |
+| Stagger — cards | 0.06–0.1s |
+| ScrollTrigger defaults | start `"top 82%"` · `anticipatePin: 1` |
+
+**System timings:** micro 120–200ms · UI state 180–260ms · popover 220–320ms ·
+section entrance 400–800ms · hero 800–1600ms · list stagger 40–90ms
+
+**Library ladder** (escalate only when the lower rung can't express it):
+
+1. CSS transitions
+2. IntersectionObserver / Web Animations API
+3. framer-motion (React UI states)
+4. GSAP + ScrollTrigger (pinned/scrubbed/multi-layer parallax)
+5. Lenis (only when smooth scroll materially supports the choreography — never generic polish)
+6. Three.js/WebGL (real 3D only)
+
+**Reduced motion (mandatory):** do NOT initialize Lenis; `gsap.set(targets, {autoAlpha: 1, clearProps: "all"})`;
+content must remain visible with JavaScript disabled; scroll-jacking is forbidden globally.
+
+**Performance:** animate `transform`/`opacity` ONLY (never top/left/width/height/margin);
+`will-change` only on actively animating elements.

@@ -38,6 +38,7 @@ Review the file: **$ARGUMENTS**
 - [ ] Proper `aria-*` attributes where needed
 - [ ] Color contrast meets WCAG AA (4.5:1 for text, 3:1 for large text)
 - [ ] Animations respect `prefers-reduced-motion`
+- [ ] Scroll-reveal initial hiding (`opacity-0`, GSAP `autoAlpha: 0`, `visibility: hidden`) on hero/critical content has a recovery path when JS never runs or reduced-motion is on — no-JS fallback (`<noscript>` / CSS visible-by-default, hidden only at runtime via `gsap.set`), or reduced-motion sets `autoAlpha: 1`. No path = FAIL: content must be visible with JavaScript off. (Adapted from MengTo/Skills, MIT)
 - [ ] Images have `alt` text
 - [ ] Form inputs have associated labels
 
@@ -52,6 +53,7 @@ Review the file: **$ARGUMENTS**
 - [ ] No unnecessary re-renders (stable references, memoization where needed)
 - [ ] Images are lazy-loaded
 - [ ] Heavy components are code-split
+- [ ] Animations move only `transform`/`opacity` — no transition/animation on `top`/`left`/`width`/`height`/`margin` (each frame forces a reflow); use `translate`/`scale` instead. Automatable via `/ss-lint` check 10. (Adapted from MengTo/Skills, MIT)
 
 ### 6. Typography
 - [ ] Uses the Pretendard/Inter font stack

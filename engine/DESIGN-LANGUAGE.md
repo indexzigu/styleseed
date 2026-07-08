@@ -492,6 +492,30 @@ Inactive:      text-text-disabled (#9B9B9B)
 
 Rule: **Opacity is very low** (4-12%). Shadows create **subtle depth** rather than a "floating" feel.
 
+<!-- Adapted from MengTo/Skills (MIT): beautiful-shadows -->
+### Layered Elevation Ramp (alternative shadow language)
+
+An **alternative** to the single-layer recipe table above — recommended for marketing/hero-grade
+rich surfaces where a single soft shadow reads flat. **One project uses ONE shadow language**
+(Golden Rule 7): pick either the single-layer table or this ramp, never mix them on the same
+surface. Dark mode is unchanged either way — shadows don't read in dark; use the tonal surface
+ramp + hairline borders (see Dark Mode Guide) instead of any shadow language.
+
+| Tier | Value (Tailwind arbitrary, use as-is) | Usage |
+|------|--------------------------------------|-------|
+| sm | `0px 2px 3px -1px rgba(0,0,0,0.08), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)` | Cards/buttons at rest |
+| md | `0px 0px 0px 1px rgba(0,0,0,0.06), 0px 1px 1px -0.5px rgba(0,0,0,0.06), 0px 3px 3px -1.5px rgba(0,0,0,0.06), 0px 6px 6px -3px rgba(0,0,0,0.06), 0px 12px 12px -6px rgba(0,0,0,0.06), 0px 24px 24px -12px rgba(0,0,0,0.06)` | Raised/hover marketing cards |
+| lg | `0 2.8px 2.2px rgba(0,0,0,0.034), 0 6.7px 5.3px rgba(0,0,0,0.048), 0 12.5px 10px rgba(0,0,0,0.06), 0 22.3px 17.9px rgba(0,0,0,0.072), 0 41.8px 33.4px rgba(0,0,0,0.086), 0 100px 80px rgba(0,0,0,0.12)` | Modal / hero showcase tier |
+
+- **sm**: the source's first layer was 0.10 opacity — snapped to **0.08** to honor Golden Rule 7 (≤8%).
+- **lg** is the modal/hero tier: its deepest layer is **12%**, the same upper bound as the
+  existing `modal` level (0.12) — not a new ceiling.
+- **One tier per component state** — a component at rest gets exactly one tier, its hover/raised
+  state exactly one (usually the next tier up). Never stack tiers.
+- **Do not mix** with Tailwind's default `shadow-sm/md/lg` scale — the ramp replaces it.
+- The **ring layer** (`0 0 0 1px …`) in sm/md **replaces the border** — don't add `border` on top.
+- Optionally register as skin tokens `--shadow-layered-sm/md/lg` via `/ss-tokens`.
+
 ---
 
 ## 13. Page Layout Structure
@@ -1659,6 +1683,9 @@ On a public marketing/landing/brand page, motion is part of the craft — use it
 - **One motion language** even here — one easing family, one seed. Cinematic ≠ chaotic.
 - Still **NO**: autoplaying audio, animating money/numbers as decoration, seizure-risk flashing.
 
+> Implementation tokens and the library ladder for this tier live in the **`ss-motion` skill's
+> Cinematic appendix** — consult it when building, don't re-derive values here.
+
 ---
 
 ## 44. Input & Form Rules (When Used Outside Cards)
@@ -2115,6 +2142,35 @@ NO  Particles / tiny effects
 - Avoid colors that are too bright or too dark
 - Use **mid-tone** color palettes
 
+<!-- Adapted from MengTo/Skills (MIT): threejs · animation-systems -->
+### WebGL / Canvas / 3D Performance (appendix — marketing surfaces only)
+
+WebGL / Three.js / canvas belongs on **marketing/landing/brand surfaces only** — never on
+app/data surfaces (see the surface scoping in rule 43). When used, all of these are required:
+
+```
+✓ Cap pixel ratio: renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+✓ Dispose on route change / unmount (geometries, materials, textures, renderer)
+  — leaked GPU resources accumulate and crash the tab
+✓ Handle resize (update camera aspect + renderer size on window resize)
+✓ prefers-reduced-motion: render ONE still frame, no RAF loop at all
+✓ Off-screen: pause the RAF loop via IntersectionObserver — never animate what isn't visible
+✓ Mobile: reduce particle count / geometry density
+✓ Static fallback image for load failure and low-end devices
+```
+
+<!-- Adapted from MengTo/Skills (MIT): unsplash-asset-images -->
+### Media Resolution Guide
+
+| Asset | Resolution |
+|-------|-----------|
+| Avatars | 256 / 512 / 1024px square |
+| Desktop hero image | 1920×1080 / 2400×1350 / 2880×1620 |
+
+- Aspect ratios by use: **1:1** (avatar/product) · **4:5** (portrait card) · **3:4** (editorial)
+  · **16:9** (hero/video) · **9:16** (mobile story)
+- **Lazy-load by default** — below-the-fold images get `loading="lazy"`.
+
 ---
 
 ## 52. Design Reference Width & Resolution
@@ -2526,6 +2582,63 @@ When displaying a 2×2 KPI grid, **vary the secondary element** in each card:
 - **Bottom sections**: Lower priority info (activity logs, alerts)
 - Every recipe has **exactly one chart type per card** — never combine two charts
 - Every recipe includes **at least one non-data section** (carousel/briefing) to break the pattern
+
+> The Recipe Rules above govern the **app dashboard** recipes (1–4). Recipes 5–6 below are
+> **public marketing surfaces** — they follow their own fold structures plus the
+> Landing / Marketing playbook in `PAGE-TYPES.md`, not the Hero + KPI Grid rule.
+
+<!-- Adapted from MengTo/Skills (MIT): landing-page -->
+### Recipe 5: Landing Page (conversion)
+```
+Above the fold:
+1. Headline               — one message, ≤2 lines (existing hero discipline unchanged)
+2. Subhead                — one supporting sentence
+3. Primary CTA            — a SINGLE primary CTA (multiple CTAs above the fold are forbidden)
+4. Proof strip            — customer logos or one short stat line
+5. Hero visual            — THIS product, one focal point
+
+Below the fold:
+6. Problem / Solution     — name the pain, show the answer
+7. Benefits (3–5)         — outcomes, not feature specs
+8. How it works (3 steps) — reduce perceived effort
+9. Social proof           — testimonials / case results
+10. FAQ (6–12)            — objection handling
+11. Risk reversal         — guarantee / free tier / cancel anytime
+12. Final CTA             — repeat the ONE conversion action
+```
+- Principle: **one conversion goal per page** — every section funnels to the same action.
+
+<!-- Adapted from MengTo/Skills (MIT): pricing-page -->
+### Recipe 6: Pricing Page
+```
+Above the fold:
+1. Billing toggle         — annual / monthly
+2. 3-tier cards           — exactly ONE recommended tier emphasized (the focal point)
+3. CTA                    — one per tier, the recommended tier's is the brightest
+
+Below the fold:
+4. Feature comparison matrix — the full detail lives here, not in the cards
+5. FAQ                    — billing/plan objections
+6. Trust block            — security · compliance · certifications
+7. Final CTA
+```
+
+### Hero Addenda (marketing recipes only)
+Extends — does not replace — the existing hero discipline:
+- **NO badges, pill tags, or raw stat dumps inside the hero** — proof belongs in the proof
+  strip / social-proof sections, not crowding the headline.
+- The existing **"headline ≤2 lines"** rule stays as-is.
+
+<!-- Adapted from MengTo/Skills (MIT): landing-page -->
+### Marketing Section Vertical Rhythm
+- Vertical padding ramp for marketing/landing sections: **96 / 120 / 144 / 168 / 192px** —
+  all multiples of 6px (Tailwind `py-24 / py-30 / py-36 / py-42 / py-48`).
+- Mobile default is `py-24` (96px); desktop scales by section weight from `py-30` to `py-48`
+  (hero and final CTA carry the most weight).
+- ✗ `py-32` (128px) is **forbidden** — 128 is off the 6px grid (Golden Rule 5). Use `py-30`
+  (120px) or `py-36` (144px) instead.
+- This ramp is **marketing-only**; app/dashboard surfaces keep the standard `space-y-6`
+  section gap. (See also the CR-1 footnote in `VISUAL-CRAFT.md`.)
 
 ---
 

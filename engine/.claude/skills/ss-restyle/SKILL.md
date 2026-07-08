@@ -1,7 +1,7 @@
 ---
 name: ss-restyle
-description: Re-style a project to a named aesthetic — swiss, editorial, technical, warm-dtc, minimal-mono, brutalist-lite. A preset is a *coordinate* across the dial axes (radius + density + color + weight + motion) plus a font, accent family, and one signature move — applied coherently as a single identity, written to the lock, and re-gated. This is for mood words ("more editorial") that aren't one axis; for a single axis use /ss-dial.
-argument-hint: "<preset>  — swiss | editorial | technical | warm-dtc | minimal-mono | brutalist-lite"
+description: Re-style a project to a named aesthetic — swiss, editorial, technical, warm-dtc, minimal-mono, brutalist-lite, dark-glass, paper-warm, editorial-serif. A preset is a *coordinate* across the dial axes (radius + density + color + weight + motion) plus a font, accent family, and one signature move — applied coherently as a single identity, written to the lock, and re-gated. This is for mood words ("more editorial") that aren't one axis; for a single axis use /ss-dial.
+argument-hint: "<preset>  — swiss | editorial | technical | warm-dtc | minimal-mono | brutalist-lite | dark-glass | paper-warm | editorial-serif"
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash
 ---
 
@@ -97,6 +97,52 @@ presets = the mixed-personality tell we ban. Pick one; it *replaces* the look.
 - **Signature:** heavy borders, blocky high-contrast sections, snappy instant motion, exposed
   structure. **"lite" = still coherent:** one accent, one border weight, states and a11y intact,
   gate ≥ 80. Raw is the look; broken is not.
+
+### `dark-glass` — near-black glass, monochrome calm
+`soft · comfortable · cool · regular · calm` (dark-first)
+- **Font:** Inter / Geist; mono (Geist Mono / Plex Mono) for micro-labels, IDs, metadata footers.
+- **Accent:** the zinc ramp *is* the palette — one cool signal hue (ice blue `#60A5FA` or teal)
+  reserved for **state only** (status dots, active text, tiny indicators). Never large fills,
+  never neon glow.
+- **Elevation:** the dark tonal ramp (page < card < raised) + hairline borders; glass panels
+  add `backdrop-blur` over a low-opacity dark fill with a crisp 1px top-edge highlight. No
+  drop shadows.
+- **Signature:** frosted **backdrop-blur glass panels** — nav pill, side shells, floating
+  cards — over a near-black base (`#0A0A0A` family; pure `#000` stays banned). Keep the center
+  stage calm and breathable; motion is Silk-calm (masked reveals, slow drift, hover
+  brightening). Marketing/showcase and dark product chrome first — on dense data surfaces drop
+  the blur and keep the plain tonal ramp (`technical` is the better fit there).
+- *Adapted from MengTo/Skills (MIT): `dark-glass-clean-layout` + `glass-dark-ui`.*
+
+### `paper-warm` — warm paper calm, one orange signal
+`soft · airy · warm-muted · regular · calm`
+- **Font:** one clean neutral sans (Inter / Pretendard), light-to-regular body; hierarchy
+  stays quiet.
+- **Accent:** a single **orange signal** (`#E8590C` family) — step markers, primary CTA,
+  focused inputs, micro-badges only. More disciplined than `warm-dtc`'s product-forward
+  terracotta: here orange is a *signal*, not the mood.
+- **Elevation:** subtle — layered warm surfaces (off-white < cream < parchment) with delicate
+  borders and soft ≤8% shadows do the separating.
+- **Signature:** the **warm paper layer stack** — a generous rounded shell, paper-toned
+  inputs, cream cards on a warm wash — with big whitespace. **Modern floor:** warm ≠ beige
+  brochure — keep the base fresh and the type modern; no vintage texture, no distressing
+  (§CC-9d). Marketing, onboarding, and calm SaaS surfaces first.
+- *Adapted from MengTo/Skills (MIT): `orange-clean-paper-saas` + `clean-minimal-beige-light-mode`.*
+
+### `editorial-serif` — serif display, engineered editorial grid
+`sharp · comfortable · muted · regular · calm`
+- **Font:** a serif display (Fraunces / Newsreader) for headlines **only**, neutral sans for
+  body; mono (Geist Mono / Plex Mono) for labels, counters, folio-style metadata.
+- **Accent:** one deep ink — oxblood `#7B2D26` or ink blue `#1F3A5F` — concentrated in active
+  index states, numeric highlights, one callout. Sparse.
+- **Elevation:** flat — hairline rules, section dividers, and grid traces do the separation,
+  not shadows.
+- **Signature:** the **asymmetric editorial grid** — an oversized offset serif headline
+  against a mono-labeled index column (chapter markers, step counters), media bands allowed to
+  cross columns deliberately. Distinct from `editorial` (centered magazine calm): this one is
+  engineered — offset, ruled, indexed. **Modern floor:** white/fresh base, serif as seasoning,
+  no aged-paper texture (§CC-9d). Marketing/editorial/content surfaces first — not app chrome.
+- *Adapted from MengTo/Skills (MIT): `book-serif-index` + `editorial-tech`.*
 
 ---
 

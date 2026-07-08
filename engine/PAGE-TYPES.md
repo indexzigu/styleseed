@@ -49,6 +49,8 @@ For each type: **the job**, **structure**, **hierarchy**, **signature patterns**
 - **Job:** in one screen, say what it is + why it matters + one next action.
 - **Structure:** hero (headline + subhead + single primary CTA) → proof
   (features/social proof) → CTA again. One conversion goal per page.
+  Full section-by-section fold orders: see `DESIGN-LANGUAGE.md` §63 Section
+  Composition Recipes → **Landing Page (conversion)** and **Pricing Page**.
 - **Hierarchy:** headline dominates; CTA is the single brightest element; supporting
   text recedes. The accent belongs to the CTA.
 - **Patterns:** hero with one CTA, feature grid, social proof (logos/stats/quotes),

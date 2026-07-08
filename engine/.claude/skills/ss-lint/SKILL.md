@@ -103,6 +103,28 @@ or the hardcoded white that pre-2.9 components used — on brand, etc.).
 the component. `🟡 SKIP` lines (alpha compositing, `color-mix()`) are NOT passes:
 report them and eyeball those pairs manually.
 
+---
+
+## Layout-property animation (check 10, 🟡 WARN) — adapted from MengTo/Skills (MIT)
+
+Animations must move only `transform` and `opacity` — transitioning/animating layout
+properties (top/left/width/height/margin) forces a reflow every frame and janks on
+low-end devices.
+```bash
+grep -nE 'transition[^;}"]*\b(top|left|width|height|margin)\b' [file]
+grep -n '@keyframes' [file]   # if any hit, cross-check for layout properties:
+grep -nE '\b(top|left|width|height|margin)[[:space:]]*:' [file]
+```
+**Violation:** `transition: left 300ms`, `transition-[width]`, a `@keyframes` block that
+animates `top:`/`left:`/`width:`/`height:`/`margin:`.
+**Fix:** Animate `transform: translateX/translateY/scale` + `opacity` instead (e.g.
+`left: 24px` → `transform: translateX(24px)`).
+**Why WARN, not FAIL:** the patterns are approximate — grep is line-based and cannot
+scope hits to the inside of a `@keyframes` block, so the second/third greps only flag
+*candidates* to eyeball. Harmless false positives include `transition-transform` /
+`transition-colors` next to a static `top-0`/`left-0` in the same class string, and
+positional CSS that is never animated.
+
 ## Output Format
 
 ```

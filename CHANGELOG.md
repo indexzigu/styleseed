@@ -3,6 +3,54 @@
 All notable changes to StyleSeed. Agents can check the latest version at
 [version.json](https://styleseed-demo.vercel.app/version.json) and run `/ss-update`.
 
+## [2.11.0] — 2026-07-08
+
+**Theme: marketing surfaces get their missing half.** The engine was strong on app/product
+surfaces and governance, but thin exactly where marketing pages live: §43 allowed a Cinematic
+tier without saying how to build one, there was no landing/pricing anatomy, no WebGL guidance
+at all, and no shadow language for hero-rich surfaces. This release absorbs the proven recipes
+from [MengTo/Skills](https://github.com/MengTo/Skills) (MIT) — values snapped to StyleSeed's
+own invariants (6px grid, ≤8% card shadow alphas, single accent, token-mediated colors).
+
+### Added
+- **`/ss-motion` Cinematic tier appendix (marketing surfaces ONLY)** — GSAP + ScrollTrigger +
+  Lenis implementation tokens: eases `power3.out/power4.out/expo.out`, scrub `0.8–1.4`,
+  reveals `0.75–1.1s`, hover `0.35–0.6s`, staggers (words `0.035–0.07s` · lines `0.08–0.14s` ·
+  cards `0.06–0.1s`), trigger `start: "top 82%"`, `anticipatePin: 1`, plus system timings
+  (micro 120–200ms → hero 800–1600ms), a library ladder (CSS → IntersectionObserver/WAAPI →
+  framer-motion → GSAP+ScrollTrigger → Lenis → Three.js), and a mandatory reduced-motion
+  recipe (no Lenis init; `gsap.set(targets, {autoAlpha: 1, clearProps: "all"})`; content must
+  survive JS-off). App/data surfaces stay framer-motion-only — the §59 ban is now explicitly
+  app-surface-scoped, with §43 routing marketing work to the appendix.
+- **Layered elevation ramp** (DESIGN-LANGUAGE §12) — sm/md/lg layered shadow recipes with a
+  ring layer as border substitute; an *alternative* shadow language for marketing/hero-rich
+  surfaces (one shadow language per project, per Golden Rule 7; sm's top layer snapped
+  0.10 → 0.08 to honor the ≤8% card rule; lg shares the existing modal 12% ceiling); optional
+  `--shadow-layered-sm/md/lg` skin tokens via `/ss-tokens`.
+- **Landing & Pricing composition recipes** (DESIGN-LANGUAGE §63 Recipes 5–6) — conversion
+  landing anatomy (above-fold: headline → subhead → ONE primary CTA → proof → hero visual;
+  then problem/solution → benefits 3–5 → how-it-works → social proof → FAQ → risk reversal →
+  final CTA; one conversion goal per page) and pricing anatomy (billing toggle + 3 tiers with
+  ONE featured + comparison matrix → FAQ → trust block → final CTA); hero addenda: no badges,
+  pill tags, or raw stat dumps inside the hero (headline stays ≤2 lines).
+- **Marketing section vertical rhythm** — sections breathe at `96/120/144/168/192px`
+  (`py-24/30/36/42/48`), all on the 6px grid; `py-32` (128px) is named as the violation it is.
+- **WebGL/canvas + media guardrails** (DESIGN-LANGUAGE §51 appendix, marketing surfaces only) —
+  pixel-ratio cap `min(devicePixelRatio, 2)`, dispose on unmount/route change, resize handling,
+  reduced-motion = one still frame (no RAF), offscreen RAF pause via IntersectionObserver,
+  mobile density reduction, static fallback; media resolution guide (avatars 256/512/1024,
+  desktop heroes up to 2880×1620, ratio-by-use-case, lazy-load default).
+- **Three `/ss-restyle` presets** — `dark-glass` (zinc monochrome on near-black, hairline
+  borders, backdrop-blur signature), `paper-warm` (off-white→parchment layers, single orange
+  signal), `editorial-serif` (serif display + sans body + mono index labels, asymmetric
+  editorial grid).
+- **`/ss-lint` check: layout-property animation** (WARN) — transitions/keyframes moving
+  `top/left/width/height/margin` instead of transform/opacity; **`/ss-review` checks** —
+  transform/opacity-only performance item and a JS-off content-visibility gate for
+  scroll-reveal initial-hidden states.
+
+All absorbed blocks carry `Adapted from MengTo/Skills (MIT)` attributions at the point of use.
+
 ## [2.10.0] — 2026-07-08
 
 **Theme: one grid, and a lock that carries intent.** The engine had two spacing canons living

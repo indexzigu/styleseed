@@ -48,3 +48,8 @@ Read and display the requested token file in a formatted table.
 - Use semantic names, not descriptive names (`--success` not `--green-500`)
 - Colors should support both light and dark modes
 - New tokens must be added to BOTH the JSON source AND the CSS implementation
+<!-- Adapted from MengTo/Skills (MIT): beautiful-shadows -->
+- Optional skin tokens `--shadow-layered-sm` / `--shadow-layered-md` / `--shadow-layered-lg`
+  (the layered elevation ramp, DESIGN-LANGUAGE.md §12) may be registered like any shadow token
+  (`tokens/shadows.json` + `css/theme.css` `:root`) — only for projects whose lock uses the
+  layered shadow language, never alongside the single-layer `--shadow-card/*` set on one surface
