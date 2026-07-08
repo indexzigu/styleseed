@@ -154,6 +154,7 @@ applies them every time:
 - **Optical, not pixel, alignment** — nudge arrows/play glyphs; center type by cap-height
 - **Desktop body ≥16px, one focal point per screen** — the tight mobile scale and an all-even grid both read "machine-made"
 - **One radius personality · one icon set · one shadow language** — the coherence laws (§C0), the #1 fix for "looks AI-generated"
+- **Motion scoped by surface** — a dashboard stays calm; a landing page gets the *Cinematic tier* (scroll-linked reveals, 3D hero, animated gradients — the Stripe/Linear playbook). Scroll-*jacking* is still banned everywhere (§43)
 
 [See all 74 rules →](engine/DESIGN-LANGUAGE.md) · [the craft & coherence laws →](engine/VISUAL-CRAFT.md)
 
@@ -394,6 +395,15 @@ import { spring } from "@engine/motion";
 
 ▶ **[Preview & copy every motion at the live gallery →](https://styleseed-demo.vercel.app/motion)**
 &nbsp;·&nbsp; [Vibe-code your own → the motion guide](https://styleseed-demo.vercel.app/motion/guide)
+
+**3. Motion is scoped by *surface* — calm apps, cinematic landing pages.** This is the part most rule-sets get wrong: they ban scroll animation everywhere (so your marketing page ends up flat), or allow it everywhere (so your dashboard scroll-jacks). StyleSeed splits it:
+
+| Surface | Motion posture |
+|---|---|
+| **App / dashboard / data / forms** | **Calm.** No scroll-jacking, no gimmick 3D, never animate a balance. The UI gets out of the way. |
+| **Marketing / landing / brand pages** | **Cinematic tier.** Scroll-**linked** reveals, pinned/sticky sections, the "product assembles as you scroll" move, subtle parallax, a 3D/tilt hero, animated gradient/mesh or video backgrounds, rich hover — the family.co / stripe.com / linear.app playbook. |
+
+The line StyleSeed draws: **scroll-_linked_** (native scroll drives it, you stay in control) is encouraged on brand pages; **scroll-_jacking_** (hijacking scroll speed, trapping you) is banned everywhere. The Cinematic tier keeps its guardrails — 60fps (`transform`/`opacity` only), never blocks the first read or the CTA, and `prefers-reduced-motion` always leaves a complete static page. So you can build a Stripe-grade landing page *and* a calm dashboard from the same engine, each with the right restraint. <sub>(Rules: DESIGN-LANGUAGE §43 · PAGE-TYPES → Landing)</sub>
 
 All seeds auto-respect `prefers-reduced-motion`, and the `/ss-motion` skill pulls every recipe from one source of truth — so motion stays consistent no matter who (or what) writes the code.
 
