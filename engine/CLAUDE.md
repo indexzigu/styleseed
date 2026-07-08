@@ -170,6 +170,12 @@ demo was reviewed and fixed, not a first draft. **Never show the user UI that ha
 □ Polish     — visible focus rings; ≥44px touch / 36–40px pointer targets; prefers-reduced-
                motion; elevation in ONE language (light: layered soft shadow · dark: tonal
                surface ramp + hairline border — never a hard shadow); no pure #000
+□ Motion fits the surface — app/dashboard = calm (no scroll-jacking/scroll-linked/3D). A
+               marketing/landing/brand page GETS the Cinematic tier (§43): scroll-LINKED reveals,
+               pinned sections, subtle parallax, 3D hero, animated gradient/video bg, rich hover
+               (family/stripe/linear-grade) — don't fail it for that. Guardrails: 60fps, never
+               blocks first read/CTA, reduced-motion = complete static page. Scroll-JACKING +
+               animating money stay banned everywhere
 ```
 
 **How to gate:**
@@ -717,6 +723,19 @@ className="transition-colors"  // Uses Tailwind defaults
 ```
 
 All animations auto-disable when `prefers-reduced-motion: reduce` is set (`base.css`).
+
+### Motion is scoped BY SURFACE — don't apply dashboard restraint to a landing page
+
+The "no scroll-linked / no parallax / no 3D" rules govern **app / dashboard / data / form**
+surfaces (keep product UI calm). They are **wrong for a public marketing / landing / brand page**,
+whose job is to make the product feel designed. Those pages get the **Cinematic tier**
+(DESIGN-LANGUAGE §43): scroll-**linked** reveals, pinned/sticky sections, the "product assembles as
+you scroll" move, subtle parallax, a 3D/tilt hero, animated gradient/mesh or video backgrounds, and
+rich hover — this is how family.co / stripe.com / linear.app read premium, and it's fully in-bounds.
+Guardrails still apply: purposeful (not jitter), 60fps (`transform`/`opacity` only), never blocks the
+first read or the CTA/LCP, `prefers-reduced-motion` leaves a complete static page, one motion
+language. Still banned everywhere: **scroll-JACKING** (hijacking scroll speed / trapping the user —
+different from scroll-linked), autoplaying audio, and animating numbers/money as decoration.
 
 ## Accessibility (a11y) Rules
 

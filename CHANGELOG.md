@@ -3,6 +3,31 @@
 All notable changes to StyleSeed. Agents can check the latest version at
 [version.json](https://styleseed-demo.vercel.app/version.json) and run `/ss-update`.
 
+## [2.9.0] — 2026-07-08
+
+**Theme: motion is scoped by surface — stop banning what makes a landing page premium.** A blanket
+"no scroll-linked / no parallax / no 3D / no animated gradients" was right for *product* surfaces
+(dashboards, data, forms — keep them calm) but got over-generalized to **every** surface, which
+made it impossible to build the exact kind of brand page StyleSeed points at as best-in-class
+(family.co, stripe.com, linear.app). Those pages *are* scroll-choreographed. This release scopes
+the rule instead of dropping it.
+
+### Changed
+- **`Cinematic tier` for marketing / landing / brand pages** (DESIGN-LANGUAGE §43, PAGE-TYPES
+  Landing): on a public brand page, scroll-**linked** reveals, pinned/sticky sections, the
+  "product assembles as you scroll" move, subtle parallax, a 3D/tilt hero, animated gradient/mesh
+  or video backgrounds, and rich hover are now **explicitly allowed** — with guardrails: purposeful
+  (not jitter), 60fps (`transform`/`opacity` only), never blocks the first read or the CTA/LCP,
+  `prefers-reduced-motion` leaves a complete static page, one motion language.
+- **The critical distinction the old rule blurred:** scroll-**JACKING** (hijacking scroll speed,
+  trapping the user) stays banned *everywhere* — it's not the same as scroll-**linked** choreography
+  (native scroll drives it, the user stays in control), which is now encouraged on brand pages.
+- **App/dashboard/data/form surfaces keep the restraint** (no scroll-jacking, no scroll-linked
+  timelines, no gimmick 3D, never animate money/numbers). The bans didn't go away — they got a
+  surface.
+- Propagated across DESIGN-LANGUAGE §43, PAGE-TYPES, VISUAL-CRAFT, METHODOLOGY, CLAUDE.md /
+  AGENTS.md gates, and `/ss-score` (surface-aware deduction), `/ss-motion`, `/ss-dial`.
+
 ## [2.8.0] — 2026-07-06
 
 **Theme: change the look without breaking coherence.** "Make it more minimal" is something you
@@ -197,6 +222,7 @@ release raises the floor of the default path.
 - Agent-agnostic delivery: CLAUDE.md + AGENTS.md + .cursorrules.
 - 8 `/guides` + 7 `/screens` programmatic-SEO pages, `/how-it-thinks`, `/faq`.
 
+[2.9.0]: https://github.com/bitjaru/styleseed/releases/tag/v2.9.0
 [2.8.0]: https://github.com/bitjaru/styleseed/releases/tag/v2.8.0
 [2.7.0]: https://github.com/bitjaru/styleseed/releases/tag/v2.7.0
 [2.6.0]: https://github.com/bitjaru/styleseed/releases/tag/v2.6.0

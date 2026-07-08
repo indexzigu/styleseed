@@ -52,10 +52,19 @@ For each type: **the job**, **structure**, **hierarchy**, **signature patterns**
 - **Hierarchy:** headline dominates; CTA is the single brightest element; supporting
   text recedes. The accent belongs to the CTA.
 - **Patterns:** hero with one CTA, feature grid, social proof (logos/stats/quotes),
-  before/after, comparison, closing CTA. Tasteful entrance motion (`reveal`,
-  `stagger`) — one gradient/flair accent max.
-- **Anti-patterns:** multiple competing CTAs, wall of text, every section the same
-  rhythm, autoplaying noise, motion that delays the headline, six accent colors.
+  before/after, comparison, closing CTA.
+- **Motion — this is the ONE surface where the Cinematic tier applies (DESIGN-LANGUAGE §43).**
+  Unlike an app/dashboard, a brand page *should* use motion as craft: **scroll-LINKED reveals,
+  pinned/sticky sections, sequential "the product assembles as you scroll" choreography, subtle
+  parallax, a 3D/tilt hero or showcase card, an animated gradient/mesh or video background, rich
+  hover** (magnetic/glow/lift). This is how family.co / stripe.com / linear.app read premium —
+  don't apply dashboard restraint here. Guardrails still hold: purposeful (not jitter), 60fps
+  (`transform`/`opacity` only), never blocks the first read or the CTA/LCP, `prefers-reduced-motion`
+  leaves a complete static page, one motion language.
+- **Anti-patterns:** multiple competing CTAs, wall of text, every section the same rhythm,
+  autoplaying *audio*, motion that **delays the headline or hides content until you scroll**,
+  **scroll-JACKING** (hijacking scroll speed / trapping — different from scroll-linked, which is
+  fine), six accent colors, no reduced-motion fallback.
 - **Mobile:** stack everything, keep the CTA reachable, don't shrink the headline
   into mush.
 

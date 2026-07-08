@@ -84,8 +84,13 @@ without `aria-label` (−3).
 
 **Motion & interaction (6)** — deduct for: random/ad-hoc fades instead of a named
 seed/keyword (−3); motion that delays content or blocks an action (−4); no
-`prefers-reduced-motion` handling on custom motion (−3); scroll-linked/parallax
-(forbidden, §59) (−5).
+`prefers-reduced-motion` handling on custom motion (−3). **Scroll-linked/parallax/3D/animated-
+gradient is SURFACE-DEPENDENT (§43):** on an app/dashboard/data/form surface it's forbidden
+(−5); on a **marketing/landing/brand page it's ALLOWED (the Cinematic tier)** — there, do NOT
+deduct for scroll-linked reveals, pinned sections, 3D hero, or animated backgrounds; only deduct
+for **scroll-JACKING** (hijacking scroll / trapping) (−5), motion that hides content until scroll
+or delays the headline/CTA (−4), or a missing `prefers-reduced-motion` fallback (−3). Judge by
+page type first, then score.
 
 **Coherence (12)** — the "one choice per axis" laws (VISUAL-CRAFT §C0). Deduct for
 each axis that is *mixed* rather than unified across the file: mixed radius

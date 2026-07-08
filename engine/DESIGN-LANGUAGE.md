@@ -1090,14 +1090,18 @@ Layer 2: Content             → relative z-10
 | Above BottomNav | `pb-24` (96px) | Nav doesn't cover content (nav height ~56px + safety margin) |
 | Below TopBar | Auto-handled by section spacing (`space-y-6`) | No extra spacing needed |
 
-### Scroll Behavior
+### Scroll Behavior — mobile APP chrome (not marketing pages)
+
+> This section governs a mobile **app** shell. A public marketing/landing page follows the
+> **Cinematic tier** instead (see §43) — scroll-linked motion is encouraged there.
+
 ```
 OK  TopBar: Always fixed (does not disappear on scroll)
 OK  BottomNav: Always fixed (fixed bottom-0)
 OK  Only main content scrolls
 NO  TopBar collapse/expand (collapsible header prohibited)
 NO  BottomNav hide (scroll-hide prohibited)
-NO  Scroll-linked animations (parallax prohibited)
+NO  Scroll-jacking / scroll-linked animation on the app shell (parallax prohibited HERE)
 ```
 
 ### Overscroll
@@ -1616,13 +1620,44 @@ easing: ease-out
 - Only on initial load (repeats on refresh, does NOT repeat on tab switch)
 - With `prefers-reduced-motion`: show final value immediately
 
-### Animation Prohibitions
+### Animation Prohibitions — scoped BY SURFACE (read this before you assume "no motion")
+
+**App chrome / dashboard / data / forms (the default *product* surface)** — keep it calm:
 ```
-NO  Scroll-linked animations (parallax, shrinking header)
+NO  Scroll-JACKING (hijacking scroll speed, trapping the user, shrinking header on a data screen)
+NO  Scroll-linked timelines on an app/data surface
 NO  Pill toggle sliding (selection sliding effect)
-NO  Card zoom in/out
+NO  Card zoom in/out on hover in a data grid
 NO  Infinite loop animations (except skeleton pulse)
+NO  Animating numbers / balances / money (except the ONE hero-metric count on load)
 ```
+
+**Marketing / landing / brand pages → the Cinematic tier is ALLOWED (below).** The bans above
+exist to keep *product* surfaces calm; they are **wrong for a public brand page** whose whole
+job is to make the product feel designed. family.co / stripe.com / linear.app marketing pages
+are the gold standard and are built on exactly the motion the app-surface list forbids. Don't
+apply dashboard restraint to a landing page — that's how a brand page ends up flat and generic.
+
+### Cinematic tier — marketing / landing / brand pages ONLY
+
+On a public marketing/landing/brand page, motion is part of the craft — use it. **ALLOWED:**
+- **scroll-LINKED choreography** — native scroll drives reveals, sticky/pinned sections,
+  progress, sequential assembly (the "Linear/Stripe, the product builds itself as you scroll"
+  move). This is **not** scroll-jacking: the user keeps full control of scroll speed and can
+  leave any time. *Hijacking* scroll (forcing speed, trapping) stays banned.
+- **Subtle parallax** (depth, a few layers, small offsets), **3D transforms / tilt** on a hero
+  or showcase card, **animated gradients / gradient mesh / video backgrounds** behind the hero,
+  **rich hover** (magnetic, glow, lift, gradient-sweep).
+
+**Guardrails (all required):**
+- **Purposeful** — reveals content or tells the product story; not decorative jitter.
+- **60fps** — animate `transform`/`opacity` only, no layout thrash, keep a performance budget.
+- **Never blocks the first read or the primary action** — hero headline + CTA usable
+  immediately; motion never gates LCP or hides content until you scroll.
+- **`prefers-reduced-motion` fully honored** — with motion off the page is still complete and
+  coherent (content present, just static). Test this; it's the difference between craft and gimmick.
+- **One motion language** even here — one easing family, one seed. Cinematic ≠ chaotic.
+- Still **NO**: autoplaying audio, animating money/numbers as decoration, seizure-risk flashing.
 
 ---
 

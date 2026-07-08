@@ -41,7 +41,7 @@
       "type": "skill-md",
       "description": "Turn ONE design axis up or down as a coordinated, deterministic transform — \"denser\", \"sharper corners\", \"more muted\", \"bolder\", \"flatter\", \"livelier\". Not a vibe the model reinterprets each time; a defined ramp that moves many tokens together, respects the guardrails (8px grid, a11y floors, single accent, nested-radius), updates the lock, and re-runs the gate. Use this when a human saying \"more X\" would otherwise get an inconsistent one-off.",
       "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-dial/SKILL.md",
-      "digest": "sha256:bbd23f1beca05985d1ea93b124ec1ea7dbd130c97c3bba1140258ccb6540c703"
+      "digest": "sha256:4537a78347257b32b7cc0e4743764f981bcefd003c288440df4baa90c404f917"
     },
     {
       "name": "ss-feedback",
@@ -69,7 +69,7 @@
       "type": "skill-md",
       "description": "Apply a named StyleSeed motion to a component — either one of the 5 personality seeds (Spring/Silk/Snap/Float/Pulse × entrance/exit/hover/press/layout) or a distinctive keyword move from the motion library (toggle-flip, toggle-curtain, reveal-blur, pop-in, shimmer, …). Translates vibe words into framer-motion code from one source of truth.",
       "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-motion/SKILL.md",
-      "digest": "sha256:ac5af2415ef0cdb5cc940c84f673a796b2ab26e1fad630cb51a7252591e65e9c"
+      "digest": "sha256:2d8c351f1441ab6dc181f34b67d3bb0d8ba90f4305ee0fbbda7717d0009eb5cd"
     },
     {
       "name": "ss-page",
@@ -104,7 +104,7 @@
       "type": "skill-md",
       "description": "Score a UI file's design quality 0-100 against StyleSeed's design language — per-category breakdown, the worst offenders, and a prioritized fix list. A quantified version of /ss-review.",
       "url": "https://raw.githubusercontent.com/bitjaru/styleseed/main/engine/.claude/skills/ss-score/SKILL.md",
-      "digest": "sha256:f983d0b9a4f93388c0d33f5879c0a667287522640f5a45669e3f02561370b110"
+      "digest": "sha256:943da33887903625774413cc1b752c5e6193938e5362d3c75bd2c451522a601a"
     },
     {
       "name": "ss-setup",

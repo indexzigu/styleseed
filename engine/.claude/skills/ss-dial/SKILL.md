@@ -150,7 +150,9 @@ Ramp: `still → calm → lively → energetic`. Swaps the motion seed and scale
 | **energetic** | Spring / Pulse | 250–400ms, visible spring | bouncy, playful |
 
 **Guardrails:** **numbers, balances, and money never animate** at any level; always honor
-`prefers-reduced-motion`; no scroll-linked/parallax (forbidden §59); motion never delays content
+`prefers-reduced-motion`; scroll-linked/parallax/3D is surface-scoped (§43 — forbidden on app/data
+surfaces, allowed as the Cinematic tier on marketing/landing pages; scroll-JACKING banned everywhere);
+motion never delays content
 or blocks an action.
 
 ---

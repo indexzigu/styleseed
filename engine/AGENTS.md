@@ -124,6 +124,12 @@ between "looks generated" and "looks designed." Never show UI that hasn't passed
                hairline); no pure #000
 □ Not a new uniform — the cliché escape hatch isn't repeated everywhere (ghost 01/02/03 on
                every section = the icon-chip cliché reborn; see VISUAL-CRAFT CC-9c)
+□ Motion by surface — app/dashboard = calm (no scroll-jacking, no scroll-linked, no 3D). But a
+               marketing/landing/brand page gets the Cinematic tier (§43): scroll-LINKED reveals,
+               pinned sections, subtle parallax, 3D hero, animated gradient/video bg, rich hover —
+               this is how family/stripe/linear read premium; don't flag it. Guardrails: 60fps
+               (transform/opacity), never blocks first read/CTA, prefers-reduced-motion = complete
+               static page. Scroll-JACKING (hijacking/trapping) + animating money stay banned.
 ```
 If the `/ss-*` skills are installed run `/ss-score` (0–100 + fix list); else self-score against
 the list. **Target ≥ 80** — fix what fails, re-check (loop up to ~3×), then present + report

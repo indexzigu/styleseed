@@ -253,7 +253,11 @@ Every skin ships a recommended default seed. Override per page when the feel sho
 
 - `engine/motion/` — the seeds, types, and hook
 - `engine/components/ui/motion.tsx` — opinionated wrappers (FadeIn, FadeUp, Stagger) that pre-compose seeds for the most common cases
-- `DESIGN-LANGUAGE.md` Rule 59 — what's allowed and forbidden in motion (no parallax, no infinite loops, no scroll-linked timelines)
+- `DESIGN-LANGUAGE.md` §43 — motion allowed/forbidden **by surface**: app/dashboard surfaces stay
+  calm (no scroll-jacking, no scroll-linked timelines, no infinite loops); marketing/landing/brand
+  pages get the **Cinematic tier** (scroll-linked reveals, pinned sections, subtle parallax, 3D
+  hero, animated gradient/video bg, rich hover — with the 60fps + reduced-motion + "never blocks
+  the first read" guardrails)
 - `/ss-motion` slash skill — translates a vibe word + element to the right spread
 
 ---
