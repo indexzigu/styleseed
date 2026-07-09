@@ -182,7 +182,15 @@ demo was reviewed and fixed, not a first draft. **Never show the user UI that ha
 1. If the `/ss-*` skills are installed → run **`/ss-score`** (0–100 + prioritized fix list).
    Otherwise self-score against the checklist above.
 2. **Target ≥ 80/100.** If anything fails, **fix the violations and re-check** — loop up to ~3×.
-3. Only then present the UI, and briefly tell the user the score + what you fixed.
+3. **If you can render it, finish with `/ss-verify` (the VISUAL gate).** `/ss-score` reads the
+   *code*; some of the worst "AI-made" tells only exist in *pixels* — a hero that doesn't
+   dominate, a lower third of dead whitespace, a web font that silently failed to load, two
+   colors that *look* like two accents once rendered, an empty state that's a blank void. Render
+   the screen, screenshot it, **look at the image**, and score what you actually see (incl. the
+   empty/loading/error states). Code-clean is necessary; pixel-clean is the real bar. If nothing
+   can render, say the visual gate was skipped — never claim you verified visually without seeing
+   a screenshot.
+4. Only then present the UI, and briefly tell the user the score + what you fixed.
 
 A 30-second self-review is the product. Skipping the gate "to save time" is how the UI ends
 up looking like every other AI-generated app.
@@ -797,7 +805,8 @@ Custom skills available in the project:
 | `/ss-copy` | Generate UX microcopy (buttons, errors, toasts) | `/ss-copy empty-state no orders` |
 | `/ss-feedback` | Design feedback patterns (toasts, dialogs, states) | `/ss-feedback error payment failed` |
 | `/ss-lint` | Quick automated lint for common violations | `/ss-lint src/app/Dashboard.tsx` |
-| `/ss-score` | Score UI design quality 0-100 with a category breakdown + fix list | `/ss-score src/app/Dashboard.tsx` |
+| `/ss-score` | Score UI design quality 0-100 with a category breakdown + fix list (reads the CODE) | `/ss-score src/app/Dashboard.tsx` |
+| `/ss-verify` | **The VISUAL gate — render the screen, screenshot it, score what you SEE (dead whitespace, unloaded fonts, no focal, blank empty states) + fix + re-render. Runs the states too. Finish a renderable screen with this.** | `/ss-verify /dashboard --surface desktop` |
 | `/ss-update` | Pull latest StyleSeed engine updates | `/ss-update` |
 
 ## How to Use StyleSeed (Tell Users This)
@@ -813,8 +822,10 @@ the skills aren't installed, follow the same loop by hand:
    (§C0, §CC-9x) + the domain/page bias — not a one-shot summary.
 3. **Build** with one focal point, the surface's type scale, no icon-chip cliché, the lock's
    accent/font/mood everywhere.
-4. **Gate loop (don't skip)** — `/ss-score` → if < 80, fix the top items → re-score → repeat
-   to ≥ 80. Never present a first draft you haven't scored.
+4. **Gate loop (don't skip)** — `/ss-score` (code) → if < 80, fix the top items → re-score →
+   repeat to ≥ 80. Never present a first draft you haven't scored. **Then, if it renders,
+   `/ss-verify` (pixels)** — screenshot it, look, fix what only shows up rendered (dead
+   whitespace, unloaded font, blank empty state), re-render. Code-clean then pixel-clean.
 5. **Present** with the final score + what the gate caught and you fixed.
 
 When a user references StyleSeed or this repo for the first time:

@@ -132,8 +132,11 @@ between "looks generated" and "looks designed." Never show UI that hasn't passed
                static page. Scroll-JACKING (hijacking/trapping) + animating money stay banned.
 ```
 If the `/ss-*` skills are installed run `/ss-score` (0–100 + fix list); else self-score against
-the list. **Target ≥ 80** — fix what fails, re-check (loop up to ~3×), then present + report
-the score. A 30-second self-review is the product.
+the list. **Target ≥ 80** — fix what fails, re-check (loop up to ~3×). **Then, if it renders,
+finish with `/ss-verify` (the VISUAL gate)**: `/ss-score` reads the code; some tells live only in
+pixels (dead whitespace, a font that didn't load, no focal, a blank empty state). Render →
+screenshot → look → fix → re-render, states included. Never claim a visual pass without seeing a
+screenshot. Then present + report the score. A 30-second self-review is the product.
 
 ## How to use StyleSeed
 
@@ -150,8 +153,9 @@ If the skills aren't installed, do the same loop by hand:
    and the matching `APP-PLAYBOOKS.md` × `PAGE-TYPES.md` — not a one-shot summary.
 3. Build with ONE focal point, the surface's type scale, no icon-chip cliché, the lock's
    accent/font/mood everywhere.
-4. **Gate loop** — `/ss-score` (else self-score) → if < 80, fix the top items → re-score →
-   repeat to ≥ 80. Never present a draft you haven't scored. Then present + report the score.
+4. **Gate loop** — `/ss-score` (code, else self-score) → if < 80, fix the top items → re-score →
+   repeat to ≥ 80. Never present a draft you haven't scored. **Then, if it renders, `/ss-verify`
+   (pixels)** — screenshot, look, fix what only shows up rendered, re-render. Then present + report.
 
 ## Staying current (check once per project — don't nag)
 

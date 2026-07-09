@@ -23,7 +23,7 @@
 [![▶ Motion Gallery](https://img.shields.io/badge/▶_Motion_Gallery-Live-8B5CF6?style=for-the-badge&logoColor=white)](https://styleseed-demo.vercel.app/motion)
 
 ![74 design rules](https://badgen.net/badge/rules/74/8B5CF6)
-![18 skills](https://badgen.net/badge/skills/18/6C5CE7)
+![19 skills](https://badgen.net/badge/skills/19/6C5CE7)
 ![7 brand skins](https://badgen.net/badge/skins/7/6C5CE7)
 [![GitHub stars](https://badgen.net/github/stars/bitjaru/styleseed)](https://github.com/bitjaru/styleseed/stargazers)
 [![License](https://badgen.net/github/license/bitjaru/styleseed)](https://github.com/bitjaru/styleseed/blob/main/LICENSE)
@@ -95,7 +95,7 @@ agent  ▸  ✓ 88/100 — one accent, grey normal states, real empty/error stat
 ```bash
 npx skills add bitjaru/styleseed
 ```
-Installs all 18 skills into Claude Code, Codex, Cursor, Gemini CLI, Amp and more — then run `/ss-setup`. Your agent will ask you to approve them once on first use (standard for any executable skill). No install possible? The rules alone still do the core work.
+Installs all 19 skills into Claude Code, Codex, Cursor, Gemini CLI, Amp and more — then run `/ss-setup`. Your agent will ask you to approve them once on first use (standard for any executable skill). No install possible? The rules alone still do the core work.
 
 **Your agent, its exact path:**
 
@@ -176,7 +176,7 @@ Design data is the paint. Design judgment is knowing where to put it.
 
 **[See the before/after →](https://styleseed-demo.vercel.app/why)** — the same dashboard brief, generated generically vs. with the 74 rules applied. Every fix annotated with the rule behind it.
 
-StyleSeed is a **design engine** — 74 visual rules, 48 components, a named motion system, and 18 slash commands that teach LLMs the judgment, not just the data:
+StyleSeed is a **design engine** — 74 visual rules, 48 components, a named motion system, and 19 slash commands that teach LLMs the judgment, not just the data:
 
 ```
 "The most refined black isn't #000 — it's #2A2A2A"
@@ -332,7 +332,7 @@ stop looking AI-made.
 ┌─────────────────────────────────────────────────┐
 │  StyleSeed Engine (brand-agnostic)              │
 │                                                 │
-│  74 rules · 48 components · 18 skills · motion  │
+│  74 rules · 48 components · 19 skills · motion  │
 │  Layout · Composition · Typography · UX · A11y  │
 └──────────────────────┬──────────────────────────┘
                        │
@@ -426,7 +426,7 @@ All seeds auto-respect `prefers-reduced-motion`, and the `/ss-motion` skill pull
 engine/
 ├── CLAUDE.md                 # AI reads this automatically
 ├── DESIGN-LANGUAGE.md        # 74 visual design rules (brand-agnostic)
-├── .claude/skills/           # 18 slash commands (/ss-*)
+├── .claude/skills/           # 19 slash commands (/ss-*)
 │   ├── ss-setup/             #   Interactive setup wizard
 │   ├── ss-page/              #   Scaffold pages
 │   ├── ss-component/         #   Generate components
@@ -474,7 +474,8 @@ engine/
 | `/ss-tokens` | View, add, or modify design tokens |
 | `/ss-a11y` | Accessibility audit (WCAG 2.2 AA) |
 | `/ss-lint` | Quick automated lint — catches common violations in seconds |
-| `/ss-score` | Score UI quality 0-100 with a category breakdown + prioritized fix list |
+| `/ss-score` | Score UI quality 0-100 with a category breakdown + prioritized fix list (reads the code) |
+| `/ss-verify` | **The visual gate** — render the screen, screenshot it, score what you *see* (dead whitespace, unloaded fonts, no focal, blank empty states), fix + re-render |
 | `/ss-update` | Pull latest engine updates — analyzes your project and updates safely |
 
 ### UX — Design It Right (No Designer Needed)
@@ -535,7 +536,7 @@ React 18 · TypeScript · Tailwind CSS v4 · Radix UI · Vite 6 · Lucide Icons 
 |---|---|---|---|---|---|
 | Components | ✅ 48 | ✅ 50+ | ✅ | ✅ | ❌ |
 | Design **judgment** (when to use what) | ✅ 74 rules | ❌ | ❌ | Partial | ❌ |
-| Claude Code / Cursor integration | ✅ 18 skills | ❌ | ❌ | ❌ | — |
+| Claude Code / Cursor integration | ✅ 19 skills | ❌ | ❌ | ❌ | — |
 | Brand skins (Toss, Stripe, Linear...) | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Price | Free (MIT) | Free | $299+ | Free | — |
 | Works *with* AI coding tools | ✅ | Indirect | Indirect | Indirect | — |

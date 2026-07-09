@@ -1,10 +1,10 @@
 {
-  "version": "2.9.0",
-  "released": "2026-07-08",
+  "version": "2.10.0",
+  "released": "2026-07-09",
   "rules": 74,
-  "skills": 18,
+  "skills": 19,
   "skins": 7,
-  "whatsNew": "Motion is now scoped by surface. A blanket 'no scroll-linked / no parallax / no 3D / no animated gradients' was right for product surfaces (dashboards, data, forms — keep them calm) but wrong for the exact brand pages StyleSeed points to as best-in-class (family.co, stripe.com, linear.app) — those pages ARE scroll-choreographed. New Cinematic tier: on a marketing/landing/brand page, scroll-LINKED reveals, pinned sections, the 'product assembles as you scroll' move, subtle parallax, a 3D/tilt hero, animated gradient/video backgrounds, and rich hover are explicitly allowed — with guardrails (60fps transform/opacity only, never blocks the first read or the CTA, prefers-reduced-motion leaves a complete static page, one motion language). The distinction the old rule blurred: scroll-JACKING (hijacking scroll, trapping) stays banned everywhere; scroll-LINKED (native scroll drives it, user in control) is encouraged on brand pages. App surfaces keep the restraint — the bans got a surface, they didn't go away.",
+  "whatsNew": "The gate now has eyes. /ss-score reads the code — but some of the worst 'AI-made' tells only exist in pixels: a hero that doesn't actually dominate, a lower third of dead whitespace, a web font that silently failed to load and fell back to Times, two colors that look like two accents once rendered, an empty state that's a blank white void. A human sees these in half a second; a code-reading gate misses all of them. New /ss-verify closes that gap: it renders the screen, screenshots it, and the agent LOOKS at the image — scoring the same StyleSeed gate against what it actually sees, including the empty/loading/error states, then fixes and re-renders until it passes. Code-clean is necessary; pixel-clean is the real bar. It never claims a visual pass without a real screenshot. Runs after /ss-score, and /ss-build finishes a renderable screen with it.",
   "update": "Run /ss-update, or: npx skills add bitjaru/styleseed",
   "changelog": "https://github.com/bitjaru/styleseed/releases",
   "repo": "https://github.com/bitjaru/styleseed"

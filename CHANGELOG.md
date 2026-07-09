@@ -3,6 +3,30 @@
 All notable changes to StyleSeed. Agents can check the latest version at
 [version.json](https://styleseed-demo.vercel.app/version.json) and run `/ss-update`.
 
+## [2.10.0] — 2026-07-09
+
+**Theme: the gate now has eyes.** `/ss-score` reads the *code* — but some of the worst
+"AI-made" tells only exist in *pixels*, and a code-reading gate is blind to every one of them:
+a hero that doesn't actually dominate, a lower third of dead whitespace, a web font that
+silently failed to load and fell back to Times, two colors that *look* like two accents once
+rendered, an empty state that's a blank white void. A human catches these in half a second.
+
+### Added
+- **`/ss-verify`** — the VISUAL gate. It renders the screen (dev server + headless screenshot,
+  or a static file, or an isolated component harness), the agent **looks at the image**, and
+  scores the same StyleSeed gate against what it actually *sees* — the squint "does this look
+  AI-made" test, whether one element truly dominates, dead/cramped space, fonts that didn't
+  load, hues that read as two accents, contrast as rendered, optical alignment. It **renders the
+  empty/loading/error states too** (the blank-void failure you can only catch by looking), then
+  fixes and re-renders until it passes. It never claims a visual pass without a real screenshot;
+  if nothing can render it falls back to `/ss-score` and says the visual gate was skipped.
+
+### Changed
+- **The Quality Gate is now two passes in order:** `/ss-score` (code-clean, cheap, structural)
+  → then `/ss-verify` (pixel-clean, the real bar) whenever the screen can render. `/ss-build`
+  finishes a renderable screen with `/ss-verify`. Wired into CLAUDE.md / AGENTS.md gates,
+  `/ss-build`, `/ss-score`, README, and `llms.txt`. (19 skills total.)
+
 ## [2.9.0] — 2026-07-08
 
 **Theme: motion is scoped by surface — stop banning what makes a landing page premium.** A blanket
@@ -222,6 +246,7 @@ release raises the floor of the default path.
 - Agent-agnostic delivery: CLAUDE.md + AGENTS.md + .cursorrules.
 - 8 `/guides` + 7 `/screens` programmatic-SEO pages, `/how-it-thinks`, `/faq`.
 
+[2.10.0]: https://github.com/bitjaru/styleseed/releases/tag/v2.10.0
 [2.9.0]: https://github.com/bitjaru/styleseed/releases/tag/v2.9.0
 [2.8.0]: https://github.com/bitjaru/styleseed/releases/tag/v2.8.0
 [2.7.0]: https://github.com/bitjaru/styleseed/releases/tag/v2.7.0
